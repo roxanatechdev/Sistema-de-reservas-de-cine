@@ -240,7 +240,7 @@ body {
 }
 
 /* ==========================================================================
-   ESTILOS COMPONENTES: NAVBAR & HEADER CINEMAX / CINEPRIME
+   ESTILOS COMPONENTES: NAVBAR & HEADER  CINEPRIME
    ========================================================================== */
 
 /* Altura del logo */
@@ -248,6 +248,12 @@ body {
     height: 2.25rem;
     width: auto;
     object-fit: contain;
+}
+
+.nombre {
+    font-family: var(--cm-font-display);
+    font-size: 2.25rem;
+    letter-spacing: 0.96px;
 }
 
 /* Transición suave al hacer scroll */
@@ -366,4 +372,144 @@ body {
     color: var(--cm-on-surface);
 }
 
+/* ==========================================================================
+   CINEPRIME - FOOTER COMPLETO (COMPONENTE REUTILIZABLE)
+   ========================================================================== */
 
+/* Fondo del Footer */
+.footer-main {
+    background-color: var(--cm-surface-container-lowest);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Títulos de Columnas */
+.footer-title {
+    font-family: var(--cm-font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+}
+
+.fs-ft {
+    font-size: 0.9rem;
+}
+
+/* Enlaces del Footer */
+.footer-link {
+    color: rgba(225, 221, 239, 0.65);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--cm-primary-container);
+    padding-left: 4px;
+    /* Sutil deslice a la derecha al hacer hover */
+}
+
+/* Botones de Redes Sociales */
+.btn-social {
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: var(--cm-surface-container);
+    color: var(--cm-on-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-social:hover {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    border-color: var(--cm-primary-container);
+    transform: translateY(-2px);
+    box-shadow: var(--cm-glow-primary);
+}
+
+/* Newsletter Input & Button */
+.footer-newsletter-input {
+    background-color: var(--cm-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 0.85rem;
+}
+
+.footer-newsletter-input:focus {
+    background-color: var(--cm-surface-container-high);
+    border-color: var(--cm-primary-container);
+    color: #ffffff;
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+}
+
+.footer-newsletter-input::placeholder {
+    color: rgba(225, 221, 239, 0.4);
+}
+
+.btn-cm-subscribe {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    font-family: var(--cm-font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-cm-subscribe:hover {
+    background-color: #ff1e27;
+    box-shadow: var(--cm-glow-primary-intense);
+}
+
+/* Métodos de Pago Badges */
+.payment-badge {
+    background-color: var(--cm-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(225, 221, 239, 0.7);
+    font-family: var(--cm-font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   CINEPRIME - FOOTER MINIMALISTA (CHECKOUT / AUTH)
+   ========================================================================== */
+
+/* Contenedor compacto del Footer Secundario */
+.footer-minimal {
+    background-color: var(--cm-surface-container-lowest);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Enlaces legales minimalistas */
+.footer-link-minimal {
+    color: rgba(225, 221, 239, 0.6);
+    font-size: 0.8rem;
+    font-family: var(--cm-font-body);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link-minimal:hover {
+    color: var(--cm-primary-container);
+}
+
+/* Badges de métodos de pago */
+.payment-badge-sm {
+    background-color: var(--cm-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(225, 221, 239, 0.7);
+    font-family: var(--cm-font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}

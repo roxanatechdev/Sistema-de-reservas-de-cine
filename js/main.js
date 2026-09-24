@@ -1,13 +1,21 @@
 /* ==========================================================================
-   CINEPRIME - CORE JS & CARGA DINÁMICA DE NAVBAR
+   CINEPRIME - CORE JS, CARGA DINÁMICA & COMPONENTES REUTILIZABLES
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+    // 1. Cargar el Navbar dinámicamente
     loadNavbar();
+
+    // 2. Cargar el Footer adecuado según el tipo de página
+    loadFooter();
 });
 
+/* ==========================================================================
+   1. MÓDULO NAVBAR DINÁMICO
+   ========================================================================== */
+
 /**
- * Carga asíncrona del Navbar y arranque de dependencias
+ * Carga asíncrona del Navbar y arranque de sus dependencias
  */
 function loadNavbar() {
     const container = document.getElementById("navbar-container");
@@ -23,13 +31,13 @@ function loadNavbar() {
         .then(html => {
             container.innerHTML = html;
 
-            // 1. Marcar el enlace de la página activa
+            // Marcar enlace activo según la URL
             highlightActiveLink();
 
-            // 2. Escuchar el evento de Scroll para el efecto Blur/Fondo
+            // Escuchar el evento Scroll para el header
             initScrollHeader();
 
-            // 3. Re-inicializar componentes dinámicos de Bootstrap (Móvil Collapse)
+            // Inicializar menú colapsable de Bootstrap 5 en móviles
             initBootstrapComponents();
         })
         .catch(error => console.error("Error al cargar el navbar:", error));
@@ -37,16 +45,13 @@ function loadNavbar() {
 
 /**
  * Detecta la página actual y aplica los estilos activos (.active)
- * tanto al menú de escritorio como al menú móvil.
  */
 function highlightActiveLink() {
-    // Obtener el nombre del archivo actual (por defecto 'index.html')
     let currentPath = window.location.pathname.split("/").pop();
     if (!currentPath || currentPath === "") {
         currentPath = "index.html";
     }
 
-    // Seleccionar todos los enlaces de navegación (Desktop y Mobile)
     const links = document.querySelectorAll(".nav-link-custom, .mobile-nav-link");
 
     links.forEach(link => {
@@ -63,7 +68,7 @@ function highlightActiveLink() {
 }
 
 /**
- * Aplica fondo oscuro traslúcido al hacer scroll hacia abajo
+ * Aplica fondo oscuro traslúcido al hacer scroll
  */
 function initScrollHeader() {
     const header = document.getElementById("main-header");
@@ -77,22 +82,47 @@ function initScrollHeader() {
         }
     };
 
-    // Ejecutar al cargar por si la página inicia con scroll abajo
     handleScroll();
     window.addEventListener("scroll", handleScroll);
 }
 
 /**
- * Forzar la activación del menú desplegable móvil en HTML inyectado
+ * Activa manualmente el menú colapsable en móviles para HTML inyectado
  */
 function initBootstrapComponents() {
-    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
     const mobilePanel = document.getElementById("mobile-nav-panel");
 
-    if (mobileMenuBtn && mobilePanel && typeof bootstrap !== "undefined") {
-        // Inicializar manualmente el Collapse de Bootstrap 5 sobre el elemento inyectado
+    if (mobilePanel && typeof bootstrap !== "undefined") {
         new bootstrap.Collapse(mobilePanel, {
             toggle: false
         });
     }
+}
+
+/* ==========================================================================
+   2. MÓDULO FOOTER DINÁMICO (PRINCIPAL VS MINIMALISTA)
+   ========================================================================== */
+
+/**
+ * Detecta la presencia del contenedor de footer y carga la variante adecuada
+ */
+function loadFooter() {
+    const footerContainer = document.getElementById("footer-container");
+    if (!footerContainer) return;
+
+    // Detectar si la vista solicita el footer minimalista vía data-attribute
+    const isMinimal = footerContainer.dataset.variant === "minimal";
+    const footerFile = isMinimal ? "footer-minimal.html" : "footer-main.html";
+
+    fetch(footerFile)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error ${response.status}: No se pudo cargar ${footerFile}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            footerContainer.innerHTML = html;
+        })
+        .catch(error => console.error(`Error al cargar el footer (${footerFile}):`, error));
 }
