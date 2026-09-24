@@ -1,0 +1,369 @@
+/* ==========================================================================
+   CINEMAX - ESTILOS GLOBALES & DESIGN SYSTEM
+   Enfoque: Diseño Web II - Proyecto Feria Informática 2026
+   Framework Base: Bootstrap 5 + Custom Properties
+   ========================================================================== */
+
+/* VARIABLES DE COLOR (DESIGN TOKENS - MATERIAL DESIGN 3 / DARK CINEMATIC) */
+:root {
+    /* --- Colores Principales (Brand / Identity) --- */
+    --cm-primary: #ffb4aa;
+    --cm-primary-container: #e50914;
+    /* Rojo Cine / Brand Hero */
+    --cm-on-primary: #690003;
+    --cm-on-primary-container: #fff7f6;
+    --cm-primary-fixed: #ffdad5;
+    --cm-primary-fixed-dim: #ffb4aa;
+    --cm-on-primary-fixed: #410001;
+    --cm-on-primary-fixed-variant: #930007;
+
+    /* --- Colores Secundarios --- */
+    --cm-secondary: #ffb3b3;
+    --cm-secondary-container: #da0137;
+    --cm-on-secondary: #680015;
+    --cm-on-secondary-container: #ffeceb;
+    --cm-secondary-fixed: #ffdad9;
+    --cm-secondary-fixed-dim: #ffb3b3;
+    --cm-on-secondary-fixed: #400009;
+    --cm-on-secondary-fixed-variant: #920022;
+
+    /* --- Colores Terciarios (Acentos / Ratings / Promos) --- */
+    --cm-tertiary: #e9c349;
+    /* Dorado / Estrellas */
+    --cm-tertiary-container: #cca730;
+    --cm-on-tertiary: #3c2f00;
+    --cm-on-tertiary-container: #4f3d00;
+    --cm-tertiary-fixed: #ffe088;
+    --cm-tertiary-fixed-dim: #e9c349;
+    --cm-on-tertiary-fixed: #241a00;
+    --cm-on-tertiary-fixed-variant: #574500;
+
+    /* --- Superficies y Fondos (Dark Theme Elevation) --- */
+    --cm-background: #11131c;
+    --cm-on-background: #e1e1ef;
+    --cm-surface: #11131c;
+    --cm-on-surface: #e1e1ef;
+    --cm-surface-dim: #11131c;
+    --cm-surface-bright: #373943;
+    --cm-surface-variant: #32343e;
+    --cm-on-surface-variant: #e9bcb6;
+
+    /* --- Contenedores de Superficie (Capas) --- */
+    --cm-surface-container-lowest: #0c0e17;
+    --cm-surface-container-low: #191b24;
+    --cm-surface-container: #1d1f29;
+    --cm-surface-container-high: #282933;
+    --cm-surface-container-highest: #32343e;
+
+    /* --- Inversiones y Bordes --- */
+    --cm-inverse-surface: #e1e1ef;
+    --cm-inverse-on-surface: #2e303a;
+    --cm-inverse-primary: #c0000c;
+    --cm-outline: #af8782;
+    --cm-outline-variant: #5e3f3b;
+
+    /* --- Errores / Estado --- */
+    --cm-error: #ffb4ab;
+    --cm-error-container: #93000a;
+    --cm-on-error: #690005;
+    --cm-on-error-container: #ffdad6;
+
+    /* --- Tipografías --- */
+    --cm-font-display: 'Bebas Neue', cursive, sans-serif;
+    --cm-font-body: 'Montserrat', sans-serif;
+
+    /* --- Sombras Creadas / Resplandores Neón --- */
+    --cm-glow-primary: 0 0 20px rgba(229, 9, 20, 0.35);
+    --cm-glow-primary-intense: 0 0 28px rgba(229, 9, 20, 0.55);
+    --cm-glow-tertiary: 0 0 16px rgba(233, 195, 73, 0.35);
+}
+
+/* 3. RESETS Y ESTILOS BASE COMPATIBLES CON BOOTSTRAP 5 */
+body {
+    background-color: var(--cm-background);
+    color: var(--cm-on-surface);
+    font-family: var(--cm-font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ocultar barra de desplazamiento manteniendo funcionalidad */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* SELECCIÓN DE TEXTO */
+::selection {
+    background-color: var(--cm-primary-container);
+    color: var(--cm-on-primary-container);
+}
+
+/*  ESPECIFICACIONES TIPOGRÁFICAS (MAPPING A BOOTSTRAP UTILITIES / CUSTOM CLASSES) */
+
+/* ==========================================================================
+   CINEMAX - DECLARACIÓN DE FUENTES LOCALES (OFFLINE MODE)
+   ========================================================================== */
+
+/* 1. BEBAS NEUE (DISPLAY) */
+@font-face {
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../css/fonts/bebas-neue-v16-latin-regular.woff2') format('woff2');
+}
+
+/* 2. MONTSERRAT (BODY & INTERACTION) */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('../css/fonts/montserrat-v31-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../css/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../css/fonts/montserrat-v31-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../css/fonts/montserrat-v31-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../css/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+}
+
+/* 3. MATERIAL SYMBOLS OUTLINED (ICONS) */
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../css/fonts/material-symbols-outlined-v374-latin-regular.woff2') format('woff2');
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Adaptabilidad móvil para títulos Display */
+@media (max-width: 768px) {
+    .font-display-hero {
+        font-size: 2.75rem;
+        /* 44px */
+        line-height: 2.875rem;
+        /* 46px */
+    }
+
+    .font-headline-lg {
+        font-size: 1.875rem;
+        /* 30px */
+        line-height: 2.125rem;
+        /* 34px */
+    }
+}
+
+/* 5. UTILIDADES DE SUPERFICIE PERSONALIZADAS PARA BOOTSTRAP */
+.bg-cm-surface-lowest {
+    background-color: var(--cm-surface-container-lowest) !important;
+}
+
+.bg-cm-surface-low {
+    background-color: var(--cm-surface-container-low) !important;
+}
+
+.bg-cm-surface {
+    background-color: var(--cm-surface-container) !important;
+}
+
+.bg-cm-surface-high {
+    background-color: var(--cm-surface-container-high) !important;
+}
+
+.bg-cm-surface-highest {
+    background-color: var(--cm-surface-container-highest) !important;
+}
+
+.text-cm-primary {
+    color: var(--cm-primary) !important;
+}
+
+.text-cm-primary-container {
+    color: var(--cm-primary-container) !important;
+}
+
+.text-cm-tertiary {
+    color: var(--cm-tertiary) !important;
+}
+
+.text-cm-variant {
+    color: var(--cm-on-surface-variant) !important;
+}
+
+.shadow-cm-glow {
+    box-shadow: var(--cm-glow-primary);
+}
+
+.shadow-cm-glow-intense {
+    box-shadow: var(--cm-glow-primary-intense);
+}
+
+/* ==========================================================================
+   ESTILOS COMPONENTES: NAVBAR & HEADER CINEMAX / CINEPRIME
+   ========================================================================== */
+
+/* Altura del logo */
+.brand-logo-img {
+    height: 2.25rem;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Transición suave al hacer scroll */
+#main-header {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+    z-index: 1030;
+}
+
+/* Fondo transparente por defecto */
+.bg-cm-surface-transparent {
+    background-color: transparent;
+}
+
+/* Estilo que se aplica dinámicamente mediante JavaScript al hacer scroll */
+#main-header.scrolled {
+    background-color: rgba(12, 14, 23, 0.85) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor central de la navegación desktop */
+.nav-pill-container {
+    background-color: rgba(29, 31, 41, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Enlaces del Nav Desktop */
+.nav-link-custom {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-family: var(--cm-font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--cm-on-surface-variant);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link-custom:hover {
+    color: var(--cm-on-surface);
+    background-color: var(--cm-surface-container-low);
+}
+
+.nav-link-custom.active {
+    background-color: var(--cm-surface-container-high) !important;
+    color: var(--cm-on-surface) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones de acción del header */
+.btn-cm-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    color: var(--cm-on-surface-variant);
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-cm-icon:hover {
+    color: var(--cm-on-surface);
+    background-color: var(--cm-surface-container-high);
+}
+
+.btn-cm-primary {
+    background-color: var(--cm-primary-container);
+    color: var(--cm-on-primary-container);
+    border: none;
+    box-shadow: var(--cm-glow-primary);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-cm-primary:hover {
+    background-color: var(--cm-secondary-container);
+    color: var(--cm-on-secondary-container);
+    box-shadow: var(--cm-glow-primary-intense);
+    transform: translateY(-1px);
+}
+
+.user-avatar-circle {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: var(--cm-primary);
+}
+
+/* Panel Desplegable Móvil */
+.bg-cm-mobile-panel {
+    background-color: rgba(12, 14, 23, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-family: var(--cm-font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--cm-on-surface-variant);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+    background-color: var(--cm-surface-container-high);
+    color: var(--cm-on-surface);
+}
+
+

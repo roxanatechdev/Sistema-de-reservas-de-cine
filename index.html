@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+    <!-- 1. Metadatos Fundamentales -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CinePrime - Sistema de Gestión Cinematográfica</title>
+
+    <!-- 2. Metadatos SEO y Descripción -->
+    <meta name="description"
+        content="Plataforma de streaming y cartelera de cine CinePrime. XX Feria Informática ISEC La Paz.">
+    <meta name="author" content="Carrera de Sistemas Informáticos - ISEC La Paz">
+    <meta name="theme-color" content="#11131c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+    <!-- 3. Favicon Vectorial con Adaptación Automática Dark/Light -->
+    <link rel="icon" type="image/svg+xml" href="img/icono-logo.svg">
+
+    <!-- 4. Bootstrap 5.3.8 CSS (Local) -->
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+
+    <!-- 5. Bootstrap Icons 1.13.1 (Local) -->
+    <link rel="stylesheet" href="bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+
+    <!-- 6. Estilos Globales Personalizados y Específicos -->
+    <link rel="stylesheet" href="css/estilos-globales.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body class="bg-surface">
+
+    <!-- HEADER / NAVBAR (CinePrime) -->
+    <!-- CONTENEDOR DEL NAVBAR REUTILIZABLE -->
+    <div id="navbar-container"></div>
+    <main class="w-100 bg-cm-surface min-vh-100 overflow-hidden">
+        <!-- SECCIÓN 1: HERO / BANNER PRINCIPAL (85vh) -->
+        <section class="position-relative w-100 hero-section overflow-hidden select-none">
+
+            <!-- Imagen de Fondo (Cover + No Repeat) + Capas de Gradiente Cinematográfico -->
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-hero-cover"
+                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCM9UDS3fTY5LcYZi74D2w-25w5JC7HIaK5K3mwlhtACGtfKqUVAwSeliuX9zgNXHYGcOj6tIQE7R6PLXzxI4IipH-7AhS5ffrblfLY1MV-KecSi8m3rOkaapRTX5iv0Xuq9dsJ8vmZG3bBAQK-rU_lGzSvoOZFMH5D3MKIH-R7djWwRB14ncNH6gJXdUwMqxlWVO_Q2Gw3E1-D9-q5m6DApGcXvb_IwmgR6m1u5nucjmnO9483itmu9g');">
+
+                <!-- Gradientes para contraste cinemático -->
+                <div class="position-absolute top-0 start-0 h-100 w-100 w-md-75 hero-gradient-horizontal"></div>
+                <div class="position-absolute top-0 start-0 h-100 w-100 hero-gradient-vertical"></div>
+                <div class="position-absolute top-0 start-0 w-100 hero-gradient-top"></div>
+            </div>
+
+            <!-- Contenido Principal con Margen / Padding Lateral Protegido -->
+            <div
+                class="position-relative z-2 w-100 h-100 hero-container-padding d-flex flex-column justify-content-center pt-5">
+                <div class="hero-content-max-w d-flex flex-column gap-3">
+
+                    <!-- Badge Estado + Rating -->
+                    <div class="badges-hero d-flex align-items-center gap-3 flex-wrap">
+                        <div
+                            class="tag-cartelera d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill hero-status-pill border">
+                            <span class="pulse-dot rounded-circle"></span>
+                            <span class="font-label-sm text-uppercase tracking-widest text-cm-primary fw-bold">En
+                                Cartelera</span>
+                        </div>
+                        <span
+                            class="rating metadatos font-label-md text-cm-tertiary d-flex align-items-center gap-1 fw-bold">
+                            <span class="material-symbols-outlined fs-6 icon-filled">star</span>
+                            Calificación 9.8 Seleccionada
+                        </span>
+                    </div>
+
+                    <!-- Título Principal -->
+                    <h1 class="font-display-hero text-uppercase leading-none text-cm-on-surface m-0 hero-title-shadow">
+                        DUNE: <span class="hero-title-gradient">PARTE TRES</span>
+                    </h1>
+
+                    <!-- Barra de Metadatos -->
+                    <div class="metadatos d-flex flex-wrap align-items-center gap-2 font-label-md text-cm-variant">
+                        <span class="text-cm-on-surface fw-semibold text-white">2h 46min</span>
+                        <span class="hero-dot rounded-circle"></span>
+                        <span
+                            class="px-2 py-1 rounded bg-cm-surface-highest text-cm-on-surface font-label-sm text-uppercase tracking-wider text-white">PG-13</span>
+                        <span class="hero-dot rounded-circle"></span>
+                        <span class="d-flex align-items-center gap-1 text-cm-tertiary fw-bold">
+                            <span class="material-symbols-outlined fs-6 icon-filled">star</span>
+                            9.4/10
+                        </span>
+                        <span class="hero-dot rounded-circle"></span>
+                        <span class="text-cm-on-surface text-white">Ciencia Ficción / Aventura</span>
+                        <span class="hero-dot rounded-circle"></span>
+                        <span
+                            class="px-2 py-1 rounded bg-cm-surface-high text-cm-primary font-label-sm text-uppercase tracking-wider border border-primary-20 tag">
+                            IMAX 3D &amp; DOLBY ATMOS
+                        </span>
+                    </div>
+
+                    <!-- Sinopsis -->
+                    <p
+                        class="font-body-lg text-cm-variant hero-synopsis-max-w line-clamp-3 leading-relaxed m-0 text-shadow-sm">
+                        Paul Atreides lidera a los Fremen en una guerra total por el destino de Arrakis y el control
+                        supremo de la especia en toda la galaxia conocida. Una odisea visual trascendental en
+                        formatos macro de última generación.
+                    </p>
+
+                    <!-- Botones de Acción -->
+                    <div class="d-flex flex-wrap align-items-center gap-3 pt-2">
+                        <a href="#cartelera-section"
+                            class="btn btn-cm-primary font-label-lg text-uppercase tracking-wider rounded-3 px-4 py-3 d-inline-flex align-items-center gap-2 hero-btn-glow text-decoration-none fw-bold">
+                            <span class="material-symbols-outlined fs-5 icon-filled">confirmation_number</span>
+                            <span>Comprar Entradas</span>
+                        </a>
+                        <button type="button"
+                            class="btn btn-cm-secondary font-label-lg text-uppercase tracking-wider rounded-3 px-4 py-3 d-inline-flex align-items-center gap-2"
+                            onclick="alert('Reproduciendo tráiler oficial en formato 4K HDR...')">
+                            <span class="material-symbols-outlined fs-5 icon-filled">play_circle</span>
+                            <span>Ver Tráiler</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones Flotantes del Carrusel (Flechas con posicionamiento seguro) -->
+            <button type="button"
+                class="position-absolute top-50 translate-middle-y z-3 btn-hero-arrow start-0 ms-2 ms-sm-4 rounded-circle d-flex align-items-center justify-content-center border-0"
+                aria-label="Anterior Película">
+                <span class="material-symbols-outlined fs-2">chevron_left</span>
+            </button>
+            <button type="button"
+                class="position-absolute top-50 translate-middle-y z-3 btn-hero-arrow end-0 me-2 me-sm-4 rounded-circle d-flex align-items-center justify-content-center border-0"
+                aria-label="Siguiente Película">
+                <span class="material-symbols-outlined fs-2">chevron_right</span>
+            </button>
+
+            <!-- Indicadores (Puntos) -->
+            <div
+                class="position-absolute bottom-0 start-50 translate-middle-x z-3 mb-4 d-flex align-items-center gap-2">
+                <span class="hero-indicator active rounded-pill"></span>
+                <span class="hero-indicator rounded-circle"></span>
+                <span class="hero-indicator rounded-circle"></span>
+            </div>
+        </section>
+        <!-- SECCIÓN 2: STRIP DE RESERVA RÁPIDA (QUICK BOOKING STRIP) -->
+        <section
+            class="w-100 bg-cm-surface-low border-top border-bottom border-white-5 py-3 position-relative z-3 shadow-lg">
+            <div class="container-fluid px-3 px-lg-5">
+                <div class="d-flex flex-column lg-flex-row align-items-center justify-content-between gap-3">
+
+                    <!-- Etiqueta / Título de la Sección -->
+                    <div class="d-flex align-items-center gap-2 text-cm-primary shrink-0">
+                        <span class="material-symbols-outlined fs-4">local_activity</span>
+                        <span class="font-label-lg text-uppercase tracking-wider text-white fw-bold">
+                            Reserva Inmediata
+                        </span>
+                    </div>
+
+                    <!-- Formulario de Selección (3 Desplegables) -->
+                    <div class="w-100 max-w-3xl flex-grow-1">
+                        <div class="row g-2">
+
+                            <!-- Select 1: Película -->
+                            <div class="col-12 col-sm-4">
+                                <div
+                                    class="d-flex align-items-center gap-2 bg-cm-surface-lowest px-3 py-2 rounded-3 border border-white-5">
+                                    <span class="material-symbols-outlined text-cm-variant fs-5">movie</span>
+                                    <select
+                                        class="form-select border-0 bg-transparent text-cm-on-surface font-body-sm shadow-none p-0 cursor-pointer"
+                                        aria-label="Seleccionar Película">
+                                        <option class="bg-cm-surface-lowest text-cm-on-surface" selected>Dune: Parte
+                                            Tres
+                                        </option>
+                                        <option class="bg-cm-surface-lowest text-cm-on-surface">Cyber Echo: Void
+                                        </option>
+                                        <option class="bg-cm-surface-lowest text-cm-on-surface">Gladiador II</option>
+                                        <option class="bg-cm-surface-lowest text-cm-on-surface">Interstellar
+                                            (Re-Release)
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Select 2: Cine / Complejo -->
+                            <div class="col-12 col-sm-4">
+                                <div
+                                    class="d-flex align-items-center gap-2 bg-cm-surface-lowest px-3 py-2 rounded-3 border border-white-5">
+                                    <span class="material-symbols-outlined text-cm-variant fs-5">location_on</span>
+                                    <select
+                                        class="form-select border-0 bg-transparent text-cm-on-surface font-body-sm shadow-none p-0 cursor-pointer"
+                                        aria-label="Seleccionar Cine">
+                                        <option class="bg-cm-surface-lowest text-cm-on-surface" selected>CineMax Paseo
+                                            Real
+                                            (IMAX)</option>
+                                        <option class="bg-cm-surface-lowest text-cm-on-surface">CineMax Marina VIP
+                                        </option>
+                                        <option class="bg-cm-surface-lowest text-cm-on-surface">CineMax Platinum Plaza
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Select 3: Fecha -->
+                            <div class="col-12 col-sm-4">
+                                <div
+                                    class="d-flex align-items-center gap-2 bg-cm-surface-lowest px-3 py-2 rounded-3 border border-white-5">
+                                    <span class="material-symbols-outlined text-cm-variant fs-5">calendar_today</span>
+                                    <select
+                                        class="form-select border-0 bg-transparent text-cm-on-surface font-body-sm shadow-none p-0 cursor-pointer"
+                                        aria-label="Seleccionar Fecha">
+                                        <option class="bg-cm-surface-lowest text-cm-on-surface" selected>Hoy, 24 Oct
+                                        </option>
+                                        <option class="bg-cm-surface-lowest text-cm-on-surface">Mañana, 25 Oct</option>
+                                        <option class="bg-cm-surface-lowest text-cm-on-surface">Sábado, 26 Oct</option>
+                                        <option class="bg-cm-surface-lowest text-cm-on-surface">Domingo, 27 Oct</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Botón de Búsqueda -->
+                    <button type="button"
+                        class="btn btn-cm-primary font-label-md text-uppercase tracking-wider rounded-3 px-4 py-2-5 w-100 w-lg-auto shrink-0 border-0">
+                        Buscar Funciones
+                    </button>
+
+                </div>
+            </div>
+        </section>
+        <!-- SECCIÓN 3: EN CARTELERA -->
+        <section class="w-100 py-5 position-relative" id="cartelera-section">
+            <div class="container-fluid px-3 px-lg-5 d-flex flex-column gap-4">
+
+                <!-- Encabezado de Sección (Section Header) -->
+                <div
+                    class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3 border-bottom border-white-5 pb-2">
+                    <div class="d-flex flex-column gap-1">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="pill-indicator rounded-pill shadow-cm-glow"></span>
+                            <h2
+                                class="titulo-seccion font-headline-lg text-uppercase text-cm-on-surface tracking-wider m-0">
+                                En Cartelera
+                            </h2>
+                        </div>
+                        <p class="font-body-md text-cm-variant m-0">
+                            Selecciona tu película favorita y reserva tus mejores butacas en minutos.
+                        </p>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-between justify-content-md-end gap-3">
+                        <!-- Filtros (Visibles desde pantallas pequeñas en adelante) -->
+                        <div
+                            class="d-none d-sm-flex align-items-center gap-1 bg-cm-surface-lowest p-1 rounded-3 border border-white-5">
+                            <button class="btn filter-btn active px-3 py-1 rounded-2 font-label-md border-0"
+                                type="button">Todos</button>
+                            <button class="btn filter-btn px-3 py-1 rounded-2 font-label-md border-0"
+                                type="button">Estrenos</button>
+                            <button class="btn filter-btn px-3 py-1 rounded-2 font-label-md border-0"
+                                type="button">IMAX</button>
+                            <button class="btn filter-btn px-3 py-1 rounded-2 font-label-md border-0"
+                                type="button">3D</button>
+                            <button class="btn filter-btn px-3 py-1 rounded-2 font-label-md border-0"
+                                type="button">Subtitulada</button>
+                        </div>
+
+                        <!-- Enlace Ver Toda la Cartelera -->
+                        <a class="d-inline-flex align-items-center gap-1 font-label-lg text-cm-primary hover-glow text-decoration-none tracking-wide transition-all"
+                            href="#">
+                            <span>Ver toda la cartelera</span>
+                            <span class="material-symbols-outlined fs-6">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Movie Cards Grid / Rail (Bootstrap Grid) -->
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+
+                    <!-- Card 1: Cyber Echo -->
+                    <div class="col">
+                        <div
+                            class="card movie-card h-100 bg-cm-surface rounded-3 overflow-hidden border border-white-5 transition-all">
+
+                            <!-- Poster con Badges, Favorito y Botón Tráiler -->
+                            <div
+                                class="position-relative w-100 overflow-hidden bg-cm-surface-lowest movie-poster-container">
+                                <!-- Imagen del póster -->
+                                <img src="img/cyber-echo.jpg" alt="Cyber Echo Poster"
+                                    class="w-100 h-100 object-fit-cover movie-poster-img"
+                                    onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/1d1f29/ffffff?text=Poster+No+Disponible';" />
+
+                                <!-- Overlay desvanecido progresivo -->
+                                <div class="card-media-overlay"></div>
+
+                                <!-- Botón flotante para Ver Tráiler (Hover) -->
+                                <div class="position-absolute top-50 start-50 translate-middle z-3 trailer-hover-btn">
+                                    <button type="button" aria-label="Ver Tráiler"
+                                        class="btn btn-trailer-play rounded-circle d-flex align-items-center justify-content-center">
+                                        <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                    </button>
+                                </div>
+
+                                <!-- Header de Badges sobre la imagen (Formato + Rating + Favorito) -->
+                                <div
+                                    class="position-absolute mt-2 top-0 start-0 end-0 p-2 d-flex align-items-center justify-content-between z-2">
+                                    <!-- Badges Izquierda (Agrupadas en fila) -->
+                                    <div class="d-flex align-items-center gap-1">
+                                        <span class="badge-tag">IMAX</span>
+                                        <span class="badge-tag badge-rating d-flex align-items-center gap-1">
+                                            <span
+                                                class="material-symbols-outlined icon-filled text-cm-tertiary">star</span>
+                                            9.1
+                                        </span>
+                                    </div>
+
+                                    <!-- Botón Favorito -->
+                                    <button type="button"
+                                        class="btn-favorite d-flex align-items-center justify-content-center"
+                                        aria-label="Agregar a favoritos">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Contenido de la Tarjeta -->
+                            <div class="card-body p-2 d-flex flex-column justify-content-between gap-2">
+                                <div>
+                                    <!-- Título estilizado -->
+                                    <p class="movie-subtitle ">
+                                        Cyberpunk / Thriller • 2h 12m
+                                    </p>
+                                    <h3 class="movie-title text-uppercase m-0 mt-1" title="Cyber Echo: Void">
+                                        Cyber Echo: Void
+                                    </h3>
+                                </div>
+
+                                <!-- Horarios Disponibles -->
+                                <div class="d-flex flex-column gap-1">
+                                    <span class="showtime-label text-uppercase fw-bold py-1">
+                                        HORARIOS HOY
+                                    </span>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">16:30</button>
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">19:00</button>
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">21:45</button>
+                                    </div>
+                                </div>
+
+                                <!-- Botón Reservar -->
+                                <button
+                                    class="btn btn-cm-reserve mt-1 w-100 text-uppercase rounded-2 py-1 fw-bold transition-all"
+                                    type="button">
+                                    RESERVAR
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Card 2: Gladiador II -->
+                    <div class="col">
+                        <div
+                            class="card movie-card h-100 bg-cm-surface rounded-3 overflow-hidden border border-white-5 transition-all">
+
+                            <!-- Poster con Badges, Favorito y Botón Tráiler -->
+                            <div
+                                class="position-relative w-100 overflow-hidden bg-cm-surface-lowest movie-poster-container">
+                                <!-- Imagen del póster -->
+                                <img src="img/gladiador.jpg" alt="Cyber Echo Poster"
+                                    class="w-100 h-100 object-fit-cover movie-poster-img"
+                                    onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/1d1f29/ffffff?text=Poster+No+Disponible';" />
+
+                                <!-- Overlay desvanecido progresivo -->
+                                <div class="card-media-overlay"></div>
+
+                                <!-- Botón flotante para Ver Tráiler (Hover) -->
+                                <div class="position-absolute top-50 start-50 translate-middle z-3 trailer-hover-btn">
+                                    <button type="button" aria-label="Ver Tráiler"
+                                        class="btn btn-trailer-play rounded-circle d-flex align-items-center justify-content-center">
+                                        <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                    </button>
+                                </div>
+
+                                <!-- Header de Badges sobre la imagen (Formato + Rating + Favorito) -->
+                                <div
+                                    class="position-absolute mt-2 top-0 start-0 end-0 p-2 d-flex align-items-center justify-content-between z-2">
+                                    <!-- Badges Izquierda (Agrupadas en fila) -->
+                                    <div class="d-flex align-items-center gap-1">
+                                        <span class="badge-tag">Dolby</span>
+                                        <span class="badge-tag">+16</span>
+                                        <span class="badge-tag badge-rating d-flex align-items-center gap-1">
+                                            <span
+                                                class="material-symbols-outlined icon-filled text-cm-tertiary">star</span>
+                                            9.1
+                                        </span>
+                                    </div>
+
+                                    <!-- Botón Favorito (Sin recargar visualmente) -->
+                                    <button type="button"
+                                        class="btn-favorite d-flex align-items-center justify-content-center"
+                                        aria-label="Agregar a favoritos">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Contenido de la Tarjeta -->
+                            <div class="card-body p-2 d-flex flex-column justify-content-between gap-2">
+                                <div>
+                                    <!-- Título estilizado -->
+                                    <p class="movie-subtitle ">
+                                        Acción / Épico • 2h 28m
+                                    </p>
+                                    <h3 class="movie-title text-uppercase m-0 mt-1" title="Cyber Echo: Void">
+                                        Gladiador II
+                                    </h3>
+                                </div>
+
+                                <!-- Horarios Disponibles -->
+                                <div class="d-flex flex-column gap-1">
+                                    <span class="showtime-label text-uppercase fw-bold py-1">
+                                        HORARIOS HOY
+                                    </span>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">15:15</button>
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">18:40</button>
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">22:10</button>
+                                    </div>
+                                </div>
+
+                                <!-- Botón Reservar -->
+                                <button
+                                    class="btn btn-cm-reserve mt-1 w-100 text-uppercase rounded-2 py-1 fw-bold transition-all"
+                                    type="button">
+                                    RESERVAR
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Card 3: Interstellar Re-Release -->
+                    <div class="col">
+                        <div
+                            class="card movie-card h-100 bg-cm-surface rounded-3 overflow-hidden border border-white-5 transition-all">
+
+                            <!-- Poster con Badges, Favorito y Botón Tráiler -->
+                            <div
+                                class="position-relative w-100 overflow-hidden bg-cm-surface-lowest movie-poster-container">
+                                <!-- Imagen del póster -->
+                                <img src="img/Interstellar-Re-Release.jpg" alt="Cyber Echo Poster"
+                                    class="w-100 h-100 object-fit-cover movie-poster-img"
+                                    onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/1d1f29/ffffff?text=Poster+No+Disponible';" />
+
+                                <!-- Overlay desvanecido progresivo -->
+                                <div class="card-media-overlay"></div>
+
+                                <!-- Botón flotante para Ver Tráiler (Hover) -->
+                                <div class="position-absolute top-50 start-50 translate-middle z-3 trailer-hover-btn">
+                                    <button type="button" aria-label="Ver Tráiler"
+                                        class="btn btn-trailer-play rounded-circle d-flex align-items-center justify-content-center">
+                                        <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                    </button>
+                                </div>
+
+                                <!-- Header de Badges sobre la imagen (Formato + Rating + Favorito) -->
+                                <div
+                                    class="position-absolute mt-2 top-0 start-0 end-0 p-2 d-flex align-items-center justify-content-between z-2">
+                                    <!-- Badges Izquierda (Agrupadas en fila) -->
+                                    <div class="d-flex align-items-center gap-1">
+                                        <span class="badge-tag">IMAX 70mm</span>
+                                        <span class="badge-tag">TE+7</span>
+                                        <span class="badge-tag badge-rating d-flex align-items-center gap-1">
+                                            <span
+                                                class="material-symbols-outlined icon-filled text-cm-tertiary">star</span>
+                                            9.1
+                                        </span>
+                                    </div>
+
+                                    <!-- Botón Favorito (Sin recargar visualmente) -->
+                                    <button type="button"
+                                        class="btn-favorite d-flex align-items-center justify-content-center"
+                                        aria-label="Agregar a favoritos">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Contenido de la Tarjeta -->
+                            <div class="card-body p-2 d-flex flex-column justify-content-between gap-2">
+                                <div>
+                                    <!-- Título estilizado -->
+                                    <p class="movie-subtitle">
+                                        Sci-Fi / Drama • 2h 49m
+                                    </p>
+                                    <h3 class="movie-title text-uppercase m-0 mt-1" title="Interstellar">
+                                        Interstellar
+                                    </h3>
+                                </div>
+
+                                <!-- Horarios Disponibles -->
+                                <div class="d-flex flex-column gap-1">
+                                    <span class="showtime-label text-uppercase fw-bold py-1">
+                                        HORARIOS HOY
+                                    </span>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">17:00</button>
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">22:30</button>
+
+                                    </div>
+                                </div>
+
+                                <!-- Botón Reservar -->
+                                <button
+                                    class="btn btn-cm-reserve mt-1 w-100 text-uppercase rounded-2 py-1 fw-bold transition-all"
+                                    type="button">
+                                    RESERVAR
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Card 4: Rohirrim -->
+                    <div class="col">
+                        <div
+                            class="card movie-card h-100 bg-cm-surface rounded-3 overflow-hidden border border-white-5 transition-all">
+
+                            <!-- Poster con Badges, Favorito y Botón Tráiler -->
+                            <div
+                                class="position-relative w-100 overflow-hidden bg-cm-surface-lowest movie-poster-container">
+                                <!-- Imagen del póster -->
+                                <img src="img/Rohirrim.jpg" alt="Guerra de Rohirrim Poster"
+                                    class="w-100 h-100 object-fit-cover movie-poster-img"
+                                    onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/1d1f29/ffffff?text=Poster+No+Disponible';" />
+
+                                <!-- Overlay desvanecido progresivo -->
+                                <div class="card-media-overlay"></div>
+
+                                <!-- Botón flotante para Ver Tráiler (Hover) -->
+                                <div class="position-absolute top-50 start-50 translate-middle z-3 trailer-hover-btn">
+                                    <button type="button" aria-label="Ver Tráiler"
+                                        class="btn btn-trailer-play rounded-circle d-flex align-items-center justify-content-center">
+                                        <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                    </button>
+                                </div>
+
+                                <!-- Header de Badges sobre la imagen (Formato + Rating + Favorito) -->
+                                <div
+                                    class="position-absolute mt-2 top-0 start-0 end-0 p-2 d-flex align-items-center justify-content-between z-2">
+                                    <!-- Badges Izquierda (Agrupadas en fila) -->
+                                    <div class="d-flex align-items-center gap-1">
+                                        <span class="badge-tag">2D / 3D</span>
+                                        <span class="badge-class">+14</span>
+                                        <span class="badge-tag badge-rating d-flex align-items-center gap-1">
+                                            <span
+                                                class="material-symbols-outlined icon-filled text-cm-tertiary">star</span>
+                                            9.1
+                                        </span>
+                                    </div>
+
+                                    <!-- Botón Favorito (Sin recargar visualmente) -->
+                                    <button type="button"
+                                        class="btn-favorite d-flex align-items-center justify-content-center"
+                                        aria-label="Agregar a favoritos">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Contenido de la Tarjeta -->
+                            <div class="card-body p-2 d-flex flex-column justify-content-between gap-2">
+                                <div>
+                                    <!-- Título estilizado -->
+                                    <p class="movie-subtitle">
+                                        Animación / Fantasía • 2h 10m
+                                    </p>
+                                    <h3 class="movie-title text-uppercase m-0 mt-1" title="Guerra de Rohirrim">
+                                        Guerra de Rohirrim
+                                    </h3>
+                                </div>
+
+                                <!-- Horarios Disponibles -->
+                                <div class="d-flex flex-column gap-1">
+                                    <span class="showtime-label text-uppercase fw-bold py-1">
+                                        HORARIOS HOY
+                                    </span>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">14:00</button>
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">16:45</button>
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">19:30</button>
+                                    </div>
+                                </div>
+
+                                <!-- Botón Reservar -->
+                                <button
+                                    class="btn btn-cm-reserve mt-1 w-100 text-uppercase rounded-2 py-1 fw-bold transition-all"
+                                    type="button">
+                                    RESERVAR
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Card 5: Furiosa -->
+                    <div class="col">
+                        <div
+                            class="card movie-card h-100 bg-cm-surface rounded-3 overflow-hidden border border-white-5 transition-all">
+
+                            <!-- Poster con Badges, Favorito y Botón Tráiler -->
+                            <div
+                                class="position-relative w-100 overflow-hidden bg-cm-surface-lowest movie-poster-container">
+                                <!-- Imagen del póster -->
+                                <img src="img/Furiosa.jpg" alt="Furiosa Poster"
+                                    class="w-100 h-100 object-fit-cover movie-poster-img"
+                                    onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/1d1f29/ffffff?text=Poster+No+Disponible';" />
+
+                                <!-- Overlay desvanecido progresivo -->
+                                <div class="card-media-overlay"></div>
+
+                                <!-- Botón flotante para Ver Tráiler (Hover) -->
+                                <div class="position-absolute top-50 start-50 translate-middle z-3 trailer-hover-btn">
+                                    <button type="button" aria-label="Ver Tráiler"
+                                        class="btn btn-trailer-play rounded-circle d-flex align-items-center justify-content-center">
+                                        <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                    </button>
+                                </div>
+
+                                <!-- Header de Badges sobre la imagen (Formato + Rating + Favorito) -->
+                                <div
+                                    class="position-absolute mt-2 top-0 start-0 end-0 p-2 d-flex align-items-center justify-content-between z-2">
+                                    <!-- Badges Izquierda (Agrupadas en fila) -->
+                                    <div class="d-flex align-items-center gap-1">
+                                        <span class="badge-tag">4DX D-BOX</span>
+                                        <span class="badge-tag">+16</span>
+                                        <span class="badge-tag badge-rating d-flex align-items-center gap-1">
+                                            <span
+                                                class="material-symbols-outlined icon-filled text-cm-tertiary">star</span>
+                                            9.1
+                                        </span>
+                                    </div>
+
+                                    <!-- Botón Favorito (Sin recargar visualmente) -->
+                                    <button type="button"
+                                        class="btn-favorite d-flex align-items-center justify-content-center"
+                                        aria-label="Agregar a favoritos">
+                                        <span class="material-symbols-outlined">favorite</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Contenido de la Tarjeta -->
+                            <div class="card-body p-2 d-flex flex-column justify-content-between gap-2">
+                                <div>
+                                    <!-- Título estilizado -->
+                                    <p class="movie-subtitle">
+                                        Sci-Fi • 2h 28m
+                                    </p>
+                                    <h3 class="movie-title text-uppercase m-0 " title="Cyber Echo: Void">
+                                        Furiosa: Mad Max
+                                    </h3>
+                                </div>
+
+                                <!-- Horarios Disponibles -->
+                                <div class="d-flex flex-column gap-1">
+                                    <span class="showtime-label text-uppercase fw-bold py-1">
+                                        HORARIOS HOY
+                                    </span>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">18:00</button>
+                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
+                                            type="button">21:15</button>
+
+                                    </div>
+                                </div>
+
+                                <!-- Botón Reservar -->
+                                <button
+                                    class="btn btn-cm-reserve mt-1 w-100 text-uppercase rounded-2 py-1 fw-bold transition-all"
+                                    type="button">
+                                    RESERVAR
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- SECCIÓN 4: PRÓXIMAMENTE -->
+        <section class="fondo-seccion w-100 py-4 bg-cm-surface-lowest position-relative overflow-hidden"
+            id="proximamente">
+
+            <!-- Contenido de las tarjetas con z-index superior -->
+            <div class="container-fluid px-3 px-lg-5 position-relative z-1 d-flex flex-column gap-3">
+
+                <!-- Header de Sección -->
+                <div
+                    class="d-flex align-items-center justify-content-between border-bottom border-white border-opacity-10 pb-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <!-- Indicador vertical dorado -->
+                        <span class="pill-indicator rounded-pill shadow-cm-glow"></span>
+                        <h2
+                            class="titulo-seccion font-headline-lg text-uppercase text-cm-on-surface tracking-wider m-0">
+                            Próximamente
+                        </h2>
+                        <!-- Badge "Preventa Disponible" -->
+                        <span
+                            class="badge rounded-pill bg-warning bg-opacity-10 border border-warning border-opacity-25 text-cm-tertiary px-2 py-1 text-uppercase font-bold tracking-wider ms-2"
+                            style="font-size: 0.65rem;">
+                            Preventa Disponible
+                        </span>
+                    </div>
+
+                    <!-- Controles de Navegación del Carrusel -->
+                    <div class="d-flex align-items-center gap-1">
+                        <button
+                            class="btn btn-icon rounded-1 bg-cm-surface text-light d-flex align-items-center justify-content-center p-0 border-0 btn-hover-subtle"
+                            type="button" style="width: 28px; height: 28px;">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">chevron_left</span>
+                        </button>
+                        <button
+                            class="btn btn-icon rounded-1 bg-cm-surface text-light d-flex align-items-center justify-content-center p-0 border-0 btn-hover-subtle"
+                            type="button" style="width: 28px; height: 28px;">
+                            <span class="material-symbols-outlined" style="font-size: 16px;">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grid de Tarjetas (4 Columnas) -->
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+
+                    <!-- Upcoming 1: Avatar -->
+                    <div class="col">
+                        <div
+                            class="card card-upcoming h-100 bg-cm-surface border border-white border-opacity-10 rounded-3 overflow-hidden">
+                            <div class="position-relative overflow-hidden bg-cm-surface-low"
+                                style="aspect-ratio: 16/10;">
+                                <img class="w-100 h-100 object-fit-cover img-zoom"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsZCSoqOmNFFoDh_F01a9JW2itzSnMg46OsPb-BSLsND0lb685elA0Zic39FeMJt6NwqGvBG-J-PTmdOf20c-h2y69gzydSOvFU7kQbvcLELpDhQKXT6o54Ct6hFca923bhAtX1XajP7gZNxalEbuCVF4DhaHVEz5ORDxVOYYx3ic8DN9R6CuviR04sMH6DLRwLuC5wNbtWo5wCAdTk54YTki7OvSLK9ylgFLeImyU3hwB9X8BmsvLKA"
+                                    alt="Avatar: Fire and Ash" />
+                                <!-- Overlay desvanecido progresivo -->
+                                <div class="card-media-overlay"></div>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-danger text-light px-2 py-1 uppercase font-bold tracking-wider shadow-sm z-2">
+                                    Preventa Activa
+                                </span>
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-3">
+                                <div>
+                                    <small
+                                        class="text-cm-tertiary text-uppercase font-semibold tracking-wider d-block mb-1">19
+                                        Diciembre 2025</small>
+                                    <h3 class="font-headline-sm h5 text-light mb-1">Avatar: Fire and Ash</h3>
+                                    <p class="small text-cm-variant text-truncate-2 mb-0">El clan de las cenizas emerge
+                                        en
+                                        Pandora desafiando todo equilibrio natural.</p>
+                                </div>
+                                <!-- Área de Botones de Acción -->
+                                <div class="d-flex align-items-center gap-2 pt-2">
+                                    <!-- Botón Tráiler: Solo Icono compacto de Play -->
+                                    <button
+                                        class="btn btn-sm bg-cm-surface-high text-light d-flex align-items-center justify-content-center p-2 border-0 rounded-2 btn-hover-subtle"
+                                        type="button" aria-label="Ver Tráiler" title="Ver Tráiler">
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 20px;">play_arrow</span>
+                                    </button>
+
+                                    <!-- Botón Avisarme: Acción Principal Destacada (Flex Fill) -->
+                                    <button
+                                        class="btn btn-sm bg-warning bg-opacity-10 border border-warning border-opacity-25 text-cm-tertiary flex-fill d-flex align-items-center justify-content-center gap-2 uppercase tracking-wider py-2 rounded-2 btn-hover-gold"
+                                        type="button">
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 18px;">notifications</span>
+                                        <span>Avisarme</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming 2: Tron: Ares -->
+                    <div class="col">
+                        <div
+                            class="card card-upcoming h-100 bg-cm-surface border border-white border-opacity-10 rounded-3 overflow-hidden">
+                            <div class="position-relative overflow-hidden bg-cm-surface-low"
+                                style="aspect-ratio: 16/10;">
+                                <img class="w-100 h-100 object-fit-cover img-zoom"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuUXzAmpKhYnPZywpqVQX7vH2mpmw1scEDQE-vzE4Wb0O2KgsSZOoREkwSu-1-c2-QRJbBl6lZW16cJeuK96lYhK4upSf64TNrNDvlJu5eXYXhzZapFAU1D3s0S8VwrFTX6AEgQ6OI028UAmZtM0Ght_b2zPLB_mEjbiMxpR_unvL_vWH9WC5gWGHsQUKEJHpjFafW4LnnkevtQF9X8FycnsVNxU32jfmsmnSlZndTZLoAbZ75e5sAag"
+                                    alt="Tron: Ares" />
+                                <!-- Overlay desvanecido progresivo -->
+                                <div class="card-media-overlay"></div>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-dark bg-opacity-75 backdrop-blur text-light px-2 py-1 uppercase font-bold tracking-wider z-2">
+                                    Tráiler Disponible
+                                </span>
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-3">
+                                <div>
+                                    <small
+                                        class="text-cm-tertiary text-uppercase font-semibold tracking-wider d-block mb-1">10
+                                        Octubre 2025</small>
+                                    <h3 class="font-headline-sm h5 text-light mb-1">Tron: Ares</h3>
+                                    <p class="small text-cm-variant text-truncate-2 mb-0">Un sofisticado programa
+                                        digital cruza
+                                        hacia el mundo real con consecuencias irreversibles.</p>
+                                </div>
+                                <!-- Área de Botones de Acción -->
+                                <div class="d-flex align-items-center gap-2 pt-2">
+                                    <!-- Botón Tráiler: Solo Icono compacto de Play -->
+                                    <button
+                                        class="btn btn-sm bg-cm-surface-high text-light d-flex align-items-center justify-content-center p-2 border-0 rounded-2 btn-hover-subtle"
+                                        type="button" aria-label="Ver Tráiler" title="Ver Tráiler">
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 20px;">play_arrow</span>
+                                    </button>
+
+                                    <!-- Botón Avisarme: Acción Principal Destacada (Flex Fill) -->
+                                    <button
+                                        class="btn btn-sm bg-warning bg-opacity-10 border border-warning border-opacity-25 text-cm-tertiary flex-fill d-flex align-items-center justify-content-center gap-2 uppercase tracking-wider py-2 rounded-2 btn-hover-gold"
+                                        type="button">
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 18px;">notifications</span>
+                                        <span>Avisarme</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming 3: Superman: Legacy -->
+                    <div class="col">
+                        <div
+                            class="card card-upcoming h-100 bg-cm-surface border border-white border-opacity-10 rounded-3 overflow-hidden">
+                            <div class="position-relative overflow-hidden bg-cm-surface-low"
+                                style="aspect-ratio: 16/10;">
+                                <img class="w-100 h-100 object-fit-cover img-zoom"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_hly03SSqM12NMaay4ihUJj9HOseU1CY8Z-Aq333Sv6rOomrQMEdJJtChyQjl0EyPu1qnpV7hSuGInXu9ZSWCYMebMNigGH9O_CYdVwX4_zO1QquHi-iU_k2aQvB2PJdcD916_a-z6ir9YTIN2RoNe2ssVSGXT7UyS1GJyJ6culQQROfXcjUOGBDSI5k_6GmTresmZUk_RV7XVoM1-TP2xNlCHTWI9-OIoZslfBOTixRsZfth5eCY6Q"
+                                    alt="Superman: Legacy" />
+                                <!-- Overlay desvanecido progresivo -->
+                                <div class="card-media-overlay"></div>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-warning text-dark px-2 py-1 uppercase font-bold tracking-wider z-2">
+                                    Exclusivo IMAX
+                                </span>
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-3">
+                                <div>
+                                    <small
+                                        class="text-cm-tertiary text-uppercase font-semibold tracking-wider d-block mb-1">11
+                                        Julio 2025</small>
+                                    <h3 class="font-headline-sm h5 text-light mb-1">Superman: Legacy</h3>
+                                    <p class="small text-cm-variant text-truncate-2 mb-0">El nuevo amanecer del héroe
+                                        más
+                                        legendario en una escala colosal para salas IMAX.</p>
+                                </div>
+                                <!-- Área de Botones de Acción -->
+                                <div class="d-flex align-items-center gap-2 pt-2">
+                                    <!-- Botón Tráiler: Solo Icono compacto de Play -->
+                                    <button
+                                        class="btn btn-sm bg-cm-surface-high text-light d-flex align-items-center justify-content-center p-2 border-0 rounded-2 btn-hover-subtle"
+                                        type="button" aria-label="Ver Tráiler" title="Ver Tráiler">
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 20px;">play_arrow</span>
+                                    </button>
+
+                                    <!-- Botón Avisarme: Acción Principal Destacada (Flex Fill) -->
+                                    <button
+                                        class="btn btn-sm bg-warning bg-opacity-10 border border-warning border-opacity-25 text-cm-tertiary flex-fill d-flex align-items-center justify-content-center gap-2 uppercase tracking-wider py-2 rounded-2 btn-hover-gold"
+                                        type="button">
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 18px;">notifications</span>
+                                        <span>Avisarme</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming 4: Mickey 17 -->
+                    <div class="col">
+                        <div
+                            class="card card-upcoming h-100 bg-cm-surface border border-white border-opacity-10 rounded-3 overflow-hidden">
+                            <div class="position-relative overflow-hidden bg-cm-surface-low"
+                                style="aspect-ratio: 16/10;">
+                                <img class="w-100 h-100 object-fit-cover img-zoom"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSg5kQLWAecZF9ft-I5gTDhx6lUSn5cCASZ_gD3CNw9Eoex-GKqcIaPGa43kN9tuIPX7lcHAA3CspilnibkMTwfkVwvZdayg0oXfWnEajZW8qqPzJYr6RBFZ1jDNWWvERVetmz5wBlJ5QgoBDmJUH7lr3UpwgbJ0RAsfhDxTzZmegb8-ItHmIbAo-Z8vAyOB5vkXp6ZD3BsPGeUdLB5YIiJ-R8zf3k265WEN6qi9iD1LaiWkwZ0AEG0A"
+                                    alt="Mickey 17" />
+                                <!-- Overlay desvanecido progresivo -->
+                                <div class="card-media-overlay"></div>
+                                <span
+                                    class="position-absolute top-0 start-0 m-3 badge bg-dark bg-opacity-75 backdrop-blur text-light px-2 py-1 uppercase font-bold tracking-wider z-2">
+                                    Preventa Próxima
+                                </span>
+                            </div>
+                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-3">
+                                <div>
+                                    <small
+                                        class="text-cm-tertiary text-uppercase font-semibold tracking-wider d-block mb-1">28
+                                        Marzo 2025</small>
+                                    <h3 class="font-headline-sm h5 text-light mb-1">Mickey 17</h3>
+                                    <p class="small text-cm-variant text-truncate-2 mb-0">Dirigida por Bong Joon Ho. Un
+                                        empleado
+                                        desechable es enviado a colonizar el mundo de hielo.</p>
+                                </div>
+                                <!-- Área de Botones de Acción -->
+                                <div class="d-flex align-items-center gap-2 pt-2">
+                                    <!-- Botón Tráiler: Solo Icono compacto de Play -->
+                                    <button
+                                        class="btn btn-sm bg-cm-surface-high text-light d-flex align-items-center justify-content-center p-2 border-0 rounded-2 btn-hover-subtle"
+                                        type="button" aria-label="Ver Tráiler" title="Ver Tráiler">
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 20px;">play_arrow</span>
+                                    </button>
+
+                                    <!-- Botón Avisarme: Acción Principal Destacada (Flex Fill) -->
+                                    <button
+                                        class="btn btn-sm bg-warning bg-opacity-10 border border-warning border-opacity-25 text-cm-tertiary flex-fill d-flex align-items-center justify-content-center gap-2 uppercase tracking-wider py-2 rounded-2 btn-hover-gold"
+                                        type="button">
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 18px;">notifications</span>
+                                        <span>Avisarme</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- SECCIÓN 5: PROMOCIONES DESTACADAS -->
+        <section class="w-100 py-5 position-relative" id="promociones">
+            <div class="container-fluid px-3 px-lg-5 d-flex flex-column gap-4">
+
+                <!-- Header de la sección -->
+                <div
+                    class="d-flex align-items-center justify-content-between border-bottom border-white border-opacity-10 pb-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="pill-indicator rounded-pill shadow-cm-glow"></span>
+                        <h2
+                            class="titulo-seccion font-headline-lg text-uppercase text-cm-on-surface tracking-wider m-0">
+                            Promociones
+                        </h2>
+                    </div>
+                    <a class="d-inline-flex align-items-center gap-1 text-decoration-none text-cm-primary text-cm-primary-hover transition-all fw-semibold"
+                        href="#">
+                        Ver todas las promociones
+                        <span class="material-symbols-outlined fs-6">arrow_forward</span>
+                    </a>
+                </div>
+
+                <!-- Grid de 2 Columnas -->
+                <div class="row g-4">
+
+                    <!-- Promo 1: Miércoles 2x1 -->
+                    <div class="col-12 col-lg-6">
+                        <div
+                            class="promo-card promo-primary position-relative overflow-hidden rounded-3 p-4 d-flex flex-column flex-sm-row align-items-center gap-4 h-100">
+
+                            <!-- Resplandor de fondo -->
+                            <div class="promo-glow-bg promo-glow-primary position-absolute"></div>
+
+                            <!-- Gráfico / SVG -->
+                            <div
+                                class="promo-icon-container rounded-3 d-flex align-items-center justify-content-center flex-shrink-0 position-relative overflow-hidden shadow-inner">
+                                <svg class="text-cm-primary" style="width: 7rem; height: 7rem;" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path
+                                        d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"
+                                        fill="currentColor" fill-opacity="0.12"></path>
+                                    <path d="M13 5v2"></path>
+                                    <path d="M13 17v2"></path>
+                                    <path d="M13 11v2"></path>
+                                    <path d="M9 12h.01"></path>
+                                </svg>
+                                <div
+                                    class="position-absolute bottom-0 mb-2 px-2 py-1 rounded tag-prom1 text-white fw-bold text-uppercase">
+                                    2x1 TODO EL DÍA
+                                </div>
+                            </div>
+
+                            <!-- Contenido Textos -->
+                            <div class="d-flex flex-column flex-grow-1 gap-2 text-center text-sm-start">
+                                <div
+                                    class="d-flex align-items-center justify-content-center justify-content-sm-start gap-2 metadatos">
+                                    <span
+                                        class="px-2 py-1 rounded badge-promo-primary fw-bold text-uppercase tracking-wider tag">
+                                        Ahorra 50%
+                                    </span>
+                                    <span class="text-cm-variant">Válido en Salas 2D y Macro</span>
+                                </div>
+                                <h3 class="font-display fs-3 text-white m-0">
+                                    Miércoles 2x1 en Todas las Salas
+                                </h3>
+                                <p class="descripcion-prom text-cm-variant m-0">
+                                    Disfruta el doble de cine al mejor precio. Válido para socios Club CineMax y público
+                                    general
+                                    en compras por web o app.
+                                </p>
+                                <div class="pt-2">
+                                    <button
+                                        class="btn btn-cm-promo-primary d-inline-flex align-items-center gap-2 px-3 py-2 rounded-2 text-uppercase fw-bold tracking-wider"
+                                        type="button">
+                                        Aprovechar Promo
+                                        <span class="material-symbols-outlined fs-6">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Promo 2: Combo Pareja -->
+                    <div class="col-12 col-lg-6">
+                        <div
+                            class="promo-card promo-tertiary position-relative overflow-hidden rounded-3 p-4 d-flex flex-column flex-sm-row align-items-center gap-4 h-100">
+
+                            <!-- Resplandor de fondo -->
+                            <div class="promo-glow-bg promo-glow-tertiary position-absolute"></div>
+
+                            <!-- Gráfico / SVG -->
+                            <div
+                                class="promo-icon-container rounded-3 d-flex align-items-center justify-content-center flex-shrink-0 position-relative overflow-hidden shadow-inner">
+                                <svg class="text-cm-tertiary" style="width: 7rem; height: 7rem;" fill="none"
+                                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path d="M7 10h10l-1.2 11H8.2L7 10Z" fill="currentColor" fill-opacity="0.12"></path>
+                                    <path d="M7 10a2.5 2.5 0 0 1 5 0"></path>
+                                    <path d="M12 10a2.5 2.5 0 0 1 5 0"></path>
+                                    <path
+                                        d="M5 8a2 2 0 0 1 3-1.7A2.5 2.5 0 0 1 12 5a2.5 2.5 0 0 1 4 1.3A2 2 0 0 1 19 8">
+                                    </path>
+                                </svg>
+                                <div
+                                    class="position-absolute bottom-0 mb-2 px-2 py-1 rounded tag-prom2 text-dark fw-bold text-uppercase fs-7">
+                                    Más Vendido
+                                </div>
+                            </div>
+
+                            <!-- Contenido Textos -->
+                            <div class="d-flex flex-column flex-grow-1 gap-2 text-center text-sm-start">
+                                <div
+                                    class="d-flex align-items-center justify-content-center justify-content-sm-start gap-2 metadatos">
+                                    <span
+                                        class="px-2 py-1 rounded badge-promo-tertiary fw-bold text-uppercase fs-7 tracking-wider tag">
+                                        Combo Especial
+                                    </span>
+                                    <span class="text-cm-variant fs-7">Incluye 2 Boletos 2D</span>
+                                </div>
+                                <h3 class="font-display fs-3 text-white m-0">
+                                    Combo Pareja CineMax + 2 Boletos
+                                </h3>
+                                <p class="descripcion-prom text-cm-variant m-0">
+                                    Popcorn gigante con mantequilla artesanal + 2 bebidas grandes de 32oz + 2 entradas
+                                    generales
+                                    a precio irrepetible.
+                                </p>
+                                <div class="pt-2">
+                                    <button
+                                        class="btn btn-cm-promo-tertiary d-inline-flex align-items-center gap-2 px-3 py-2 rounded-2 text-uppercase fw-bold tracking-wider"
+                                        type="button">
+                                        Ver Detalle y Canjear
+                                        <span class="material-symbols-outlined fs-6">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="" style="height: 600px;">
+
+
+        </section>
+    </main>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

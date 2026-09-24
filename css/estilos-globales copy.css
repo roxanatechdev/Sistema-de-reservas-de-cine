@@ -1,0 +1,164 @@
+/* ==========================================
+   CINEPRIME - ESTILOS GLOBALES & VARIABLES
+   ========================================== */
+
+/* 1. VARIABLES DE COLOR Y SISTEMA DE DISEÑO */
+:root {
+    /* Paleta Primaria / Resaltado */
+    --primary-rgb: 255, 180, 170;
+    --primary-container: #8c000d;
+    --on-primary: #690007;
+    --secondary: #ffb4aa;
+
+    --red-prime: #E50914;
+    /* Rojo estilo Cine / Netflix */
+    --red-prime-hover: #B20710;
+
+    /* Fondos y Superficies (Modo Oscuro Cinematográfico) */
+    --surface: #11131c;
+    --surface-dim: #11131c;
+    --surface-bright: #373943;
+    --surface-container-lowest: #0c0e17;
+    --surface-container-low: #191b24;
+    --surface-container: #1d1f28;
+    --surface-container-high: #282a33;
+    --surface-container-highest: #33353e;
+
+    /* Colores de Texto y Contenido */
+    --on-surface: #e2e1ed;
+    --on-surface-variant: #d8c2be;
+    --outline: #a08c8a;
+    --outline-variant: #534341;
+
+    /* Tipografías */
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+/* 2. ESTILOS BASE Y REINICIO */
+body {
+    background-color: var(--surface);
+    color: var(--on-surface);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* 3. CLASES DE UTILIDAD TIPOGRÁFICA */
+.font-display {
+    font-family: var(--font-display);
+    letter-spacing: 1px;
+}
+
+.font-body {
+    font-family: var(--font-body);
+}
+
+.text-primary-custom {
+    color: var(--red-prime) !important;
+}
+
+.text-secondary-custom {
+    color: var(--secondary) !important;
+}
+
+.bg-surface-container {
+    background-color: var(--surface-container) !important;
+}
+
+.bg-surface-low {
+    background-color: var(--surface-container-low) !important;
+}
+
+.bg-surface-lowest {
+    background-color: var(--surface-container-lowest) !important;
+}
+
+.bg-surface-high {
+    background-color: var(--surface-container-high) !important;
+}
+
+/* ==========================================
+   NAVBAR TRANSPARENTE & EFECTO SCROLL
+   ========================================== */
+
+/* Navbar transparente sobre el Hero */
+.navbar-transparent {
+    background: linear-gradient(180deg, rgba(12, 14, 23, 0.8) 0%, rgba(12, 14, 23, 0) 100%) !important;
+    backdrop-filter: blur(4px);
+    transition: background-color 0.4s ease, padding 0.4s ease;
+}
+
+/* Estado del Navbar cuando el usuario hace Scroll (se vuelve oscuro para leer mejor) */
+.navbar-scrolled {
+    background-color: var(--surface-container-lowest) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+
+
+/* Estilos para el botón principal (Ingresar) */
+.btn-prime {
+    background-color: var(--red-prime);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-prime:hover {
+    background-color: var(--red-prime-hover);
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(229, 9, 20, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Ajustes para el enlace activo */
+.nav-link.active.text-primary-custom {
+    color: var(--red-prime) !important;
+}
+
+
+
+/* Tarjetas de Película / Cartelera */
+.movie-card {
+    background-color: var(--surface-container-low);
+    border: 1px solid var(--outline-variant);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(var(--primary-rgb), 0.2);
+    border-color: var(--primary);
+}
+
+/* Superposición y Efectos Hero */
+.hero-overlay {
+    background: linear-gradient(180deg,
+            rgba(17, 19, 28, 0.3) 0%,
+            rgba(17, 19, 28, 0.85) 70%,
+            var(--surface) 100%);
+}
+
+/* Personalización de Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface-container-lowest);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--surface-container-highest);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}

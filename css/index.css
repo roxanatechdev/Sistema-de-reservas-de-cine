@@ -1,0 +1,689 @@
+.titulo-seccion {
+    font-family: var(--cm-font-display);
+    letter-spacing: 2px;
+    font-size: 2rem;
+}
+
+/* Indicador rojo lateral en títulos */
+.pill-indicator {
+    width: 0.375rem;
+    /* 6px */
+    height: 1.75rem;
+    /* 28px */
+    background-color: var(--cm-primary-container);
+}
+
+.metadatos {
+    font-size: 0.75rem;
+    letter-spacing: 0.05rem;
+    font-weight: 600;
+}
+
+.metadatos .tag {
+    font-size: 0.625rem;
+}
+
+/* ==========================================================================
+   HERO / BANNER PRINCIPAL (INICIO)
+   ========================================================================== */
+
+/* Altura relativa del Hero */
+.hero-section {
+    height: 85vh;
+    min-height: 600px;
+}
+
+/* Anchos máximos de contenido */
+.hero-content-max-w {
+    max-width: 48rem;
+    /* ~768px */
+}
+
+/* Corrección de fondo para que escala como Cover y NO se repita */
+.bg-hero-cover {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Padding interno del contenedor para despejar las flechas de navegación */
+.hero-container-padding {
+    padding-left: 5.5rem;
+    /* Margen seguro para que la flecha izquierda no tape texto */
+    padding-right: 5.5rem;
+    /* Margen seguro para el lado derecho */
+}
+
+@media (max-width: 768px) {
+    .hero-container-padding {
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-container-padding {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.badges-hero .tag-cartelera {
+    font-size: 0.625rem;
+    letter-spacing: 0.063rem;
+}
+
+.hero-section h1 {
+    font-family: var(--cm-font-display);
+    font-size: 4.5rem;
+}
+
+.metadatos {
+    font-size: 0.75rem;
+    letter-spacing: 0.05rem;
+    font-weight: 600;
+}
+
+.metadatos .tag {
+    font-size: 0.625rem;
+}
+
+.hero-synopsis-max-w {
+    max-width: 42rem;
+}
+
+/* Gradientes cinemáticos de superposición */
+.hero-gradient-horizontal {
+    background: linear-gradient(to right, var(--cm-surface-container-lowest) 0%, rgba(12, 14, 23, 0.8) 50%, transparent 100%);
+}
+
+.hero-gradient-vertical {
+    background: linear-gradient(to top, var(--cm-surface) 0%, rgba(12, 14, 23, 0.4) 60%, transparent 100%);
+}
+
+.hero-gradient-top {
+    height: 9rem;
+    background: linear-gradient(to bottom, rgba(12, 14, 23, 0.85) 0%, transparent 100%);
+}
+
+/* Tipografía y efectos del título */
+.hero-title-shadow {
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.9));
+}
+
+.hero-title-gradient {
+    background: linear-gradient(90deg, var(--cm-on-surface) 0%, var(--cm-primary) 50%, var(--cm-primary-container) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Componentes visuales pequeños */
+.hero-status-pill {
+    background-color: rgba(69, 70, 79, 0.2);
+    border-color: rgba(229, 9, 20, 0.4) !important;
+    backdrop-filter: blur(12px);
+}
+
+.pulse-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--cm-primary-container);
+    box-shadow: 0 0 10px var(--cm-primary-container);
+    animation: pulse-animation 1.8s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+        box-shadow: 0 0 15px var(--cm-primary-container);
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+.hero-dot {
+    width: 4px;
+    height: 4px;
+    background-color: var(--cm-on-surface-variant);
+}
+
+.icon-filled {
+    font-variation-settings: 'FILL' 1;
+}
+
+/* Botones secundarios y de navegación flotante */
+.btn-cm-secondary {
+    background-color: rgba(12, 14, 23, 0.6);
+    color: var(--cm-on-surface);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    transition: all 0.3s ease;
+}
+
+.btn-cm-secondary:hover {
+    background-color: var(--cm-surface-container-high);
+    color: var(--cm-on-surface);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.03);
+}
+
+.btn-hero-arrow {
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(12, 14, 23, 0.4);
+    color: var(--cm-on-surface);
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+}
+
+.btn-hero-arrow:hover {
+    background-color: rgba(12, 14, 23, 0.9);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Indicadores de slider */
+.hero-indicator {
+    width: 0.625rem;
+    height: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-indicator.active {
+    width: 2rem;
+    background-color: var(--cm-primary-container);
+    box-shadow: 0 0 12px rgba(229, 9, 20, 0.8);
+}
+
+
+/* ==========================================================================
+   STRIP DE RESERVA RÁPIDA (QUICK BOOKING STRIP)
+   ========================================================================== */
+
+/* Borde blanco con 5% de opacidad */
+.border-white-5 {
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Ancho máximo para el área de controles */
+.max-w-3xl {
+    max-width: 48rem;
+}
+
+/* Personalización del Select transparente de Bootstrap */
+.form-select.bg-transparent {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23a0a0a0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+    background-size: 12px 12px !important;
+    background-position: right 0.25rem center !important;
+    padding-right: 1.5rem !important;
+}
+
+.form-select:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Flex responsive personalizado para pantallas desktop (Lg) */
+@media (min-width: 992px) {
+    .lg-flex-row {
+        flex-direction: row !important;
+    }
+
+    .w-lg-auto {
+        width: auto !important;
+    }
+}
+
+
+/* ==========================================================================
+   SECCIÓN EN CARTELERA & TARJETAS DE PELÍCULAS
+   ========================================================================== */
+
+#cartelera-section {
+    background-color: var(--cm-background);
+}
+
+
+
+/* Botones de Filtro */
+.filter-btn {
+    color: var(--cm-on-surface-variant);
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    color: var(--cm-on-surface);
+}
+
+.filter-btn.active {
+    background-color: var(--cm-primary-container) !important;
+    color: var(--cm-on-primary-container) !important;
+}
+
+/* ==========================================================================
+   TARJETA DE PELÍCULA
+   ========================================================================== */
+
+/* Contenedor principal */
+.movie-card {
+    background-color: var(--cm-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    border-color: rgba(229, 9, 20, 0.25) !important;
+    box-shadow: 0 8px 24px rgba(229, 9, 20, 0.15);
+}
+
+/* Largo del Póster */
+.movie-poster-container {
+    aspect-ratio: 3 / 4;
+    position: relative;
+    background-color: var(--cm-surface-container-lowest);
+}
+
+.movie-poster-img {
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.movie-card:hover .movie-poster-img {
+    transform: scale(1.05);
+}
+
+/* --- BADGES REFINADOS (IGUALADOS Y COMPACTOS) --- */
+.badge-tag {
+    background-color: rgba(12, 14, 23, 0.75);
+    color: #ffffff;
+    font-family: var(--cm-font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.badge-rating {
+    border-color: rgba(233, 195, 73, 0.3);
+    color: #ffffff;
+}
+
+.badge-rating .material-symbols-outlined {
+    font-size: 0.85rem;
+}
+
+.icon-filled {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* --- BOTÓN FAVORITOS (MINIMALISTA) --- */
+.btn-favorite {
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(12, 14, 23, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    color: #ffffff;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-favorite .material-symbols-outlined {
+    font-size: 1.1rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Cambia el corazón a relleno activo */
+.btn-favorite:hover .material-symbols-outlined,
+.btn-favorite.active .material-symbols-outlined {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    color: var(--cm-primary-container);
+}
+
+/* --- BOTÓN DE TRÁILER FLOTANTE --- */
+.trailer-hover-btn {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+}
+
+.movie-card:hover .trailer-hover-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+.btn-trailer-play {
+    width: 3.25rem;
+    height: 3.25rem;
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    border: none;
+    box-shadow: var(--cm-glow-primary-intense);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-trailer-play:hover {
+    background-color: #ff1e27;
+    transform: scale(1.1);
+}
+
+/* --- SECCIÓN TEXTOS --- */
+.movie-title {
+    font-family: var(--cm-font-display);
+    font-size: 1.65rem;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    transition: color 0.2s ease;
+}
+
+.movie-card:hover .movie-title {
+    color: #ffffff;
+}
+
+.movie-subtitle {
+    font-family: var(--cm-font-body);
+    font-size: 0.78rem;
+    color: rgba(225, 221, 239, 0.65);
+    /* Usando tono neutro derivado de --cm-on-surface */
+}
+
+.showtime-label {
+    font-family: var(--cm-font-body);
+    font-size: 0.65rem;
+    color: var(--cm-on-primary-container);
+    letter-spacing: 0.08em;
+}
+
+.movie-subtitle,
+.showtime-label {
+    color: var(--cm-primary);
+}
+
+/* --- BOTONES DE HORARIOS --- */
+.btn-showtime {
+    background-color: var(--cm-surface-container-high);
+    color: var(--cm-on-surface);
+    font-family: var(--cm-font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.2s ease;
+}
+
+.btn-showtime:hover {
+    background-color: rgba(229, 9, 20, 0.15);
+    color: #ffffff;
+    border-color: var(--cm-primary-container);
+}
+
+/* --- BOTÓN RESERVAR --- */
+.btn-cm-reserve {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    font-family: var(--cm-font-body);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    border: 1px solid var(--cm-primary-container);
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.25);
+}
+
+.btn-cm-reserve:hover {
+    background-color: #ff1e27;
+    border-color: #ff1e27;
+    box-shadow: var(--cm-glow-primary-intense);
+}
+
+
+/* ==========================================================================
+   CARDS & HOVER EFFECTS - PRÓXIMAMENTE
+   ========================================================================== */
+#proximamente .badge {
+    text-transform: uppercase;
+    font-size: 0.625rem;
+}
+
+/* Pseudo-elemento ::before para el resplandor rojo de fondo */
+.fondo-seccion {
+    position: relative;
+    /* Asegura que ocupe todo el ancho/alto si es necesario */
+    width: 100%;
+}
+
+.fondo-seccion::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(229, 9, 20, 0.15) 0%, #0E1017 70%);
+    filter: blur(60px);
+    z-index: 0;
+    /* <--- Se manda hacia atrás */
+    pointer-events: none;
+    /* Previene interacciones con el mouse */
+}
+
+#proximamente .pill-indicator {
+    background-color: var(--cm-tertiary);
+}
+
+/* Overlay de desvanecimiento (Fade al color de la tarjeta #1d1f29) */
+.card-media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(29, 31, 41, 0) 0%,
+            rgba(29, 31, 41, 0.4) 60%,
+            var(--cm-surface-container) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Animaciones y Hover en la Tarjeta */
+.card-upcoming {
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+        border-color 0.35s ease;
+    will-change: transform, box-shadow;
+}
+
+.card-upcoming:hover {
+
+    border-color: rgba(233, 195, 73, 0.35) !important;
+    /* Borde dorado sutil */
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), var(--cm-glow-tertiary);
+}
+
+/* Efecto Zoom en la Imagen al hacer Hover en la tarjeta */
+.card-upcoming .img-zoom {
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-upcoming:hover .img-zoom {
+    transform: scale(1.0);
+}
+
+/* Hover Sutil en Botones Acción */
+.btn-hover-subtle {
+    transition: all 0.25s ease;
+}
+
+.btn-hover-subtle:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Hover Sutil en Botón Avisarme (Dorado) */
+.btn-hover-gold {
+    transition: all 0.25s ease;
+}
+
+.btn-hover-gold:hover {
+    background-color: rgba(233, 195, 73, 0.2) !important;
+    border-color: rgba(233, 195, 73, 0.5) !important;
+    color: #ffe088 !important;
+    box-shadow: var(--cm-glow-tertiary);
+}
+
+/* Estilo para el botón de icono secundario */
+.btn-icon-only {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    padding: 0;
+}
+
+/* Efecto hover refinado en botón de icono */
+.btn-hover-subtle:hover {
+    background-color: var(--cm-surface-container-highest) !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ==========================================================================
+   CINEMAX - SECCIÓN PROMOCIONES
+   ========================================================================== */
+#promociones {
+    background-color: var(--cm-background);
+}
+
+/* Tarjetas de Promoción */
+.promo-card {
+    background: linear-gradient(135deg, var(--cm-surface-container) 0%, var(--cm-surface-container-low) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.promo-card.promo-primary:hover {
+    border-color: rgba(229, 9, 20, 0.4) !important;
+
+}
+
+.promo-card.promo-tertiary:hover {
+    border-color: rgba(233, 195, 73, 0.4) !important;
+}
+
+/* Efecto de Luz / Resplandor Circular Trasero */
+.promo-glow-bg {
+    width: 12rem;
+    height: 12rem;
+    top: -3rem;
+    left: -3rem;
+    border-radius: 50%;
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.promo-glow-primary {
+    background-color: rgba(229, 9, 20, 0.15);
+}
+
+.promo-glow-tertiary {
+    background-color: rgba(233, 195, 73, 0.15);
+}
+
+/* Contenedor del Icono/Ilustración SVG */
+.promo-icon-container {
+    width: 100%;
+    height: 12rem;
+    background-color: var(--cm-surface-container-lowest);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (min-width: 576px) {
+    .promo-icon-container {
+        width: 11rem;
+    }
+}
+
+
+.tag-prom1, .tag-prom2 {
+    font-size: 0.625rem;
+}
+.tag-prom1 {
+    background-color: var(--cm-primary-container);
+}
+
+.tag-prom2 {
+    background-color: var(--cm-tertiary);
+}
+
+.descripcion-prom {
+    font-size: 0.95rem;
+}
+
+/* Tipografía de Encabezados con Bebas Neue */
+.font-display {
+    font-family: var(--cm-font-display);
+    letter-spacing: 0.03em;
+}
+
+/* Badges y Etiquetas */
+.badge-promo-primary {
+    background-color: rgba(218, 1, 55, 0.25);
+    color: var(--cm-secondary);
+    border: 1px solid rgba(218, 1, 55, 0.3);
+}
+
+.badge-promo-tertiary {
+    background-color: rgba(204, 167, 48, 0.25);
+    color: var(--cm-tertiary);
+    border: 1px solid rgba(204, 167, 48, 0.3);
+}
+
+/* Botones de Promoción */
+.btn-cm-promo-primary {
+    background-color: var(--cm-primary-container);
+    color: var(--cm-on-primary-container);
+    box-shadow: 0 0 16px rgba(229, 9, 20, 0.4);
+    font-size: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.btn-cm-promo-primary:hover {
+    background-color: var(--cm-secondary-container);
+    color: #ffffff;
+    box-shadow: var(--cm-glow-primary-intense);
+}
+
+.btn-cm-promo-tertiary {
+    background-color: var(--cm-tertiary);
+    color: var(--cm-on-tertiary);
+    box-shadow: var(--cm-glow-tertiary);
+    font-size: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.btn-cm-promo-tertiary:hover {
+    background-color: var(--cm-tertiary-fixed);
+    color: var(--cm-on-tertiary);
+    box-shadow: 0 0 24px rgba(233, 195, 73, 0.5);
+}

@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <title>CineMax - Experiencia de Cine Premium</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { "darkMode": "class", "theme": { "extend": { "colors": { "inverse-surface": "#e1e1ef", "on-tertiary": "#3c2f00", "surface-container-highest": "#32343e", "on-secondary": "#680015", "primary": "#ffb4aa", "secondary-container": "#da0137", "outline": "#af8782", "on-surface": "#e1e1ef", "background": "#11131c", "on-error-container": "#ffdad6", "secondary": "#ffb3b3", "tertiary-container": "#cca730", "on-primary-fixed-variant": "#930007", "primary-container": "#e50914", "surface-container-high": "#282933", "on-secondary-container": "#ffeceb", "surface": "#11131c", "surface-container-lowest": "#0c0e17", "tertiary-fixed": "#ffe088", "surface-variant": "#32343e", "on-primary-container": "#fff7f6", "primary-fixed": "#ffdad5", "error": "#ffb4ab", "on-tertiary-container": "#4f3d00", "surface-container-low": "#191b24", "on-error": "#690005", "on-tertiary-fixed-variant": "#574500", "on-background": "#e1e1ef", "surface-dim": "#11131c", "surface-container": "#1d1f29", "secondary-fixed-dim": "#ffb3b3", "on-tertiary-fixed": "#241a00", "inverse-primary": "#c0000c", "tertiary": "#e9c349", "surface-bright": "#373943", "outline-variant": "#5e3f3b", "on-secondary-fixed": "#400009", "on-surface-variant": "#e9bcb6", "tertiary-fixed-dim": "#e9c349", "secondary-fixed": "#ffdad9", "on-primary-fixed": "#410001", "on-primary": "#690003", "surface-tint": "#ffb4aa", "error-container": "#93000a", "on-secondary-fixed-variant": "#920022", "primary-fixed-dim": "#ffb4aa", "inverse-on-surface": "#2e303a" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-sm": "0.5rem", "space-md": "1rem", "margin": "3rem", "space-xl": "2.5rem", "margin-mobile": "1.25rem", "gutter-mobile": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "gutter": "1.5rem" }, "fontFamily": { "label-lg": ["Montserrat"], "headline-lg-mobile": ["Bebas Neue"], "body-md": ["Montserrat"], "label-md": ["Montserrat"], "display-hero-mobile": ["Bebas Neue"], "body-sm": ["Montserrat"], "label-sm": ["Montserrat"], "body-lg": ["Montserrat"], "display-hero": ["Bebas Neue"], "headline-md": ["Montserrat"], "headline-lg": ["Bebas Neue"], "headline-sm": ["Montserrat"] }, "fontSize": { "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.5px", "fontWeight": "600" }], "headline-lg-mobile": ["30px", { "lineHeight": "34px", "letterSpacing": "0.5px", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.8px", "fontWeight": "600" }], "display-hero-mobile": ["44px", { "lineHeight": "46px", "letterSpacing": "1px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "1px", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "display-hero": ["72px", { "lineHeight": "72px", "letterSpacing": "1.5px", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.2px", "fontWeight": "700" }], "headline-lg": ["40px", { "lineHeight": "44px", "letterSpacing": "1px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script>
+</head>
+
+<body
+    class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent" id="main-header">
+        <div class="h-20 w-full px-gutter-mobile lg:px-margin flex items-center justify-between gap-space-md">
+            <div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm focus:outline-none"
+                    data-path="cartelera" href="#"><img alt="CineMax Logo" class="h-8 w-auto object-contain"
+                        src="https://lh3.googleusercontent.com/aida/AEtjO1U-ChJ24y-BhSftUAknC_52GDNGZ7d7aoWmLu6V0Jxgvc-FVWfcNqVkgdZma_MzvMzDqaHcCg72MW1u_QAXWrBRCKzCZr6XxNP88h3WWpAbmEIgAxIcICa3clcsxw3BLxCzc8P7c4QL8YjuZzTd6A7B_nefZge8X6EZXfqQwl3jXscM_RKZz8Wvzq-HxPbagqh3LKZNYEzs9VKD7fDM48pxd15Lmoxh-W7FSSTpzy5CO53mZgeDLLPlGntz" /><span
+                        class="font-headline-lg text-headline-lg tracking-wider text-on-surface uppercase hidden sm:inline-block">Cine<span
+                            class="text-primary-container">Max</span></span></a></div>
+            <nav class="hidden lg:flex items-center gap-space-xs"
+                data-active-classes="bg-surface-container-high text-on-surface font-semibold rounded-lg shadow-sm"><a
+                    aria-current="page"
+                    class="px-space-md py-space-sm uppercase tracking-wider transition-all duration-200 bg-surface-container-high text-on-surface font-semibold rounded-lg shadow-sm"
+                    data-path="cartelera" href="#">Cartelera</a><a
+                    class="px-space-md py-space-sm rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all duration-200"
+                    data-path="confiteria" href="#">Confitería</a><a
+                    class="px-space-md py-space-sm rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all duration-200"
+                    data-path="promociones" href="#">Promociones</a><a
+                    class="px-space-md py-space-sm rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-all duration-200"
+                    data-path="contacto" href="#">Contacto</a></nav>
+            <div class="flex items-center gap-space-sm"><a
+                    class="hidden sm:inline-flex items-center justify-center px-space-md py-space-sm rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-surface bg-surface-container-lowest/60 hover:bg-surface-container-high hover:text-on-surface transition-all duration-200"
+                    data-path="iniciar-sesion" href="#">Iniciar Sesión</a><a
+                    class="inline-flex items-center justify-center px-space-md py-space-sm rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-primary-container bg-primary-container hover:bg-secondary-container hover:text-on-secondary-container transition-all duration-200 shadow-[0_0_20px_rgba(229,9,20,0.35)]"
+                    data-path="registrarse" href="#">Registrarse</a>
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span
+                        class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><button
+                    aria-label="Menú"
+                    class="lg:hidden p-space-xs text-on-surface-variant hover:text-on-surface focus:outline-none"
+                    id="mobile-menu-btn" type="button"><span
+                        class="material-symbols-outlined text-2xl">menu</span></button>
+            </div>
+        </div>
+        <div class="hidden lg:hidden w-full bg-surface-container-lowest/95 backdrop-blur-2xl px-gutter-mobile py-space-md shadow-2xl"
+            id="mobile-nav-panel">
+            <nav class="flex flex-col gap-space-xs"
+                data-active-classes="bg-surface-container-high text-on-surface font-semibold rounded-lg"><a
+                    aria-current="page"
+                    class="px-space-md py-space-sm uppercase tracking-wider transition-colors bg-surface-container-high text-on-surface font-semibold rounded-lg"
+                    data-path="cartelera" href="#">Cartelera</a><a
+                    class="px-space-md py-space-sm rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors"
+                    data-path="confiteria" href="#">Confitería</a><a
+                    class="px-space-md py-space-sm rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors"
+                    data-path="promociones" href="#">Promociones</a><a
+                    class="px-space-md py-space-sm rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors"
+                    data-path="contacto" href="#">Contacto</a>
+                <div class="pt-space-sm flex flex-col gap-space-xs sm:hidden"><a
+                        class="w-full text-center px-space-md py-space-sm rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-surface bg-surface-container-low hover:bg-surface-container-high transition-colors"
+                        data-path="iniciar-sesion" href="#">Iniciar Sesión</a></div>
+            </nav>
+        </div>
+    </header>
+    <main class="w-full pt-20 bg-background min-h-screen">
+        <div class="flex flex-col w-full">
+            <!-- SECCIÓN 1: HERO / BANNER PRINCIPAL (85vh) -->
+            <section class="relative w-full h-[85vh] -mt-20 overflow-hidden select-none">
+                <!-- Background Image Scrim using DATA:IMAGE:IMAGE_3 -->
+                <div class="absolute inset-0 w-full h-full bg-cover bg-center"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCM9UDS3fTY5LcYZi74D2w-25w5JC7HIaK5K3mwlhtACGtfKqUVAwSeliuX9zgNXHYGcOj6tIQE7R6PLXzxI4IipH-7AhS5ffrblfLY1MV-KecSi8m3rOkaapRTX5iv0Xuq9dsJ8vmZG3bBAQK-rU_lGzSvoOZFMH5D3MKIH-R7djWwRB14ncNH6gJXdUwMqxlWVO_Q2Gw3E1-D9-q5m6DApGcXvb_IwmgR6m1u5nucjmnO9483itmu9g');">
+                    <!-- High-contrast Cinematic Gradients -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/80 to-transparent w-full md:w-3/4">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-surface-container-lowest/70 via-transparent to-transparent h-36">
+                    </div>
+                </div>
+                <!-- Hero Content: Aligned Left & Vertically Centered -->
+                <div
+                    class="relative z-10 w-full h-full px-gutter-mobile lg:px-margin flex flex-col justify-center pt-20">
+                    <div class="max-w-3xl flex flex-col gap-space-md">
+                        <!-- Status Pill -->
+                        <div class="flex items-center gap-space-sm">
+                            <div
+                                class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-secondary-container/20 border border-primary-container/40 backdrop-blur-md">
+                                <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+                                <span
+                                    class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">En
+                                    Cartelera</span>
+                            </div>
+                            <span class="font-label-md text-label-md text-tertiary flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[15px]"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                Calificación 9.8 Seleccionada
+                            </span>
+                        </div>
+                        <!-- Colossal Title -->
+                        <h1
+                            class="font-display-hero text-display-hero tracking-normal text-on-surface uppercase leading-none drop-shadow-[0_8px_24px_rgba(0,0,0,0.8)]">
+                            DUNE: <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-on-surface via-primary to-primary-container">PARTE
+                                TRES</span>
+                        </h1>
+                        <!-- Metadata Bar -->
+                        <div
+                            class="flex flex-wrap items-center gap-space-sm font-label-md text-label-md text-on-surface-variant">
+                            <span class="text-on-surface font-semibold">2h 46min</span>
+                            <span class="w-1 h-1 rounded-full bg-outline"></span>
+                            <span
+                                class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm uppercase tracking-wider">PG-13</span>
+                            <span class="w-1 h-1 rounded-full bg-outline"></span>
+                            <span class="flex items-center gap-0.5 text-tertiary font-bold">
+                                <span class="material-symbols-outlined text-[16px]"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                9.4/10
+                            </span>
+                            <span class="w-1 h-1 rounded-full bg-outline"></span>
+                            <span class="text-on-surface">Ciencia Ficción / Aventura</span>
+                            <span class="w-1 h-1 rounded-full bg-outline"></span>
+                            <span
+                                class="px-2 py-0.5 rounded bg-surface-container-high/90 text-primary font-label-sm text-label-sm uppercase tracking-wider border border-primary/20">
+                                IMAX 3D &amp; DOLBY ATMOS
+                            </span>
+                        </div>
+                        <!-- Synopsis -->
+                        <p
+                            class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl line-clamp-3 leading-relaxed drop-shadow-md">
+                            Paul Atreides lidera a los Fremen en una guerra total por el destino de Arrakis y el control
+                            supremo de la especia en toda la galaxia conocida. Una odisea visual trascendental en
+                            formatos macro de última generación.
+                        </p>
+                        <!-- CTA Action Buttons -->
+                        <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+                            <a class="inline-flex items-center justify-center gap-space-xs px-space-xl py-space-md rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-primary-container bg-primary-container hover:bg-secondary-container transition-all duration-300 shadow-[0_0_28px_rgba(229,9,20,0.55)] hover:shadow-[0_0_36px_rgba(229,9,20,0.8)] hover:scale-105 active:scale-95"
+                                href="#cartelera-section">
+                                <span class="material-symbols-outlined text-[20px]"
+                                    style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+                                Comprar Entradas
+                            </a>
+                            <button
+                                class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-surface bg-surface-container-lowest/60 hover:bg-surface-container-high backdrop-blur-xl border border-white/10 transition-all duration-300 hover:border-white/30 hover:scale-105 active:scale-95"
+                                onclick="alert('Reproduciendo tráiler oficial en formato 4K HDR...')" type="button">
+                                <span class="material-symbols-outlined text-[22px]"
+                                    style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                                Ver Tráiler
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation Arrows -->
+                <button aria-label="Anterior Película"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-surface-container-lowest/40 hover:bg-surface-container-lowest/90 backdrop-blur-md text-on-surface flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg"
+                    type="button">
+                    <span class="material-symbols-outlined text-3xl">chevron_left</span>
+                </button>
+                <button aria-label="Siguiente Película"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-surface-container-lowest/40 hover:bg-surface-container-lowest/90 backdrop-blur-md text-on-surface flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-lg"
+                    type="button">
+                    <span class="material-symbols-outlined text-3xl">chevron_right</span>
+                </button>
+                <!-- Carousel Indicator Dots -->
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-space-xs">
+                    <span
+                        class="w-8 h-2 rounded-full bg-primary-container shadow-[0_0_12px_rgba(229,9,20,0.8)] transition-all"></span>
+                    <span
+                        class="w-2.5 h-2 rounded-full bg-surface-variant/70 hover:bg-on-surface-variant transition-all cursor-pointer"></span>
+                    <span
+                        class="w-2.5 h-2 rounded-full bg-surface-variant/70 hover:bg-on-surface-variant transition-all cursor-pointer"></span>
+                </div>
+            </section>
+            <!-- QUICK BOOKING STRIP -->
+            <section
+                class="w-full bg-surface-container-low border-y border-white/5 py-space-md relative z-20 shadow-2xl">
+                <div
+                    class="w-full px-gutter-mobile lg:px-margin flex flex-col lg:flex-row items-center justify-between gap-space-md">
+                    <div class="flex items-center gap-space-sm text-primary">
+                        <span class="material-symbols-outlined text-2xl">local_activity</span>
+                        <span class="font-headline-sm text-headline-sm uppercase text-on-surface tracking-wide">Reserva
+                            Inmediata</span>
+                    </div>
+                    <div class="w-full lg:w-auto flex-1 grid grid-cols-1 sm:grid-cols-3 gap-space-sm max-w-3xl">
+                        <div
+                            class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-2.5 rounded-lg border border-white/5">
+                            <span class="material-symbols-outlined text-on-surface-variant text-[20px]">movie</span>
+                            <select
+                                class="bg-transparent text-on-surface font-body-sm text-body-sm outline-none w-full cursor-pointer">
+                                <option class="bg-surface-container-lowest text-on-surface">Dune: Parte Tres</option>
+                                <option class="bg-surface-container-lowest text-on-surface">Cyber Echo: Void</option>
+                                <option class="bg-surface-container-lowest text-on-surface">Gladiador II</option>
+                                <option class="bg-surface-container-lowest text-on-surface">Interstellar (Re-Release)
+                                </option>
+                            </select>
+                        </div>
+                        <div
+                            class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-2.5 rounded-lg border border-white/5">
+                            <span
+                                class="material-symbols-outlined text-on-surface-variant text-[20px]">location_on</span>
+                            <select
+                                class="bg-transparent text-on-surface font-body-sm text-body-sm outline-none w-full cursor-pointer">
+                                <option class="bg-surface-container-lowest text-on-surface">CineMax Paseo Real (IMAX)
+                                </option>
+                                <option class="bg-surface-container-lowest text-on-surface">CineMax Marina VIP</option>
+                                <option class="bg-surface-container-lowest text-on-surface">CineMax Platinum Plaza
+                                </option>
+                            </select>
+                        </div>
+                        <div
+                            class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-2.5 rounded-lg border border-white/5">
+                            <span
+                                class="material-symbols-outlined text-on-surface-variant text-[20px]">calendar_today</span>
+                            <select
+                                class="bg-transparent text-on-surface font-body-sm text-body-sm outline-none w-full cursor-pointer">
+                                <option class="bg-surface-container-lowest text-on-surface">Hoy, 24 Oct</option>
+                                <option class="bg-surface-container-lowest text-on-surface">Mañana, 25 Oct</option>
+                                <option class="bg-surface-container-lowest text-on-surface">Sábado, 26 Oct</option>
+                                <option class="bg-surface-container-lowest text-on-surface">Domingo, 27 Oct</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full lg:w-auto px-space-lg py-2.5 bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase rounded-lg hover:bg-secondary-container transition-all shrink-0"
+                        type="button">
+                        Buscar Funciones
+                    </button>
+                </div>
+            </section>
+            <!-- SECCIÓN 2: EN CARTELERA -->
+            <section class="w-full py-space-xl relative" id="cartelera-section">
+                <div class="w-full px-gutter-mobile lg:px-margin flex flex-col gap-space-lg">
+                    <!-- Section Header -->
+                    <div
+                        class="flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b border-white/5 pb-space-md">
+                        <div class="flex flex-col gap-space-xs">
+                            <div class="flex items-center gap-space-xs">
+                                <span
+                                    class="w-1.5 h-7 bg-primary-container rounded-full shadow-[0_0_12px_rgba(229,9,20,0.8)]"></span>
+                                <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-wider">
+                                    En Cartelera</h2>
+                            </div>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Selecciona tu película favorita
+                                y reserva tus mejores butacas en minutos.</p>
+                        </div>
+                        <div class="flex items-center justify-between md:justify-end gap-space-md">
+                            <!-- Filters -->
+                            <div
+                                class="hidden sm:flex items-center gap-1.5 bg-surface-container-lowest p-1 rounded-lg border border-white/5">
+                                <button
+                                    class="filter-btn active px-space-md py-1 rounded bg-primary-container text-on-primary-container font-label-md text-label-md"
+                                    type="button">Todos</button>
+                                <button
+                                    class="filter-btn px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors"
+                                    type="button">Estrenos</button>
+                                <button
+                                    class="filter-btn px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors"
+                                    type="button">IMAX</button>
+                                <button
+                                    class="filter-btn px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors"
+                                    type="button">3D</button>
+                                <button
+                                    class="filter-btn px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors"
+                                    type="button">Subtitulada</button>
+                            </div>
+                            <a class="inline-flex items-center gap-1 font-label-lg text-label-lg text-primary hover:text-on-primary-container hover:underline tracking-wide transition-all"
+                                href="#">
+                                Ver toda la cartelera
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Movie Cards Grid / Rail -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-gutter">
+                        <!-- Card 1: Cyber Echo (DATA:IMAGE:IMAGE_4) -->
+                        <div
+                            class="group flex flex-col bg-surface-container rounded-lg overflow-hidden border border-white/5 hover:border-primary-container/60 hover:shadow-[0_0_24px_rgba(229,9,20,0.35)] transition-all duration-300">
+                            <div class="relative aspect-[2/3] w-full overflow-hidden bg-surface-container-lowest">
+                                <img alt="Cyber Echo Poster"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuABBkuXQpPsIBvTMPS7PNqxErGAsx-cqtS6vwUB2f7XKlrbwrgSN7w8xWL1u6zD5FditVJv2J1P1ToGhxoPt-W1aODXfrK71I6KxQwi0Xd8udx59kFrpS909Lww7Ml01_-NRHnyN5mPKKNVfSKcWD7fWnOENjsQz1hVxIFGlxlTWzjA0jWMMWQcihL2wjoQJ-CsAowDz7clZEwnVyWJnzsudzLxwCvjDJWQkeIG-8RtAeJcvCHxKSwX3g" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-60">
+                                </div>
+                                <div class="absolute top-2.5 left-2.5 flex flex-col gap-1">
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-tertiary font-label-sm text-label-sm uppercase font-bold tracking-wider border border-tertiary/20">
+                                        IMAX 4K
+                                    </span>
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-semibold">
+                                        +14
+                                    </span>
+                                </div>
+                                <div
+                                    class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md flex items-center gap-0.5 text-tertiary font-label-sm text-label-sm font-bold">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    9.1
+                                </div>
+                            </div>
+                            <div class="p-space-sm flex flex-col flex-1 justify-between gap-space-sm">
+                                <div>
+                                    <h3
+                                        class="font-headline-sm text-headline-sm text-on-surface truncate group-hover:text-primary transition-colors">
+                                        Cyber Echo: Void</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant truncate">Cyberpunk /
+                                        Thriller • 2h 12m</p>
+                                </div>
+                                <div class="flex flex-col gap-space-xs">
+                                    <span
+                                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Horarios
+                                        Hoy</span>
+                                    <div class="flex flex-wrap gap-1">
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">16:30</button>
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">19:00</button>
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">21:45</button>
+                                    </div>
+                                </div>
+                                <button
+                                    class="w-full mt-1 py-2 rounded bg-surface-container-highest hover:bg-primary-container text-on-surface hover:text-on-primary-container font-label-md text-label-md uppercase tracking-wider transition-all duration-200"
+                                    type="button">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Card 2: Gladiador II -->
+                        <div
+                            class="group flex flex-col bg-surface-container rounded-lg overflow-hidden border border-white/5 hover:border-primary-container/60 hover:shadow-[0_0_24px_rgba(229,9,20,0.35)] transition-all duration-300">
+                            <div class="relative aspect-[2/3] w-full overflow-hidden bg-surface-container-lowest">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="A gritty cinematic epic poster of a gladiator in ancient Roman armor standing victorious in a sunlit dusty Colosseum arena with dramatic shadows and golden sunlight, hyper-detailed movie poster style."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRmEpZIlXwAMNg_1HONXUG9AwcdipQCcQCanAbdI2gEjYBt1uc_NBC7VY7FJmY0swNhx2gS6eA1RDH1S6LAAlqdhccSBvpQzr8pD2xEe75lJno-LuNXwiznWxMu8LnpuL3GHXiHi17F3MFT0OHnK_WVwCTtdO7JYV-jrRVRUEHiScV7ThMIjPwwDX9JinEOZ41bvf60Wi4b9xSJ0F8iprgtFgc_d1PLvsR74TRhzITEVdSQqRq1jccWA" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-60">
+                                </div>
+                                <div class="absolute top-2.5 left-2.5 flex flex-col gap-1">
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-primary font-label-sm text-label-sm uppercase font-bold tracking-wider border border-primary/20">
+                                        Dolby
+                                    </span>
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-semibold">
+                                        +16
+                                    </span>
+                                </div>
+                                <div
+                                    class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md flex items-center gap-0.5 text-tertiary font-label-sm text-label-sm font-bold">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    8.8
+                                </div>
+                            </div>
+                            <div class="p-space-sm flex flex-col flex-1 justify-between gap-space-sm">
+                                <div>
+                                    <h3
+                                        class="font-headline-sm text-headline-sm text-on-surface truncate group-hover:text-primary transition-colors">
+                                        Gladiador II</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant truncate">Acción / Épico
+                                    • 2h 28m</p>
+                                </div>
+                                <div class="flex flex-col gap-space-xs">
+                                    <span
+                                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Horarios
+                                        Hoy</span>
+                                    <div class="flex flex-wrap gap-1">
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">15:15</button>
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">18:40</button>
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">22:10</button>
+                                    </div>
+                                </div>
+                                <button
+                                    class="w-full mt-1 py-2 rounded bg-surface-container-highest hover:bg-primary-container text-on-surface hover:text-on-primary-container font-label-md text-label-md uppercase tracking-wider transition-all duration-200"
+                                    type="button">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Card 3: Interstellar Re-Release -->
+                        <div
+                            class="group flex flex-col bg-surface-container rounded-lg overflow-hidden border border-white/5 hover:border-primary-container/60 hover:shadow-[0_0_24px_rgba(229,9,20,0.35)] transition-all duration-300">
+                            <div class="relative aspect-[2/3] w-full overflow-hidden bg-surface-container-lowest">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="Stunning sci-fi space poster depicting an astronaut gazing into a luminous swirling gravitational black hole surrounded by celestial starlight and cosmic dust clouds, intense cinematic realism."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7v_kUbthwKxzc0_TzePVkjSW1iUQiCD7mjRAhPwui5wOsrR9YLXLlhLKcsEaFBCNfatoXBXlBNhVLlRM3Y8vKYQpIlM_qUEMpGzQTl9g2Iny2d8n6kqDcShseGNX9GaSxiKHjRy__oeVTvO-C3Sw6GpN3ewFPGJ4ypI9ADZmHbxaVbdHjDIIKVPYZAM0NJ080eTaLDIdFmHUAJLC4c39ZfBw4RIf0PICWLIUoHrjuE1BRwlzffSxKRQ" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-60">
+                                </div>
+                                <div class="absolute top-2.5 left-2.5 flex flex-col gap-1">
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-tertiary font-label-sm text-label-sm uppercase font-bold tracking-wider border border-tertiary/20">
+                                        IMAX 70mm
+                                    </span>
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-semibold">
+                                        TE+7
+                                    </span>
+                                </div>
+                                <div
+                                    class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md flex items-center gap-0.5 text-tertiary font-label-sm text-label-sm font-bold">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    9.6
+                                </div>
+                            </div>
+                            <div class="p-space-sm flex flex-col flex-1 justify-between gap-space-sm">
+                                <div>
+                                    <h3
+                                        class="font-headline-sm text-headline-sm text-on-surface truncate group-hover:text-primary transition-colors">
+                                        Interstellar</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant truncate">Sci-Fi / Drama
+                                        • 2h 49m</p>
+                                </div>
+                                <div class="flex flex-col gap-space-xs">
+                                    <span
+                                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Horarios
+                                        Hoy</span>
+                                    <div class="flex flex-wrap gap-1">
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">17:00</button>
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">20:30</button>
+                                    </div>
+                                </div>
+                                <button
+                                    class="w-full mt-1 py-2 rounded bg-surface-container-highest hover:bg-primary-container text-on-surface hover:text-on-primary-container font-label-md text-label-md uppercase tracking-wider transition-all duration-200"
+                                    type="button">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Card 4: Rohirrim -->
+                        <div
+                            class="group flex flex-col bg-surface-container rounded-lg overflow-hidden border border-white/5 hover:border-primary-container/60 hover:shadow-[0_0_24px_rgba(229,9,20,0.35)] transition-all duration-300">
+                            <div class="relative aspect-[2/3] w-full overflow-hidden bg-surface-container-lowest">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="Anime fantasy theatrical film poster showing ancient armored warrior riders charging on horseback across sweeping green mountain hills against a fiery sunset sky, Lord of the Rings aesthetic."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ2vUUbJtF2BADB35Adi_YUPDxZ9ComEJ_KwAyKVlp4wlYmS4nITCerSU-WoUWcd1LSMrpBojG2MmvsyAZWtzWQBMj_diaGHC7osTp-WcNujT8Ao1LUpOSpbSVTt9DBqG9e4SyXDqtZO_68YuCKB3t0RIYDL5l4qKL6ckydwIF7eerD8fnkjlhlLqadxWfukKwKDdyUonNeFw99_kRj6TohrnAH0THS_H3q01O1AJk7lFuH7cpuqHl6g" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-60">
+                                </div>
+                                <div class="absolute top-2.5 left-2.5 flex flex-col gap-1">
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm uppercase font-bold tracking-wider">
+                                        2D / 3D
+                                    </span>
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-semibold">
+                                        +14
+                                    </span>
+                                </div>
+                                <div
+                                    class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md flex items-center gap-0.5 text-tertiary font-label-sm text-label-sm font-bold">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    8.5
+                                </div>
+                            </div>
+                            <div class="p-space-sm flex flex-col flex-1 justify-between gap-space-sm">
+                                <div>
+                                    <h3
+                                        class="font-headline-sm text-headline-sm text-on-surface truncate group-hover:text-primary transition-colors">
+                                        Guerra de Rohirrim</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant truncate">Animación /
+                                    Fantasía • 2h 10m</p>
+                                </div>
+                                <div class="flex flex-col gap-space-xs">
+                                    <span
+                                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Horarios
+                                        Hoy</span>
+                                    <div class="flex flex-wrap gap-1">
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">14:00</button>
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">16:45</button>
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">19:30</button>
+                                    </div>
+                                </div>
+                                <button
+                                    class="w-full mt-1 py-2 rounded bg-surface-container-highest hover:bg-primary-container text-on-surface hover:text-on-primary-container font-label-md text-label-md uppercase tracking-wider transition-all duration-200"
+                                    type="button">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Card 5: Furiosa -->
+                        <div
+                            class="group flex flex-col bg-surface-container rounded-lg overflow-hidden border border-white/5 hover:border-primary-container/60 hover:shadow-[0_0_24px_rgba(229,9,20,0.35)] transition-all duration-300">
+                            <div class="relative aspect-[2/3] w-full overflow-hidden bg-surface-container-lowest">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="High-octane post-apocalyptic movie poster with a fierce road warrior character with black forehead war paint standing in front of roaring motorized desert war rigs, flames and orange dust."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZhx9Wsc-mUD_52nAiDAO0_qjoijGGgjajOsnkXCzMo8QmS8XsnJiPFrpEODxu5h9E6ypq3pCx27xUd7X7asVXIDft0tiBDJO9ZsV4-TWJmOu2lfioJwE0QINbkQwfnxjUznxggyr8CD_2smi1qSm_eyrljQeeWQaqWErttBCz2IAKbgBHT4dwhGJ0IAfwQeY_abJQS6-g8kf0O0gffG3KVpl3qJGtso9yZBH9KgRi8qjWWzdDiP_rkw" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-60">
+                                </div>
+                                <div class="absolute top-2.5 left-2.5 flex flex-col gap-1">
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-primary font-label-sm text-label-sm uppercase font-bold tracking-wider border border-primary/20">
+                                        4DX D-BOX
+                                    </span>
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-semibold">
+                                        +16
+                                    </span>
+                                </div>
+                                <div
+                                    class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md flex items-center gap-0.5 text-tertiary font-label-sm text-label-sm font-bold">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    8.9
+                                </div>
+                            </div>
+                            <div class="p-space-sm flex flex-col flex-1 justify-between gap-space-sm">
+                                <div>
+                                    <h3
+                                        class="font-headline-sm text-headline-sm text-on-surface truncate group-hover:text-primary transition-colors">
+                                        Furiosa: Mad Max</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant truncate">Acción /
+                                        Sci-Fi • 2h 28m</p>
+                                </div>
+                                <div class="flex flex-col gap-space-xs">
+                                    <span
+                                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Horarios
+                                        Hoy</span>
+                                    <div class="flex flex-wrap gap-1">
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">18:00</button>
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">21:15</button>
+                                    </div>
+                                </div>
+                                <button
+                                    class="w-full mt-1 py-2 rounded bg-surface-container-highest hover:bg-primary-container text-on-surface hover:text-on-primary-container font-label-md text-label-md uppercase tracking-wider transition-all duration-200"
+                                    type="button">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Card 6: Deadpool & Wolverine -->
+                        <div
+                            class="group flex flex-col bg-surface-container rounded-lg overflow-hidden border border-white/5 hover:border-primary-container/60 hover:shadow-[0_0_24px_rgba(229,9,20,0.35)] transition-all duration-300">
+                            <div class="relative aspect-[2/3] w-full overflow-hidden bg-surface-container-lowest">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="Dynamic superhero movie poster featuring two iconic comic book anti-heroes in red-and-black and yellow costumes clashing in high contrast cinematic sparks, explosive lighting style."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHI52XFE34lnuJPzEDi26rLpdbeNdxHv_XP6mzJDx4R9dCrt880Wf8G7L5PZRTJj9rxDPT9NRSd40H9HVSNt5OpjXvkM0TtNdJpx_prW8kEO4XJ7GP5BTy0vPQHcbfwW7QhGT2IndjIjG2vG7jv-c7_bSMajz5Rp2-j5tgPkAi8CBWG54d6gBn5PocZhUfAkp7YDvVCA1iki75f2EM6ROnqbASKKVRPqGt95bhuXaUCP74iC--zz1RHA" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-60">
+                                </div>
+                                <div class="absolute top-2.5 left-2.5 flex flex-col gap-1">
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-tertiary font-label-sm text-label-sm uppercase font-bold tracking-wider border border-tertiary/20">
+                                        Macro XE
+                                    </span>
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm font-semibold">
+                                        +16
+                                    </span>
+                                </div>
+                                <div
+                                    class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md flex items-center gap-0.5 text-tertiary font-label-sm text-label-sm font-bold">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        style="font-variation-settings: 'FILL' 1;">star</span>
+                                    8.7
+                                </div>
+                            </div>
+                            <div class="p-space-sm flex flex-col flex-1 justify-between gap-space-sm">
+                                <div>
+                                    <h3
+                                        class="font-headline-sm text-headline-sm text-on-surface truncate group-hover:text-primary transition-colors">
+                                        Deadpool &amp; Wolverine</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant truncate">Comedia /
+                                        Acción • 2h 08m</p>
+                                </div>
+                                <div class="flex flex-col gap-space-xs">
+                                    <span
+                                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Horarios
+                                        Hoy</span>
+                                    <div class="flex flex-wrap gap-1">
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">17:30</button>
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">20:10</button>
+                                        <button
+                                            class="px-2 py-1 rounded bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm transition-all"
+                                            type="button">22:45</button>
+                                    </div>
+                                </div>
+                                <button
+                                    class="w-full mt-1 py-2 rounded bg-surface-container-highest hover:bg-primary-container text-on-surface hover:text-on-primary-container font-label-md text-label-md uppercase tracking-wider transition-all duration-200"
+                                    type="button">
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SECCIÓN 3: PRÓXIMAMENTE (Fondo contrastado #0E1017 con patrón sutil) -->
+            <section class="w-full py-space-xl bg-surface-container-lowest relative overflow-hidden">
+                <!-- Subtle Pattern Overlay -->
+                <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+                    style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;">
+                </div>
+                <div
+                    class="absolute -right-24 top-0 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none">
+                </div>
+                <div class="relative z-10 w-full px-gutter-mobile lg:px-margin flex flex-col gap-space-lg">
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md border-b border-white/5 pb-space-md">
+                        <div class="flex items-center gap-space-sm">
+                            <div class="flex items-center gap-space-xs">
+                                <span
+                                    class="w-1.5 h-7 bg-tertiary rounded-full shadow-[0_0_12px_rgba(233,195,73,0.8)]"></span>
+                                <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-wider">
+                                    Próximamente</h2>
+                            </div>
+                            <span
+                                class="px-2.5 py-1 rounded-full bg-tertiary-container/30 border border-tertiary/30 text-tertiary font-label-sm text-label-sm uppercase font-bold tracking-wider">
+                                Preventa Disponible
+                            </span>
+                        </div>
+                        <div class="flex items-center gap-space-xs">
+                            <button
+                                class="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors"
+                                type="button">
+                                <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                            </button>
+                            <button
+                                class="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface flex items-center justify-center transition-colors"
+                                type="button">
+                                <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 4 Cards Carousel/Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                        <!-- Upcoming 1: Avatar -->
+                        <div
+                            class="group relative rounded-lg overflow-hidden bg-surface-container flex flex-col border border-white/5 hover:border-tertiary/40 transition-all duration-300">
+                            <div class="relative aspect-[16/10] overflow-hidden bg-surface-container-low">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="Bioluminescent alien volcanic landscape with ash particles and glowing ember creatures in the twilight sky from James Cameron sci-fi Avatar cinematic aesthetic."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsZCSoqOmNFFoDh_F01a9JW2itzSnMg46OsPb-BSLsND0lb685elA0Zic39FeMJt6NwqGvBG-J-PTmdOf20c-h2y69gzydSOvFU7kQbvcLELpDhQKXT6o54Ct6hFca923bhAtX1XajP7gZNxalEbuCVF4DhaHVEz5ORDxVOYYx3ic8DN9R6CuviR04sMH6DLRwLuC5wNbtWo5wCAdTk54YTki7OvSLK9ylgFLeImyU3hwB9X8BmsvLKA" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/30 to-transparent">
+                                </div>
+                                <span
+                                    class="absolute top-3 left-3 px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase font-bold tracking-wider shadow-md">
+                                    Preventa Activa
+                                </span>
+                            </div>
+                            <div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                                <div>
+                                    <span
+                                        class="text-tertiary font-label-md text-label-md uppercase tracking-wider font-semibold">19
+                                        Diciembre 2025</span>
+                                    <h3
+                                        class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary transition-colors mt-1">
+                                        Avatar: Fire and Ash</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">El
+                                        clan de las cenizas emerge en Pandora desafiando todo equilibrio natural.</p>
+                                </div>
+                                <div class="flex items-center gap-space-xs pt-space-xs border-t border-white/5">
+                                    <button
+                                        class="flex-1 py-2 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-1"
+                                        type="button">
+                                        <span class="material-symbols-outlined text-[16px]">play_circle</span>
+                                        Tráiler
+                                    </button>
+                                    <button
+                                        class="flex-1 py-2 rounded bg-tertiary-container/30 hover:bg-tertiary-container/50 border border-tertiary/40 text-tertiary font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-1"
+                                        type="button">
+                                        <span class="material-symbols-outlined text-[16px]">notifications</span>
+                                        Avisarme
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Upcoming 2: Tron: Ares -->
+                        <div
+                            class="group relative rounded-lg overflow-hidden bg-surface-container flex flex-col border border-white/5 hover:border-tertiary/40 transition-all duration-300">
+                            <div class="relative aspect-[16/10] overflow-hidden bg-surface-container-low">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="High-tech digital cyberspace grid with glowing red light cycle trails speed racers in glossy dark neon digital environment, futuristic Tron Ares visual style."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuUXzAmpKhYnPZywpqVQX7vH2mpmw1scEDQE-vzE4Wb0O2KgsSZOoREkwSu-1-c2-QRJbBl6lZW16cJeuK96lYhK4upSf64TNrNDvlJu5eXYXhzZapFAU1D3s0S8VwrFTX6AEgQ6OI028UAmZtM0Ght_b2zPLB_mEjbiMxpR_unvL_vWH9WC5gWGHsQUKEJHpjFafW4LnnkevtQF9X8FycnsVNxU32jfmsmnSlZndTZLoAbZ75e5sAag" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/30 to-transparent">
+                                </div>
+                                <span
+                                    class="absolute top-3 left-3 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm uppercase font-bold tracking-wider">
+                                    Tráiler Disponible
+                                </span>
+                            </div>
+                            <div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                                <div>
+                                    <span
+                                        class="text-tertiary font-label-md text-label-md uppercase tracking-wider font-semibold">10
+                                        Octubre 2025</span>
+                                    <h3
+                                        class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary transition-colors mt-1">
+                                        Tron: Ares</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Un
+                                        sofisticado programa digital cruza hacia el mundo real con consecuencias
+                                        irreversibles.</p>
+                                </div>
+                                <div class="flex items-center gap-space-xs pt-space-xs border-t border-white/5">
+                                    <button
+                                        class="flex-1 py-2 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-1"
+                                        type="button">
+                                        <span class="material-symbols-outlined text-[16px]">play_circle</span>
+                                        Tráiler
+                                    </button>
+                                    <button
+                                        class="flex-1 py-2 rounded bg-tertiary-container/30 hover:bg-tertiary-container/50 border border-tertiary/40 text-tertiary font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-1"
+                                        type="button">
+                                        <span class="material-symbols-outlined text-[16px]">notifications</span>
+                                        Avisarme
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Upcoming 3: Superman: Legacy -->
+                        <div
+                            class="group relative rounded-lg overflow-hidden bg-surface-container flex flex-col border border-white/5 hover:border-tertiary/40 transition-all duration-300">
+                            <div class="relative aspect-[16/10] overflow-hidden bg-surface-container-low">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="Cinematic shot of a hero soaring through the clouds towards the stratosphere with solar flare light reflecting off a vibrant red and blue crest, uplifting comic realism."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_hly03SSqM12NMaay4ihUJj9HOseU1CY8Z-Aq333Sv6rOomrQMEdJJtChyQjl0EyPu1qnpV7hSuGInXu9ZSWCYMebMNigGH9O_CYdVwX4_zO1QquHi-iU_k2aQvB2PJdcD916_a-z6ir9YTIN2RoNe2ssVSGXT7UyS1GJyJ6culQQROfXcjUOGBDSI5k_6GmTresmZUk_RV7XVoM1-TP2xNlCHTWI9-OIoZslfBOTixRsZfth5eCY6Q" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/30 to-transparent">
+                                </div>
+                                <span
+                                    class="absolute top-3 left-3 px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary font-label-sm text-label-sm uppercase font-bold tracking-wider">
+                                    Exclusivo IMAX
+                                </span>
+                            </div>
+                            <div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                                <div>
+                                    <span
+                                        class="text-tertiary font-label-md text-label-md uppercase tracking-wider font-semibold">11
+                                        Julio 2025</span>
+                                    <h3
+                                        class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary transition-colors mt-1">
+                                        Superman: Legacy</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">El
+                                        nuevo amanecer del héroe más legendario en una escala colosal para salas IMAX.
+                                    </p>
+                                </div>
+                                <div class="flex items-center gap-space-xs pt-space-xs border-t border-white/5">
+                                    <button
+                                        class="flex-1 py-2 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-1"
+                                        type="button">
+                                        <span class="material-symbols-outlined text-[16px]">play_circle</span>
+                                        Tráiler
+                                    </button>
+                                    <button
+                                        class="flex-1 py-2 rounded bg-tertiary-container/30 hover:bg-tertiary-container/50 border border-tertiary/40 text-tertiary font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-1"
+                                        type="button">
+                                        <span class="material-symbols-outlined text-[16px]">notifications</span>
+                                        Avisarme
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Upcoming 4: Mickey 17 -->
+                        <div
+                            class="group relative rounded-lg overflow-hidden bg-surface-container flex flex-col border border-white/5 hover:border-tertiary/40 transition-all duration-300">
+                            <div class="relative aspect-[16/10] overflow-hidden bg-surface-container-low">
+                                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="Chilling deep space sci-fi interior with sterile cryogenic cloning pods and eerie blue lighting in an isolated interstellar expedition base station."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSg5kQLWAecZF9ft-I5gTDhx6lUSn5cCASZ_gD3CNw9Eoex-GKqcIaPGa43kN9tuIPX7lcHAA3CspilnibkMTwfkVwvZdayg0oXfWnEajZW8qqPzJYr6RBFZ1jDNWWvERVetmz5wBlJ5QgoBDmJUH7lr3UpwgbJ0RAsfhDxTzZmegb8-ItHmIbAo-Z8vAyOB5vkXp6ZD3BsPGeUdLB5YIiJ-R8zf3k265WEN6qi9iD1LaiWkwZ0AEG0A" />
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/30 to-transparent">
+                                </div>
+                                <span
+                                    class="absolute top-3 left-3 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md text-on-surface font-label-sm text-label-sm uppercase font-bold tracking-wider">
+                                    Preventa Próxima
+                                </span>
+                            </div>
+                            <div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                                <div>
+                                    <span
+                                        class="text-tertiary font-label-md text-label-md uppercase tracking-wider font-semibold">28
+                                        Marzo 2025</span>
+                                    <h3
+                                        class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary transition-colors mt-1">
+                                        Mickey 17</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                                        Dirigida por Bong Joon Ho. Un empleado desechable es enviado a colonizar el
+                                        mundo de hielo.</p>
+                                </div>
+                                <div class="flex items-center gap-space-xs pt-space-xs border-t border-white/5">
+                                    <button
+                                        class="flex-1 py-2 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-1"
+                                        type="button">
+                                        <span class="material-symbols-outlined text-[16px]">play_circle</span>
+                                        Tráiler
+                                    </button>
+                                    <button
+                                        class="flex-1 py-2 rounded bg-tertiary-container/30 hover:bg-tertiary-container/50 border border-tertiary/40 text-tertiary font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-1"
+                                        type="button">
+                                        <span class="material-symbols-outlined text-[16px]">notifications</span>
+                                        Avisarme
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SECCIÓN 4: PROMOCIONES DESTACADAS -->
+            <section class="w-full py-space-xl relative">
+                <div class="w-full px-gutter-mobile lg:px-margin flex flex-col gap-space-lg">
+                    <div class="flex items-center justify-between border-b border-white/5 pb-space-md">
+                        <div class="flex items-center gap-space-xs">
+                            <span
+                                class="w-1.5 h-7 bg-primary-container rounded-full shadow-[0_0_12px_rgba(229,9,20,0.8)]"></span>
+                            <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-wider">
+                                Promociones</h2>
+                        </div>
+                        <a class="inline-flex items-center gap-1 font-label-lg text-label-lg text-primary hover:text-on-primary-container transition-all"
+                            href="#">
+                            Ver todas las promociones
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </div>
+                    <!-- 2-Column Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+                        <!-- Promo 1: Miércoles 2x1 -->
+                        <div
+                            class="relative overflow-hidden rounded-xl bg-gradient-to-br from-surface-container to-surface-container-low border border-white/5 p-space-lg flex flex-col sm:flex-row items-center gap-space-lg group hover:border-primary-container/40 transition-all duration-300">
+                            <div
+                                class="absolute -top-12 -left-12 w-48 h-48 bg-primary-container/15 rounded-full blur-2xl pointer-events-none">
+                            </div>
+                            <div
+                                class="w-full sm:w-44 h-44 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 relative overflow-hidden border border-white/5 shadow-inner">
+                                <!-- Inline SVG Cinema Tickets Graphic -->
+                                <svg class="w-28 h-28 text-primary" fill="none" stroke="currentColor"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    viewbox="0 0 24 24">
+                                    <path
+                                        d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"
+                                        fill="currentColor" fill-opacity="0.12"></path>
+                                    <path d="M13 5v2"></path>
+                                    <path d="M13 17v2"></path>
+                                    <path d="M13 11v2"></path>
+                                    <path d="M9 12h.01"></path>
+                                </svg>
+                                <div
+                                    class="absolute bottom-2 px-2 py-0.5 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase font-bold">
+                                    2x1 TODO EL DÍA
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-space-xs text-center sm:text-left">
+                                <div class="flex items-center justify-center sm:justify-start gap-space-xs">
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-secondary-container/30 text-secondary font-label-sm text-label-sm uppercase font-bold tracking-wider">
+                                        Ahorra 50%
+                                    </span>
+                                    <span class="text-on-surface-variant font-label-sm text-label-sm">Válido en Salas 2D
+                                        y Macro</span>
+                                </div>
+                                <h3 class="font-headline-md text-headline-md text-on-surface">Miércoles 2x1 en Todas las
+                                    Salas</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                    Disfruta el doble de cine al mejor precio. Válido para socios Club CineMax y público
+                                    general en compras por web o app.
+                                </p>
+                                <div class="pt-space-xs">
+                                    <button
+                                        class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-secondary-container text-on-primary-container font-label-md text-label-md uppercase tracking-wider transition-all shadow-[0_0_16px_rgba(229,9,20,0.4)]"
+                                        type="button">
+                                        Aprovechar Promo
+                                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Promo 2: Combo Pareja -->
+                        <div
+                            class="relative overflow-hidden rounded-xl bg-gradient-to-br from-surface-container to-surface-container-low border border-white/5 p-space-lg flex flex-col sm:flex-row items-center gap-space-lg group hover:border-tertiary/40 transition-all duration-300">
+                            <div
+                                class="absolute -top-12 -left-12 w-48 h-48 bg-tertiary/15 rounded-full blur-2xl pointer-events-none">
+                            </div>
+                            <div
+                                class="w-full sm:w-44 h-44 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 relative overflow-hidden border border-white/5 shadow-inner">
+                                <!-- Inline SVG Popcorn & Soda Graphic -->
+                                <svg class="w-28 h-28 text-tertiary" fill="none" stroke="currentColor"
+                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    viewbox="0 0 24 24">
+                                    <path d="M7 10h10l-1.2 11H8.2L7 10Z" fill="currentColor" fill-opacity="0.12"></path>
+                                    <path d="M7 10a2.5 2.5 0 0 1 5 0"></path>
+                                    <path d="M12 10a2.5 2.5 0 0 1 5 0"></path>
+                                    <path
+                                        d="M5 8a2 2 0 0 1 3-1.7A2.5 2.5 0 0 1 12 5a2.5 2.5 0 0 1 4 1.3A2 2 0 0 1 19 8">
+                                    </path>
+                                </svg>
+                                <div
+                                    class="absolute bottom-2 px-2 py-0.5 rounded bg-tertiary text-on-tertiary font-label-sm text-label-sm uppercase font-bold">
+                                    Más Vendido
+                                </div>
+                            </div>
+                            <div class="flex flex-col flex-1 gap-space-xs text-center sm:text-left">
+                                <div class="flex items-center justify-center sm:justify-start gap-space-xs">
+                                    <span
+                                        class="px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm uppercase font-bold tracking-wider">
+                                        Combo Especial
+                                    </span>
+                                    <span class="text-on-surface-variant font-label-sm text-label-sm">Incluye 2 Boletos
+                                        2D</span>
+                                </div>
+                                <h3 class="font-headline-md text-headline-md text-on-surface">Combo Pareja CineMax + 2
+                                    Boletos</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant">
+                                    Popcorn gigante con mantequilla artesanal + 2 bebidas grandes de 32oz + 2 entradas
+                                    generales a precio irrepetible.
+                                </p>
+                                <div class="pt-space-xs">
+                                    <button
+                                        class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-tertiary hover:bg-tertiary-fixed text-on-tertiary font-label-md text-label-md uppercase tracking-wider transition-all shadow-[0_0_16px_rgba(233,195,73,0.35)] font-bold"
+                                        type="button">
+                                        Ver Detalle y Canjear
+                                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SECCIÓN 5: EXPERIENCIA CINE & CLUB CINEMAX -->
+            <section class="w-full py-space-xl bg-surface-container-low relative">
+                <div class="w-full px-gutter-mobile lg:px-margin flex flex-col gap-space-xl">
+                    <!-- Subsection: 4 Tech Pillars -->
+                    <div class="flex flex-col gap-space-lg">
+                        <div class="text-center max-w-2xl mx-auto flex flex-col gap-space-xs">
+                            <span
+                                class="font-label-md text-label-md uppercase tracking-widest text-primary font-bold">Tecnología
+                                de Punta</span>
+                            <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface">La Experiencia
+                                Definitiva</h2>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Nuestras salas fueron diseñadas desde los cimientos para sumergirte en el sonido y la
+                                imagen más puros del mundo.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+                            <!-- Pillar 1 -->
+                            <div
+                                class="group p-space-lg rounded-xl bg-surface-container hover:bg-surface-container-high border border-white/5 hover:border-primary/40 transition-all duration-300 flex flex-col gap-space-sm">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-3xl">videocam</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Salas 4K Láser</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Proyección con nitidez extrema, contrastes astronómicos y colores hiperrealistas
+                                    calibrados a estándares cinematográficos.
+                                </p>
+                            </div>
+                            <!-- Pillar 2 -->
+                            <div
+                                class="group p-space-lg rounded-xl bg-surface-container hover:bg-surface-container-high border border-white/5 hover:border-primary/40 transition-all duration-300 flex flex-col gap-space-sm">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-3xl">surround_sound</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Sonido Dolby Atmos</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Audio tridimensional de 64 canales que se desplaza alrededor y por encima de ti con
+                                    una precisión milimétrica.
+                                </p>
+                            </div>
+                            <!-- Pillar 3 -->
+                            <div
+                                class="group p-space-lg rounded-xl bg-surface-container hover:bg-surface-container-high border border-white/5 hover:border-tertiary/40 transition-all duration-300 flex flex-col gap-space-sm">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-tertiary-container/20 text-tertiary flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-3xl">airline_seat_recline_extra</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Butacas Reclinables</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Asientos ergonómicos motorizados tapizados en cuero premium con posavasos térmico y
+                                    cargador inalámbrico integrado.
+                                </p>
+                            </div>
+                            <!-- Pillar 4 -->
+                            <div
+                                class="group p-space-lg rounded-xl bg-surface-container hover:bg-surface-container-high border border-white/5 hover:border-tertiary/40 transition-all duration-300 flex flex-col gap-space-sm">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-tertiary-container/20 text-tertiary flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-3xl">restaurant</span>
+                                </div>
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface">Dulcería Gourmet</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Popcorn artesanal, nachos con dip de queso trufado, cócteles de autor y servicio de
+                                    entrega directa a tu butaca.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Subsection: Banner de fidelización "Club CineMax" -->
+                    <div
+                        class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-surface-container-lowest via-surface-container to-surface-container-lowest border border-white/10 p-space-xl shadow-2xl">
+                        <!-- Ambient Glow Elements -->
+                        <div
+                            class="absolute -right-16 -top-16 w-80 h-80 bg-primary-container/20 rounded-full blur-3xl pointer-events-none">
+                        </div>
+                        <div
+                            class="absolute -left-16 -bottom-16 w-80 h-80 bg-tertiary/15 rounded-full blur-3xl pointer-events-none">
+                        </div>
+                        <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-space-xl">
+                            <div class="flex flex-col gap-space-sm text-center lg:text-left max-w-2xl">
+                                <div
+                                    class="inline-flex items-center gap-space-xs self-center lg:self-start px-space-md py-1 rounded-full bg-tertiary-container/20 border border-tertiary/40">
+                                    <span
+                                        class="material-symbols-outlined text-tertiary text-[18px]">workspace_premium</span>
+                                    <span
+                                        class="font-label-sm text-label-sm uppercase font-bold tracking-widest text-tertiary">Membresía
+                                        Exclusiva</span>
+                                </div>
+                                <h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-wider">
+                                    Únete a <span class="text-primary-container">Club CineMax</span> y vive el cine al
+                                    máximo
+                                </h2>
+                                <p class="font-body-lg text-body-lg text-on-surface-variant">
+                                    Acumula puntos por cada compra, recibe entradas de cortesía en el mes de tu
+                                    cumpleaños, accede a preventas con 48 horas de anticipación y disfruta descuentos
+                                    VIP en confitería.
+                                </p>
+                                <div
+                                    class="flex flex-wrap items-center justify-center lg:justify-start gap-space-md pt-space-xs text-on-surface font-body-sm text-body-sm">
+                                    <div class="flex items-center gap-1.5">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        <span>Registro 100% gratuito</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        <span>Puntos canjeables por combos</span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        <span>Preventas secretas</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-center gap-space-md shrink-0">
+                                <button
+                                    class="px-space-xl py-space-md rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-primary-container bg-primary-container hover:bg-secondary-container transition-all duration-300 shadow-[0_0_24px_rgba(229,9,20,0.5)] hover:scale-105 active:scale-95"
+                                    type="button">
+                                    Únete al Club Gratis
+                                </button>
+                                <button
+                                    class="px-space-lg py-space-md rounded-lg font-label-lg text-label-lg uppercase tracking-wider text-on-surface bg-surface-container-high/80 hover:bg-surface-container-highest border border-white/10 transition-all duration-200"
+                                    type="button">
+                                    Conocer Beneficios
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script>
+            // Simple micro-interaction for filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => {
+                        b.classList.remove('bg-primary-container', 'text-on-primary-container');
+                        b.classList.add('text-on-surface-variant');
+                    });
+                    btn.classList.add('bg-primary-container', 'text-on-primary-container');
+                    btn.classList.remove('text-on-surface-variant');
+                });
+            });
+        </script>
+    </main>
+    <footer class="w-full bg-surface-container-lowest text-on-surface-variant pt-space-xl pb-space-lg">
+        <div class="w-full px-gutter-mobile lg:px-margin">
+            <div class="pb-space-xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg">
+                <div class="flex flex-col gap-space-xs max-w-lg">
+                    <div class="flex items-center gap-space-sm"><img alt="CineMax Logo"
+                            class="h-8 w-auto object-contain"
+                            src="https://lh3.googleusercontent.com/aida/AEtjO1U-ChJ24y-BhSftUAknC_52GDNGZ7d7aoWmLu6V0Jxgvc-FVWfcNqVkgdZma_MzvMzDqaHcCg72MW1u_QAXWrBRCKzCZr6XxNP88h3WWpAbmEIgAxIcICa3clcsxw3BLxCzc8P7c4QL8YjuZzTd6A7B_nefZge8X6EZXfqQwl3jXscM_RKZz8Wvzq-HxPbagqh3LKZNYEzs9VKD7fDM48pxd15Lmoxh-W7FSSTpzy5CO53mZgeDLLPlGntz" /><span
+                            class="font-headline-lg text-headline-lg tracking-wider text-on-surface uppercase">Cine<span
+                                class="text-primary-container">Max</span></span></div>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Recibe estrenos exclusivos, preventas y
+                        promociones cinematográficas directo en tu correo.</p>
+                </div>
+                <div class="w-full lg:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-space-xs">
+                    <input
+                        class="bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm px-space-md py-space-sm rounded-lg outline-none focus:ring-1 focus:ring-primary-container w-full sm:w-80 transition-all"
+                        placeholder="Ingresa tu correo electrónico" type="email" /><button
+                        class="bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase px-space-lg py-space-sm rounded-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all shrink-0"
+                        type="button">Suscribirse</button>
+                </div>
+                <div class="flex items-center gap-space-sm"><a aria-label="Instagram"
+                        class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all"
+                        href="#"><span class="material-symbols-outlined text-[20px]">camera</span></a><a
+                        aria-label="TikTok"
+                        class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all"
+                        href="#"><span class="material-symbols-outlined text-[20px]">music_note</span></a><a
+                        aria-label="YouTube"
+                        class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all"
+                        href="#"><span class="material-symbols-outlined text-[20px]">play_circle</span></a><a
+                        aria-label="X"
+                        class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all"
+                        href="#"><span class="material-symbols-outlined text-[20px]">tag</span></a></div>
+            </div>
+            <div class="py-space-xl grid grid-cols-2 md:grid-cols-4 gap-space-lg">
+                <div class="flex flex-col gap-space-sm"><span
+                        class="font-headline-sm text-headline-sm text-on-surface tracking-wide uppercase">Películas</span>
+                    <div class="flex flex-col gap-space-xs font-body-sm text-body-sm"><a
+                            class="hover:text-on-surface transition-colors" data-path="cartelera" href="#">En
+                            Cartelera</a><a class="hover:text-on-surface transition-colors" data-path="cartelera"
+                            href="#">Próximamente</a><a class="hover:text-on-surface transition-colors"
+                            data-path="cartelera" href="#">Preventas</a><a
+                            class="hover:text-on-surface transition-colors" data-path="cartelera" href="#">Salas VIP /
+                            IMAX</a></div>
+                </div>
+                <div class="flex flex-col gap-space-sm"><span
+                        class="font-headline-sm text-headline-sm text-on-surface tracking-wide uppercase">Experiencia</span>
+                    <div class="flex flex-col gap-space-xs font-body-sm text-body-sm"><a
+                            class="hover:text-on-surface transition-colors" data-path="contacto" href="#">Dolby
+                            Atmos</a><a class="hover:text-on-surface transition-colors" data-path="contacto"
+                            href="#">Láser 4K</a><a class="hover:text-on-surface transition-colors" data-path="contacto"
+                            href="#">Butacas D-Box</a><a class="hover:text-on-surface transition-colors"
+                            data-path="confiteria" href="#">Menú Gourmet</a></div>
+                </div>
+                <div class="flex flex-col gap-space-sm"><span
+                        class="font-headline-sm text-headline-sm text-on-surface tracking-wide uppercase">Beneficios</span>
+                    <div class="flex flex-col gap-space-xs font-body-sm text-body-sm"><a
+                            class="hover:text-on-surface transition-colors" data-path="promociones" href="#">Club
+                            CineMax</a><a class="hover:text-on-surface transition-colors" data-path="promociones"
+                            href="#">Tarjeta Regalo</a><a class="hover:text-on-surface transition-colors"
+                            data-path="promociones" href="#">Promociones 2x1</a></div>
+                </div>
+                <div class="flex flex-col gap-space-sm"><span
+                        class="font-headline-sm text-headline-sm text-on-surface tracking-wide uppercase">Corporativo</span>
+                    <div class="flex flex-col gap-space-xs font-body-sm text-body-sm"><a
+                            class="hover:text-on-surface transition-colors" data-path="contacto" href="#">Términos y
+                            Condiciones</a><a class="hover:text-on-surface transition-colors" data-path="contacto"
+                            href="#">Privacidad</a><a class="hover:text-on-surface transition-colors"
+                            data-path="contacto" href="#">Trabaja con nosotros</a><a
+                            class="hover:text-on-surface transition-colors" data-path="contacto" href="#">Libro de
+                            reclamaciones</a></div>
+                </div>
+            </div>
+            <div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md">
+                <p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">© 2025 CineMax
+                    Corporation. Todos los derechos reservados.</p>
+                <div class="flex items-center gap-space-md text-on-surface-variant"><span
+                        class="material-symbols-outlined text-2xl hover:text-on-surface transition-colors"
+                        title="Pago Seguro SSL">verified_user</span><span
+                        class="material-symbols-outlined text-2xl hover:text-on-surface transition-colors"
+                        title="Tarjeta de Crédito / Débito">credit_card</span><span
+                        class="material-symbols-outlined text-2xl hover:text-on-surface transition-colors"
+                        title="Billetera Digital">contactless</span><span
+                        class="material-symbols-outlined text-2xl hover:text-on-surface transition-colors"
+                        title="Cine Protegido">shield</span></div>
+            </div>
+        </div>
+    </footer>
+    <script>const header = document.getElementById('main-header'); const toggleBtn = document.getElementById('mobile-menu-btn'); const mobileNav = document.getElementById('mobile-nav-panel'); if (header) { window.addEventListener('scroll', () => { if (window.scrollY > 20) { header.classList.add('bg-surface-container-lowest/90', 'backdrop-blur-md', 'shadow-[0_4px_20px_rgba(0,0,0,0.6)]'); header.classList.remove('bg-transparent'); } else { header.classList.remove('bg-surface-container-lowest/90', 'backdrop-blur-md', 'shadow-[0_4px_20px_rgba(0,0,0,0.6)]'); header.classList.add('bg-transparent'); } }); } if (toggleBtn && mobileNav) { toggleBtn.addEventListener('click', () => { mobileNav.classList.toggle('hidden'); }); }</script>
+</body>
+
+</html>

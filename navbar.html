@@ -1,0 +1,69 @@
+<header class="fixed-top transition-all" id="main-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-cm-surface-transparent py-3 px-3 px-lg-5">
+        <div class="container-fluid p-0 d-flex align-items-center justify-content-between">
+
+            <!-- BRANDING (Logo SVG + Nombre CinePrime) -->
+            <a class="navbar-brand d-flex align-items-center gap-2 m-0 text-decoration-none" href="index.html">
+                <img src="img/icono-logo.svg" alt="CinePrime Logo" class="brand-logo-img">
+                <span
+                    class="fw-bold font-headline-lg tracking-wider text-cm-on-surface text-uppercase d-none d-sm-inline-block m-0">
+                    CINE<span class="text-cm-primary-container">PRIME</span>
+                </span>
+            </a>
+
+            <!-- NAVEGACIÓN DESKTOP (Menú Central Flotante) -->
+            <div class="d-none d-lg-flex align-items-center gap-1 nav-pill-container p-1 rounded-3"
+                id="nav-links-desktop">
+                <a class="nav-link-custom" href="index.html">Inicio</a>
+                <a class="nav-link-custom" href="cartelera.html">Cartelera</a>
+                <a class="nav-link-custom" href="confiteria.html">Confitería</a>
+                <a class="nav-link-custom" href="promociones.html">Promociones</a>
+                <a class="nav-link-custom" href="contacto.html">Contacto</a>
+            </div>
+
+            <!-- ACCIONES Y BOTÓN MENÚ MÓVIL (Derecha) -->
+            <div class="d-flex align-items-center gap-2 gap-sm-3">
+                <button class="btn btn-cm-icon d-flex align-items-center justify-content-center" title="Buscar Película"
+                    type="button">
+                    <span class="material-symbols-outlined text-cm-variant">search</span>
+                </button>
+
+                <a href="login.html"
+                    class="btn btn-cm-primary font-label-lg text-uppercase tracking-wider rounded-3 px-3 py-2 d-none d-sm-inline-flex align-items-center gap-2">
+                    <span class="material-symbols-outlined fs-5">person</span>
+                    <span class="">Ingresar</span>
+                </a>
+
+                <div class="user-avatar-circle d-flex d-sm-none align-items-center justify-content-center shrink-0">
+                    <span class="material-symbols-outlined text-cm-on-primary">person</span>
+                </div>
+
+                <button class="btn p-1 text-cm-variant d-lg-none border-0" id="mobile-menu-btn" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#mobile-nav-panel" aria-controls="mobile-nav-panel"
+                    aria-expanded="false" aria-label="Menú">
+                    <span class="material-symbols-outlined fs-2">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MENÚ MÓVIL DESPLEGABLE -->
+    <div class="collapse d-lg-none w-full bg-cm-mobile-panel border-bottom border-secondary border-opacity-10 px-4 py-3 shadow-lg"
+        id="mobile-nav-panel">
+        <nav class="d-flex flex-column gap-2" id="nav-links-mobile">
+            <a class="mobile-nav-link" href="index.html">Inicio</a>
+            <a class="mobile-nav-link" href="cartelera.html">Cartelera</a>
+            <a class="mobile-nav-link" href="confiteria.html">Confitería</a>
+            <a class="mobile-nav-link" href="promociones.html">Promociones</a>
+            <a class="mobile-nav-link" href="contacto.html">Contacto</a>
+
+            <div class="pt-2 d-sm-none">
+                <a class="btn btn-cm-primary w-100 font-label-lg text-uppercase tracking-wider rounded-3 py-2 d-flex align-items-center justify-content-center gap-2"
+                    href="login.html">
+                    <span class="material-symbols-outlined fs-5">person</span>
+                    <span class="fw-bold">Ingresar</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
