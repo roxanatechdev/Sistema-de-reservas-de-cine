@@ -1,0 +1,447 @@
+body {
+    background-color: var(--cm-surface-container-low);
+}
+
+.navbar {
+    padding-block: 0.5rem !important;
+}
+
+/* ==========================================================================
+   CINEMAX - HERO SECTION CONFITERÍA (CUSTOM STYLES)
+   ========================================================================== */
+
+/* Badges y Micros-etiquetas */
+.badge-hero-promo {
+    background-color: var(--cm-surface-container-high);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+    color: var(--cm-tertiary);
+}
+
+.pulsing-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--cm-secondary);
+    border-radius: 50%;
+    animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+}
+
+/* Tipografía de Título Hero con Gradiente */
+
+.hero-title-gradient {
+    background: linear-gradient(90deg, var(--cm-on-surface) 0%, var(--cm-primary-container) 50%, var(--cm-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Value Props / Pills */
+.value-prop-pill {
+    background-color: var(--cm-surface-container);
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.value-prop-pill:hover {
+    background-color: var(--cm-surface-container-high);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Tarjeta Selector de Cine (Glassmorphism) */
+.glass-card-hero {
+    background-color: rgba(29, 31, 41, 0.85);
+    /* var(--cm-surface-container) + Alpha */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Resplandor Ambiental Interno */
+.hero-card-glow {
+    position: absolute;
+    top: -2.5rem;
+    right: -2.5rem;
+    width: 8rem;
+    height: 8rem;
+    background-color: rgba(229, 9, 20, 0.2);
+    /* var(--cm-primary-container) opacity */
+    border-radius: 50%;
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+/* Conmutador de Retiro (Tab Switcher) */
+.delivery-tab-container {
+    background-color: var(--cm-surface-container-lowest);
+}
+
+.delivery-tab-btn {
+    border: none;
+    background: transparent;
+    color: rgba(225, 225, 239, 0.7);
+    transition: all 0.2s ease;
+}
+
+.delivery-tab-btn.active {
+    background-color: var(--cm-surface-container);
+    color: var(--cm-on-surface);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.delivery-tab-btn:hover:not(.active) {
+    color: var(--cm-on-surface);
+}
+
+/* Iconos de Material Symbols */
+.material-symbols-outlined {
+    vertical-align: middle;
+}
+
+
+/* Botón Selector de Cine */
+.btn-cinema-selector {
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-cinema-selector:hover,
+.btn-cinema-selector:focus {
+    background-color: var(--cm-surface-container-high);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.btn-cinema-selector[aria-expanded="true"] .transition-transform {
+    transform: rotate(180deg);
+}
+
+/* Menú desplegable flotante para cines */
+.dropdown-cinema-menu {
+    background-color: var(--cm-surface-container-high);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    z-index: 1050 !important;
+
+    /* Control de Scroll e Inserción limpia */
+    max-height: 210px;
+    /* Ajusta la altura máxima según cuántas opciones quieras ver a la vez */
+    overflow-y: auto;
+    /* Habilita el scroll interno */
+    overflow-x: hidden;
+}
+
+/* Personalización del Scrollbar dentro del Dropdown */
+.dropdown-cinema-menu::-webkit-scrollbar {
+    width: 5px;
+    display: block;
+    /* Muestra una barra minimalista sólo en el dropdown */
+}
+
+.dropdown-cinema-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+}
+
+.dropdown-cinema-menu::-webkit-scrollbar-thumb {
+    background: var(--cm-surface-container-highest);
+    border-radius: 4px;
+}
+
+.dropdown-cinema-menu::-webkit-scrollbar-thumb:hover {
+    background: var(--cm-primary-container);
+}
+
+/* Evita que la tarjeta corte el menú flotante en caso de desbordamiento */
+.glass-card-hero {
+    overflow: visible !important;
+    /* Permite que el dropdown salga del límite de la tarjeta si es necesario */
+}
+
+.dropdown-cinema-menu .dropdown-item {
+    color: var(--cm-on-surface);
+}
+
+.dropdown-cinema-menu .dropdown-item:hover {
+    background-color: var(--cm-surface-container-highest);
+    color: var(--cm-on-surface);
+}
+
+.dropdown-cinema-menu .dropdown-item.active {
+    background-color: rgba(229, 9, 20, 0.15);
+    /* Tono rojo suave CinePrime */
+    color: var(--cm-on-surface);
+}
+
+/* ==========================================================================
+   CINEPRIME - PROMO HIGHLIGHT BANNER (IMAGEN DE FONDO + GRADIENTE)
+   ========================================================================== */
+
+/* Resplandor Ambiental de Fondo */
+.promo-ambient-light {
+    position: absolute;
+    right: -5rem;
+    bottom: -5rem;
+    width: 24rem;
+    height: 24rem;
+    background-color: rgba(229, 9, 20, 0.15);
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+/* Columna Derecha con Imagen de Fondo + Gradiente Fusionado */
+.promo-visual-bg {
+    min-height: 280px;
+    /* Altura mínima para pantallas móviles (donde se pone abajo) */
+    width: 100%;
+    height: 100%;
+    background-color: var(--cm-surface-container);
+    /* Capa 1 (arriba): Gradiente de fusión oscuro hacia transparente */
+    /* Capa 2 (abajo): Imagen promocional */
+    background-image:
+        linear-gradient(to top, var(--cm-surface-container-low) 0%, rgba(20, 22, 33, 0.4) 60%, transparent 100%),
+        url('https://lh3.googleusercontent.com/aida-public/AB6AXuC61i90td3_Thz_kB5EPQWZkJeCcezBpoB_4aq-sOjamn8ShgvigUdBQTHyWlS_Z5FTz784iRzd_Fg7E6sxGIOCh0L12EEdLWRsJFEt5ma4-tAWilM7RbLnoE8PWkK-S8CNT666OttJTCk3MzvjUMeWO3rZ6XReNVnCIpOuSfuBVzsNXEdUIXf1dBkjjlAFATkfJtxZiauSsAt1TT1aZrYoh-yFypdOcMnSsXr03RaCDFskosqN9FQ');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Cambia la dirección del gradiente en pantallas grandes (Desktop) */
+@media (min-width: 992px) {
+    .promo-visual-bg {
+        min-height: 100%;
+        /* Asegura el stretch completo en desktop */
+        background-image:
+            linear-gradient(to right, var(--cm-surface-container-low) 0%, rgba(20, 22, 33, 0.3) 60%, transparent 100%),
+            url('https://lh3.googleusercontent.com/aida-public/AB6AXuC61i90td3_Thz_kB5EPQWZkJeCcezBpoB_4aq-sOjamn8ShgvigUdBQTHyWlS_Z5FTz784iRzd_Fg7E6sxGIOCh0L12EEdLWRsJFEt5ma4-tAWilM7RbLnoE8PWkK-S8CNT666OttJTCk3MzvjUMeWO3rZ6XReNVnCIpOuSfuBVzsNXEdUIXf1dBkjjlAFATkfJtxZiauSsAt1TT1aZrYoh-yFypdOcMnSsXr03RaCDFskosqN9FQ');
+    }
+}
+
+/* Badges y Tipografía */
+.badge-secondary-container {
+    background-color: var(--cm-surface-container-high);
+    color: var(--cm-primary);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.badge-tertiary {
+    background-color: var(--cm-surface-container-highest);
+    color: var(--cm-tertiary);
+}
+
+.badge-primary {
+    background-color: var(--cm-surface-container-highest);
+    color: var(--cm-primary);
+}
+
+.badge-discount {
+    background-color: var(--cm-primary-container);
+    color: var(--cm-on-primary-container);
+}
+
+.text-subtitle-display {
+    font-family: var(--cm-font-display);
+    letter-spacing: 0.12em;
+    color: var(--cm-primary);
+}
+
+.promo-title {
+    font-family: var(--cm-font-display);
+    font-size: 2rem;
+    line-height: 1.1;
+    color: #ffffff;
+}
+
+@media (min-width: 992px) {
+    .promo-title {
+        font-size: 2.75rem;
+    }
+}
+
+.btn-cm-add-cart {
+    background-color: var(--cm-primary-container);
+    color: var(--cm-on-primary-container);
+    font-family: var(--cm-font-body);
+    font-weight: 700;
+    box-shadow: 0 4px 20px rgba(229, 9, 20, 0.35);
+    transition: all 0.25s ease;
+}
+
+.btn-cm-add-cart:hover {
+    background-color: #ff1e27;
+    color: #ffffff;
+    box-shadow: 0 0 25px rgba(229, 9, 20, 0.6);
+    transform: translateY(-1px);
+}
+
+.feature-badge-floating {
+    background-color: rgba(12, 14, 23, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   CATEGORY & DIETARY FILTER TOOLBAR
+   ========================================================================== */
+
+/* Efecto Sticky con Blur */
+.sticky-filter-toolbar {
+    position: sticky;
+    top: 70px;
+    /* Ajustar según la altura del Navbar superior */
+    z-index: 1020;
+    background-color: rgba(12, 14, 23, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* Ocultar scrollbar horizontal en los botones de categorías */
+.filter-pills-scroll {
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    /* IE y Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.filter-pills-scroll::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari y Opera */
+}
+
+/* Píldora de Categoría Activa */
+.btn-category-pill.active {
+    background-color: var(--cm-primary-container) !important;
+    color: var(--cm-on-primary-container) !important;
+    box-shadow: 0 2px 8px rgba(229, 9, 20, 0.25);
+}
+
+/* Píldoras de Categoría Inactivas */
+.btn-category-pill {
+    background-color: var(--cm-surface-container);
+    color: var(--cm-on-surface-variant);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-category-pill:hover {
+    background-color: var(--cm-surface-container-high);
+    color: #ffffff;
+}
+
+/* Píldoras de Dietas (Chips) */
+.btn-dietary-chip {
+    background-color: var(--cm-surface-container);
+    color: var(--cm-on-surface-variant);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.8125rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-dietary-chip:hover {
+    background-color: var(--cm-surface-container-high);
+    color: #ffffff;
+}
+
+/* Indicadores de color para dietas */
+.dot-indicator {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-indicator.emerald {
+    background-color: #10b981;
+}
+
+.dot-indicator.secondary {
+    background-color: var(--cm-secondary);
+}
+
+.dot-indicator.tertiary {
+    background-color: var(--cm-tertiary);
+}
+
+/* ==========================================================================
+   4. INTERACTIVE MENU GRID & CARDS
+   ========================================================================== */
+
+/* Tarjetas Interactivas del Menú */
+.menu-card {
+    background-color: var(--cm-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5) !important;
+    border-color: rgba(229, 9, 20, 0.3);
+}
+
+/* Efecto Zoom en Imagen */
+.menu-card-img-wrapper {
+    position: relative;
+    height: 210px;
+    background-color: var(--cm-surface-container-high);
+}
+
+.menu-card-img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-card:hover .menu-card-img {
+    transform: scale(1.05);
+}
+
+/* Badge de Raciones con Bootstrap Icon */
+.badge-servings {
+    background-color: rgba(12, 14, 23, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--cm-on-surface);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Selector Interno de Personalización */
+.customization-selector {
+    background-color: var(--cm-surface-container-low);
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.customization-selector:hover {
+    background-color: var(--cm-surface-container-high);
+}
+
+/* Botón Añadir */
+.btn-cm-add {
+    background-color: var(--cm-primary-container);
+    color: var(--cm-on-primary-container);
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-cm-add:hover {
+    background-color: #ff2a38;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(229, 9, 20, 0.4);
+}
