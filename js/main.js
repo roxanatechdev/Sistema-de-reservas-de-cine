@@ -31,13 +31,24 @@ function loadNavbar() {
         .then(html => {
             container.innerHTML = html;
 
-            // Marcar enlace activo según la URL
+            const header = document.getElementById("main-header");
+            let currentPath = window.location.pathname.split("/").pop();
+
+            if (header) {
+                // Si es la portada (index.html)
+                if (!currentPath || currentPath === "" || currentPath === "index.html") {
+                    header.classList.remove("sticky-top");
+                    header.classList.add("fixed-top");
+                    container.classList.remove("sticky-top"); // En Inicio no queremos sticky en el contenedor
+                } else {
+                    // En Confitería y demás páginas
+                    header.classList.remove("fixed-top", "sticky-top");
+                    container.classList.add("sticky-top"); // El contenedor externo se hace sticky
+                }
+            }
+
             highlightActiveLink();
-
-            // Escuchar el evento Scroll para el header
             initScrollHeader();
-
-            // Inicializar menú colapsable de Bootstrap 5 en móviles
             initBootstrapComponents();
         })
         .catch(error => console.error("Error al cargar el navbar:", error));
