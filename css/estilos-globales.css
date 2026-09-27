@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CINEMAX - ESTILOS GLOBALES & DESIGN SYSTEM
+   CINEPRIME - ESTILOS GLOBALES & DESIGN SYSTEM
    Enfoque: Diseño Web II - Proyecto Feria Informática 2026
    Framework Base: Bootstrap 5 + Custom Properties
    ========================================================================== */
@@ -37,6 +37,7 @@
     --cm-tertiary-fixed-dim: #e9c349;
     --cm-on-tertiary-fixed: #241a00;
     --cm-on-tertiary-fixed-variant: #574500;
+    --cm-tertiary-light-blue: #7bd0ff;
 
     /* --- Superficies y Fondos (Dark Theme Elevation) --- */
     --cm-background: #11131c;
@@ -76,6 +77,15 @@
     --cm-glow-primary: 0 0 20px rgba(229, 9, 20, 0.35);
     --cm-glow-primary-intense: 0 0 28px rgba(229, 9, 20, 0.55);
     --cm-glow-tertiary: 0 0 16px rgba(233, 195, 73, 0.35);
+}
+
+.fondo {
+    /* Método 2: Linear Gradient Diagonal */
+    background: linear-gradient(135deg,
+            #e5091466 0%,
+            #78050c26 30%,
+            #08080cf2 70%,
+            #08080c 100%);
 }
 
 /* 3. RESETS Y ESTILOS BASE COMPATIBLES CON BOOTSTRAP 5 */
@@ -225,6 +235,10 @@ body {
 
 .text-cm-tertiary {
     color: var(--cm-tertiary) !important;
+}
+
+.text-cm-tertiary-light-blue {
+    color: var(--cm-tertiary-light-blue) !important;
 }
 
 .text-cm-variant {
@@ -382,6 +396,11 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.font-logo {
+    font-family: var(--cm-font-display);
+    letter-spacing: 0.03em;
+}
+
 /* Títulos de Columnas */
 .footer-title {
     font-family: var(--cm-font-display);
@@ -524,6 +543,11 @@ Clases reutilizables globales
     font-weight: 600;
 }
 
+.font-md {
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
 .metadatos-light {
     font-size: 0.75rem;
     font-weight: 600;
@@ -532,3 +556,61 @@ Clases reutilizables globales
 .metadatos .tag {
     font-size: 0.625rem;
 }
+
+/* ==========================================================================
+   COMPONENTE GLOBAL: CONTENEDOR DE IMAGEN CON HOVER Y GRADIENTE
+   ========================================================================== */
+
+/* 1. CAJA DE CRISTAL (El marco recortador) */
+.cm-card-media {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--cm-surface-container-lowest, #121417);
+}
+
+/* 2. LA FOTO (Efecto de Zoom) */
+.cm-card-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Acción de zoom al pasar el ratón sobre cualquier tarjeta contenedora */
+.movie-card:hover .cm-card-media-img,
+.cm-candy-card:hover .cm-card-media-img,
+.card:hover .cm-card-media-img {
+    transform: scale(1.05);
+}
+
+/* 3. LA LÁMINA TRANSPARENTE (Degradado que sella el borde) */
+.cm-card-media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(12, 14, 23, 0.2) 0%,
+            transparent 40%,
+            rgba(29, 31, 41, 0.6) 75%,
+            var(--cm-surface-container, #1d1f29) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 4. MODIFICADORES DE TAMAÑO (Para elegir la forma de la imagen) */
+.cm-media-poster {
+    aspect-ratio: 2 / 3;
+}
+
+/* Formato Vertical / Póster */
+.cm-media-landscape {
+    aspect-ratio: 16 / 9;
+}
+
+/* Formato Panorámico / Banner */
+.cm-media-candy {
+    height: 210px;
+}
+
+/* Formato de Altura Fija */

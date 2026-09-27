@@ -1,5 +1,5 @@
 body {
-    background-color: var(--cm-surface-container-low);
+    background-color: var(--cm-surface-container);
 }
 
 .navbar {
@@ -7,7 +7,7 @@ body {
 }
 
 /* ==========================================================================
-   CINEMAX - HERO SECTION CONFITERÍA (CUSTOM STYLES)
+   CINEPRIME - HERO SECTION CONFITERÍA
    ========================================================================== */
 
 /* Badges y Micros-etiquetas */
@@ -50,13 +50,24 @@ body {
 /* Value Props / Pills */
 .value-prop-pill {
     background-color: var(--cm-surface-container);
-    transition: background-color 0.25s ease, border-color 0.25s ease;
+    /*cite: 3*/
+    transition: all 0.25s ease;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .value-prop-pill:hover {
     background-color: var(--cm-surface-container-high);
-    border-color: rgba(255, 255, 255, 0.1);
+    /*cite: 3*/
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Alineación fina para Material Symbols */
+.value-prop-pill .material-symbols-outlined {
+    font-size: 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Tarjeta Selector de Cine (Glassmorphism) */
@@ -186,130 +197,306 @@ body {
 }
 
 /* ==========================================================================
-   CINEPRIME - PROMO HIGHLIGHT BANNER (IMAGEN DE FONDO + GRADIENTE)
+   CINEPRIME - PROMO HIGHLIGHT BANNER 
    ========================================================================== */
 
-/* Resplandor Ambiental de Fondo */
-.promo-ambient-light {
-    position: absolute;
-    right: -5rem;
-    bottom: -5rem;
-    width: 24rem;
-    height: 24rem;
-    background-color: rgba(229, 9, 20, 0.15);
-    border-radius: 50%;
-    filter: blur(100px);
-    pointer-events: none;
+/* Material Symbols utility settings */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
 }
 
-/* Columna Derecha con Imagen de Fondo + Gradiente Fusionado */
-.promo-visual-bg {
-    min-height: 280px;
-    /* Altura mínima para pantallas móviles (donde se pone abajo) */
-    width: 100%;
-    height: 100%;
+.combo-card {
     background-color: var(--cm-surface-container);
-    /* Capa 1 (arriba): Gradiente de fusión oscuro hacia transparente */
-    /* Capa 2 (abajo): Imagen promocional */
-    background-image:
-        linear-gradient(to top, var(--cm-surface-container-low) 0%, rgba(20, 22, 33, 0.4) 60%, transparent 100%),
-        url('https://lh3.googleusercontent.com/aida-public/AB6AXuC61i90td3_Thz_kB5EPQWZkJeCcezBpoB_4aq-sOjamn8ShgvigUdBQTHyWlS_Z5FTz784iRzd_Fg7E6sxGIOCh0L12EEdLWRsJFEt5ma4-tAWilM7RbLnoE8PWkK-S8CNT666OttJTCk3MzvjUMeWO3rZ6XReNVnCIpOuSfuBVzsNXEdUIXf1dBkjjlAFATkfJtxZiauSsAt1TT1aZrYoh-yFypdOcMnSsXr03RaCDFskosqN9FQ');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Cambia la dirección del gradiente en pantallas grandes (Desktop) */
-@media (min-width: 992px) {
-    .promo-visual-bg {
-        min-height: 100%;
-        /* Asegura el stretch completo en desktop */
-        background-image:
-            linear-gradient(to right, var(--cm-surface-container-low) 0%, rgba(20, 22, 33, 0.3) 60%, transparent 100%),
-            url('https://lh3.googleusercontent.com/aida-public/AB6AXuC61i90td3_Thz_kB5EPQWZkJeCcezBpoB_4aq-sOjamn8ShgvigUdBQTHyWlS_Z5FTz784iRzd_Fg7E6sxGIOCh0L12EEdLWRsJFEt5ma4-tAWilM7RbLnoE8PWkK-S8CNT666OttJTCk3MzvjUMeWO3rZ6XReNVnCIpOuSfuBVzsNXEdUIXf1dBkjjlAFATkfJtxZiauSsAt1TT1aZrYoh-yFypdOcMnSsXr03RaCDFskosqN9FQ');
-    }
+.combo-card:hover {
+    border-color: rgba(233, 195, 73, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
-/* Badges y Tipografía */
-.badge-secondary-container {
-    background-color: var(--cm-surface-container-high);
-    color: var(--cm-primary);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
 
-.badge-tertiary {
-    background-color: var(--cm-surface-container-highest);
+.subtitle-gold {
     color: var(--cm-tertiary);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
-.badge-primary {
-    background-color: var(--cm-surface-container-highest);
-    color: var(--cm-primary);
-}
-
-.badge-discount {
-    background-color: var(--cm-primary-container);
-    color: var(--cm-on-primary-container);
-}
-
-.text-subtitle-display {
+.card-title-main {
     font-family: var(--cm-font-display);
-    letter-spacing: 0.12em;
-    color: var(--cm-primary);
-}
-
-.promo-title {
-    font-family: var(--cm-font-display);
-    font-size: 2rem;
+    font-size: 2.25rem;
     line-height: 1.1;
     color: #ffffff;
+    text-transform: uppercase;
 }
 
 @media (min-width: 992px) {
-    .promo-title {
+    .card-title-main {
         font-size: 2.75rem;
     }
 }
 
-.btn-cm-add-cart {
+/* Badges Styling */
+.badge-warning-custom {
+    background-color: var(--cm-tertiary);
+    color: #000000;
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+    padding: 0.45em 0.75em;
+    border-radius: 4px;
+}
+
+.badge-info-custom {
+    background-color: var(--cm-surface-container-highest);
+    color: #72b5d8;
+    border: 1px solid rgba(114, 181, 216, 0.3);
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+    padding: 0.45em 0.75em;
+    border-radius: 4px;
+}
+
+.badge-collector-custom {
+    background-color: var(--cm-surface-container-highest);
+    color: #e5a3a3;
+    border: 1px solid rgba(229, 163, 163, 0.25);
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+    padding: 0.45em 0.75em;
+    border-radius: 4px;
+}
+
+.badge-discount {
     background-color: var(--cm-primary-container);
-    color: var(--cm-on-primary-container);
-    font-family: var(--cm-font-body);
-    font-weight: 700;
-    box-shadow: 0 4px 20px rgba(229, 9, 20, 0.35);
-    transition: all 0.25s ease;
-}
-
-.btn-cm-add-cart:hover {
-    background-color: #ff1e27;
     color: #ffffff;
-    box-shadow: 0 0 25px rgba(229, 9, 20, 0.6);
-    transform: translateY(-1px);
+    font-weight: 700;
+    font-size: 0.72rem;
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
 }
 
-.feature-badge-floating {
-    background-color: rgba(12, 14, 23, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.price-current {
+    color: var(--cm-tertiary);
+    font-family: var(--cm-font-body);
+    font-weight: 800;
+    font-size: 1.85rem;
+    line-height: 1;
 }
+
+.price-old {
+    color: var(--cm-on-surface-variant);
+    text-decoration: line-through;
+    font-size: 0.95rem;
+    margin-right: 0.4rem;
+}
+
+/* Button Customization */
+.btn-add-order {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 0.65rem 1.4rem;
+    border-radius: 50px;
+    border: none;
+    transition: all 0.25s ease;
+    box-shadow: var(--cm-glow-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-add-order:hover {
+    background-color: #ff0f1d;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 24px rgba(229, 9, 20, 0.6);
+}
+
+.btn-add-order:active {
+    transform: translateY(0);
+}
+
+.points-info {
+    color: var(--cm-tertiary);
+    font-size: 0.82rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.banner-container {
+    position: relative;
+    height: 100%;
+    min-height: 280px;
+    background-color: var(--cm-surface-container-lowest);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+    z-index: 1;
+}
+
+.combo-card:hover .banner-img {
+    transform: scale(1.05);
+}
+
+/* Gradient Overlay for seamless integration - Z-Index & Opacity fix */
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            var(--cm-surface-container) 0%,
+            rgba(29, 31, 41, 0.7) 20%,
+            rgba(12, 14, 23, 0.2) 60%,
+            rgba(0, 0, 0, 0.4) 100%);
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.combo-card:hover .banner-overlay {
+    opacity: 1;
+    /* Explicitly preserve overlay visibility on hover */
+}
+
+@media (max-width: 991.98px) {
+    .banner-overlay {
+        background: linear-gradient(180deg,
+                var(--cm-surface-container) 0%,
+                rgba(29, 31, 41, 0.6) 30%,
+                rgba(12, 14, 23, 0.3) 100%);
+    }
+}
+
+.official-seal {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: rgba(12, 14, 23, 0.85);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    z-index: 3;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.combo-card:hover .banner-img {
+    transform: scale(1.03);
+}
+
+/* Gradient Overlay for seamless integration */
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: RGB(29, 31, 41);
+    background: linear-gradient(90deg,
+            rgba(29, 31, 41, 1) 0%,
+            rgba(29, 31, 41, 0.70) 30%,
+            rgba(29, 31, 41, 0.37) 50%,
+            rgba(29, 31, 41, 0) 100%);
+}
+
+@media (max-width: 991.98px) {
+    .banner-overlay {
+        background: linear-gradient(180deg,
+                rgba(29, 31, 41, 1) 0%,
+                rgba(29, 31, 41, 0.5) 30%,
+                rgba(29, 31, 41, 0.3) 50%,
+                rgba(29, 31, 41, 0) 100%);
+    }
+}
+
+.official-seal {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: rgba(12, 14, 23, 0.85);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    z-index: 2;
+}
+
+/* Toast notification styling */
+.toast-container-custom {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1080;
+}
+
+.descripcion {
+    color: var(--cm-on-surface-variant);
+    line-height: 1.5;
+    font-size: 0.92rem !important;
+}
+
 
 /* ==========================================================================
-   CATEGORY & DIETARY FILTER TOOLBAR
+   CINEPRIME - CATEGORY & FILTER TOOLBAR
    ========================================================================== */
 
-/* Efecto Sticky con Blur */
+/* Efecto Sticky con Blur y Fondo Traslúcido */
 .sticky-filter-toolbar {
     position: sticky;
     top: 70px;
-    /* Ajustar según la altura del Navbar superior */
+    /* Ajustar según la altura real del Navbar */
     z-index: 1020;
-    background-color: rgba(12, 14, 23, 0.88);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Ocultar scrollbar horizontal en los botones de categorías */
+/* Scroll Horizontal Silencioso para Móviles */
 .filter-pills-scroll {
     overflow-x: auto;
     white-space: nowrap;
@@ -317,6 +504,8 @@ body {
     /* IE y Edge */
     scrollbar-width: none;
     /* Firefox */
+    -webkit-overflow-scrolling: touch;
+    /* Scroll fluido en iOS */
 }
 
 .filter-pills-scroll::-webkit-scrollbar {
@@ -324,124 +513,637 @@ body {
     /* Chrome, Safari y Opera */
 }
 
-/* Píldora de Categoría Activa */
-.btn-category-pill.active {
-    background-color: var(--cm-primary-container) !important;
-    color: var(--cm-on-primary-container) !important;
-    box-shadow: 0 2px 8px rgba(229, 9, 20, 0.25);
-}
-
-/* Píldoras de Categoría Inactivas */
+/* Botones / Píldoras de Categoría */
 .btn-category-pill {
+    font-family: var(--cm-font-body, system-ui, sans-serif);
+    font-size: 0.87rem;
+    font-weight: 600;
     background-color: var(--cm-surface-container);
     color: var(--cm-on-surface-variant);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.2s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 0.5rem;
+    /* Equivalente a rounded-3 */
+    padding: 0.5rem 1rem;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+@media (max-width: 991.98px) {
+
+    /* Botones / Píldoras de Categoría */
+    .btn-category-pill {
+        font-family: var(--cm-font-body, system-ui, sans-serif);
+        font-size: 0.6rem;
+        font-weight: 500;
+        background-color: var(--cm-surface-container);
+        color: var(--cm-on-surface-variant);
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 0.5rem;
+        padding: 0.3rem 0.7rem;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+}
+
 
 .btn-category-pill:hover {
     background-color: var(--cm-surface-container-high);
     color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Píldoras de Dietas (Chips) */
-.btn-dietary-chip {
-    background-color: var(--cm-surface-container);
+/* Píldora Activa */
+.btn-category-pill.active {
+    background-color: var(--cm-primary-container) !important;
+    color: var(--cm-on-primary-container) !important;
+    border-color: var(--cm-primary-container) !important;
+    box-shadow: 0 4px 14px rgba(229, 9, 20, 0.4);
+}
+
+
+/* ==========================================================================
+   CINEPRIME - TARJETAS DE CONFITERÍA / CANDYBAR
+   ========================================================================== */
+
+/* Tarjeta Contenedora Principal */
+.cm-candy-card {
+    width: 100%;
+    height: 100%;
+    /* Forzar 100% de alto dentro de la columna de Bootstrap */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cm-surface-container-low);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+}
+
+.cm-candy-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 36px -8px rgba(0, 0, 0, 0.6), 0 0 15px rgba(229, 9, 20, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   1. CONTENEDOR MULTIMEDIA & OVERLAY DE BADGES
+   -------------------------------------------------------------------------- */
+.cm-media-candy {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: var(--cm-surface-container-lowest);
+    flex-shrink: 0;
+    /* Impide que la imagen se deforme o contraiga */
+}
+
+.cm-card-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cm-candy-card:hover .cm-card-media-img {
+    transform: scale(1.06);
+}
+
+/* Overlay de desvanecimiento */
+.cm-card-media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(12, 14, 23, 0.2) 0%, transparent 40%, var(--cm-surface-container-low) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Overlay de Badges */
+.cm-badge-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.cm-badge-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+}
+
+.cm-badge-row-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   2. BADGES MODULARES
+   -------------------------------------------------------------------------- */
+.cm-badge {
+    font-family: var(--cm-font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    padding: 5px 9px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    pointer-events: auto;
+    text-transform: uppercase;
+}
+
+.cm-badge-primary {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.4);
+}
+
+.cm-badge-warning {
+    background-color: var(--cm-tertiary);
+    color: #0c0e17;
+    box-shadow: 0 4px 12px rgba(233, 195, 73, 0.3);
+}
+
+.cm-badge-dark {
+    background-color: rgba(12, 14, 23, 0.75);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+}
+
+.cm-badge-success {
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: rgba(16, 185, 129, 0.9);
+}
+
+.cm-badge-outline {
+    background-color: rgba(12, 14, 23, 0.85);
+    color: var(--cm-tertiary);
+    border: 1px solid var(--cm-tertiary);
+}
+
+/* --------------------------------------------------------------------------
+   3. CUERPO FLEXIBLE (DISTRIBUCIÓN VERTICAL PERFECTA)
+   -------------------------------------------------------------------------- */
+.cm-candy-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Ocupa todo el espacio sobrante de la tarjeta */
+}
+
+.cm-candy-header-group {
+    /* Mantiene Título y Descripción juntos en la cima */
+    display: flex;
+    flex-direction: column;
+}
+
+.cm-candy-title {
+    font-family: var(--cm-font-body);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cm-on-surface);
+    margin-bottom: 0.4rem;
+    line-height: 1.25;
+}
+
+.cm-candy-description {
     color: var(--cm-on-surface-variant);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.8125rem;
-    transition: all 0.2s ease-in-out;
+    font-family: var(--cm-font-body);
+    font-size: 0.85rem;
+    line-height: 1.45;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.btn-dietary-chip:hover {
-    background-color: var(--cm-surface-container-high);
+/* --------------------------------------------------------------------------
+   4. SLOT DE CONFIGURACIÓN (CENTRO / MT-AUTO)
+   -------------------------------------------------------------------------- */
+.cm-candy-option-slot {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+    /* Empuja el selector hacia el medio-bajo */
+    margin-bottom: 1rem;
+}
+
+.cm-candy-option-label {
+    color: var(--cm-on-surface-variant);
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+.cm-candy-option-btn {
+    background: transparent;
+    border: none;
+    color: var(--cm-tertiary);
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.cm-candy-option-btn:hover {
+    background-color: rgba(233, 195, 73, 0.1);
+    opacity: 0.9;
+}
+
+.cm-candy-option-static {
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+/* Selector de Tamaños (Pills Radio) */
+.cm-size-selector .btn-cm-size {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 8px;
+    color: var(--cm-on-surface-variant);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--cm-surface-container);
+}
+
+.cm-size-selector .btn-check:checked+.btn-cm-size {
+    background-color: var(--cm-primary-container);
+    border-color: var(--cm-primary-container);
     color: #ffffff;
 }
 
-/* Indicadores de color para dietas */
-.dot-indicator {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    display: inline-block;
+/* --------------------------------------------------------------------------
+   5. FOOTER / BASE DE LA TARJETA
+   -------------------------------------------------------------------------- */
+.cm-candy-footer-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.dot-indicator.emerald {
-    background-color: #10b981;
+.cm-candy-price-box {
+    display: flex;
+    flex-direction: column;
 }
 
-.dot-indicator.secondary {
-    background-color: var(--cm-secondary);
+.cm-candy-price-main {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--cm-tertiary);
+    line-height: 1;
 }
 
-.dot-indicator.tertiary {
-    background-color: var(--cm-tertiary);
+.cm-candy-price-savings {
+    font-size: 0.72rem;
+    color: rgba(225, 221, 239, 0.5);
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.cm-candy-btn-add {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    padding: 0.55rem 1.15rem;
+    font-weight: 700;
+    font-size: 0.88rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.cm-candy-btn-add:hover {
+    background-color: #ff1e27;
+    box-shadow: var(--cm-glow-primary);
+}
+
+.cm-candy-btn-add:active {
+    transform: scale(0.96);
 }
 
 /* ==========================================================================
-   4. INTERACTIVE MENU GRID & CARDS
+   CINEPRIME - BANNER EXPERIENCIA VIP (CANDYBAR / SALA VIP)
    ========================================================================== */
 
-/* Tarjetas Interactivas del Menú */
-.menu-card {
-    background-color: var(--cm-surface-container);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-        border-color 0.3s ease;
-}
-
-.menu-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5) !important;
-    border-color: rgba(229, 9, 20, 0.3);
-}
-
-/* Efecto Zoom en Imagen */
-.menu-card-img-wrapper {
-    position: relative;
-    height: 210px;
-    background-color: var(--cm-surface-container-high);
-}
-
-.menu-card-img {
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.menu-card:hover .menu-card-img {
-    transform: scale(1.05);
-}
-
-/* Badge de Raciones con Bootstrap Icon */
-.badge-servings {
-    background-color: rgba(12, 14, 23, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: var(--cm-on-surface);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Selector Interno de Personalización */
-.customization-selector {
+/* Tarjeta / Banner Contenedor Principal VIP */
+.cm-vip-banner-card {
     background-color: var(--cm-surface-container-low);
-    border-radius: 8px;
-    transition: background-color 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
 }
 
-.customization-selector:hover {
-    background-color: var(--cm-surface-container-high);
+/* Badge Superior De Categoría VIP */
+.cm-badge-vip-tag {
+    background-color: rgba(233, 195, 73, 0.12);
+    color: var(--cm-tertiary);
+    border: 1px solid rgba(233, 195, 73, 0.3);
+    font-family: var(--cm-font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 6px 12px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-/* Botón Añadir */
-.btn-cm-add {
-    background-color: var(--cm-primary-container);
-    color: var(--cm-on-primary-container);
-    border: none;
-    transition: all 0.2s ease-in-out;
-}
-
-.btn-cm-add:hover {
-    background-color: #ff2a38;
+/* Título de la Sección VIP */
+.cm-vip-title {
+    font-family: var(--cm-font-display);
+    font-size: 2.1rem;
+    letter-spacing: 0.02em;
     color: #ffffff;
-    box-shadow: 0 0 12px rgba(229, 9, 20, 0.4);
+    line-height: 1.15;
+}
+
+@media (min-width: 992px) {
+    .cm-vip-title {
+        font-size: 2.6rem;
+    }
+}
+
+/* Texto Descriptivo */
+.cm-vip-description {
+    color: var(--cm-on-surface-variant);
+    font-family: var(--cm-font-body);
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   4 PILARES / SERVICIOS VIP (Cervezas, Tablas, Coctelería, Café)
+   -------------------------------------------------------------------------- */
+.cm-vip-feature-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 0.85rem 0.5rem;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+
+.cm-vip-feature-card:hover {
+    background-color: rgba(233, 195, 73, 0.08);
+    border-color: rgba(233, 195, 73, 0.25);
+    transform: translateY(-2px);
+}
+
+.cm-vip-feature-icon {
+    color: var(--cm-tertiary);
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+}
+
+.cm-vip-feature-text {
+    color: #ffffff;
+    font-family: var(--cm-font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   BOTÓN EXPLORAR MENÚ VIP & DISPONIBILIDAD
+   -------------------------------------------------------------------------- */
+.btn-cm-vip-gold {
+    background-color: var(--cm-tertiary);
+    color: #0c0e17;
+    font-family: var(--cm-font-body);
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    padding: 0.65rem 1.4rem;
+    border: none;
+    box-shadow: 0 4px 15px rgba(233, 195, 73, 0.3);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.btn-cm-vip-gold:hover {
+    background-color: var(--cm-tertiary-fixed);
+    color: #000000;
+    box-shadow: 0 0 22px rgba(233, 195, 73, 0.55);
+    transform: translateY(-1px);
+}
+
+.cm-vip-halls-info {
+    color: var(--cm-on-surface-variant);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   COLUMNA DERECHA - MEDIA CON OVERLAY Y BOTÓN DE CAMARERO
+   -------------------------------------------------------------------------- */
+.cm-vip-media-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 100%;
+    min-height: 320px;
+}
+
+.cm-vip-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Gradiente Oscuro sobre la foto para legibilidad del footer flotante */
+.cm-vip-media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(12, 14, 23, 0.9) 0%, rgba(12, 14, 23, 0.2) 50%, transparent 100%);
+    pointer-events: none;
+}
+
+/* Barra Flotante Inferior de la Fotografía */
+.cm-vip-floating-bar {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    background-color: rgba(12, 14, 23, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.cm-vip-waiter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.cm-vip-waiter-btn .material-symbols-outlined {
+    color: var(--cm-tertiary);
+    font-size: 1.1rem;
+}
+
+.cm-vip-silent-tag {
+    color: #38bdf8;
+    /* Azul cyan sutil para 'Silencioso' */
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   CINEPRIME - SECCIÓN PREGUNTAS (AJUSTADO)
+   ========================================================================== */
+
+/* Contenedor con Glow Radial Suavizado */
+.faq-combos {
+    position: relative;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%,
+            rgba(229, 9, 20, 0.04) 0%,
+            rgba(233, 195, 73, 0.01) 50%,
+            transparent 100%);
+    background-color: transparent;
+}
+
+/* Tarjeta Principal Glassmorphism */
+.cm-faq-card-wrapper {
+    border-radius: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* Iconos Izquierdos con Contenedor Acentuado */
+.cm-faq-icon-box {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(233, 195, 73, 0.1);
+    border: 1px solid rgba(233, 195, 73, 0.25);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cm-tertiary, #E9C349);
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+}
+
+/* Hover/Estado Abierto en los Iconos */
+.accordion-button:not(.collapsed) .cm-faq-icon-box,
+.accordion-button:hover .cm-faq-icon-box {
+    background-color: var(--cm-tertiary, #E9C349);
+    color: #0c0e17;
+}
+
+/* Items del Acordeón */
+.cm-faq-card-wrapper .accordion-item {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 12px !important;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+.cm-faq-card-wrapper .accordion-item:has(.accordion-button:not(.collapsed)) {
+    border-color: rgba(233, 145, 73, 0.35) !important;
+    background-color: rgba(233, 195, 73, 0.02) !important;
+}
+
+.cm-faq-card-wrapper .accordion-button {
+    background: transparent !important;
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 1rem 1.25rem;
+    gap: 12px;
+}
+
+.cm-faq-card-wrapper .accordion-button:not(.collapsed) {
+    color: var(--cm-tertiary, #E9C349) !important;
+}
+
+/* Texto de Respuestas Interior */
+.cm-faq-card-wrapper .accordion-body {
+    color: #c4c6d0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    padding: 0.8rem 1.25rem 1.25rem 4.25rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.cm-faq-card-wrapper .accordion-body strong {
+    color: var(--cm-tertiary, #E9C349);
+}
+
+
+/* 1. Eliminar el borde / sombra azul nativo de Bootstrap al hacer focus */
+.cm-faq-card-wrapper .accordion-button:focus,
+.cm-faq-card-wrapper .accordion-button:focus-visible {
+    box-shadow: none !important;
+    outline: none !important;
+    border-color: transparent !important;
+}
+
+
+/* 3. Transición suave para el colapso (Apertura y Cierre progresivo) */
+.cm-faq-card-wrapper .collapsing {
+    transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+@keyframes fadeInFaq {
+    0% {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 5. Suavizar el cambio de color del título, icono y bordes al desplegar */
+.cm-faq-card-wrapper .accordion-item,
+.cm-faq-card-wrapper .accordion-button,
+.cm-faq-card-wrapper .cm-faq-icon-box {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
 }

@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+    <!-- 1. Metadatos Fundamentales -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Confitería | Combos, Popcorn y Snacks - CinePrime</title>
+    <!-- 2. Metadatos SEO y Descripción -->
+    <meta name="description"
+        content="Plataforma de streaming y cartelera de cine CinePrime. XX Feria Informática ISEC La Paz.">
+    <meta name="author" content="Carrera de Sistemas Informáticos - ISEC La Paz">
+    <meta name="theme-color" content="#11131c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+    <!-- 3. Favicon Vectorial con Adaptación Automática Dark/Light -->
+    <link rel="icon" type="image/svg+xml" href="img/clapperboard.svg">
+
+    <!-- 4. Bootstrap 5.3.8 CSS (Local) -->
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+
+    <!-- 5. Bootstrap Icons 1.13.1 (Local) -->
+    <link rel="stylesheet" href="bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+
+    <!-- 6. Estilos Globales Personalizados y Específicos -->
+    <link rel="stylesheet" href="css/estilos-globales.css">
+    <link rel="stylesheet" href="css/confiteria.css">
+</head>
+
+<body class="bg-surface">
+
+    <!-- HEADER / NAVBAR -->
+
+    <!-- Agrega sticky-top directamente al contenedor principal del Navbar -->
+    <div id="navbar-container" class="sticky-top z-3"></div>
+
+    <!-- CONTENEDOR DEL CONTENIDO PRINCIPAL -->
+    <main class="w-100 px-3 px-lg-2 bg-cm-surface min-vh-100 overflow-hidden">
+        <!-- SECCIÓN 1: HEADER HERO SECTION -->
+        <section class="w-100 py-1 py-lg-5 position-relative overflow-hidden">
+            <div class="container-fluid px-3 px-lg-5 max-w-1440">
+                <div class="row g-4 align-items-center">
+
+                    <!-- Columna Izquierda: Hero Copy & Value Props -->
+                    <div class="col-12 col-lg-8 d-flex flex-column gap-3">
+
+                        <!-- Promo Micro-Badge -->
+                        <div>
+                            <div
+                                class="metadatos badge-hero-promo d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill">
+                                <span class="pulsing-dot"></span>
+                                <span class="text-uppercase tracking-wider fs-8 fw-semibold text-cm-secondary">
+                                    Confitería &amp; Bar CinePrime · Ahorra hasta un 25% online
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Headline -->
+                        <h1 class="font-display display-4 fw-bold text-white tracking-tight lh-1 mb-0">
+                            El Sabor del Cine:
+                            <span class="hero-title-gradient">Palomitas Calientes</span>
+                            &amp; Snacks Gourmet
+                        </h1>
+
+                        <!-- Description -->
+                        <p class="fs-5 text-cm-variant max-w-2xl mb-0">
+                            Pide online con antelación y retira en el Mostrador Exprés sin esperar colas, o
+                            recibe tu pedido discretamente en tu butaca VIP mientras disfrutas de los avances.
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-2 pt-2">
+                            <!-- Fila Rápida: Icono en color secundario suave -->
+                            <div class="value-prop-pill d-flex align-items-center gap-2 px-3 py-2 rounded-3">
+                                <span class="material-symbols-outlined fs-5 text-cm-secondary">bolt</span>
+                                <span class="metadatos-light fw-semibold text-cm-on-surface">Fila Rápida Exprés (Saltar
+                                    colas)</span>
+                            </div>
+
+                            <!-- Refill Ilimitado: Icono en color secundario suave -->
+                            <div class="value-prop-pill d-flex align-items-center gap-2 px-3 py-2 rounded-3">
+                                <span class="material-symbols-outlined fs-5 text-cm-secondary">fastfood</span>
+                                <span class="metadatos-light fw-semibold text-cm-on-surface">Refill Ilimitado por +1,00
+                                    Bs</span>
+                            </div>
+
+                            <!-- Prime Points: Destacado en dorado terciario (Acento VIP) -->
+                            <div class="value-prop-pill d-flex align-items-center gap-2 px-3 py-2 rounded-3">
+                                <span class="material-symbols-outlined fs-5 text-cm-tertiary">confirmation_number</span>
+                                <span class="metadatos-light fw-semibold text-cm-tertiary">Acumula Prime Points</span>
+                            </div>
+
+                            <!-- Mantequilla Artesanal: Icono en color secundario suave -->
+                            <div class="value-prop-pill d-flex align-items-center gap-2 px-3 py-2 rounded-3">
+                                <span class="material-symbols-outlined fs-5 text-cm-secondary">bakery_dining</span>
+                                <span class="metadatos-light fw-semibold text-cm-on-surface">Mantequilla Caliente
+                                    Artesanal Gratis</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Columna Derecha: Cinema Location Selector Card -->
+                    <div class="col-12 col-lg-4 d-flex flex-column">
+                        <div
+                            class="glass-card-hero p-4 rounded-4 shadow-lg d-flex flex-column gap-3 position-relative overflow-hidden">
+
+                            <!-- Resplandor ambiental de fondo -->
+                            <div class="hero-card-glow"></div>
+
+                            <!-- Card Header / Estado -->
+                            <div class="d-flex align-items-center justify-content-between position-relative z-1">
+                                <span class="text-uppercase tracking-wider fs-8 fw-bold text-cm-variant opacity-75">
+                                    Punto de Recogida
+                                </span>
+                                <span class="d-flex align-items-center gap-1 fs-8 fw-semibold text-cm-tertiary">
+                                    <span class="pulsing-dot bg-cm-tertiary me-1"
+                                        style="width: 6px; height: 6px;"></span> Mostrador Abierto
+                                </span>
+                            </div>
+
+                            <!-- Ubicación Actual con Dropdown Rápido de Selección -->
+                            <div class="dropdown position-relative z-3">
+                                <button
+                                    class="btn btn-cinema-selector w-100 p-2 rounded-3 d-flex align-items-start justify-content-between gap-2 text-start"
+                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="d-flex align-items-start gap-3 min-w-0">
+                                        <div
+                                            class="p-2 rounded-3 bg-cm-surface-highest text-cm-primary-container shrink-0 d-flex align-items-center justify-content-center">
+                                            <span class="material-symbols-outlined fs-3">storefront</span>
+                                        </div>
+                                        <div class="d-flex flex-column min-w-0">
+                                            <span class="fw-bold fs-6 text-white text-truncate">Madrid - Gran Vía
+                                                32</span>
+                                            <span class="fs-8 text-cm-variant">Planta 1 · Confitería Principal &amp; Bar
+                                                VIP</span>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined text-cm-variant fs-5 mt-1 transition-transform">expand_more</span>
+                                </button>
+
+                                <!-- Menú Desplegable con Lista de Cines y Scroll Interno -->
+                                <ul
+                                    class="dropdown-menu dropdown-menu-dark dropdown-cinema-menu w-100 shadow-xl border-0 p-2 mt-2">
+                                    <li><span
+                                            class="dropdown-header text-uppercase fs-8 text-cm-variant px-2">Selecciona
+                                            tu cine CinePrime</span>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="dropdown-item rounded-2 active d-flex align-items-center justify-content-between py-2 px-2"
+                                            type="button">
+                                            <div class="d-flex flex-column">
+                                                <span class="fw-semibold fs-7">Madrid - Gran Vía 32</span>
+                                                <span class="fs-8 text-cm-variant">Dulcería Principal & Bar VIP</span>
+                                            </div>
+                                            <span class="material-symbols-outlined fs-6 text-cm-primary">check</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="dropdown-item rounded-2 d-flex align-items-center justify-content-between py-2 px-2"
+                                            type="button">
+                                            <div class="d-flex flex-column">
+                                                <span class="fw-semibold fs-7">Barcelona - Diagonal Mar</span>
+                                                <span class="fs-8 text-cm-variant">Planta 2 · Express Bar</span>
+                                            </div>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="dropdown-item rounded-2 d-flex align-items-center justify-content-between py-2 px-2"
+                                            type="button">
+                                            <div class="d-flex flex-column">
+                                                <span class="fw-semibold fs-7">Valencia - Aqua Multiespacio</span>
+                                                <span class="fs-8 text-cm-variant">Planta Principal</span>
+                                            </div>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            class="dropdown-item rounded-2 d-flex align-items-center justify-content-between py-2 px-2"
+                                            type="button">
+                                            <div class="d-flex flex-column">
+                                                <span class="fw-semibold fs-7">Sevilla - Lagoh</span>
+                                                <span class="fs-8 text-cm-variant">Planta Alta · Bar VIP</span>
+                                            </div>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Time Selector & Delivery Switch -->
+                            <div class="delivery-tab-container p-1 rounded-3 col-12 cols-6 gap-1 position-relative z-1">
+                                <div class="row g-1 m-0 w-100 p-0">
+                                    <div class="col-6 p-0 m-0">
+                                        <button
+                                            class="delivery-tab-btn active w-100 py-2 px-2 rounded-3 fs-7 fw-semibold text-center">
+                                            Retiro Exprés
+                                        </button>
+                                    </div>
+                                    <div class="col-6 p-0 m-0">
+                                        <button
+                                            class="delivery-tab-btn w-100 py-2 px-2 rounded-3 fs-7 fw-semibold text-center">
+                                            A Mi Butaca VIP
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Footer de la tarjeta con Estimación de Tiempo -->
+                            <div class="d-flex align-items-center justify-content-between pt-1 position-relative z-1">
+                                <div class="d-flex align-items-center gap-1 text-cm-variant fs-8">
+                                    <span class="material-symbols-outlined fs-6 text-cm-secondary">schedule</span>
+                                    <span>Tiempo estimado de preparación: <strong class="text-white">3-5
+                                            min</strong></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION 2. Promo Highlight Banner: Limited Premiere Edition -->
+        <section>
+            <div class="container-fluid my-4 px-5">
+                <div class="combo-card">
+                    <div class="row g-0 align-items-stretch">
+
+                        <!-- Columna Izquierda: Información del Combo -->
+                        <div class="col-lg-7 p-4 p-md-5 d-flex flex-column justify-content-between z-1">
+                            <div>
+                                <!-- Fila Superior de Badges / Etiquetas -->
+                                <div class="d-flex flex-wrap gap-2 mb-3 align-items-center">
+                                    <span class="badge-warning-custom">¡ÚLTIMAS 120 UNIDADES HOY!</span>
+                                    <span class="badge-info-custom">ESTRENO PRIME</span>
+                                    <span class="badge-collector-custom">COLECCIONISTA</span>
+                                </div>
+
+                                <!-- Subtítulo -->
+                                <div class="subtitle-gold mb-1">
+                                    EDICIÓN LIMITADA DE COLECCIÓN
+                                </div>
+
+                                <!-- Título Principal -->
+                                <h1 class="card-title-main mb-3">
+                                    COMBO DE ESTRENO: DUNE PARTE DOS
+                                </h1>
+
+                                <!-- Descripción -->
+                                <p class="descripcion text-cm-variant fs-6 mb-4">
+                                    Balde metálico en relieve con grabado de arena de Arrakis + Palomitas dulces o
+                                    saladas
+                                    tamaño XL + 2 Vasos termo con figura exclusiva de coleccionista topper + Ticket
+                                    conmemorativo holográfico numerado.
+                                </p>
+                            </div>
+
+                            <!-- Bloque Inferior: Precio, Botón y Puntos -->
+                            <div class="pt-2">
+                                <div class="d-flex flex-wrap align-items-center gap-3 gap-md-4">
+                                    <!-- Precios -->
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="price-current me-2">140,90 Bs</span>
+                                        <span class="price-old">180,50 Bs</span>
+                                        <span class="badge-discount">-20%</span>
+                                    </div>
+
+                                    <!-- Botón de Añadir -->
+                                    <button id="addOrderBtn" class="btn-add-order">
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 20px;">shopping_bag</span>
+                                        <span>Añadir al Pedido</span>
+                                    </button>
+
+                                    <!-- Puntos CinePrime -->
+                                    <div class="points-info ms-auto ms-sm-0">
+                                        <span class="material-symbols-outlined"
+                                            style="font-size: 18px; color: var(--cm-tertiary);">military_tech</span>
+                                        <span>Gana +150 Prime Puntos</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Columna Derecha: Imagen del Producto e Insignia -->
+                        <div class="col-lg-5">
+                            <div class="banner-container">
+                                <!-- Sombra/Degradado para transición elegante con el texto -->
+                                <div class="banner-overlay"></div>
+
+                                <!-- Imagen ilustrativa con fallback incorporado -->
+                                <img src="img/combo-dune.jpg" alt="Combo Dune Parte Dos Balde y Vasos"
+                                    class="banner-img"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/800x600/1d1f29/e9c349?text=Combo+Dune+Parte+Dos';">
+
+                                <!-- Sello de Licencia Oficial Warner Bros -->
+                                <div class="official-seal">
+                                    <span class="material-symbols-outlined"
+                                        style="font-size: 16px; color: var(--cm-tertiary);">verified</span>
+                                    <span>Diseño Oficial Warner Bros</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="toast-container-custom">
+                <div id="orderToast" class="toast align-items-center text-white bg-dark border-0 rounded-3 shadow-lg"
+                    role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body d-flex align-items-center gap-2">
+                            <span class="material-symbols-outlined text-success">check_circle</span>
+                            <span><strong>Combo Dune Parte Dos</strong> agregado a tu pedido.</span>
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Category Filter Tabs Toolbar -->
+        <section class="sticky-filter-toolbar py-2 py-md-3 my-4">
+            <div class="container-fluid px-3 px-lg-5">
+                <div class="d-flex align-items-center justify-content-between">
+
+                    <!-- Category Nav Pills (Scrollable en móviles) -->
+                    <div class="filter-pills-scroll d-flex align-items-center gap-2 w-100 py-1">
+
+                        <button type="button" class="btn btn-category-pill active text-nowrap">
+                            Todos los Snacks (28)
+                        </button>
+
+                        <button type="button" class="btn btn-category-pill text-nowrap">
+                            Combos Populares (8)
+                        </button>
+
+                        <button type="button" class="btn btn-category-pill text-nowrap">
+                            Palomitas Artesanales (6)
+                        </button>
+
+                        <button type="button" class="btn btn-category-pill text-nowrap">
+                            Bebidas & Refill (7)
+                        </button>
+
+                        <button type="button" class="btn btn-category-pill text-nowrap">
+                            Nachos & Hot Dogs (4)
+                        </button>
+
+                        <button type="button" class="btn btn-category-pill text-nowrap">
+                            Dulces & Golosinas (5)
+                        </button>
+
+                        <button type="button" class="btn btn-category-pill text-nowrap">
+                            Menú Gourmet VIP (6)
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!--4. Galeria de tarjetas-->
+        <section class="container-fluid px-3 px-lg-5 pb-5">
+            <div class="row g-4 justify-content-center">
+
+                <!-- Tarjeta 1: Combo con Selector de Maíz + Badges (Más Vendido / Porciones) -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <div class="cm-candy-card">
+                        <!-- Media / Imagen + Badges -->
+                        <div class="cm-media-candy">
+                            <img src="img/combo1.jpg" alt="Combo Pareja Clásico" class="cm-card-media-img">
+                            <div class="cm-card-media-overlay"></div>
+
+                            <!-- Overlay Flex para Badges -->
+                            <div class="cm-badge-overlay">
+                                <div class="cm-badge-row-top">
+                                    <span class="cm-badge cm-badge-primary">Más Vendido</span>
+                                    <span class="cm-badge cm-badge-dark">
+                                        <span class="material-symbols-outlined fs-6">group</span> 2x
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuerpo -->
+                        <div class="cm-candy-body d-flex justify-content-between">
+                            <div class="combo-text">
+                                <h3 class="cm-candy-title">Combo Pareja Clásico</h3>
+                                <p class="cm-candy-description">
+                                    Palomitas Grandes 250g recién horneadas + 2 Refrescos 750ml con Refill gratuito + 1
+                                    M&M's...
+                                </p>
+                            </div>
+
+                            <!-- Slot OPCIÓN A: Botón Selector de Opción -->
+                            <div class="cm-candy-option-slot">
+                                <span class="cm-candy-option-label">Tipo de maíz:</span>
+                                <button type="button" class="cm-candy-option-btn" id="cornTypeToggle"
+                                    title="Cambiar opción de maíz">
+                                    <span>Saladas / Mixtas</span>
+                                    <span class="material-symbols-outlined fs-6">tune</span>
+                                </button>
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="cm-candy-footer-action">
+                                <div class="cm-candy-price-box">
+                                    <span class="cm-candy-price-main">110,50 Bs</span>
+                                    <span class="cm-candy-price-savings">Ahorras 30,20 Bs</span>
+                                </div>
+                                <button type="button" class="cm-candy-btn-add">
+                                    <span class="material-symbols-outlined fs-6">add</span>
+                                    <span>Añadir</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Balde XL con Texto Fijo + Badge Edición Limitada -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <div class="cm-candy-card">
+                        <!-- Media / Imagen + Badges -->
+                        <div class="cm-media-candy">
+                            <img src="img/combo2.jpg" alt="Balde Edición Especial" class="cm-card-media-img">
+                            <div class="cm-card-media-overlay"></div>
+
+                            <!-- Overlay Flex para Badges -->
+                            <div class="cm-badge-overlay">
+                                <div class="cm-badge-row-top">
+                                    <span class="cm-badge cm-badge-warning">Edición Limitada</span>
+
+                                </div>
+                                <div class="cm-badge-row-bottom">
+                                    <span class="cm-badge cm-badge-outline">Aluminio Relieve</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuerpo -->
+                        <div class="cm-candy-body">
+                            <h3 class="cm-candy-title">Balde Marvel Relieve</h3>
+                            <p class="cm-candy-description">
+                                Balde coleccionable de aluminio de edición limitada con palomitas mantecosas gigante.
+                            </p>
+
+                            <!-- Slot OPCIÓN B: Texto Informativo Estático -->
+                            <div class="cm-candy-option-slot">
+                                <span class="cm-candy-option-label">Incluye:</span>
+                                <span class="cm-candy-option-static">Balde XL + Refill x1</span>
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="cm-candy-footer-action">
+                                <div class="cm-candy-price-box">
+                                    <span class="cm-candy-price-main">85,00 Bs</span>
+                                    <span class="cm-candy-price-savings">Stock Limitado</span>
+                                </div>
+                                <button type="button" class="cm-candy-btn-add">
+                                    <span class="material-symbols-outlined fs-6">add</span>
+                                    <span>Añadir</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Snack Gourmet con Selector de Tamaños (Pills/Radio) -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <div class="cm-candy-card">
+                        <!-- Media / Imagen + Badges -->
+                        <div class="cm-media-candy">
+                            <img src="img/combo3.jpg" alt="Popcorn Caramel Gourmet" class="cm-card-media-img">
+                            <div class="cm-card-media-overlay"></div>
+
+                            <!-- Overlay Flex para Badges -->
+                            <div class="cm-badge-overlay">
+                                <div class="cm-badge-row-top">
+                                    <span class="cm-badge cm-badge-dark">Favorito Gourmet</span>
+                                    <span class="cm-badge cm-badge-success">Veg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuerpo -->
+                        <div class="cm-candy-body">
+                            <h3 class="cm-candy-title">Caramel Gourmet Box</h3>
+                            <p class="cm-candy-description">
+                                Palomitas acarameladas artesanalmente con mantequilla de maní y sal marina.
+                            </p>
+
+                            <!-- Slot OPCIÓN C: Selector Radio de Tamaño -->
+                            <div class="cm-candy-option-slot">
+                                <div class="btn-group w-100 cm-size-selector" role="group">
+                                    <input type="radio" class="btn-check" name="size-gourmet" id="size-m" checked>
+                                    <label class="btn btn-cm-size" for="size-m">Mediano (180g)</label>
+
+                                    <input type="radio" class="btn-check" name="size-gourmet" id="size-l">
+                                    <label class="btn btn-cm-size" for="size-l">Grande (+15 Bs)</label>
+                                </div>
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="cm-candy-footer-action">
+                                <div class="cm-candy-price-box">
+                                    <span class="cm-candy-price-main">45,00 Bs</span>
+                                    <span class="cm-candy-price-savings">480 kcal</span>
+                                </div>
+                                <button type="button" class="cm-candy-btn-add">
+                                    <span class="material-symbols-outlined fs-6">add</span>
+                                    <span>Añadir</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Nachos -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <div class="cm-candy-card">
+                        <!-- Media / Imagen + Badges -->
+                        <div class="cm-media-candy">
+                            <img src="img/combo4.jpg" alt="Popcorn Caramel Gourmet" class="cm-card-media-img">
+                            <div class="cm-card-media-overlay"></div>
+
+                            <!-- Overlay Flex para Badges -->
+                            <div class="cm-badge-overlay">
+                                <div class="cm-badge-row-top">
+                                    <span class="cm-badge cm-badge-dark text-cm-tertiary-light-blue">Extra
+                                        Caliente</span>
+                                    <span class="cm-badge cm-badge-outline border-0">Sin Gluten</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuerpo -->
+                        <div class="cm-candy-body">
+                            <h3 class="cm-candy-title">Nachos Supreme Doble Queso</h3>
+                            <p class="cm-candy-description">
+                                Nachos de maíz crujiente artesanal, doble queso cheddar fundido, guacamole
+                                fresco y jalapeños al gusto.
+                            </p>
+
+                            <!-- Slot OPCIÓN B: Texto Informativo Estático -->
+                            <div class="cm-candy-option-slot">
+                                <span class="cm-candy-option-label">Salsa extra:</span>
+                                <span class="cm-candy-option-static">Guacamole &amp; Jalapeño</span>
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="cm-candy-footer-action">
+                                <div class="cm-candy-price-box">
+                                    <span class="cm-candy-price-main">78,00 Bs</span>
+                                    <span class="cm-candy-price-savings">Porción
+                                        320g</span>
+                                </div>
+                                <button type="button" class="cm-candy-btn-add">
+                                    <span class="material-symbols-outlined fs-6">add</span>
+                                    <span>Añadir</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5: Hot Dog -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <div class="cm-candy-card">
+                        <!-- Media / Imagen + Badges -->
+                        <div class="cm-media-candy">
+                            <img src="img/combo5.jpg" alt="Balde Edición Especial" class="cm-card-media-img">
+                            <div class="cm-card-media-overlay"></div>
+
+                            <!-- Overlay Flex para Badges -->
+                            <div class="cm-badge-overlay">
+                                <div class="cm-badge-row-top">
+                                    <span class="cm-badge cm-badge-dark">Pan Brioche</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuerpo -->
+                        <div class="cm-candy-body">
+                            <h3 class="cm-candy-title">Hot Dog New York Deli</h3>
+                            <p class="cm-candy-description">
+                                Salchicha premium ahumada, pan brioche tostado con mantequilla, cebolla
+                                frita crujiente y pepinillos agridulces.
+                            </p>
+
+                            <!-- Slot OPCIÓN B: Texto Informativo Estático -->
+                            <div class="cm-candy-option-slot">
+                                <span class="cm-candy-option-label">Salsas:</span>
+                                <span class="cm-candy-option-static">Mostaza dulce + Ketchup artesano</span>
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="cm-candy-footer-action">
+                                <div class="cm-candy-price-box">
+                                    <span class="cm-candy-price-main">45,00 Bs</span>
+                                    <span class="cm-candy-price-savings">Receta
+                                        original</span>
+                                </div>
+                                <button type="button" class="cm-candy-btn-add">
+                                    <span class="material-symbols-outlined fs-6">add</span>
+                                    <span>Añadir</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 6: Combo Infantil -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <div class="cm-candy-card">
+                        <!-- Media / Imagen + Badges -->
+                        <div class="cm-media-candy">
+                            <img src="img/combo6.jpg" alt="Balde Edición Especial" class="cm-card-media-img">
+                            <div class="cm-card-media-overlay"></div>
+
+                            <!-- Overlay Flex para Badges -->
+                            <div class="cm-badge-overlay">
+                                <div class="cm-badge-row-top">
+                                    <span class="cm-badge cm-badge-dark text-cm-tertiary-light-blue">Juguete
+                                        Incluido</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuerpo -->
+                        <div class="cm-candy-body">
+                            <h3 class="cm-candy-title">Combo Infantil Kids Pack</h3>
+                            <p class="cm-candy-description">
+                                Palomitas medianas dulces o saladas + Bebida 500ml o zumo natural + Juguete
+                                sorpresa oficial de estreno animado.
+                            </p>
+
+                            <!-- Slot OPCIÓN B: Texto Informativo Estático -->
+                            <div class="cm-candy-option-slot">
+                                <span class="cm-candy-option-label">Juguete:</span>
+                                <span class="cm-candy-option-static text-cm-tertiary-light-blue">Figurita
+                                    Coleccionable</span>
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="cm-candy-footer-action">
+                                <div class="cm-candy-price-box">
+                                    <span class="cm-candy-price-main">45,00 Bs</span>
+                                    <span class="cm-candy-price-savings">Apto celíacos
+                                        opt.</span>
+                                </div>
+                                <button type="button" class="cm-candy-btn-add">
+                                    <span class="material-symbols-outlined fs-6">add</span>
+                                    <span>Añadir</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 7: Vaso Termo Térmico -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <div class="cm-candy-card">
+                        <!-- Media / Imagen + Badges -->
+                        <div class="cm-media-candy">
+                            <img src="img/combo7.jpg" alt="Vaso Termo Térmico" class="cm-card-media-img">
+                            <div class="cm-card-media-overlay"></div>
+
+                            <!-- Overlay Flex para Badges -->
+                            <div class="cm-badge-overlay">
+                                <div class="cm-badge-row-top">
+                                    <span class="cm-badge cm-badge-dark text-cm-tertiary-light-blue">Eco Prime</span>
+
+                                </div>
+                                <div class="cm-badge-row-bottom">
+                                    <span class="cm-badge cm-badge-outline">Acero Inox 800ml</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuerpo -->
+                        <div class="cm-candy-body">
+                            <h3 class="cm-candy-title">Vaso Termo IMAX Laser</h3>
+                            <p class="cm-candy-description">
+                                Mantiene tu bebida helada durante 12h. Incluye primera carga completa gratis
+                                + 50% dto. de por vida en refills.
+                            </p>
+
+                            <!-- Slot OPCIÓN B: Texto Informativo Estático -->
+                            <div class="cm-candy-option-slot">
+                                <span class="cm-candy-option-label">Beneficio:</span>
+                                <span class="cm-candy-option-static text-cm-tertiary-light-blue">Refill a mitad de
+                                    precio</span>
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="cm-candy-footer-action">
+                                <div class="cm-candy-price-box">
+                                    <span class="cm-candy-price-main">125,00 Bs</span>
+                                    <span class="cm-candy-price-savings">Incluye 1ª
+                                        recarga</span>
+                                </div>
+                                <button type="button" class="cm-candy-btn-add">
+                                    <span class="material-symbols-outlined fs-6">add</span>
+                                    <span>Añadir</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 8: Cesta de Tequeños Artesanales & Salsa Tártara -->
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">
+                    <div class="cm-candy-card">
+                        <!-- Media / Imagen + Badges -->
+                        <div class="cm-media-candy">
+                            <img src="img/combo8.jpg" alt="Cesta de Tequeños Artesanales & Salsa Tártara"
+                                class="cm-card-media-img">
+                            <div class="cm-card-media-overlay"></div>
+
+                            <!-- Overlay Flex para Badges -->
+                            <div class="cm-badge-overlay">
+                                <div class="cm-badge-row-top">
+                                    <span class="cm-badge cm-badge-dark text-cm-tertiary">Exclusivo VIP &amp; Bar</span>
+                                    <span class="cm-badge cm-badge-success">Veg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cuerpo -->
+                        <div class="cm-candy-body">
+                            <h3 class="cm-candy-title">Tequeños Artesanales (6 uds)</h3>
+                            <p class="cm-candy-description">
+                                Finas tiras de masa crujiente rellenas de abundante queso blanco fundente,
+                                servidas con salsa tártara de hierbas frescas.
+                            </p>
+
+                            <!-- Slot OPCIÓN B: Texto Informativo Estático -->
+                            <div class="cm-candy-option-slot">
+                                <span class="cm-candy-option-label">Servicio:</span>
+                                <span class="cm-candy-option-static">Directo a sala / Mostrador</span>
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="cm-candy-footer-action">
+                                <div class="cm-candy-price-box">
+                                    <span class="cm-candy-price-main">55,00 Bs</span>
+                                    <span class="cm-candy-price-savings">6 unidades
+                                        calientes</span>
+                                </div>
+                                <button type="button" class="cm-candy-btn-add">
+                                    <span class="material-symbols-outlined fs-6">add</span>
+                                    <span>Añadir</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. BANNER SECCIÓN VIP (CINEPRIME) -->
+        <section class="container-fluid px-3 px-lg-5 mb-5">
+            <div class="cm-vip-banner-card p-4 p-md-5">
+                <div class="row g-4 align-items-center">
+
+                    <!-- Columna Izquierda: Información de Servicio -->
+                    <div class="col-12 col-lg-7 d-flex flex-column justify-content-between">
+
+                        <!-- Tag Superior -->
+                        <div>
+                            <div class="mb-3">
+                                <span class="cm-badge-vip-tag">
+                                    <span class="material-symbols-outlined fs-6">stars</span>
+                                    Experiencia Gastronómica Sala VIP
+                                </span>
+                            </div>
+
+                            <!-- Título y Descripción -->
+                            <h2 class="cm-vip-title mb-3">
+                                Servicio de Bar en tu Butaca Reclinable
+                            </h2>
+                            <p class="cm-vip-description mb-4">
+                                Olvídate de hacer filas o cargar bandejas en la oscuridad. Pide cómodamente desde tu
+                                móvil antes
+                                de empezar la función y nuestro equipo de sala te servirá discretamente en la mesa
+                                giratoria de
+                                tu butaca VIP de cuero.
+                            </p>
+                        </div>
+
+                        <!-- Grid de 4 Pilares de Servicio -->
+                        <div class="row g-2 mb-4">
+                            <!-- Cervezas -->
+                            <div class="col-6 col-sm-3">
+                                <div class="cm-vip-feature-card">
+                                    <span class="material-symbols-outlined cm-vip-feature-icon">sports_bar</span>
+                                    <div class="cm-vip-feature-text">Cervezas Artesanales</div>
+                                </div>
+                            </div>
+                            <!-- Tablas Ibéricas -->
+                            <div class="col-6 col-sm-3">
+                                <div class="cm-vip-feature-card">
+                                    <span class="material-symbols-outlined cm-vip-feature-icon">tapas</span>
+                                    <div class="cm-vip-feature-text">Tablas Ibéricas</div>
+                                </div>
+                            </div>
+                            <!-- Coctelería de Autor -->
+                            <div class="col-6 col-sm-3">
+                                <div class="cm-vip-feature-card">
+                                    <span class="material-symbols-outlined cm-vip-feature-icon">local_bar</span>
+                                    <div class="cm-vip-feature-text">Coctelería de Autor</div>
+                                </div>
+                            </div>
+                            <!-- Café Gourmet -->
+                            <div class="col-6 col-sm-3">
+                                <div class="cm-vip-feature-card">
+                                    <span class="material-symbols-outlined cm-vip-feature-icon">coffee</span>
+                                    <div class="cm-vip-feature-text">Café Illy Gourmet</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botón Acción y Disponibilidad de Salas -->
+                        <div class="d-flex flex-wrap align-items-center gap-3">
+                            <button type="button" class="btn btn-cm-vip-gold d-inline-flex align-items-center gap-2">
+                                <span>Explorar Menú Completo VIP</span>
+                            </button>
+                            <span class="cm-vip-halls-info">
+                                Disponible en salas 1, 2 y 5 (Gran Vía)
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <!-- Columna Derecha: Imagen Flotante con Botón de Camarero -->
+                    <div class="col-12 col-lg-5">
+                        <div class="cm-vip-media-wrapper">
+                            <!-- Imagen de Experiencia VIP -->
+                            <img src="img/vip-lounge.jpg" alt="Experiencia VIP CinePrime" class="cm-vip-media-img">
+                            <div class="cm-vip-media-overlay"></div>
+
+                            <!-- Barra Flotante Inferior -->
+                            <div class="cm-vip-floating-bar">
+                                <div class="cm-vip-waiter-btn">
+                                    <span class="material-symbols-outlined">notifications_active</span>
+                                    <span>Botón de Llamada Camarero en Butaca</span>
+                                </div>
+                                <span class="cm-vip-silent-tag">Silencioso</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. SECCIÓN PREGUNTAS FRECUENTES -->
+        <section class="container-fluid px-3 px-lg-5 faq-combos">
+            <div class="cm-faq-section-container p-3 p-md-4">
+
+                <!-- Tarjeta Contenedora Principal -->
+                <div class="cm-faq-card-wrapper p-4 p-md-5">
+
+                    <!-- Header -->
+                    <div class="text-center mb-4">
+                        <span class="cm-badge-vip-tag mb-2">Dudas Frecuentes</span>
+                        <h2 class="cm-vip-title fs-2">Preguntas sobre Dulcería & Alergias</h2>
+                        <p class="cm-vip-description mx-auto mb-0" style="max-width: 580px;">
+                            Todo lo que necesitas saber sobre recogidas exprés, ingredientes, garantías de alérgenos y
+                            recargas.
+                        </p>
+                    </div>
+
+                    <!-- Acordeón -->
+                    <div class="accordion" id="faqAccordion">
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1">
+                                    <div class="cm-faq-icon-box">
+                                        <span class="material-symbols-outlined fs-5">bolt</span>
+                                    </div>
+                                    <span>¿Cómo funciona la recogida exprés sin colas en el cine?</span>
+                                </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Al realizar tu pedido recibirás un código QR dinámico. Al llegar al cine, dirígete
+                                    directamente al mostrador señalizado como <strong>"Fila Exprés / Pedidos
+                                        Online"</strong>.
+                                    El personal escaneará tu código y tus palomitas calientes y bebidas se servirán al
+                                    instante.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2">
+                                    <div class="cm-faq-icon-box">
+                                        <span class="material-symbols-outlined fs-5">health_and_safety</span>
+                                    </div>
+                                    <span>¿Qué snacks son aptos para personas celíacas o con intolerancias?</span>
+                                </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Nuestras <strong>palomitas saladas clásicas son 100% libres de gluten</strong> y se
+                                    procesan
+                                    en líneas libres de contaminación cruzada. También contamos con nachos de maíz puro
+                                    certificados, golosinas sin gluten y bebidas sin azúcar.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq3">
+                                    <div class="cm-faq-icon-box">
+                                        <span class="material-symbols-outlined fs-5">weekend</span>
+                                    </div>
+                                    <span>¿Puedo pedir comida una vez dentro de la sala de proyección?</span>
+                                </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    En salas estándar puedes pedir hasta 15 minutos antes del comienzo de la película y
+                                    recoger
+                                    en bar. En nuestras salas <strong>CinePrime VIP Recliner</strong>, puedes solicitar
+                                    platos
+                                    fríos, snacks y cócteles desde la app durante los trailers.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq4">
+                                    <div class="cm-faq-icon-box">
+                                        <span class="material-symbols-outlined fs-5">autorenew</span>
+                                    </div>
+                                    <span>¿Cómo funciona el Refill ilimitado de palomitas y refrescos?</span>
+                                </button>
+                            </h3>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Los combos marcados con el sello de refill permiten rellenar tu vaso o cubo durante
+                                    todo el
+                                    día de tu función. Solo debes presentar tu ticket de compra y tu envase en cualquier
+                                    estación de refill habilitada en el vestíbulo.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    <div id="footer-container"></div>
+    <!--<div id="footer-container" data-variant="minimal"></div>-->
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
