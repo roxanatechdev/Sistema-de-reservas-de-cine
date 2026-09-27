@@ -1,0 +1,620 @@
+/* Estilos personalizados de CinePlus. La estructura responsive usa Bootstrap 5. */
+:root {
+  --cine-bg: #020c1b;
+  --cine-panel: #041326;
+  --cine-pink: #f20b4f;
+  --cine-text: #f4f6fb;
+  --cine-muted: #bdc6d4;
+  --cine-border: #263950;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--cine-bg); color: var(--cine-text); font-family: "Inter", Arial, sans-serif; }
+a { text-decoration: none; }
+
+/* Barra de navegación */
+.cine-navbar { min-height: 88px; background: #020b18; border-bottom: 1px solid #1b2a3d; }
+.brand-mark { width: 53px; height: 53px; border-radius: 50%; display: inline-grid; place-items: center; background: var(--cine-pink); color: #071326; font-size: 29px; flex-shrink: 0; }
+.brand-name { color: #f5f6fa; font-size: 32px; letter-spacing: -1.3px; line-height: 1; }
+.brand-name > span { color: var(--cine-pink); }
+.cine-navbar .navbar-nav .nav-link { color: #edf1f7; padding: 29px 10px 25px; border-bottom: 4px solid transparent; font-size: 14px; white-space: nowrap; }
+.cine-navbar .navbar-nav .nav-link:hover, .cine-navbar .navbar-nav .nav-link.active { color: var(--cine-pink); }
+.cine-navbar .navbar-nav .contact-active { border-bottom-color: var(--cine-pink); }
+.nav-tools a { color: #edf2f9; font-size: 25px; position: relative; }
+.nav-tools a:hover { color: var(--cine-pink); }
+.notification span { position: absolute; width: 9px; height: 9px; border-radius: 50%; background: var(--cine-pink); right: 0; top: 0; }
+.profile-icon { width: 37px; height: 37px; border: 1px solid #dbe4ef; border-radius: 50%; display: inline-grid; place-items: center; font-size: 22px !important; }
+
+/* Hero decorativo */
+.contact-hero { height: 214px; overflow: hidden; border-bottom: 1px solid #26364a; background: radial-gradient(ellipse at 12% 8%, #42120f 0, transparent 22%), radial-gradient(ellipse at 79% 10%, #35101a 0, transparent 25%), linear-gradient(180deg, #050c1b 0%, #070d1b 70%, #0c0c1b 100%); position: relative; }
+.contact-hero::before { content: ""; position: absolute; inset: 0; opacity: .45; background: linear-gradient(90deg, transparent 0 5%, #24111b 5.5% 8%, transparent 8.5% 19%, #30101b 20% 23%, transparent 24%), radial-gradient(ellipse at 50% 130%, #8e092d 0, transparent 37%); filter: blur(8px); }
+.contact-hero .container-fluid { position: relative; }
+.hero-copy { z-index: 1; }
+.hero-popcorn { color: var(--cine-pink); font-size: 50px; margin-top: 8px; }
+.contact-hero h1 { font: 600 clamp(50px, 5vw, 76px)/.92 "Caveat", cursive; margin: 0 0 11px; letter-spacing: 1px; transform: rotate(-2deg); }
+.contact-hero h1 span { color: var(--cine-pink); }
+.contact-hero p { color: #e0e5ed; font-size: 16px; }
+.pink-underline { width: 150px; height: 3px; background: var(--cine-pink); margin-top: 16px; transform: rotate(-3deg); border-radius: 50%; }
+.hero-note { z-index: 1; font: 25px/1.05 "Caveat", cursive; transform: rotate(-7deg); color: #f6f6fa; }
+.hero-note p { font: inherit; }
+.hero-note span { color: var(--cine-pink); font-size: 34px; }
+.hero-note i { color: var(--cine-pink); font-size: 42px; display: block; margin: 9px 0 0 105px; }
+.popcorn-art { position: relative; height: 200px; }
+.kernels { position: absolute; top: 0; left: 0; font-size: 88px; filter: drop-shadow(0 0 8px #f7b56c); }
+.popcorn-box { position: absolute; bottom: -2px; left: 16px; width: 150px; height: 125px; display: flex; overflow: hidden; border: 1px solid #c84b58; border-radius: 15px 15px 0 0; background: repeating-linear-gradient(90deg, #ed1b3e 0 24px, #f6d4c7 24px 48px); box-shadow: 0 -7px 18px #5d091c; }
+.popcorn-box span { flex: 1; border-right: 1px solid #ffffff25; }
+.popcorn-box span:nth-child(even) { background: #172033; opacity: .72; }
+
+/* Tarjetas */
+.contact-card, .form-card { background: var(--cine-panel); border: 1px solid var(--cine-border); border-radius: 13px; color: var(--cine-text); box-shadow: 0 12px 30px #00000012; }
+.section-title { font-size: 23px; font-weight: 600; letter-spacing: -.6px; }
+.info-row { min-height: 57px; }
+.info-icon { width: 56px; height: 56px; flex: 0 0 56px; border-radius: 50%; display: grid; place-items: center; color: var(--cine-pink); background: #25152f; font-size: 28px; }
+.info-row h3 { font-size: 15px; font-weight: 500; margin: 0 0 3px; }
+.info-row p { margin: 0; color: #c4ccda; font-size: 14px; line-height: 1.35; }
+.contact-divider { border-color: #314057; opacity: .8; margin: 17px 0; }
+.social-title { font-size: 15px; font-weight: 500; }
+.social-links a { width: 38px; height: 38px; border-radius: 50%; background: #14253c; display: grid; place-items: center; font-size: 19px; color: #f0f3f8; transition: background .2s, transform .2s; }
+.social-links a:hover { background: var(--cine-pink); transform: translateY(-3px); }
+.handwritten { text-align: center; font: 24px/1 "Caveat", cursive; transform: rotate(-7deg); color: #f3f5fa; }
+.handwritten span { color: var(--cine-pink); font-size: 42px; vertical-align: middle; margin-left: 10px; }
+
+/* Formulario: input-group, form-control, form-select y btn son componentes Bootstrap */
+.form-heading > i { color: var(--cine-pink); font-size: 39px; }
+.cine-input { min-height: 53px; border: 1px solid #35465d; border-radius: 12px; overflow: hidden; background: #041226; transition: border-color .2s, box-shadow .2s; }
+.cine-input:focus-within { border-color: var(--cine-pink); box-shadow: 0 0 0 3px #f20b4f18; }
+.cine-input .input-group-text { background: transparent; border: 0; color: #e5eaf2; font-size: 23px; padding: 0 20px; }
+.cine-input .form-control, .cine-input .form-select { min-width: 0; background-color: transparent; color: #e9edf5; border: 0; box-shadow: none; font-size: 14px; }
+.cine-input .form-control::placeholder { color: #b9c3d2; opacity: 1; }
+.cine-input .form-select { color: #c4ccda; }
+.cine-input .form-select option { color: #f1f4f8; background: #07182c; }
+.message-input { min-height: 130px; }
+.message-input .input-group-text { align-items: flex-start; padding-top: 14px; }
+.message-input textarea { min-height: 124px; resize: vertical; padding-top: 17px; line-height: 1.5; }
+.send-btn { min-width: 280px; min-height: 56px; padding: 0 28px; color: white; background: var(--cine-pink); border: 0; border-radius: 24px; font-size: 15px; transition: transform .2s, box-shadow .2s; }
+.send-btn:hover, .send-btn:focus { color: white; background: #db0645; transform: translateY(-2px); box-shadow: 0 12px 24px #f20b4f38; }
+#formStatus { color: #f5b4c7; font-size: 13px; }
+
+/* Footer */
+.cine-footer { border-top: 1px solid #1c2c40; background: #020b18; }
+.footer-brand { display: inline-flex; align-items: center; gap: 13px; }
+.footer-brand .brand-name { font-size: 30px; }
+.footer-brand small { display: block; color: #aeb9c9; font-size: 14px; font-weight: 400; letter-spacing: 0; margin-top: 5px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: clamp(20px, 4vw, 65px); border-left: 1px solid #314057; padding-left: 40px; }
+.footer-links a { color: #b7c0cf; font-size: 13px; }
+.footer-links a:hover { color: var(--cine-pink); }
+.footer-note { display: inline-block; font: 27px/.9 "Caveat", cursive; transform: rotate(-8deg); }
+.footer-note span { color: var(--cine-pink); font-size: 28px; }
+.footer-note b { display: block; width: 120px; height: 2px; background: var(--cine-pink); transform: rotate(-8deg); margin-top: 10px; }
+
+@media (max-width: 1199.98px) {
+  .cine-navbar .navbar-nav .nav-link { padding: 10px 5px; border-bottom-width: 2px; }
+  .nav-tools { padding-bottom: 12px; }
+}
+@media (max-width: 575.98px) {
+  .brand-mark { width: 44px; height: 44px; font-size: 25px; }
+  .brand-name { font-size: 27px; }
+  .contact-hero { height: 205px; }
+  .hero-copy { gap: 12px !important; }
+  .hero-popcorn { font-size: 39px; }
+  .contact-hero h1 { font-size: 53px; }
+  .contact-hero p { font-size: 13px; }
+  .section-title { font-size: 20px; }
+  .form-heading { gap: 14px !important; }
+  .send-btn { min-width: 0; width: 100%; }
+  .footer-links { border-left: 0; border-top: 1px solid #26364a; padding: 17px 0 0; gap: 18px; }
+}
+/* ==========================================================================
+   CINEMAX - ESTILOS GLOBALES & DESIGN SYSTEM
+   Enfoque: Diseño Web II - Proyecto Feria Informática 2026
+   Framework Base: Bootstrap 5 + Custom Properties
+   ========================================================================== */
+
+/* VARIABLES DE COLOR (DESIGN TOKENS - MATERIAL DESIGN 3 / DARK CINEMATIC) */
+:root {
+    /* --- Colores Principales (Brand / Identity) --- */
+    --cm-primary: #ffb4aa;
+    --cm-primary-container: #e50914;
+    /* Rojo Cine / Brand Hero */
+    --cm-on-primary: #690003;
+    --cm-on-primary-container: #fff7f6;
+    --cm-primary-fixed: #ffdad5;
+    --cm-primary-fixed-dim: #ffb4aa;
+    --cm-on-primary-fixed: #410001;
+    --cm-on-primary-fixed-variant: #930007;
+
+    /* --- Colores Secundarios --- */
+    --cm-secondary: #ffb3b3;
+    --cm-secondary-container: #da0137;
+    --cm-on-secondary: #680015;
+    --cm-on-secondary-container: #ffeceb;
+    --cm-secondary-fixed: #ffdad9;
+    --cm-secondary-fixed-dim: #ffb3b3;
+    --cm-on-secondary-fixed: #400009;
+    --cm-on-secondary-fixed-variant: #920022;
+
+    /* --- Colores Terciarios (Acentos / Ratings / Promos) --- */
+    --cm-tertiary: #e9c349;
+    /* Dorado / Estrellas */
+    --cm-tertiary-container: #cca730;
+    --cm-on-tertiary: #3c2f00;
+    --cm-on-tertiary-container: #4f3d00;
+    --cm-tertiary-fixed: #ffe088;
+    --cm-tertiary-fixed-dim: #e9c349;
+    --cm-on-tertiary-fixed: #241a00;
+    --cm-on-tertiary-fixed-variant: #574500;
+
+    /* --- Superficies y Fondos (Dark Theme Elevation) --- */
+    --cm-background: #11131c;
+    --cm-on-background: #e1e1ef;
+    --cm-surface: #11131c;
+    --cm-on-surface: #e1e1ef;
+    --cm-surface-dim: #11131c;
+    --cm-surface-bright: #373943;
+    --cm-surface-variant: #32343e;
+    --cm-on-surface-variant: #e9bcb6;
+
+    /* --- Contenedores de Superficie (Capas) --- */
+    --cm-surface-container-lowest: #0c0e17;
+    --cm-surface-container-low: #191b24;
+    --cm-surface-container: #1d1f29;
+    --cm-surface-container-high: #282933;
+    --cm-surface-container-highest: #32343e;
+
+    /* --- Inversiones y Bordes --- */
+    --cm-inverse-surface: #e1e1ef;
+    --cm-inverse-on-surface: #2e303a;
+    --cm-inverse-primary: #c0000c;
+    --cm-outline: #af8782;
+    --cm-outline-variant: #5e3f3b;
+
+    /* --- Errores / Estado --- */
+    --cm-error: #ffb4ab;
+    --cm-error-container: #93000a;
+    --cm-on-error: #690005;
+    --cm-on-error-container: #ffdad6;
+
+    /* --- Tipografías --- */
+    --cm-font-display: 'Bebas Neue', cursive, sans-serif;
+    --cm-font-body: 'Montserrat', sans-serif;
+
+    /* --- Sombras Creadas / Resplandores Neón --- */
+    --cm-glow-primary: 0 0 20px rgba(229, 9, 20, 0.35);
+    --cm-glow-primary-intense: 0 0 28px rgba(229, 9, 20, 0.55);
+    --cm-glow-tertiary: 0 0 16px rgba(233, 195, 73, 0.35);
+}
+
+/* 3. RESETS Y ESTILOS BASE COMPATIBLES CON BOOTSTRAP 5 */
+body {
+    background-color: var(--cm-background);
+    color: var(--cm-on-surface);
+    font-family: var(--cm-font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ocultar barra de desplazamiento manteniendo funcionalidad */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* SELECCIÓN DE TEXTO */
+::selection {
+    background-color: var(--cm-primary-container);
+    color: var(--cm-on-primary-container);
+}
+
+/*  ESPECIFICACIONES TIPOGRÁFICAS (MAPPING A BOOTSTRAP UTILITIES / CUSTOM CLASSES) */
+
+/* ==========================================================================
+   CINEMAX - DECLARACIÓN DE FUENTES LOCALES (OFFLINE MODE)
+   ========================================================================== */
+
+/* 1. BEBAS NEUE (DISPLAY) */
+@font-face {
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../css/fonts/bebas-neue-v16-latin-regular.woff2') format('woff2');
+}
+
+/* 2. MONTSERRAT (BODY & INTERACTION) */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('../css/fonts/montserrat-v31-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../css/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../css/fonts/montserrat-v31-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../css/fonts/montserrat-v31-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../css/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+}
+
+/* 3. MATERIAL SYMBOLS OUTLINED (ICONS) */
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../css/fonts/material-symbols-outlined-v374-latin-regular.woff2') format('woff2');
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Adaptabilidad móvil para títulos Display */
+@media (max-width: 768px) {
+    .font-display-hero {
+        font-size: 2.75rem;
+        /* 44px */
+        line-height: 2.875rem;
+        /* 46px */
+    }
+
+    .font-headline-lg {
+        font-size: 1.875rem;
+        /* 30px */
+        line-height: 2.125rem;
+        /* 34px */
+    }
+}
+
+/* 5. UTILIDADES DE SUPERFICIE PERSONALIZADAS PARA BOOTSTRAP */
+.bg-cm-surface-lowest {
+    background-color: var(--cm-surface-container-lowest) !important;
+}
+
+.bg-cm-surface-low {
+    background-color: var(--cm-surface-container-low) !important;
+}
+
+.bg-cm-surface {
+    background-color: var(--cm-surface-container) !important;
+}
+
+.bg-cm-surface-high {
+    background-color: var(--cm-surface-container-high) !important;
+}
+
+.bg-cm-surface-highest {
+    background-color: var(--cm-surface-container-highest) !important;
+}
+
+.text-cm-primary {
+    color: var(--cm-primary) !important;
+}
+
+.text-cm-primary-container {
+    color: var(--cm-primary-container) !important;
+}
+
+.text-cm-tertiary {
+    color: var(--cm-tertiary) !important;
+}
+
+.text-cm-variant {
+    color: var(--cm-on-surface-variant) !important;
+}
+
+.shadow-cm-glow {
+    box-shadow: var(--cm-glow-primary);
+}
+
+.shadow-cm-glow-intense {
+    box-shadow: var(--cm-glow-primary-intense);
+}
+
+/* ==========================================================================
+   ESTILOS COMPONENTES: NAVBAR & HEADER  CINEPRIME
+   ========================================================================== */
+
+/* Altura del logo */
+.brand-logo-img {
+    height: 2.25rem;
+    width: auto;
+    object-fit: contain;
+}
+
+.nombre {
+    font-family: var(--cm-font-display);
+    font-size: 2.25rem;
+    letter-spacing: 0.96px;
+}
+
+/* Transición suave al hacer scroll */
+#main-header {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+    z-index: 1030;
+}
+
+/* Fondo transparente por defecto */
+.bg-cm-surface-transparent {
+    background-color: transparent;
+}
+
+/* Estilo que se aplica dinámicamente mediante JavaScript al hacer scroll */
+#main-header.scrolled {
+    background-color: rgba(12, 14, 23, 0.85) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor central de la navegación desktop */
+.nav-pill-container {
+    background-color: rgba(29, 31, 41, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Enlaces del Nav Desktop */
+.nav-link-custom {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-family: var(--cm-font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--cm-on-surface-variant);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link-custom:hover {
+    color: var(--cm-on-surface);
+    background-color: var(--cm-surface-container-low);
+}
+
+.nav-link-custom.active {
+    background-color: var(--cm-surface-container-high) !important;
+    color: var(--cm-on-surface) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones de acción del header */
+.btn-cm-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    color: var(--cm-on-surface-variant);
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-cm-icon:hover {
+    color: var(--cm-on-surface);
+    background-color: var(--cm-surface-container-high);
+}
+
+.btn-cm-primary {
+    background-color: var(--cm-primary-container);
+    color: var(--cm-on-primary-container);
+    border: none;
+    box-shadow: var(--cm-glow-primary);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-cm-primary:hover {
+    background-color: var(--cm-secondary-container);
+    color: var(--cm-on-secondary-container);
+    box-shadow: var(--cm-glow-primary-intense);
+    transform: translateY(-1px);
+}
+
+.user-avatar-circle {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: var(--cm-primary);
+}
+
+/* Panel Desplegable Móvil */
+.bg-cm-mobile-panel {
+    background-color: rgba(12, 14, 23, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-family: var(--cm-font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--cm-on-surface-variant);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+    background-color: var(--cm-surface-container-high);
+    color: var(--cm-on-surface);
+}
+
+/* ==========================================================================
+   CINEPRIME - FOOTER COMPLETO (COMPONENTE REUTILIZABLE)
+   ========================================================================== */
+
+/* Fondo del Footer */
+.footer-main {
+    background-color: var(--cm-surface-container-lowest);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Títulos de Columnas */
+.footer-title {
+    font-family: var(--cm-font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+}
+
+.fs-ft {
+    font-size: 0.9rem;
+}
+
+/* Enlaces del Footer */
+.footer-link {
+    color: rgba(225, 221, 239, 0.65);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--cm-primary-container);
+    padding-left: 4px;
+    /* Sutil deslice a la derecha al hacer hover */
+}
+
+/* Botones de Redes Sociales */
+.btn-social {
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: var(--cm-surface-container);
+    color: var(--cm-on-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-social:hover {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    border-color: var(--cm-primary-container);
+    transform: translateY(-2px);
+    box-shadow: var(--cm-glow-primary);
+}
+
+/* Newsletter Input & Button */
+.footer-newsletter-input {
+    background-color: var(--cm-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 0.85rem;
+}
+
+.footer-newsletter-input:focus {
+    background-color: var(--cm-surface-container-high);
+    border-color: var(--cm-primary-container);
+    color: #ffffff;
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+}
+
+.footer-newsletter-input::placeholder {
+    color: rgba(225, 221, 239, 0.4);
+}
+
+.btn-cm-subscribe {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    font-family: var(--cm-font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-cm-subscribe:hover {
+    background-color: #ff1e27;
+    box-shadow: var(--cm-glow-primary-intense);
+}
+
+/* Métodos de Pago Badges */
+.payment-badge {
+    background-color: var(--cm-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(225, 221, 239, 0.7);
+    font-family: var(--cm-font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   CINEPRIME - FOOTER MINIMALISTA (CHECKOUT / AUTH)
+   ========================================================================== */
+
+/* Contenedor compacto del Footer Secundario */
+.footer-minimal {
+    background-color: var(--cm-surface-container-lowest);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Enlaces legales minimalistas */
+.footer-link-minimal {
+    color: rgba(225, 221, 239, 0.6);
+    font-size: 0.8rem;
+    font-family: var(--cm-font-body);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link-minimal:hover {
+    color: var(--cm-primary-container);
+}
+
+/* Badges de métodos de pago */
+.payment-badge-sm {
+    background-color: var(--cm-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(225, 221, 239, 0.7);
+    font-family: var(--cm-font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}

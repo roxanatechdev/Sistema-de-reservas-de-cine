@@ -1,0 +1,961 @@
+
+/* =========================================================
+   1. VARIABLES
+   ========================================================= */
+
+:root {
+    --cine-bg: #08090d;
+    --cine-panel: #11131b;
+    --cine-panel-light: #191c25;
+
+    --cine-red: #e50914;
+    --cine-red-light: #ff1f2a;
+    --cine-red-dark: #b20710;
+
+    --cine-text: #f5f5f5;
+    --cine-muted: #adb3bf;
+
+    --cine-border: #292e39;
+
+    --cine-gold: #ffc107;
+}
+
+
+/* =========================================================
+   2. ESTILO GENERAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(229, 9, 20, 0.12),
+            transparent 35%
+        ),
+        #0e0e0f;
+
+    color: var(--cine-text);
+
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+
+    min-height: 100vh;
+
+    padding-top: 90px;
+}
+
+
+/* =========================================================
+   3. NAVBAR
+   ========================================================= */
+
+#main-header {
+    z-index: 1030;
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        backdrop-filter 0.3s ease;
+}
+
+.bg-cm-surface-transparent {
+    background-color: rgba(8, 9, 13, 0.88);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(229, 9, 20, 0.18);
+}
+
+
+/* Logo */
+
+.nombre {
+    font-family: "Inter", sans-serif;
+
+    font-size: 2rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    color: #ffffff;
+}
+
+.text-cm-primary-container {
+    color: var(--cine-red) !important;
+}
+
+
+/* Menú central */
+
+.nav-pill-container {
+    background-color: rgba(25, 28, 37, 0.75);
+
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+.nav-link-custom {
+    display: block;
+
+    padding: 0.55rem 1rem;
+
+    border-radius: 8px;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+
+    color: #c4c8d2;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.nav-link-custom:hover {
+    color: #ffffff;
+
+    background-color: rgba(229, 9, 20, 0.16);
+
+    transform: translateY(-1px);
+}
+
+
+/* Promociones activa */
+
+.nav-link-custom[href="promociones.html"] {
+    color: #ffffff;
+
+    background-color: var(--cine-red);
+
+    box-shadow:
+        0 0 15px rgba(229, 9, 20, 0.35);
+}
+
+
+/* Botón buscar */
+
+.btn-cm-icon {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 8px;
+
+    color: #c4c8d2;
+
+    background: transparent;
+
+    transition: all 0.25s ease;
+}
+
+.btn-cm-icon:hover {
+    color: #ffffff;
+
+    background-color: rgba(229, 9, 20, 0.16);
+}
+
+
+/* Botón ingresar */
+
+.btn-cm-primary {
+    background-color: var(--cine-red);
+
+    color: #ffffff;
+
+    border: none;
+
+    box-shadow:
+        0 0 15px rgba(229, 9, 20, 0.3);
+
+    transition: all 0.25s ease;
+}
+
+.btn-cm-primary:hover {
+    background-color: var(--cine-red-light);
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 25px rgba(229, 9, 20, 0.5);
+}
+
+
+/* Avatar móvil */
+
+.user-avatar-circle {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background-color: var(--cine-red);
+
+    box-shadow:
+        0 0 12px rgba(255, 3, 16, 0.35);
+}
+
+
+/* Menú móvil */
+
+.bg-cm-mobile-panel {
+    background-color: rgba(8, 9, 13, 0.98);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(229, 9, 20, 0.2);
+}
+
+.mobile-nav-link {
+    display: block;
+
+    padding: 0.75rem 1rem;
+
+    border-radius: 8px;
+
+    color: #c4c8d2;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+.mobile-nav-link:hover {
+    color: #ffffff;
+
+    background-color: rgba(229, 9, 20, 0.16);
+}
+
+
+/* =========================================================
+   4. HERO
+   ========================================================= */
+
+.hero-banner {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(229, 9, 20, 0.25),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #090b11 0%,
+            #0b0d13 70%,
+            #08090d 100%
+        );
+
+    border-bottom: 2px solid var(--cine-red);
+
+    padding-top: 65px !important;
+
+    padding-bottom: 60px !important;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Decoraciones del hero */
+
+.hero-banner::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    left: -100px;
+    top: -100px;
+
+    background: rgba(229, 9, 20, 0.12);
+
+    border-radius: 50%;
+
+    filter: blur(40px);
+}
+
+.hero-banner::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -120px;
+    bottom: -160px;
+
+    background: rgba(229, 9, 20, 0.10);
+
+    border-radius: 50%;
+
+    filter: blur(45px);
+}
+
+.hero-banner .container {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* Título */
+
+.brand-title {
+    color: var(--cine-red);
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 10px rgba(229, 9, 20, 0.45),
+        0 0 25px rgba(229, 9, 20, 0.2);
+
+    transition: all 0.3s ease;
+}
+
+.brand-title:hover {
+    text-shadow:
+        0 0 15px rgba(229, 9, 20, 0.7),
+        0 0 35px rgba(229, 9, 20, 0.3);
+
+    transform: scale(1.02);
+}
+
+
+/* Subtítulo */
+
+.hero-banner h2 {
+    color: var(--cine-gold) !important;
+
+    text-shadow:
+        0 0 8px rgba(255, 193, 7, 0.2);
+}
+
+
+/* Descripción */
+
+.hero-banner p {
+    color: #d7dbe3 !important;
+}
+
+
+/* =========================================================
+   5. CONTENEDOR DE PROMOCIONES
+   ========================================================= */
+
+main.container {
+    position: relative;
+}
+
+
+/* =========================================================
+   6. TARJETAS
+   ========================================================= */
+
+.card-promo {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #181b24,
+            #0f1118
+        );
+
+    border: 1px solid rgba(229, 9, 20, 0.55);
+
+    border-radius: 18px;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45),
+        0 0 15px rgba(229, 9, 20, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* Línea roja superior */
+
+.card-promo::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cine-red),
+        transparent
+    );
+
+    opacity: 0.7;
+}
+
+
+/* Hover */
+
+.card-promo:hover {
+    transform: translateY(-10px);
+
+    border-color: var(--cine-red);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.55),
+        0 0 30px rgba(229, 9, 20, 0.25);
+}
+
+
+/* =========================================================
+   7. ENCABEZADO DE TARJETAS
+   ========================================================= */
+
+.card-promo .card-header {
+    background: transparent;
+
+    color: #ffffff;
+
+    border-bottom: none;
+
+    padding-top: 28px !important;
+}
+
+.card-promo .card-title {
+    color: #ffffff;
+
+    letter-spacing: 1px;
+
+    margin-top: 5px;
+}
+
+.card-promo .text-muted {
+    color: #adb3bf !important;
+}
+
+
+/* =========================================================
+   8. BADGES
+   ========================================================= */
+
+.card-promo .badge.bg-warning {
+    background-color: var(--cine-red) !important;
+
+    color: #ffffff !important;
+
+    padding: 7px 11px;
+
+    border-radius: 6px;
+
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 0 10px rgba(229, 9, 20, 0.2);
+}
+
+.card-promo .badge.bg-danger {
+    background-color: var(--cine-red) !important;
+
+    color: #ffffff !important;
+
+    padding: 7px 11px;
+
+    box-shadow:
+        0 0 12px rgba(229, 9, 20, 0.3);
+}
+
+
+/* =========================================================
+   9. ICONOS
+   ========================================================= */
+
+.promo-icon {
+    transition:
+        transform 0.35s ease;
+}
+
+.promo-icon i {
+    color: var(--cine-red) !important;
+
+    filter:
+        drop-shadow(0 0 8px rgba(229, 9, 20, 0.35));
+
+    transition:
+        filter 0.35s ease,
+        transform 0.35s ease;
+}
+
+.card-promo:hover .promo-icon {
+    transform: scale(1.08);
+}
+
+.card-promo:hover .promo-icon i {
+    filter:
+        drop-shadow(0 0 10px rgba(229, 9, 20, 0.7))
+        drop-shadow(0 0 22px rgba(229, 9, 20, 0.3));
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   10. TEXTO
+   ========================================================= */
+
+.card-promo .card-text {
+    color: #c8ced8;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   11. BOTONES DE TARJETAS
+   ========================================================= */
+
+.card-promo .btn-warning {
+    background-color: var(--cine-red);
+
+    border-color: var(--cine-red);
+
+    color: #ffffff !important;
+
+    border-radius: 10px;
+
+    padding: 10px 15px;
+
+    transition: all 0.25s ease;
+}
+
+.card-promo .btn-warning:hover {
+    background-color: var(--cine-red-light);
+
+    border-color: var(--cine-red-light);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(229, 9, 20, 0.35);
+}
+
+
+.card-promo .btn-danger {
+    background-color: var(--cine-red);
+
+    border-color: var(--cine-red);
+
+    color: #ffffff !important;
+
+    border-radius: 10px;
+
+    padding: 10px 15px;
+
+    transition: all 0.25s ease;
+}
+
+.card-promo .btn-danger:hover {
+    background-color: var(--cine-red-light);
+
+    border-color: var(--cine-red-light);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(229, 9, 20, 0.4);
+}
+
+
+/* =========================================================
+   12. TARJETA DESTACADA
+   ========================================================= */
+
+.promo-featured {
+    border: 2px solid var(--cine-red);
+
+    background:
+        linear-gradient(
+            145deg,
+            #21141a,
+            #111117
+        );
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(229, 9, 20, 0.25);
+
+    transform: scale(1.02);
+}
+
+.promo-featured:hover {
+    transform: translateY(-10px) scale(1.03);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(229, 9, 20, 0.4);
+}
+
+
+/* =========================================================
+   13. ETIQUETA MÁS POPULAR
+   ========================================================= */
+
+.promo-featured > .position-absolute {
+    background-color: var(--cine-red) !important;
+
+    box-shadow:
+        0 5px 15px rgba(229, 9, 20, 0.35);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   14. FOOTER
+   ========================================================= */
+
+footer {
+    background:
+        linear-gradient(
+            180deg,
+            #08090d,
+            #040507
+        ) !important;
+
+    border-top:
+        1px solid rgba(229, 9, 20, 0.3) !important;
+}
+
+footer p {
+    color: #8f97a5 !important;
+}
+
+footer a {
+    color: #9fa6b3 !important;
+
+    transition:
+        color 0.25s ease;
+}
+
+footer a:hover {
+    color: var(--cine-red) !important;
+}
+
+footer span {
+    color: #4d535e !important;
+}
+
+
+/* =========================================================
+   15. ANIMACIÓN DE LAS TARJETAS
+   ========================================================= */
+
+.card-promo {
+    animation: aparecer 0.7s ease both;
+}
+
+.card-promo:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.card-promo:nth-child(2) {
+    animation-delay: 0.10s;
+}
+
+.card-promo:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.card-promo:nth-child(4) {
+    animation-delay: 0.20s;
+}
+
+.card-promo:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   16. CINCO COLUMNAS
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    .col-xl-2-4 {
+        flex: 0 0 auto;
+
+        width: 20%;
+    }
+}
+
+
+/* =========================================================
+   17. TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+    body {
+        padding-top: 80px;
+    }
+
+    .hero-banner {
+        padding-top: 55px !important;
+    }
+
+    .brand-title {
+        font-size: 3rem;
+    }
+
+    .nav-pill-container {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   18. CELULAR
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    body {
+        padding-top: 75px;
+    }
+
+    .hero-banner {
+        padding-top: 45px !important;
+
+        padding-bottom: 45px !important;
+    }
+
+    .brand-title {
+        font-size: 2.4rem;
+
+        letter-spacing: 2px;
+    }
+
+    .hero-banner h2 {
+        font-size: 1.25rem;
+    }
+
+    .hero-banner p {
+        font-size: 0.95rem;
+    }
+
+    .card-promo:hover {
+        transform: translateY(-5px);
+    }
+
+    .promo-featured {
+        transform: none;
+    }
+
+    .promo-featured:hover {
+        transform: translateY(-5px);
+    }
+}
+/* ==========================================================================
+   CINEPRIME - FOOTER COMPLETO (COMPONENTE REUTILIZABLE)
+   ========================================================================== */
+
+/* Fondo del Footer */
+.footer-main {
+    background-color: var(--cm-surface-container-lowest);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Títulos de Columnas */
+.footer-title {
+    font-family: var(--cm-font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+}
+
+.fs-ft {
+    font-size: 0.9rem;
+}
+
+/* Enlaces del Footer */
+.footer-link {
+    color: rgba(225, 221, 239, 0.65);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--cm-primary-container);
+    padding-left: 4px;
+    /* Sutil deslice a la derecha al hacer hover */
+}
+
+/* Botones de Redes Sociales */
+.btn-social {
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: var(--cm-surface-container);
+    color: var(--cm-on-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-social:hover {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    border-color: var(--cm-primary-container);
+    transform: translateY(-2px);
+    box-shadow: var(--cm-glow-primary);
+}
+
+/* Newsletter Input & Button */
+.footer-newsletter-input {
+    background-color: var(--cm-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 0.85rem;
+}
+
+.footer-newsletter-input:focus {
+    background-color: var(--cm-surface-container-high);
+    border-color: var(--cm-primary-container);
+    color: #ffffff;
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+}
+
+.footer-newsletter-input::placeholder {
+    color: rgba(225, 221, 239, 0.4);
+}
+
+.btn-cm-subscribe {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    font-family: var(--cm-font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-cm-subscribe:hover {
+    background-color: #ff1e27;
+    box-shadow: var(--cm-glow-primary-intense);
+}
+
+/* Métodos de Pago Badges */
+.payment-badge {
+    background-color: var(--cm-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(225, 221, 239, 0.7);
+    font-family: var(--cm-font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   CINEPRIME - FOOTER MINIMALISTA (CHECKOUT / AUTH)
+   ========================================================================== */
+
+/* Contenedor compacto del Footer Secundario */
+.footer-minimal {
+    background-color: var(--cm-surface-container-lowest);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Enlaces legales minimalistas */
+.footer-link-minimal {
+    color: rgba(225, 221, 239, 0.6);
+    font-size: 0.8rem;
+    font-family: var(--cm-font-body);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link-minimal:hover {
+    color: var(--cm-primary-container);
+}
+
+/* Badges de métodos de pago */
+.payment-badge-sm {
+    background-color: var(--cm-surface-container);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(225, 221, 239, 0.7);
+    font-family: var(--cm-font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+
