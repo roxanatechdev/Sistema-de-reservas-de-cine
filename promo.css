@@ -1,961 +1,1000 @@
 
-/* =========================================================
-   1. VARIABLES
-   ========================================================= */
+/* ==========================================================================
+   VARIABLES DE COLOR Y DISEÑO (CINEMAX DESIGN SYSTEM)
+   ========================================================================== */
 
 :root {
-    --cine-bg: #08090d;
-    --cine-panel: #11131b;
-    --cine-panel-light: #191c25;
+  /* Colores Principales */
+  --cm-primary: #ffb4aa;
+  --cm-primary-container: #e50914;
+  --cm-tertiary: #e9c349;
 
-    --cine-red: #e50914;
-    --cine-red-light: #ff1f2a;
-    --cine-red-dark: #b20710;
+  /* Superficies */
+  --cm-background: #090b11;
+  --cm-surface-container: #111420;
+  --cm-on-surface: #e1e1ef;
+  --cm-on-surface-variant: #9aa8ba;
 
-    --cine-text: #f5f5f5;
-    --cine-muted: #adb3bf;
+  /* Bordes de las tarjetas */
+  --cm-card-neon-border: #b60000;
+  --cm-card-neon-border-hover: #ff0000;
+  --cm-card-glow: 0 0 15px rgba(255, 7, 7, 0.863);
 
-    --cine-border: #292e39;
-
-    --cine-gold: #ffc107;
+  /* Tipografía */
+  --cm-font-display: 'Bebas Neue', cursive, sans-serif;
+  --cm-font-body: 'Montserrat', sans-serif;
 }
 
 
-/* =========================================================
-   2. ESTILO GENERAL
-   ========================================================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
+/* ==========================================================================
+   CUERPO DE LA PÁGINA
+   ========================================================================== */
 
 body {
-    margin: 0;
-
-    background:
-        radial-gradient(
-            circle at top,
-            rgba(229, 9, 20, 0.12),
-            transparent 35%
-        ),
-        #0e0e0f;
-
-    color: var(--cine-text);
-
-    font-family: "Inter", "Segoe UI", Arial, sans-serif;
-
-    min-height: 100vh;
-
-    padding-top: 90px;
+  background-color: var(--cm-background);
+  color: var(--cm-on-surface);
+  font-family: var(--cm-font-body);
+  padding: 0;
+  margin: 0;
 }
 
 
-/* =========================================================
-   3. NAVBAR
-   ========================================================= */
+/* ==========================================================================
+   TARJETAS DE PROMOCIONES
+   ========================================================================== */
 
-#main-header {
-    z-index: 1030;
+.promo-card {
+  background-color: var(--cm-surface-container);
+  border: 1.8px solid var(--cm-card-neon-border);
+  border-radius: 18px;
+  padding: 1.25rem;
 
-    transition:
-        background-color 0.3s ease,
-        box-shadow 0.3s ease,
-        backdrop-filter 0.3s ease;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-.bg-cm-surface-transparent {
-    background-color: rgba(8, 9, 13, 0.88);
+  height: 100%;
 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s ease;
 
-    border-bottom: 1px solid rgba(229, 9, 20, 0.18);
-}
-
-
-/* Logo */
-
-.nombre {
-    font-family: "Inter", sans-serif;
-
-    font-size: 2rem;
-
-    font-weight: 800;
-
-    letter-spacing: 1px;
-
-    color: #ffffff;
-}
-
-.text-cm-primary-container {
-    color: var(--cine-red) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 
-/* Menú central */
+/* Efecto al pasar el mouse */
 
-.nav-pill-container {
-    background-color: rgba(25, 28, 37, 0.75);
-
-    backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255, 255, 255, 0.06);
-
-    box-shadow:
-        0 5px 20px rgba(0, 0, 0, 0.25);
-}
-
-.nav-link-custom {
-    display: block;
-
-    padding: 0.55rem 1rem;
-
-    border-radius: 8px;
-
-    font-size: 0.85rem;
-
-    font-weight: 600;
-
-    letter-spacing: 0.7px;
-
-    text-transform: uppercase;
-
-    color: #c4c8d2;
-
-    text-decoration: none;
-
-    transition:
-        color 0.25s ease,
-        background-color 0.25s ease,
-        transform 0.25s ease;
-}
-
-.nav-link-custom:hover {
-    color: #ffffff;
-
-    background-color: rgba(229, 9, 20, 0.16);
-
-    transform: translateY(-1px);
+.promo-card:hover {
+  border-color: var(--cm-card-neon-border-hover);
+  box-shadow: var(--cm-card-glow);
+  transform: translateY(-4px);
 }
 
 
-/* Promociones activa */
+/* ==========================================================================
+   IMÁGENES DE LAS TARJETAS
+   ========================================================================== */
 
-.nav-link-custom[href="promociones.html"] {
-    color: #ffffff;
+/* Todas las cajas de imagen tienen exactamente el mismo tamaño */
 
-    background-color: var(--cine-red);
+.promo-img-wrapper {
+  width: 100%;
+  height: 180px;
 
-    box-shadow:
-        0 0 15px rgba(229, 9, 20, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(
+    circle,
+    rgba(0, 119, 182, 0.15) 0%,
+    rgba(17, 20, 32, 0) 70%
+  );
+
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+
+  overflow: hidden;
 }
 
 
-/* Botón buscar */
+/* Todas las imágenes ocupan exactamente el mismo espacio */
 
-.btn-cm-icon {
-    width: 40px;
-    height: 40px;
+.promo-img {
+  width: 100%;
+  height: 100%;
 
-    border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
 
-    color: #c4c8d2;
+  display: block;
 
-    background: transparent;
+  filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.6));
 
-    transition: all 0.25s ease;
-}
-
-.btn-cm-icon:hover {
-    color: #ffffff;
-
-    background-color: rgba(229, 9, 20, 0.16);
+  transition: transform 0.3s ease;
 }
 
 
-/* Botón ingresar */
+/* Zoom suave al pasar el mouse */
 
-.btn-cm-primary {
-    background-color: var(--cine-red);
-
-    color: #ffffff;
-
-    border: none;
-
-    box-shadow:
-        0 0 15px rgba(229, 9, 20, 0.3);
-
-    transition: all 0.25s ease;
-}
-
-.btn-cm-primary:hover {
-    background-color: var(--cine-red-light);
-
-    color: #ffffff;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 0 25px rgba(229, 9, 20, 0.5);
+.promo-card:hover .promo-img {
+  transform: scale(1.05);
 }
 
 
-/* Avatar móvil */
+/* ==========================================================================
+   TÍTULO DE LA PROMOCIÓN
+   ========================================================================== */
 
-.user-avatar-circle {
-    width: 36px;
-    height: 36px;
+.promo-title {
+  font-family: var(--cm-font-body);
+  font-weight: 800;
+  font-size: 1.1rem;
+  line-height: 1.2;
 
-    border-radius: 50%;
+  text-transform: uppercase;
 
-    background-color: var(--cine-red);
+  color: #ffffff;
 
-    box-shadow:
-        0 0 12px rgba(255, 3, 16, 0.35);
+  margin-bottom: 0.5rem;
+
+  min-height: 2.6rem;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
 }
 
 
-/* Menú móvil */
+/* ==========================================================================
+   DESCRIPCIÓN
+   ========================================================================== */
 
-.bg-cm-mobile-panel {
-    background-color: rgba(8, 9, 13, 0.98);
+.promo-description {
+  font-size: 0.82rem;
 
-    backdrop-filter: blur(18px);
+  color: var(--cm-on-surface-variant);
 
-    -webkit-backdrop-filter: blur(18px);
+  margin-bottom: 1.25rem;
 
-    border-bottom: 1px solid rgba(229, 9, 20, 0.2);
-}
+  line-height: 1.35;
 
-.mobile-nav-link {
-    display: block;
-
-    padding: 0.75rem 1rem;
-
-    border-radius: 8px;
-
-    color: #c4c8d2;
-
-    font-size: 0.9rem;
-
-    font-weight: 600;
-
-    letter-spacing: 0.7px;
-
-    text-transform: uppercase;
-
-    text-decoration: none;
-
-    transition: all 0.25s ease;
-}
-
-.mobile-nav-link:hover {
-    color: #ffffff;
-
-    background-color: rgba(229, 9, 20, 0.16);
+  min-height: 2.5rem;
 }
 
 
-/* =========================================================
-   4. HERO
-   ========================================================= */
+/* ==========================================================================
+   PRECIO + BOTÓN
+   ========================================================================== */
 
-.hero-banner {
-    position: relative;
+.promo-footer {
+  display: flex;
 
-    overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
 
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(229, 9, 20, 0.25),
-            transparent 45%
-        ),
-        linear-gradient(
-            180deg,
-            #090b11 0%,
-            #0b0d13 70%,
-            #08090d 100%
-        );
+  gap: 0.5rem;
 
-    border-bottom: 2px solid var(--cine-red);
-
-    padding-top: 65px !important;
-
-    padding-bottom: 60px !important;
-
-    box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.35);
+  margin-top: auto;
 }
 
 
-/* Decoraciones del hero */
+/* Precio */
 
-.hero-banner::before {
-    content: "";
+.promo-price {
+  font-weight: 800;
 
-    position: absolute;
+  font-size: 1.4rem;
 
-    width: 250px;
-    height: 250px;
+  color: #ffffff;
 
-    left: -100px;
-    top: -100px;
-
-    background: rgba(229, 9, 20, 0.12);
-
-    border-radius: 50%;
-
-    filter: blur(40px);
-}
-
-.hero-banner::after {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    right: -120px;
-    bottom: -160px;
-
-    background: rgba(229, 9, 20, 0.10);
-
-    border-radius: 50%;
-
-    filter: blur(45px);
-}
-
-.hero-banner .container {
-    position: relative;
-
-    z-index: 1;
+  letter-spacing: -0.5px;
 }
 
 
-/* Título */
+/* ==========================================================================
+   BOTÓN AÑADIR AL CARRITO
+   ========================================================================== */
 
-.brand-title {
-    color: var(--cine-red);
+.btn-add-cart {
+  background: linear-gradient(
+    135deg,
+    #ff0000 0%,
+    #d84300 100%
+  );
 
-    letter-spacing: 3px;
+  color: #ffffff;
 
-    text-shadow:
-        0 0 10px rgba(229, 9, 20, 0.45),
-        0 0 25px rgba(229, 9, 20, 0.2);
+  font-family: var(--cm-font-body);
 
-    transition: all 0.3s ease;
+  font-weight: 700;
+
+  font-size: 0.72rem;
+
+  text-transform: uppercase;
+
+  padding: 0.55rem 0.85rem;
+
+  border-radius: 25px;
+
+  border: none;
+
+  letter-spacing: 0.3px;
+
+  box-shadow: 0 4px 12px rgba(216, 67, 0, 0.4);
+
+  transition: all 0.2s ease;
+
+  white-space: nowrap;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
 }
 
-.brand-title:hover {
-    text-shadow:
-        0 0 15px rgba(229, 9, 20, 0.7),
-        0 0 35px rgba(229, 9, 20, 0.3);
 
-    transform: scale(1.02);
+/* Hover del botón */
+
+.btn-add-cart:hover {
+  background: linear-gradient(
+    135deg,
+    #cec6c6 0%,
+    #ff0202 100%
+  );
+
+  color: #ffffff;
+
+  box-shadow: 0 6px 16px rgb(189, 150, 150);
+
+  transform: scale(1.03);
+}
+
+
+/* Cuando se presiona */
+
+.btn-add-cart:active {
+  transform: scale(0.98);
+}
+
+
+/* ==========================================================================
+   HEADER PROMOCIONAL
+   ========================================================================== */
+
+.promo-header {
+  position: relative;
+
+  width: 100vw;
+
+  left: 50%;
+
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  height: 400px;
+
+  overflow: hidden;
+
+  margin-top: -3rem;
+}
+
+
+/* Imagen de fondo */
+
+.promo-header-bg {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+
+  object-position: center;
+
+  z-index: 1;
+}
+
+
+/* ==========================================================================
+   CAPA OSCURA SOBRE EL HEADER
+   ========================================================================== */
+
+.promo-header-overlay {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
+
+  background: linear-gradient(
+    180deg,
+    rgba(17, 19, 28, 0.3) 0%,
+    rgba(17, 19, 28, 0.75) 60%,
+    var(--cm-background, #11131c) 100%
+  );
+
+  padding: 2rem 1rem;
+}
+
+
+/* ==========================================================================
+   TÍTULO DEL HEADER
+   ========================================================================== */
+
+.promo-header-title {
+  font-family: var(--cm-font-display, 'Bebas Neue', cursive);
+
+  font-size: 3.8rem;
+
+  letter-spacing: 2px;
+
+  color: #ffffff;
+
+  margin-bottom: 0.25rem;
+
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
 }
 
 
 /* Subtítulo */
 
-.hero-banner h2 {
-    color: var(--cine-gold) !important;
+.promo-header-subtitle {
+  font-family: var(
+    --cm-font-body,
+    'Montserrat',
+    sans-serif
+  );
 
-    text-shadow:
-        0 0 8px rgba(255, 193, 7, 0.2);
+  font-size: 1rem;
+
+  color: var(
+    --cm-on-surface-variant,
+    #e9bcb6
+  );
+
+  font-weight: 500;
+
+  margin: 0;
+
+  text-shadow: 0 2px 8px rgba(40, 55, 87, 0.9);
 }
 
 
-/* Descripción */
+/* ==========================================================================
+   TÍTULO "PROMOCIONES"
+   ========================================================================== */
 
-.hero-banner p {
-    color: #d7dbe3 !important;
+.promo_titulo {
+  font-family: var(--cm-font-display);
+
+  font-size: 3.8rem;
+
+  letter-spacing: 8px;
+
+  background: linear-gradient(
+    90deg,
+    var(--cm-on-surface) 0%,
+    var(--cm-primary-container) 50%,
+    var(--cm-primary) 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+
+  text-shadow: none;
+
+  margin-bottom: 0.5rem;
 }
 
 
-/* =========================================================
-   5. CONTENEDOR DE PROMOCIONES
-   ========================================================= */
+/* ==========================================================================
+   RESPONSIVE - TABLETS Y CELULARES
+   ========================================================================== */
 
-main.container {
-    position: relative;
-}
+@media (max-width: 768px) {
 
+  .promo-header {
+    height: 220px;
+  }
 
-/* =========================================================
-   6. TARJETAS
-   ========================================================= */
+  .promo-header-title {
+    font-size: 2.5rem;
+  }
 
-.card-promo {
-    position: relative;
+  .promo-header-subtitle {
+    font-size: 0.85rem;
+  }
 
-    overflow: hidden;
+  .promo_titulo {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+  }
 
-    background:
-        linear-gradient(
-            145deg,
-            #181b24,
-            #0f1118
-        );
+  /* Las imágenes siguen teniendo el mismo tamaño */
 
-    border: 1px solid rgba(229, 9, 20, 0.55);
+  .promo-img-wrapper {
+    height: 180px;
+  }
 
-    border-radius: 18px;
-
-    color: #ffffff;
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.45),
-        0 0 15px rgba(229, 9, 20, 0.08);
-
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
-}
-
-
-/* Línea roja superior */
-
-.card-promo::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
+  .promo-img {
     width: 100%;
-    height: 3px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--cine-red),
-        transparent
-    );
-
-    opacity: 0.7;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
-
-/* Hover */
-
-.card-promo:hover {
-    transform: translateY(-10px);
-
-    border-color: var(--cine-red);
-
-    box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.55),
-        0 0 30px rgba(229, 9, 20, 0.25);
-}
-
-
-/* =========================================================
-   7. ENCABEZADO DE TARJETAS
-   ========================================================= */
-
-.card-promo .card-header {
-    background: transparent;
-
-    color: #ffffff;
-
-    border-bottom: none;
-
-    padding-top: 28px !important;
-}
-
-.card-promo .card-title {
-    color: #ffffff;
-
-    letter-spacing: 1px;
-
-    margin-top: 5px;
-}
-
-.card-promo .text-muted {
-    color: #adb3bf !important;
-}
-
-
-/* =========================================================
-   8. BADGES
-   ========================================================= */
-
-.card-promo .badge.bg-warning {
-    background-color: var(--cine-red) !important;
-
-    color: #ffffff !important;
-
-    padding: 7px 11px;
-
-    border-radius: 6px;
-
-    letter-spacing: 0.5px;
-
-    box-shadow:
-        0 0 10px rgba(229, 9, 20, 0.2);
-}
-
-.card-promo .badge.bg-danger {
-    background-color: var(--cine-red) !important;
-
-    color: #ffffff !important;
-
-    padding: 7px 11px;
-
-    box-shadow:
-        0 0 12px rgba(229, 9, 20, 0.3);
-}
-
-
-/* =========================================================
-   9. ICONOS
-   ========================================================= */
-
-.promo-icon {
-    transition:
-        transform 0.35s ease;
-}
-
-.promo-icon i {
-    color: var(--cine-red) !important;
-
-    filter:
-        drop-shadow(0 0 8px rgba(229, 9, 20, 0.35));
-
-    transition:
-        filter 0.35s ease,
-        transform 0.35s ease;
-}
-
-.card-promo:hover .promo-icon {
-    transform: scale(1.08);
-}
-
-.card-promo:hover .promo-icon i {
-    filter:
-        drop-shadow(0 0 10px rgba(229, 9, 20, 0.7))
-        drop-shadow(0 0 22px rgba(229, 9, 20, 0.3));
-
-    transform: scale(1.05);
-}
-
-
-/* =========================================================
-   10. TEXTO
-   ========================================================= */
-
-.card-promo .card-text {
-    color: #c8ced8;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   11. BOTONES DE TARJETAS
-   ========================================================= */
-
-.card-promo .btn-warning {
-    background-color: var(--cine-red);
-
-    border-color: var(--cine-red);
-
-    color: #ffffff !important;
-
-    border-radius: 10px;
-
-    padding: 10px 15px;
-
-    transition: all 0.25s ease;
-}
-
-.card-promo .btn-warning:hover {
-    background-color: var(--cine-red-light);
-
-    border-color: var(--cine-red-light);
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 20px rgba(229, 9, 20, 0.35);
-}
-
-
-.card-promo .btn-danger {
-    background-color: var(--cine-red);
-
-    border-color: var(--cine-red);
-
-    color: #ffffff !important;
-
-    border-radius: 10px;
-
-    padding: 10px 15px;
-
-    transition: all 0.25s ease;
-}
-
-.card-promo .btn-danger:hover {
-    background-color: var(--cine-red-light);
-
-    border-color: var(--cine-red-light);
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 20px rgba(229, 9, 20, 0.4);
-}
-
-
-/* =========================================================
-   12. TARJETA DESTACADA
-   ========================================================= */
-
-.promo-featured {
-    border: 2px solid var(--cine-red);
-
-    background:
-        linear-gradient(
-            145deg,
-            #21141a,
-            #111117
-        );
-
-    box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.5),
-        0 0 25px rgba(229, 9, 20, 0.25);
-
-    transform: scale(1.02);
-}
-
-.promo-featured:hover {
-    transform: translateY(-10px) scale(1.03);
-
-    box-shadow:
-        0 20px 45px rgba(0, 0, 0, 0.6),
-        0 0 40px rgba(229, 9, 20, 0.4);
-}
-
-
-/* =========================================================
-   13. ETIQUETA MÁS POPULAR
-   ========================================================= */
-
-.promo-featured > .position-absolute {
-    background-color: var(--cine-red) !important;
-
-    box-shadow:
-        0 5px 15px rgba(229, 9, 20, 0.35);
-
-    z-index: 5;
-}
-
-
-/* =========================================================
-   14. FOOTER
-   ========================================================= */
-
-footer {
-    background:
-        linear-gradient(
-            180deg,
-            #08090d,
-            #040507
-        ) !important;
-
-    border-top:
-        1px solid rgba(229, 9, 20, 0.3) !important;
-}
-
-footer p {
-    color: #8f97a5 !important;
-}
-
-footer a {
-    color: #9fa6b3 !important;
-
-    transition:
-        color 0.25s ease;
-}
-
-footer a:hover {
-    color: var(--cine-red) !important;
-}
-
-footer span {
-    color: #4d535e !important;
-}
-
-
-/* =========================================================
-   15. ANIMACIÓN DE LAS TARJETAS
-   ========================================================= */
-
-.card-promo {
-    animation: aparecer 0.7s ease both;
-}
-
-.card-promo:nth-child(1) {
-    animation-delay: 0.05s;
-}
-
-.card-promo:nth-child(2) {
-    animation-delay: 0.10s;
-}
-
-.card-promo:nth-child(3) {
-    animation-delay: 0.15s;
-}
-
-.card-promo:nth-child(4) {
-    animation-delay: 0.20s;
-}
-
-.card-promo:nth-child(5) {
-    animation-delay: 0.25s;
-}
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   16. CINCO COLUMNAS
-   ========================================================= */
-
-@media (min-width: 1200px) {
-
-    .col-xl-2-4 {
-        flex: 0 0 auto;
-
-        width: 20%;
-    }
-}
-
-
-/* =========================================================
-   17. TABLET
-   ========================================================= */
-
-@media (max-width: 991.98px) {
-
-    body {
-        padding-top: 80px;
-    }
-
-    .hero-banner {
-        padding-top: 55px !important;
-    }
-
-    .brand-title {
-        font-size: 3rem;
-    }
-
-    .nav-pill-container {
-        display: none;
-    }
-}
-
-
-/* =========================================================
-   18. CELULAR
-   ========================================================= */
-
-@media (max-width: 575.98px) {
-
-    body {
-        padding-top: 75px;
-    }
-
-    .hero-banner {
-        padding-top: 45px !important;
-
-        padding-bottom: 45px !important;
-    }
-
-    .brand-title {
-        font-size: 2.4rem;
-
-        letter-spacing: 2px;
-    }
-
-    .hero-banner h2 {
-        font-size: 1.25rem;
-    }
-
-    .hero-banner p {
-        font-size: 0.95rem;
-    }
-
-    .card-promo:hover {
-        transform: translateY(-5px);
-    }
-
-    .promo-featured {
-        transform: none;
-    }
-
-    .promo-featured:hover {
-        transform: translateY(-5px);
-    }
-}
-/* ==========================================================================
-   CINEPRIME - FOOTER COMPLETO (COMPONENTE REUTILIZABLE)
-   ========================================================================== */
-
-/* Fondo del Footer */
-.footer-main {
-    background-color: var(--cm-surface-container-lowest);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Títulos de Columnas */
-.footer-title {
-    font-family: var(--cm-font-display);
-    font-size: 1.25rem;
-    letter-spacing: 0.05em;
-    color: #ffffff;
-}
-
-.fs-ft {
-    font-size: 0.9rem;
-}
-
-/* Enlaces del Footer */
-.footer-link {
-    color: rgba(225, 221, 239, 0.65);
-    font-size: 0.85rem;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.footer-link:hover {
-    color: var(--cm-primary-container);
-    padding-left: 4px;
-    /* Sutil deslice a la derecha al hacer hover */
-}
-
-/* Botones de Redes Sociales */
-.btn-social {
-    width: 2.25rem;
-    height: 2.25rem;
-    background-color: var(--cm-surface-container);
-    color: var(--cm-on-surface);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.btn-social:hover {
-    background-color: var(--cm-primary-container);
-    color: #ffffff;
-    border-color: var(--cm-primary-container);
-    transform: translateY(-2px);
-    box-shadow: var(--cm-glow-primary);
-}
-
-/* Newsletter Input & Button */
-.footer-newsletter-input {
-    background-color: var(--cm-surface-container);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    font-size: 0.85rem;
-}
-
-.footer-newsletter-input:focus {
-    background-color: var(--cm-surface-container-high);
-    border-color: var(--cm-primary-container);
-    color: #ffffff;
-    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
-}
-
-.footer-newsletter-input::placeholder {
-    color: rgba(225, 221, 239, 0.4);
-}
-
-.btn-cm-subscribe {
-    background-color: var(--cm-primary-container);
-    color: #ffffff;
-    font-family: var(--cm-font-body);
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    border: none;
-    transition: all 0.2s ease;
-}
-
-.btn-cm-subscribe:hover {
-    background-color: #ff1e27;
-    box-shadow: var(--cm-glow-primary-intense);
-}
-
-/* Métodos de Pago Badges */
-.payment-badge {
-    background-color: var(--cm-surface-container);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: rgba(225, 221, 239, 0.7);
-    font-family: var(--cm-font-body);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-}
 
 /* ==========================================================================
-   CINEPRIME - FOOTER MINIMALISTA (CHECKOUT / AUTH)
+   CELULARES PEQUEÑOS
    ========================================================================== */
 
-/* Contenedor compacto del Footer Secundario */
-.footer-minimal {
-    background-color: var(--cm-surface-container-lowest);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
+@media (max-width: 480px) {
 
-/* Enlaces legales minimalistas */
-.footer-link-minimal {
-    color: rgba(225, 221, 239, 0.6);
-    font-size: 0.8rem;
-    font-family: var(--cm-font-body);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
+  .promo-img-wrapper {
+    height: 200px;
+  }
 
-.footer-link-minimal:hover {
-    color: var(--cm-primary-container);
-}
+  .promo_titulo {
+    font-size: 2rem;
+    letter-spacing: 3px;
+  }
 
-/* Badges de métodos de pago */
-.payment-badge-sm {
-    background-color: var(--cm-surface-container);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: rgba(225, 221, 239, 0.7);
-    font-family: var(--cm-font-body);
+  .promo-card {
+    padding: 1rem;
+  }
+
+  .promo-footer {
+    flex-wrap: wrap;
+  }
+
+  .btn-add-cart {
     font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
+    padding: 0.5rem 0.7rem;
+  }
+}
+.promo-container {
+  margin-bottom: 4rem;
+}
+
+/* ==========================================================
+   DETALLES PROMOCIONALES DE LAS TARJETAS
+   ========================================================== */
+
+/* Etiqueta de promoción */
+
+.promo-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+
+  z-index: 5;
+
+  background: #e50914;
+  color: #ffffff;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+
+  transition: 0.3s ease;
+}
+
+/* Azul */
+
+.promo-badge-blue {
+  background: #00b4d8;
+  color: #ffffff;
+}
+
+/* Dorado */
+
+.promo-badge-gold {
+  background: #e9c349;
+  color: #111420;
+}
+
+/* Rojo */
+
+.promo-badge-red {
+  background: #b60000;
+  color: #ffffff;
+}
+
+
+/* Efecto al pasar el mouse */
+
+.promo-card:hover .promo-badge {
+  transform: scale(1.05);
+}
+
+
+/* Información adicional */
+
+.promo-extra {
+  font-size: 0.72rem;
+
+  color: #e9c349;
+
+  background: rgba(233, 195, 73, 0.08);
+
+  border-left: 3px solid #e9c349;
+
+  padding: 7px 9px;
+
+  border-radius: 6px;
+
+  margin-top: 8px;
+  margin-bottom: 15px;
+
+  line-height: 1.3;
+}
+
+
+/* Ajuste para que el contenido de todas las tarjetas
+   quede equilibrado */
+
+.promo-card .promo-description {
+  margin-bottom: 8px;
+}
+
+
+/* En pantallas pequeñas */
+
+@media (max-width: 480px) {
+
+  .promo-badge {
+    font-size: 0.62rem;
+    padding: 5px 9px;
+  }
+
+  .promo-extra {
+    font-size: 0.68rem;
+  }
+}
+
+/* ==========================================================
+   CINEPRIME - TARJETAS DE PROMOCIONES
+   Paleta oficial + Degradado + Hover
+   ========================================================== */
+
+
+/* ==========================================================
+   TARJETA
+   ========================================================== */
+
+.promo-card {
+  background-color: var(--cm-surface-container);
+
+  border: 1.8px solid var(--cm-primary-container);
+
+  border-radius: 18px;
+
+  padding: 1.25rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+
+/* Hover de la tarjeta */
+
+.promo-card:hover {
+  transform: translateY(-5px);
+
+  border-color: var(--cm-primary-container);
+
+  box-shadow:
+    var(--cm-glow-primary-intense);
+}
+
+
+/* ==========================================================
+   IMAGEN - MARCO
+   ========================================================== */
+
+.cm-card-media {
+  position: relative;
+
+  width: 100%;
+  height: 180px;
+
+  overflow: hidden;
+
+  background-color:
+    var(--cm-surface-container-lowest);
+
+  border-radius: 12px;
+
+  margin-bottom: 0.75rem;
+
+  isolation: isolate;
+}
+
+
+/* ==========================================================
+   IMAGEN
+   ========================================================== */
+
+.cm-card-media-img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+/* Zoom */
+
+.promo-card:hover .cm-card-media-img {
+  transform: scale(1.05);
+}
+
+
+/* ==========================================================
+   DEGRADADO SOBRE LA IMAGEN
+   ========================================================== */
+
+.cm-card-media-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+
+    rgba(12, 14, 23, 0.10) 0%,
+
+    transparent 35%,
+
+    rgba(29, 31, 41, 0.55) 72%,
+
+    var(--cm-surface-container) 100%
+  );
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* ==========================================================
+   ETIQUETAS DE PROMOCIÓN
+   ========================================================== */
+
+.promo-badge {
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  z-index: 5;
+
+  background-color: var(--cm-primary-container);
+
+  color: var(--cm-on-primary-container);
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+
+  box-shadow:
+    var(--cm-glow-primary);
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+/* Azul claro */
+
+.promo-badge-blue {
+  background-color:
+    var(--cm-tertiary-light-blue);
+
+  color: #11131c;
+
+  box-shadow: none;
+}
+
+
+/* Dorado */
+
+.promo-badge-gold {
+  background-color:
+    var(--cm-tertiary);
+
+  color:
+    var(--cm-on-tertiary);
+
+  box-shadow:
+    var(--cm-glow-tertiary);
+}
+
+
+/* Rojo */
+
+.promo-badge-red {
+  background-color:
+    var(--cm-primary-container);
+
+  color:
+    var(--cm-on-primary-container);
+
+  box-shadow:
+    var(--cm-glow-primary);
+}
+
+
+/* Animación */
+
+.promo-card:hover .promo-badge {
+  transform: scale(1.05);
+}
+
+
+/* ==========================================================
+   TÍTULO
+   ========================================================== */
+
+.promo-title {
+  font-family: var(--cm-font-body);
+
+  font-weight: 700;
+
+  font-size: 1.1rem;
+
+  line-height: 1.2;
+
+  text-transform: uppercase;
+
+  color: var(--cm-on-surface);
+
+  margin-bottom: 0.5rem;
+
+  min-height: 2.6rem;
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 2;
+
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* ==========================================================
+   DESCRIPCIÓN
+   ========================================================== */
+
+.promo-description {
+  font-family: var(--cm-font-body);
+
+  font-size: 0.82rem;
+
+  color: var(--cm-on-surface-variant);
+
+  margin-bottom: 8px;
+
+  line-height: 1.4;
+
+  min-height: 2.5rem;
+}
+
+
+/* Texto en negrita */
+
+.promo-description strong {
+  color: var(--cm-on-surface);
+
+  font-weight: 600;
+}
+
+
+/* ==========================================================
+   TEXTO EXTRA DE LA PROMOCIÓN
+   ========================================================== */
+
+.promo-extra {
+  font-size: 0.72rem;
+
+  color: var(--cm-tertiary);
+
+  background-color:
+    rgba(233, 195, 73, 0.08);
+
+  border-left:
+    3px solid var(--cm-tertiary);
+
+  padding: 7px 9px;
+
+  border-radius: 6px;
+
+  margin-top: 8px;
+
+  margin-bottom: 15px;
+
+  line-height: 1.35;
+}
+
+
+/* ==========================================================
+   PRECIO
+   ========================================================== */
+
+.promo-price {
+  font-family: var(--cm-font-body);
+
+  font-weight: 800;
+
+  font-size: 1.3rem;
+
+  color: var(--cm-primary);
+
+  letter-spacing: -0.5px;
+}
+
+
+/* ==========================================================
+   FOOTER DE LA TARJETA
+   ========================================================== */
+
+.promo-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 0.5rem;
+
+  margin-top: auto;
+}
+
+
+/* ==========================================================
+   BOTÓN
+   ========================================================== */
+
+.btn-add-cart {
+  background-color:
+    var(--cm-primary-container);
+
+  color:
+    var(--cm-on-primary-container);
+
+  font-family:
+    var(--cm-font-body);
+
+  font-weight: 700;
+
+  font-size: 0.72rem;
+
+  text-transform: uppercase;
+
+  padding: 0.55rem 0.85rem;
+
+  border-radius: 25px;
+
+  border: none;
+
+  letter-spacing: 0.3px;
+
+  box-shadow:
+    var(--cm-glow-primary);
+
+  transition:
+    all 0.25s ease;
+
+  white-space: nowrap;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* Hover botón */
+
+.btn-add-cart:hover {
+  background-color:
+    var(--cm-secondary-container);
+
+  color:
+    var(--cm-on-secondary-container);
+
+  box-shadow:
+    var(--cm-glow-primary-intense);
+
+  transform: scale(1.03);
+}
+
+
+/* Al presionar */
+
+.btn-add-cart:active {
+  transform: scale(0.98);
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 480px) {
+
+  .cm-card-media {
+    height: 200px;
+  }
+
+  .promo-badge {
+    font-size: 0.62rem;
+
+    padding: 5px 9px;
+  }
+
+  .promo-extra {
+    font-size: 0.68rem;
+  }
+
+  .promo-footer {
+    flex-wrap: wrap;
+  }
+
+  .btn-add-cart {
+    font-size: 0.68rem;
+
+    padding: 0.5rem 0.7rem;
+  }
+}
+.contenedor-tarjetas-promos {
+    margin-top: 48px; /* Ajusta los píxeles a tu gusto */
 }
 
 
