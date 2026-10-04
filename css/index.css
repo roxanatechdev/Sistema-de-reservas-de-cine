@@ -1,6 +1,6 @@
 .titulo-seccion {
     font-family: var(--cm-font-display);
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     font-size: 2rem;
 }
 
@@ -314,7 +314,7 @@
 
 /* Largo del Póster */
 .movie-poster-container {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 4;
     position: relative;
     background-color: var(--cm-surface-container-lowest);
 }
@@ -329,7 +329,7 @@
 
 /* --- BADGES REFINADOS (IGUALADOS Y COMPACTOS) --- */
 .badge-tag {
-    background-color: rgba(12, 14, 23, 0.75);
+    background-color: var(--cm-background);
     color: #ffffff;
     font-family: var(--cm-font-body);
     font-size: 0.68rem;
@@ -347,7 +347,7 @@
 
 .badge-rating {
     border-color: rgba(233, 195, 73, 0.3);
-    color: #ffffff;
+    color: var(--cm-tertiary);
 }
 
 .badge-rating .material-symbols-outlined {
@@ -432,6 +432,7 @@
     font-size: 0.78rem;
     color: rgba(225, 221, 239, 0.65);
     /* Usando tono neutro derivado de --cm-on-surface */
+    margin-bottom: 0 !important;
 }
 
 .showtime-label {
@@ -441,7 +442,7 @@
     letter-spacing: 0.08em;
 }
 
-.movie-subtitle,
+
 .showtime-label {
     color: var(--cm-primary);
 }

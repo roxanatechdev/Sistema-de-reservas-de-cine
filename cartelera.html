@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+    <!-- 1. Metadatos Fundamentales -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cartelera | CinePrime</title>
+
+    <!-- 2. Metadatos SEO y Descripción -->
+    <meta name="description"
+        content="Plataforma de streaming y cartelera de cine CinePrime. XX Feria Informática ISEC La Paz.">
+    <meta name="author" content="Carrera de Sistemas Informáticos - ISEC La Paz">
+    <meta name="theme-color" content="#11131c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+    <!-- 3. Favicon Vectorial con Adaptación Automática Dark/Light -->
+    <link rel="icon" type="image/svg+xml" href="img/clapperboard.svg">
+
+    <!-- 4. Bootstrap 5.3.8 CSS (Local) -->
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+
+    <!-- 5. Bootstrap Icons 1.13.1 (Local) -->
+    <link rel="stylesheet" href="bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+
+    <!-- 6. Estilos Globales Personalizados y Específicos -->
+    <link rel="stylesheet" href="css/estilos-globales.css">
+    <link rel="stylesheet" href="css/cartelera.css">
+</head>
+
+<body class="bg-surface">
+
+    <!-- HEADER / NAVBAR -->
+
+    <div id="navbar-container"></div>
+
+    <!-- CONTENEDOR DEL CONTENIDO PRINCIPAL -->
+    <main class="container-fluid px-2 px-lg-5 min-w-0">
+        <!-- 1. Header -->
+        <header class="container-fluid px-3 px-lg-5 m-0" id="header">
+            <!-- HEADER Y SELECTOR DE CINE -->
+            <div class="row align-items-end g-4 pt-4 pb-4">
+
+                <!-- Columna Izquierda: Badge, Título y Descripción -->
+                <div class="hero-title-container col-12 col-lg-7">
+
+                    <!-- Badge / Metadatos Superior -->
+                    <div
+                        class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill badge-meta-header text-uppercase text-cm-tertiary mb-3">
+                        <span class="pulsing-dot"></span>
+                        <span>Proyección Laser 4K · Cartelera Oficial</span>
+                    </div>
+
+                    <!-- Título Principal -->
+                    <h1 class="font-display display-4 text-white text-uppercase mb-2">
+                        Cartelera de <span class="text-cm-primary-container">CinePrime</span>
+                    </h1>
+
+                    <!-- Subtítulo / Descripción -->
+                    <p class="font-body text-cm-variant fs-6 mb-0">
+                        Consulta todos los horarios, formatos especiales de proyección (IMAX®, 4DX®, ScreenX, Dolby
+                        Atmos®) y
+                        asegura tus butacas preferidas con vista panorámica.
+                    </p>
+                </div>
+
+                <!-- Columna Derecha: Selector de Cine -->
+                <div class="cinema-selector-container col-12 col-lg-5 ms-auto">
+                    <div class="w-100 dropdown position-relative z-3">
+
+                        <!-- Botón de Selección Refactorizado -->
+                        <button
+                            class="btn btn-cinema-selector w-100 p-2.5 p-sm-3 rounded-3 d-flex align-items-center justify-content-between gap-2 text-start overflow-hidden"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                            <!-- Contenedor Izquierdo (Icono + Textos) con min-w-0 para forzar truncado -->
+                            <div class="d-flex align-items-center gap-2 gap-sm-3 min-w-0 flex-grow-1">
+
+                                <!-- Icono Tienda (Ancho Fijo) -->
+                                <div
+                                    class="p-2 rounded-3 bg-cm-surface-highest text-cm-primary-container flex-shrink-0 d-flex align-items-center justify-content-center">
+                                    <span class="material-symbols-outlined fs-4">storefront</span>
+                                </div>
+
+                                <!-- Bloque de Textos (Flexible y Conminado a Cortarse) -->
+                                <div class="d-flex flex-column min-w-0 flex-grow-1">
+                                    <span class="fw-bold fs-6 text-white text-truncate w-100 d-block">
+                                        La Paz - Megacenter Irpavi
+                                    </span>
+                                    <span class="fs-8 text-cm-variant text-truncate w-100 d-block">
+                                        Av. Rafael Pabón · Dulcería Principal &amp; Bar VIP
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Flecha Derecha (Ancho Fijo) -->
+                            <span
+                                class="material-symbols-outlined text-cm-variant fs-5 transition-transform flex-shrink-0 ms-1">
+                                expand_more
+                            </span>
+                        </button>
+
+                        <!-- Menú Desplegable con Cines de Bolivia -->
+                        <ul
+                            class="dropdown-menu dropdown-menu-dark dropdown-cinema-menu w-100 shadow-xl border-0 p-2 mt-2">
+                            <li>
+                                <span class="dropdown-header text-uppercase fs-8 text-cm-variant px-2">Selecciona tu
+                                    cine
+                                    CinePrime</span>
+                            </li>
+
+                            <!-- La Paz (Activo) -->
+                            <li>
+                                <button
+                                    class="dropdown-item rounded-2 active d-flex align-items-center justify-content-between py-2 px-2"
+                                    type="button">
+                                    <div class="d-flex flex-column min-w-0">
+                                        <span class="fw-semibold fs-7 text-truncate">La Paz - Megacenter Irpavi</span>
+                                        <span class="fs-8 text-cm-variant text-truncate">Av. Rafael Pabón · Dulcería VIP
+                                            &amp; Sala
+                                            IMAX</span>
+                                    </div>
+                                    <span class="material-symbols-outlined fs-6 text-cm-primary ms-2">check</span>
+                                </button>
+                            </li>
+
+                            <!-- Santa Cruz -->
+                            <li>
+                                <button
+                                    class="dropdown-item rounded-2 d-flex align-items-center justify-content-between py-2 px-2"
+                                    type="button">
+                                    <div class="d-flex flex-column min-w-0">
+                                        <span class="fw-semibold fs-7 text-truncate">Santa Cruz - Ventura Mall</span>
+                                        <span class="fs-8 text-cm-variant text-truncate">4to Anillo · Express Bar &amp;
+                                            4DX</span>
+                                    </div>
+                                </button>
+                            </li>
+
+                            <!-- Cochabamba -->
+                            <li>
+                                <button
+                                    class="dropdown-item rounded-2 d-flex align-items-center justify-content-between py-2 px-2"
+                                    type="button">
+                                    <div class="d-flex flex-column min-w-0">
+                                        <span class="fw-semibold fs-7 text-truncate">Cochabamba - Paseo Aranjuez</span>
+                                        <span class="fs-8 text-cm-variant text-truncate">Av. América · Planta
+                                            Principal</span>
+                                    </div>
+                                </button>
+                            </li>
+
+                            <!-- El Alto -->
+                            <li>
+                                <button
+                                    class="dropdown-item rounded-2 d-flex align-items-center justify-content-between py-2 px-2"
+                                    type="button">
+                                    <div class="d-flex flex-column min-w-0">
+                                        <span class="fw-semibold fs-7 text-truncate">El Alto - Ciudad Satélite</span>
+                                        <span class="fs-8 text-cm-variant text-truncate">Av. Panorámica · Planta
+                                            1</span>
+                                    </div>
+                                </button>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- SELECTOR DE DÍAS Y HORARIOS (STICKY -->
+        <section class="sticky-days-bar py-2 px-3 px-lg-5">
+            <div id="horarios-section">
+                <div class="d-flex align-items-stretch justify-content-between gap-2">
+
+                    <!-- Scroll Horizontal de Días -->
+                    <div class="horarios-scroll-container flex-grow-1 py-1 ps-lg-2">
+
+                        <!-- Hoy (Activo) -->
+                        <button type="button"
+                            class="btn btn-day-selector active flex-shrink-0 d-flex flex-column align-items-center justify-content-center">
+                            <span class="text-uppercase day-label-sub fw-semibold text-white-50">Hoy</span>
+                            <span class="day-label-main font-body fw-bold lh-1 my-1">VIE 24</span>
+                            <span class="badge day-meta-badge px-2 py-1 rounded-pill mt-1">14 Pelis</span>
+                        </button>
+
+                        <!-- Mañana -->
+                        <button type="button"
+                            class="btn btn-day-selector flex-shrink-0 d-flex flex-column align-items-center justify-content-center">
+                            <span class="text-uppercase day-label-sub fw-semibold text-cm-variant">Mañana</span>
+                            <span class="day-label-main font-body fw-bold lh-1 my-1">SÁB 25</span>
+                            <span class="badge day-meta-badge badge-promo px-2 rounded-pill mt-1">Finde</span>
+                        </button>
+
+                        <!-- Domingo -->
+                        <button type="button"
+                            class="btn btn-day-selector flex-shrink-0 d-flex flex-column align-items-center justify-content-center">
+                            <span class="text-uppercase day-label-sub fw-semibold text-cm-variant">Domingo</span>
+                            <span class="day-label-main font-body fw-bold lh-1 my-1">DOM 26</span>
+                            <span class="badge day-meta-badge px-2 rounded-pill mt-1">Espectador</span>
+                        </button>
+
+                        <!-- Lunes -->
+                        <button type="button"
+                            class="btn btn-day-selector flex-shrink-0 d-flex flex-column align-items-center justify-content-center">
+                            <span class="text-uppercase day-label-sub fw-semibold text-cm-variant">Lunes</span>
+                            <span class="day-label-main font-body fw-bold lh-1 my-1">LUN 27</span>
+                            <span class="badge day-meta-badge px-2 rounded-pill mt-1">Oferta</span>
+                        </button>
+
+                        <!-- Martes -->
+                        <button type="button"
+                            class="btn btn-day-selector flex-shrink-0 d-flex flex-column align-items-center justify-content-center">
+                            <span class="text-uppercase day-label-sub fw-semibold text-cm-variant">Martes</span>
+                            <span class="day-label-main font-body fw-bold lh-1 my-1">MAR 28</span>
+                            <span class="badge day-meta-badge px-2 rounded-pill mt-1">Senior</span>
+                        </button>
+
+                        <!-- Miércoles -->
+                        <button type="button"
+                            class="btn btn-day-selector flex-shrink-0 d-flex flex-column align-items-center justify-content-center">
+                            <span class="text-uppercase day-label-sub fw-semibold text-cm-variant">Miércoles</span>
+                            <span class="day-label-main font-body fw-bold lh-1 my-1">MIÉ 29</span>
+                            <span class="badge day-meta-badge badge-promo px-2 rounded-pill mt-1">2x1</span>
+                        </button>
+
+                        <!-- Jueves -->
+                        <button type="button"
+                            class="btn btn-day-selector flex-shrink-0 d-flex flex-column align-items-center justify-content-center">
+                            <span class="text-uppercase day-label-sub fw-semibold text-cm-variant">Jueves</span>
+                            <span class="day-label-main font-body fw-bold lh-1 my-1">JUE 30</span>
+                            <span class="badge day-meta-badge px-2  rounded-pill mt-1">Estrenos</span>
+                        </button>
+
+                        <!-- Futuros Estrenos -->
+                        <button type="button"
+                            class="btn btn-day-selector btn-proximamente flex-shrink-0 d-flex flex-column align-items-center justify-content-center">
+                            <span class="text-uppercase day-label-sub fw-bold text-cm-primary">Futuros</span>
+                            <span class="day-label-main font-body fw-bold lh-1 text-white my-1">PRÓX.</span>
+                            <span class="badge day-meta-badge badge-soon px-2 rounded-pill mt-1">Pronto</span>
+                        </button>
+
+                    </div>
+
+                    <!-- Botón del Selector de Calendario (Icono en Móvil) -->
+                    <div class="dropdown flex-shrink-0 py-1">
+                        <button type="button"
+                            class="btn btn-calendar-picker h-100 d-flex align-items-center gap-1 dropdown-toggle"
+                            id="dropdownCalendarMenuMobile" data-bs-toggle="dropdown" aria-expanded="false"
+                            aria-label="Seleccionar fecha del calendario" data-bs-offset="0,8">
+
+                            <span class="material-symbols-outlined text-cm-primary fs-5">calendar_month</span>
+
+                            <!-- Oculto en móviles con d-none d-sm-flex -->
+                            <div class="d-flex flex-column text-start d-none d-sm-flex">
+                                <span class="metadatos text-cm-variant text-uppercase fw-semibold">Consultar
+                                    Fechas</span>
+                                <span class="metadatos fw-bold lh-1 text-white">Próxima Semana</span>
+                            </div>
+                            <span
+                                class="material-symbols-outlined text-cm-variant fs-5 ms-1 arrow-icon d-none d-sm-inline">expand_more</span>
+                        </button>
+
+                        <!-- Menú Desplegable -->
+                        <ul class="dropdown-menu dropdown-menu-end calendar-dropdown-menu shadow-lg p-2"
+                            aria-labelledby="dropdownCalendarMenuMobile">
+                            <li>
+                                <h6 class="dropdown-header text-uppercase fs-8 text-cm-variant px-2 mb-1">Rangos de
+                                    Fechas</h6>
+                            </li>
+                            <li>
+                                <a class="dropdown-item rounded-2 d-flex align-items-center justify-content-between py-2 px-2.5 active"
+                                    href="#">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="material-symbols-outlined fs-5">date_range</span>
+                                        <span class="fw-medium">Próxima Semana</span>
+                                    </div>
+                                    <span class="badge bg-danger-subtle text-danger fs-8">31 May - 06 Jun</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item rounded-2 d-flex align-items-center justify-content-between py-2 px-2.5"
+                                    href="#">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="material-symbols-outlined fs-5">calendar_view_week</span>
+                                        <span class="fw-medium">En 2 Semanas</span>
+                                    </div>
+                                    <span class="badge bg-secondary-subtle text-cm-variant fs-8">07 Jun - 13
+                                        Jun</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item rounded-2 d-flex align-items-center justify-content-between py-2 px-2.5"
+                                    href="#">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="material-symbols-outlined fs-5">calendar_month</span>
+                                        <span class="fw-medium">Próximo Mes</span>
+                                    </div>
+                                    <span class="badge bg-secondary-subtle text-cm-variant fs-8">Junio 2026</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider border-secondary opacity-25 my-1.5">
+                            </li>
+                            <li>
+                                <a class="dropdown-item rounded-2 d-flex align-items-center gap-2 py-2 px-2.5 text-cm-primary fw-semibold"
+                                    href="#">
+                                    <span class="material-symbols-outlined fs-5">edit_calendar</span>
+                                    <span>Elegir Día Específico...</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE FILTROS Y BÚSQUEDA -->
+        <section class="filter container-fluid px-3 px-md-4 px-lg-5 my-4">
+
+            <!-- VISTA 1: ESCRITORIO (d-none d-lg-block) -->
+            <div class="filtros-selector d-none d-lg-block">
+
+                <!-- Fila 1: Buscador, Estado y Contador/Limpiar -->
+                <div class="row align-items-center gy-3 mb-4">
+                    <div class="col-lg-4">
+                        <div class="position-relative">
+                            <span class="material-symbols-outlined filtros-search-icon">search</span>
+                            <input type="text" class="form-control filtros-search-input"
+                                placeholder="Buscar por título, director o actor...">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 d-flex justify-content-start">
+                        <div class="status-toggle-container">
+                            <button type="button" class="btn btn-status-toggle active">
+                                <span class="badge-status-dot"></span> En Cartelera
+                            </button>
+                            <button type="button" class="btn btn-status-toggle">
+                                <span class="badge-status-dot dot-soon"></span> Próximamente
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 d-flex align-items-center justify-content-end gap-3">
+                        <span class="fw-bold font-md text-white">14 Películas</span>
+                        <button type="button" class="btn-limpiar text-uppercase">
+                            <span class="material-symbols-outlined fs-6">restart_alt</span> Limpiar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fila 2: Formato & Experiencia -->
+                <div class="mb-4">
+                    <label class="filtros-label mb-2 d-block">Formato & Experiencia:</label>
+                    <div class="filtros-scroll-container d-flex align-items-center gap-2 py-1">
+                        <button type="button" class="btn btn-filter-chip active-primary">Todos los formatos</button>
+                        <button type="button" class="btn btn-filter-chip active-outline-red"><span
+                                class="dot-red"></span> IMAX®
+                            Láser 3D</button>
+                        <button type="button" class="btn btn-filter-chip">4DX™ Motion</button>
+                        <button type="button" class="btn btn-filter-chip active-outline-gold"><span
+                                class="material-symbols-outlined fs-6">bed</span> Prime VIP Lounge</button>
+                        <button type="button" class="btn btn-filter-chip">Dolby Atmos®</button>
+                        <button type="button" class="btn btn-filter-chip">Digital 2D / 3D</button>
+                    </div>
+                </div>
+
+                <!-- Fila 3: Género, Idioma y Clasificación (3 Selects homogéneos) -->
+                <div class="row g-3 align-items-end">
+                    <div class="col-lg-4">
+                        <label class="filtros-label mb-2 d-block">Género</label>
+                        <select class="form-select filtros-select">
+                            <option selected>Todos los géneros</option>
+                            <option value="1">Acción</option>
+                            <option value="2">Ciencia Ficción</option>
+                            <option value="3">Drama</option>
+                            <option value="4">Terror</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <label class="filtros-label mb-2 d-block">Idioma & Subtítulos</label>
+                        <select class="form-select filtros-select">
+                            <option selected>Cualquier versión</option>
+                            <option value="1">Doblada (Español)</option>
+                            <option value="2">Subtitulada (SUB)</option>
+                            <option value="3">Idioma Original</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <label class="filtros-label mb-2 d-block">Clasificación de Edad</label>
+                        <select class="form-select filtros-select">
+                            <option selected>Todas las clasificaciones</option>
+                            <option value="TP">TP (Todo Público)</option>
+                            <option value="+12">+12 Años</option>
+                            <option value="+14">+14 Años</option>
+                            <option value="+18">+18 Años</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- VISTA 2: MÓVIL Y TABLET (d-lg-none)-->
+            <div class="filtros-mobile-bar d-lg-none">
+                <!-- Fila Superior: Buscador -->
+                <div class="position-relative mb-2.5">
+                    <span class="material-symbols-outlined filtros-search-icon">search</span>
+                    <input type="text" class="form-control filtros-search-input" placeholder="Buscar película...">
+                </div>
+
+                <!-- Fila Inferior: Toggle Estado + Botón Filtros (Flex Wrap & Layout Adaptativo) -->
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+
+                    <!-- Toggle Estado con Flex Grow responsivo -->
+                    <div class="status-toggle-container flex-grow-1 flex-sm-grow-0 justify-content-center my-2 mx-0">
+                        <button type="button" class="btn btn-status-toggle active w-50 w-sm-auto text-nowrap">
+                            <span class="badge-status-dot"></span> En Cartelera
+                        </button>
+                        <button type="button" class="btn btn-status-toggle w-50 w-sm-auto text-nowrap">
+                            <span class="badge-status-dot dot-soon"></span> Próximamente
+                        </button>
+                    </div>
+
+                    <!-- Botón Filtros Disparador -->
+                    <button type="button"
+                        class="btn btn-filtros-trigger d-flex align-items-center justify-content-center gap-1 text-nowrap ms-auto"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasFiltros">
+                        <span class="material-symbols-outlined fs-6">tune</span>
+                        <span>Filtros</span>
+                        <span class="badge rounded-pill bg-warning text-dark px-2-5 ms-1">3</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- OFFCANVAS DE FILTROS PARA MÓVILES/TABLETS -->
+        <div class="filter offcanvas offcanvas-end filtros-offcanvas bg-cm-background " tabindex="-1"
+            id="offcanvasFiltros" aria-labelledby="offcanvasFiltrosLabel ">
+            <div class="offcanvas-header border-bottom border-white-10">
+                <h5 class="offcanvas-title text-white fw-bold d-flex align-items-center gap-2"
+                    id="offcanvasFiltrosLabel">
+                    <span class="material-symbols-outlined text-warning">tune</span> Filtrar Cartelera
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body d-flex flex-column gap-4">
+
+                <!-- Formato & Experiencia -->
+                <div>
+                    <label class="filtros-label mb-2 d-block">Formato & Experiencia</label>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button type="button" class="btn btn-filter-chip active-primary">Todos los formatos</button>
+                        <button type="button" class="btn btn-filter-chip active-outline-red"><span
+                                class="dot-red"></span> IMAX®
+                            Láser 3D</button>
+                        <button type="button" class="btn btn-filter-chip">4DX™ Motion</button>
+                        <button type="button" class="btn btn-filter-chip active-outline-gold"><span
+                                class="material-symbols-outlined fs-6">bed</span> Prime VIP Lounge</button>
+                        <button type="button" class="btn btn-filter-chip">Dolby Atmos®</button>
+                        <button type="button" class="btn btn-filter-chip">Digital 2D / 3D</button>
+                    </div>
+                </div>
+
+                <hr class="border-white-10 my-0">
+
+                <!-- Select Género -->
+                <div>
+                    <label class="filtros-label mb-2 d-block">Género</label>
+                    <select class="form-select filtros-select">
+                        <option selected>Todos los géneros</option>
+                        <option value="1">Acción</option>
+                        <option value="2">Ciencia Ficción</option>
+                        <option value="3">Drama</option>
+                        <option value="4">Terror</option>
+                    </select>
+                </div>
+
+                <!-- Select Idioma & Subtítulos -->
+                <div>
+                    <label class="filtros-label mb-2 d-block">Idioma & Subtítulos</label>
+                    <select class="form-select filtros-select">
+                        <option selected>Cualquier versión</option>
+                        <option value="1">Doblada (Español)</option>
+                        <option value="2">Subtitulada (SUB)</option>
+                        <option value="3">Idioma Original</option>
+                    </select>
+                </div>
+
+                <!-- Clasificación de Edad -->
+                <div>
+                    <label class="filtros-label mb-2 d-block">Clasificación de Edad</label>
+                    <div class="btn-group w-100 rounded-2 overflow-hidden" role="group">
+                        <button type="button" class="btn btn-age-group active">TODAS</button>
+                        <button type="button" class="btn btn-age-group">TP</button>
+                        <button type="button" class="btn btn-age-group">+12</button>
+                        <button type="button" class="btn btn-age-group">+14</button>
+                        <button type="button" class="btn btn-age-group">+18</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pie del Offcanvas con Acciones Directas -->
+            <div class="offcanvas-footer p-3 border-top border-white-10 d-flex gap-2 bg-surface">
+                <button type="button" class="btn btn-outline-warning w-50 py-2 fs-7 fw-bold"
+                    data-bs-dismiss="offcanvas">
+                    LIMPIAR
+                </button>
+                <button type="button" class="btn btn-danger w-50 py-2 fs-7 fw-bold" data-bs-dismiss="offcanvas">
+                    VER (14)
+                </button>
+            </div>
+        </div>
+
+        <!-- 3. tarjetas de peliculas -->
+        <section class="px-3 px-md-5 m-0 pt-3 pb-5 ">
+            <!-- GRID DE CARTELERA -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4">
+
+                <!-- TARJETA 1: Dune Parte Dos (IMAX 3D) -->
+                <div class="col">
+                    <article class="cm-movie-card">
+                        <div class="cm-poster-wrapper">
+                            <!-- Badges Superiores -->
+                            <span class="cm-badge-format">IMAX 3D</span>
+                            <span class="cm-badge-rating-age">+13</span>
+
+                            <!-- Imagen del Póster -->
+                            <img src="img/dune2.jpg" alt="Póster Dune Parte Dos" class="cm-poster-img" loading="lazy">
+                            <div class="cm-poster-overlay"></div>
+
+                            <!-- Acciones Hover -->
+                            <div class="cm-poster-hover-actions">
+                                <button class="cm-btn-play" title="Ver Tráiler" data-bs-toggle="tooltip">
+                                    <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                </button>
+                                <span class="badge bg-dark bg-opacity-75 text-white px-3 py-1 rounded-pill fs-8">Ver
+                                    Tráiler</span>
+                            </div>
+                        </div>
+
+                        <!-- Cuerpo Informativo -->
+                        <div class="cm-movie-body">
+                            <div class="cm-meta-row">
+                                <div class="cm-rating-box">
+                                    <span class="material-symbols-outlined fs-6">star</span>
+                                    <span>4.9</span>
+                                </div>
+                                <div class="cm-duration-box">
+                                    <span class="material-symbols-outlined fs-6">schedule</span>
+                                    <span>2h 46min</span>
+                                </div>
+                            </div>
+
+                            <h3 class="cm-movie-title" title="Dune: Parte Dos">DUNE: PARTE DOS</h3>
+                            <p class="cm-movie-genre">Ciencia Ficción · Acción · Aventura</p>
+
+                            <!-- Formatos e Idiomas -->
+                            <div class="cm-format-chips">
+                                <span class="cm-chip">DOB</span>
+                                <span class="cm-chip">SUB</span>
+                                <span class="cm-chip">2D</span>
+                                <span class="cm-chip">IMAX 3D</span>
+                            </div>
+
+                            <!-- Botones de Acción -->
+                            <div class="cm-card-actions">
+                                <a href="#" class="cm-btn-buy">
+                                    <span class="material-symbols-outlined fs-5">confirmation_number</span>
+                                    <span>Comprar Entradas</span>
+                                </a>
+                                <a href="#" class="cm-btn-schedule" title="Ver Horarios" data-bs-toggle="tooltip">
+                                    <span class="material-symbols-outlined fs-5">calendar_month</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- TARJETA 2: Interstellar (VIP Lounge) -->
+                <div class="col">
+                    <article class="cm-movie-card">
+                        <div class="cm-poster-wrapper">
+                            <span class="cm-badge-format vip">VIP LOUNGE</span>
+                            <span class="cm-badge-rating-age">+13</span>
+
+                            <img src="img/Interstellar-Re-Release.jpg" alt="Póster Interstellar" class="cm-poster-img"
+                                loading="lazy">
+                            <div class="cm-poster-overlay"></div>
+
+                            <div class="cm-poster-hover-actions">
+                                <button class="cm-btn-play" title="Ver Tráiler">
+                                    <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                </button>
+                                <span class="badge bg-dark bg-opacity-75 text-white px-3 py-1 rounded-pill fs-8">Ver
+                                    Tráiler</span>
+                            </div>
+                        </div>
+
+                        <div class="cm-movie-body">
+                            <div class="cm-meta-row">
+                                <div class="cm-rating-box">
+                                    <span class="material-symbols-outlined fs-6">star</span>
+                                    <span>4.8</span>
+                                </div>
+                                <div class="cm-duration-box">
+                                    <span class="material-symbols-outlined fs-6">schedule</span>
+                                    <span>2h 49min</span>
+                                </div>
+                            </div>
+
+                            <h3 class="cm-movie-title" title="Interstellar: El Origen">INTERSTELLAR: EL ORIGEN</h3>
+                            <p class="cm-movie-genre">Sci-Fi · Drama · MISTERIO</p>
+
+                            <div class="cm-format-chips">
+                                <span class="cm-chip">SUB</span>
+                                <span class="cm-chip">ATMOS</span>
+                                <span class="cm-chip">VIP</span>
+                            </div>
+
+                            <div class="cm-card-actions">
+                                <a href="#" class="cm-btn-buy">
+                                    <span class="material-symbols-outlined fs-5">confirmation_number</span>
+                                    <span>Comprar Entradas</span>
+                                </a>
+                                <a href="#" class="cm-btn-schedule" title="Ver Horarios">
+                                    <span class="material-symbols-outlined fs-5">calendar_month</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- TARJETA 3: Unabomber -->
+                <div class="col">
+                    <article class="cm-movie-card">
+                        <div class="cm-poster-wrapper">
+                            <span class="cm-badge-format">4DX ATMOS</span>
+                            <span class="cm-badge-rating-age">+16</span>
+
+                            <img src="img/unabomber.jpg" alt="Póster Unabomber" class="cm-poster-img" loading="lazy">
+                            <div class="cm-poster-overlay"></div>
+
+                            <div class="cm-poster-hover-actions">
+                                <button class="cm-btn-play" title="Ver Tráiler">
+                                    <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                </button>
+                                <span class="badge bg-dark bg-opacity-75 text-white px-3 py-1 rounded-pill fs-8">Ver
+                                    Tráiler</span>
+                            </div>
+                        </div>
+
+                        <div class="cm-movie-body">
+                            <div class="cm-meta-row">
+                                <div class="cm-rating-box">
+                                    <span class="material-symbols-outlined fs-6">star</span>
+                                    <span>4.6</span>
+                                </div>
+                                <div class="cm-duration-box">
+                                    <span class="material-symbols-outlined fs-6">schedule</span>
+                                    <span>1h 58min</span>
+                                </div>
+                            </div>
+
+                            <h3 class="cm-movie-title" title="Velocidad Pura: Redline">Unabomber</h3>
+                            <p class="cm-movie-genre">Acción · Suspenso</p>
+
+                            <div class="cm-format-chips">
+                                <span class="cm-chip">DOB</span>
+                                <span class="cm-chip">SUB</span>
+                                <span class="cm-chip">4DX</span>
+                                <span class="cm-chip">2D</span>
+                            </div>
+
+                            <div class="cm-card-actions">
+                                <a href="#" class="cm-btn-buy">
+                                    <span class="material-symbols-outlined fs-5">confirmation_number</span>
+                                    <span>Comprar Entradas</span>
+                                </a>
+                                <a href="#" class="cm-btn-schedule" title="Ver Horarios">
+                                    <span class="material-symbols-outlined fs-5">calendar_month</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- TARJETA 4: Heart of the Beast -->
+                <div class="col">
+                    <article class="cm-movie-card">
+                        <div class="cm-poster-wrapper">
+                            <span class="cm-badge-format">DOLBY ATMOS</span>
+                            <span class="cm-badge-rating-age">+13</span>
+
+                            <img src="img/heart-beast.png" alt="Heart of the Beast" class="cm-poster-img"
+                                loading="lazy">
+                            <div class="cm-poster-overlay"></div>
+
+                            <div class="cm-poster-hover-actions">
+                                <button class="cm-btn-play" title="Ver Tráiler">
+                                    <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                </button>
+                                <span class="badge bg-dark bg-opacity-75 text-white px-3 py-1 rounded-pill fs-8">Ver
+                                    Tráiler</span>
+                            </div>
+                        </div>
+
+                        <div class="cm-movie-body">
+                            <div class="cm-meta-row">
+                                <div class="cm-rating-box">
+                                    <span class="material-symbols-outlined fs-6">star</span>
+                                    <span>4.5</span>
+                                </div>
+                                <div class="cm-duration-box">
+                                    <span class="material-symbols-outlined fs-6">schedule</span>
+                                    <span>2h 10min</span>
+                                </div>
+                            </div>
+
+                            <h3 class="cm-movie-title" title="Sombras en la Ciudad">Heart of the Beast</h3>
+                            <p class="cm-movie-genre">Aventura</p>
+
+                            <div class="cm-format-chips">
+                                <span class="cm-chip">SUB</span>
+                                <span class="cm-chip">2D</span>
+                            </div>
+
+                            <div class="cm-card-actions">
+                                <a href="#" class="cm-btn-buy">
+                                    <span class="material-symbols-outlined fs-5">confirmation_number</span>
+                                    <span>Comprar Entradas</span>
+                                </a>
+                                <a href="#" class="cm-btn-schedule" title="Ver Horarios">
+                                    <span class="material-symbols-outlined fs-5 warmth">calendar_month</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- TARJETA 4: Heart of the Beast -->
+                <div class="col">
+                    <article class="cm-movie-card">
+                        <div class="cm-poster-wrapper">
+                            <span class="cm-badge-format vip">VIP LOUNGE</span>
+                            <span class="cm-badge-rating-age">+13</span>
+
+                            <img src="img/Interstellar-Re-Release.jpg" alt="Póster Interstellar" class="cm-poster-img"
+                                loading="lazy">
+                            <div class="cm-poster-overlay"></div>
+
+                            <div class="cm-poster-hover-actions">
+                                <button class="cm-btn-play" title="Ver Tráiler">
+                                    <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                </button>
+                                <span class="badge bg-dark bg-opacity-75 text-white px-3 py-1 rounded-pill fs-8">Ver
+                                    Tráiler</span>
+                            </div>
+                        </div>
+
+                        <div class="cm-movie-body">
+                            <div class="cm-meta-row">
+                                <div class="cm-rating-box">
+                                    <span class="material-symbols-outlined fs-6">star</span>
+                                    <span>4.8</span>
+                                </div>
+                                <div class="cm-duration-box">
+                                    <span class="material-symbols-outlined fs-6">schedule</span>
+                                    <span>2h 49min</span>
+                                </div>
+                            </div>
+
+                            <h3 class="cm-movie-title" title="Interstellar: El Origen">INTERSTELLAR: EL ORIGEN</h3>
+                            <p class="cm-movie-genre">Sci-Fi · Drama · MISTERIO</p>
+
+                            <div class="cm-format-chips">
+                                <span class="cm-chip">SUB</span>
+                                <span class="cm-chip">ATMOS</span>
+                                <span class="cm-chip">VIP</span>
+                            </div>
+
+                            <div class="cm-card-actions">
+                                <a href="#" class="cm-btn-buy">
+                                    <span class="material-symbols-outlined fs-5">confirmation_number</span>
+                                    <span>Comprar Entradas</span>
+                                </a>
+                                <a href="#" class="cm-btn-schedule" title="Ver Horarios">
+                                    <span class="material-symbols-outlined fs-5">calendar_month</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- TARJETA 3: Unabomber -->
+                <div class="col">
+                    <article class="cm-movie-card">
+                        <div class="cm-poster-wrapper">
+                            <span class="cm-badge-format">4DX ATMOS</span>
+                            <span class="cm-badge-rating-age">+16</span>
+
+                            <img src="img/unabomber.jpg" alt="Póster Unabomber" class="cm-poster-img" loading="lazy">
+                            <div class="cm-poster-overlay"></div>
+
+                            <div class="cm-poster-hover-actions">
+                                <button class="cm-btn-play" title="Ver Tráiler">
+                                    <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                </button>
+                                <span class="badge bg-dark bg-opacity-75 text-white px-3 py-1 rounded-pill fs-8">Ver
+                                    Tráiler</span>
+                            </div>
+                        </div>
+
+                        <div class="cm-movie-body">
+                            <div class="cm-meta-row">
+                                <div class="cm-rating-box">
+                                    <span class="material-symbols-outlined fs-6">star</span>
+                                    <span>4.6</span>
+                                </div>
+                                <div class="cm-duration-box">
+                                    <span class="material-symbols-outlined fs-6">schedule</span>
+                                    <span>1h 58min</span>
+                                </div>
+                            </div>
+
+                            <h3 class="cm-movie-title" title="Velocidad Pura: Redline">Unabomber</h3>
+                            <p class="cm-movie-genre">Acción · Suspenso</p>
+
+                            <div class="cm-format-chips">
+                                <span class="cm-chip">DOB</span>
+                                <span class="cm-chip">SUB</span>
+                                <span class="cm-chip">4DX</span>
+                                <span class="cm-chip">2D</span>
+                            </div>
+
+                            <div class="cm-card-actions">
+                                <a href="#" class="cm-btn-buy">
+                                    <span class="material-symbols-outlined fs-5">confirmation_number</span>
+                                    <span>Comprar Entradas</span>
+                                </a>
+                                <a href="#" class="cm-btn-schedule" title="Ver Horarios">
+                                    <span class="material-symbols-outlined fs-5">calendar_month</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- TARJETA 4: Heart of the Beast -->
+                <div class="col">
+                    <article class="cm-movie-card">
+                        <div class="cm-poster-wrapper">
+                            <span class="cm-badge-format">DOLBY ATMOS</span>
+                            <span class="cm-badge-rating-age">+13</span>
+
+                            <img src="img/heart-beast.png" alt="Heart of the Beast" class="cm-poster-img"
+                                loading="lazy">
+                            <div class="cm-poster-overlay"></div>
+
+                            <div class="cm-poster-hover-actions">
+                                <button class="cm-btn-play" title="Ver Tráiler">
+                                    <span class="material-symbols-outlined fs-2">play_arrow</span>
+                                </button>
+                                <span class="badge bg-dark bg-opacity-75 text-white px-3 py-1 rounded-pill fs-8">Ver
+                                    Tráiler</span>
+                            </div>
+                        </div>
+
+                        <div class="cm-movie-body">
+                            <div class="cm-meta-row">
+                                <div class="cm-rating-box">
+                                    <span class="material-symbols-outlined fs-6">star</span>
+                                    <span>4.5</span>
+                                </div>
+                                <div class="cm-duration-box">
+                                    <span class="material-symbols-outlined fs-6">schedule</span>
+                                    <span>2h 10min</span>
+                                </div>
+                            </div>
+
+                            <h3 class="cm-movie-title" title="Sombras en la Ciudad">Heart of the Beast</h3>
+                            <p class="cm-movie-genre">Aventura</p>
+
+                            <div class="cm-format-chips">
+                                <span class="cm-chip">SUB</span>
+                                <span class="cm-chip">2D</span>
+                            </div>
+
+                            <div class="cm-card-actions">
+                                <a href="#" class="cm-btn-buy">
+                                    <span class="material-symbols-outlined fs-5">confirmation_number</span>
+                                    <span>Comprar Entradas</span>
+                                </a>
+                                <a href="#" class="cm-btn-schedule" title="Ver Horarios">
+                                    <span class="material-symbols-outlined fs-5 warmth">calendar_month</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BANNER PROMOCIONAL -->
+        <section class="cm-promo-banner-section pb-4 my-2">
+            <div class="container-fluid px-lg-5">
+                <div class="cm-promo-card position-relative overflow-hidden p-4 p-md-5 rounded-4">
+
+                    <!-- Fondo con Gradiente Cinematográfico y Glow Decorativo -->
+                    <div class="cm-promo-bg-overlay"></div>
+
+                    <div class="row align-items-center position-relative z-2 gy-4">
+                        <!-- Texto & Propuesta de Valor -->
+                        <div class="col-lg-8 col-md-7 text-center text-md-start">
+                            <div
+                                class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-cm-tertiary-subtle mb-3">
+                                <span class="material-symbols-outlined fs-6 text-cm-tertiary">local_offer</span>
+                                <span class="text-uppercase fw-bold text-cm-tertiary fs-8 tracking-wider">Promoción
+                                    Especial</span>
+                            </div>
+
+                            <h2 class="cm-promo-title mb-2">
+                                MIÉRCOLES DE 2X1 EN TODAS LAS SALAS Y FORMATOS
+                            </h2>
+
+                            <p class="cm-promo-description mb-0 text-cm-variant">
+                                Aprovecha la tarifa especial en tus entradas 2D, 3D e IMAX. Válido en Megacenter Irpavi
+                                y todas
+                                nuestras sedes oficiales.
+                            </p>
+                        </div>
+
+                        <!-- Botón de Acción a Promociones -->
+                        <div class="col-lg-4 col-md-5 text-center text-md-end">
+                            <a href="promociones.html"
+                                class="btn btn-cm-promo d-inline-flex align-items-center gap-2 px-4 py-3 rounded-3 text-decoration-none">
+                                <span class="fw-bold">VER PROMOCIONES</span>
+                                <span class="material-symbols-outlined fs-5">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+    <div id="footer-container"></div>
+    <!--<div id="footer-container" data-variant="minimal"></div>-->
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Inicializar Tooltips de Bootstrap
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            [...tooltipTriggerList].forEach(el => new bootstrap.Tooltip(el));
+
+            // Control del Estado Sticky al hacer Scroll
+            initStickyHeaderObserver();
+        });
+
+        function initStickyHeaderObserver() {
+            const header = document.getElementById("main-header");
+            const stickyDaysBar = document.querySelector(".sticky-days-bar");
+
+            if (!header && !stickyDaysBar) return;
+
+            const handleScroll = () => {
+                const isScrolled = window.scrollY > 40;
+
+                if (header) {
+                    header.classList.toggle("scrolled", isScrolled);
+                }
+                if (stickyDaysBar) {
+                    stickyDaysBar.classList.toggle("scrolled", isScrolled);
+                }
+            };
+
+            window.addEventListener("scroll", handleScroll, { passive: true });
+            handleScroll(); // Disparo inicial
+        }
+    </script>
+</body>
+
+</html>

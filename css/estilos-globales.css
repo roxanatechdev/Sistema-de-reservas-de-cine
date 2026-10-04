@@ -225,6 +225,10 @@ body {
     background-color: var(--cm-surface-container-highest) !important;
 }
 
+.bg-cm-background {
+    background-color: var(--cm-background);
+}
+
 .text-cm-primary {
     color: var(--cm-primary) !important;
 }
@@ -251,6 +255,14 @@ body {
 
 .shadow-cm-glow-intense {
     box-shadow: var(--cm-glow-primary-intense);
+}
+
+.font-display {
+    font-family: var(--cm-font-display);
+}
+
+.font-body {
+    font-family: var(--cm-font-body);
 }
 
 /* ==========================================================================
@@ -384,6 +396,33 @@ body {
 .mobile-nav-link.active {
     background-color: var(--cm-surface-container-high);
     color: var(--cm-on-surface);
+}
+
+/* Disminuir el padding vertical del nav cuando se hace scroll */
+#main-header.scrolled nav.navbar {
+    padding-top: 0.5rem !important;
+    /* Ajusta el valor según prefieras (ej. 0.25rem o 0.5rem) */
+    padding-bottom: 0.5rem !important;
+    transition: padding 0.3s ease;
+    /* Transición suave al achicarse */
+}
+
+/* Transición suave para el padding del nav base */
+#main-header nav.navbar {
+    transition: padding 0.3s ease;
+}
+
+/* Reducir levemente el tamaño de texto del logo al hacer scroll */
+#main-header.scrolled .nombre {
+    font-size: 1.85rem;
+    transition: font-size 0.3s ease;
+}
+
+/* Reducir espacio interno del contenedor de botones del menú flotante */
+#main-header.scrolled .nav-pill-container {
+    padding-top: 0.15rem !important;
+    padding-bottom: 0.15rem !important;
+    transition: padding 0.3s ease;
 }
 
 /* ==========================================================================
@@ -555,6 +594,10 @@ Clases reutilizables globales
 
 .metadatos .tag {
     font-size: 0.625rem;
+}
+
+.font-xsm {
+    font-size: 0.75rem;
 }
 
 /* ==========================================================================
