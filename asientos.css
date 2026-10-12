@@ -1,0 +1,627 @@
+  
+        /* ==========================================================================
+           CINEPRIME - ESTILOS GLOBALES & DESIGN SYSTEM
+           Enfoque: Diseño Web II - Proyecto Feria Informática 2026
+           Framework Base: Bootstrap 5 + Custom Properties
+           ========================================================================== */
+
+        /* VARIABLES DE COLOR (DESIGN TOKENS - MATERIAL DESIGN 3 / DARK CINEMATIC) */
+        :root {
+            /* --- Colores Principales (Brand / Identity) --- */
+            --cm-primary: #ffb4aa;
+            --cm-primary-container: #e50914; /* Rojo Cine / Brand Hero */
+            --cm-on-primary: #690003;
+            --cm-on-primary-container: #fff7f6;
+            --cm-primary-fixed: #ffdad5;
+            --cm-primary-fixed-dim: #ffb4aa;
+            --cm-on-primary-fixed: #410001;
+            --cm-on-primary-fixed-variant: #930007;
+
+            /* --- Colores Secundarios --- */
+            --cm-secondary: #ffb3b3;
+            --cm-secondary-container: #da0137;
+            --cm-on-secondary: #680015;
+            --cm-on-secondary-container: #ffeceb;
+            --cm-secondary-fixed: #ffdad9;
+            --cm-secondary-fixed-dim: #ffb3b3;
+            --cm-on-secondary-fixed: #400009;
+            --cm-on-secondary-fixed-variant: #920022;
+
+            /* --- Colores Terciarios (Acentos / Ratings / Promos) --- */
+            --cm-tertiary: #e9c349; /* Dorado / Estrellas */
+            --cm-tertiary-container: #cca730;
+            --cm-on-tertiary: #3c2f00;
+            --cm-on-tertiary-container: #4f3d00;
+            --cm-tertiary-fixed: #ffe088;
+            --cm-tertiary-fixed-dim: #e9c349;
+            --cm-on-tertiary-fixed: #241a00;
+            --cm-on-tertiary-fixed-variant: #574500;
+            --cm-tertiary-light-blue: #7bd0ff;
+
+            /* --- Superficies y Fondos (Dark Theme Elevation) --- */
+            --cm-background: #11131c;
+            --cm-on-background: #e1e1ef;
+            --cm-surface: #11131c;
+            --cm-on-surface: #e1e1ef;
+            --cm-surface-dim: #11131c;
+            --cm-surface-bright: #373943;
+            --cm-surface-variant: #32343e;
+            --cm-on-surface-variant: #e9bcb6;
+
+            /* --- Contenedores de Superficie (Capas) --- */
+            --cm-surface-container-lowest: #0c0e17;
+            --cm-surface-container-low: #191b24;
+            --cm-surface-container: #1d1f29;
+            --cm-surface-container-high: #282933;
+            --cm-surface-container-highest: #32343e;
+
+            /* --- Inversiones y Bordes --- */
+            --cm-inverse-surface: #e1e1ef;
+            --cm-inverse-on-surface: #2e303a;
+            --cm-inverse-primary: #c0000c;
+            --cm-outline: #af8782;
+            --cm-outline-variant: #5e3f3b;
+
+            /* --- Errores / Estado --- */
+            --cm-error: #ffb4ab;
+            --cm-error-container: #93000a;
+            --cm-on-error: #690005;
+            --cm-on-error-container: #ffdad6;
+
+            /* --- Tipografías --- */
+            --cm-font-display: 'Bebas Neue', cursive, sans-serif;
+            --cm-font-body: 'Montserrat', sans-serif;
+
+            /* --- Sombras Creadas / Resplandores Neón --- */
+            --cm-glow-primary: 0 0 20px rgba(229, 9, 20, 0.35);
+            --cm-glow-primary-intense: 0 0 28px rgba(229, 9, 20, 0.65);
+            --cm-glow-tertiary: 0 0 16px rgba(233, 195, 73, 0.35);
+            --cm-glow-screen: 0 -4px 25px rgba(229, 9, 20, 0.6), 0 8px 35px rgba(255, 77, 77, 0.4);
+        }
+
+
+
+        /* 3. RESETS Y ESTILOS BASE COMPATIBLES CON BOOTSTRAP 5 */
+        body {
+            background-color: var(--cm-background);
+            color: var(--cm-on-surface);
+            font-family: var(--cm-font-body);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Ocultar barra de desplazamiento manteniendo funcionalidad */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* SELECCIÓN DE TEXTO */
+        ::selection {
+            background-color: var(--cm-primary-container);
+            color: var(--cm-on-primary-container);
+        }
+
+        /* ==========================================================================
+           CINEMAX - DECLARACIÓN DE FUENTES LOCALES (OFFLINE MODE)
+           ========================================================================== */
+
+        /* 1. BEBAS NEUE (DISPLAY) */
+        @font-face {
+            font-family: 'Bebas Neue';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('../css/fonts/bebas-neue-v16-latin-regular.woff2') format('woff2');
+        }
+
+        /* 2. MONTSERRAT (BODY & INTERACTION) */
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url('../css/fonts/montserrat-v31-latin-300.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('../css/fonts/montserrat-v31-latin-regular.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('../css/fonts/montserrat-v31-latin-500.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('../css/fonts/montserrat-v31-latin-600.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('../css/fonts/montserrat-v31-latin-700.woff2') format('woff2');
+        }
+
+        /* 3. MATERIAL SYMBOLS OUTLINED (ICONS) */
+        @font-face {
+            font-family: 'Material Symbols Outlined';
+            font-style: normal;
+            font-weight: 400;
+            src: url('../css/fonts/material-symbols-outlined-v374-latin-regular.woff2') format('woff2');
+        }
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Adaptabilidad móvil para títulos Display */
+        @media (max-width: 768px) {
+            .font-display-hero {
+                font-size: 2.75rem;
+                line-height: 2.875rem;
+            }
+
+            .font-headline-lg {
+                font-size: 1.875rem;
+                line-height: 2.125rem;
+            }
+        }
+
+        /* 5. UTILIDADES DE SUPERFICIE PERSONALIZADAS PARA BOOTSTRAP */
+        .bg-cm-surface-lowest {
+            background-color: var(--cm-surface-container-lowest) !important;
+        }
+
+        .bg-cm-surface-low {
+            background-color: var(--cm-surface-container-low) !important;
+        }
+
+        .bg-cm-surface {
+            background-color: var(--cm-surface-container) !important;
+        }
+
+        .bg-cm-surface-high {
+            background-color: var(--cm-surface-container-high) !important;
+        }
+
+        .bg-cm-surface-highest {
+            background-color: var(--cm-surface-container-highest) !important;
+        }
+
+        .bg-cm-background {
+            background-color: var(--cm-background);
+        }
+
+        .text-cm-primary {
+            color: var(--cm-primary) !important;
+        }
+
+        .text-cm-primary-container {
+            color: var(--cm-primary-container) !important;
+        }
+
+        .text-cm-tertiary {
+            color: var(--cm-tertiary) !important;
+        }
+
+        .text-cm-tertiary-light-blue {
+            color: var(--cm-tertiary-light-blue) !important;
+        }
+
+        .text-cm-variant {
+            color: var(--cm-on-surface-variant) !important;
+        }
+
+        .shadow-cm-glow {
+            box-shadow: var(--cm-glow-primary);
+        }
+
+        .shadow-cm-glow-intense {
+            box-shadow: var(--cm-glow-primary-intense);
+        }
+
+        .font-display {
+            font-family: var(--cm-font-display);
+        }
+
+        .font-body {
+            font-family: var(--cm-font-body);
+        }
+
+        /* Componentes de la Interfaz */
+        .navbar-custom {
+            background-color: rgba(17, 19, 28, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .brand-logo {
+            font-family: var(--cm-font-display);
+            font-size: 2.2rem;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-logo span.highlight {
+            color: var(--cm-primary-container);
+        }
+
+        .nav-link-custom {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-link-custom:hover, .nav-link-custom.active {
+            color: #fff;
+        }
+
+        .cm-card {
+            background-color: var(--cm-surface-container);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        /* Pantalla Neón Curva */
+        .cinema-screen-container {
+            text-align: center;
+            margin-bottom: 2.2rem;
+            position: relative;
+            padding-top: 10px;
+        }
+
+        .cinema-screen {
+            height: 14px;
+            background: linear-gradient(90deg, rgba(229,9,20,0.2) 0%, #e50914 20%, #ff6b6b 50%, #e50914 80%, rgba(229,9,20,0.2) 100%);
+            border-radius: 50% / 100% 100% 0 0;
+            box-shadow: var(--cm-glow-screen);
+            margin: 0 auto 14px auto;
+            width: 88%;
+            position: relative;
+        }
+
+        .cinema-screen::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 10%;
+            right: 10%;
+            height: 35px;
+            background: radial-gradient(ellipse at top, rgba(229,9,20,0.45), rgba(255,107,107,0.2) 50%, transparent 80%);
+            pointer-events: none;
+        }
+
+        .screen-label {
+            font-family: var(--cm-font-display);
+            letter-spacing: 10px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.25rem;
+            text-shadow: 0 0 12px rgba(229, 9, 20, 0.8);
+        }
+
+        /* Seat Grid Layout */
+        .seat-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            user-select: none;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .seat-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .row-label {
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.5);
+            width: 24px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .seat {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1.5px solid rgba(229, 9, 20, 0.4);
+            background-color: var(--cm-surface-container-high);
+            color: #fff;
+        }
+
+        .seat:hover:not(.occupied) {
+            transform: scale(1.15);
+            border-color: #ff6b6b;
+            box-shadow: 0 0 12px rgba(229, 9, 20, 0.7);
+        }
+
+        .seat.selected {
+            background-color: var(--cm-primary-container);
+            border-color: #ff6b6b;
+            color: #fd0000;
+            box-shadow: var(--cm-glow-primary-intense);
+        }
+
+        .seat.occupied {
+            background-color: rgba(38, 42, 61, 0.8);
+            border-color: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.25);
+            cursor: not-allowed;
+        }
+
+        .seat-legend {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            padding: 12px;
+            background: var(--cm-surface-container-low);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--cm-on-surface);
+        }
+
+        .legend-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+        }
+
+        /* Tarjetas de Confitería con Imágenes */
+        .candy-card {
+            background-color: var(--cm-surface-container-high);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            padding: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .candy-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(229, 9, 20, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .candy-card.selected {
+            border-color: var(--cm-primary-container);
+            background-color: rgba(229, 9, 20, 0.12);
+            box-shadow: var(--cm-glow-primary);
+        }
+
+        .candy-checkbox {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
+
+        .candy-card.selected .candy-checkbox {
+            background-color: var(--cm-primary-container);
+            border-color: var(--cm-primary-container);
+        }
+
+        .candy-checkbox span {
+            font-size: 15px;
+            color: white;
+            display: none;
+        }
+
+        .candy-card.selected .candy-checkbox span {
+            display: block;
+        }
+
+        .candy-img-wrapper {
+            width: 100%;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .candy-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .candy-card:hover .candy-img {
+            transform: scale(1.06);
+        }
+
+        /* Sidebar Resumen de Compra */
+        .summary-card {
+            background-color: var(--cm-surface-container);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: sticky;
+            top: 90px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .movie-poster {
+            width: 85px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        }
+
+        .badge-format {
+            background-color: rgba(229, 9, 20, 0.2);
+            color: #ff6b6b;
+            border: 1px solid rgba(229, 9, 20, 0.4);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .seat-badge {
+            background-color: rgba(229, 9, 20, 0.2);
+            border: 1px solid var(--cm-primary-container);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .summary-divider {
+            border-top: 1px dashed rgba(255, 255, 255, 0.15);
+            margin: 1.25rem 0;
+        }
+
+        .btn-checkout {
+            background-color: var(--cm-primary-container);
+            color: white;
+            font-family: var(--cm-font-display);
+            font-size: 1.35rem;
+            letter-spacing: 1px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: none;
+            width: 100%;
+            box-shadow: var(--cm-glow-primary);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-checkout:hover {
+            background-color: #ff1e27;
+            transform: translateY(-2px);
+            box-shadow: var(--cm-glow-primary-intense);
+            color: white;
+        }
+
+        .price-total {
+            font-family: var(--cm-font-display);
+            font-size: 2.2rem;
+            color: var(--cm-primary-container);
+            line-height: 1;
+        }
+
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1080;
+            background-color: var(--cm-surface-container-highest);
+            color: #fff;
+            border: 1px solid var(--cm-primary-container);
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: var(--cm-glow-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(120%);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .toast-notification.show {
+            transform: translateY(0);
+        }
+
+        .timer-banner {
+            background: linear-gradient(90deg, rgba(229, 9, 20, 0.25) 0%, rgba(147, 0, 10, 0.4) 50%, rgba(229, 9, 20, 0.25) 100%);
+            border: 1px solid rgba(229, 9, 20, 0.6);
+            border-radius: 12px;
+            padding: 10px 18px;
+            box-shadow: var(--cm-glow-primary);
+            backdrop-filter: blur(8px);
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+
+        .timer-digits {
+            font-family: var(--cm-font-display);
+            color: #ff4d4d;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(229, 9, 20, 0.8);
+            line-height: 1;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 12px rgba(229, 9, 20, 0.3); }
+            50% { box-shadow: 0 0 24px rgba(229, 9, 20, 0.7); }
+        }
