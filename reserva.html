@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINEMAX - Checkout y Resumen de Reserva</title>
+    
+    <!-- Google Fonts: Bebas Neue & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Material Symbols Outlined -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Bootstrap 5.3.3 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="reserva.css">
+<link rel="stylesheet" href="css/estilos-globales.css">
+  
+</head>
+<div id="navbar-container"></div>
+<body>
+
+    <header class="bg-cm-surface-low border-bottom border-secondary border-opacity-10 sticky-top py-3 px-4 shadow-sm">
+        <div class="container-xxl d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="d-none d-md-flex align-items-center gap-2 px-3 py-1 bg-cm-surface rounded-pill border border-secondary border-opacity-10">
+                    <span class="material-symbols-outlined text-cm-tertiary fs-5">schedule</span>
+                    <span class="small text-white-50">Tiempo restante: <strong id="timer" class="text-white">09:45</strong></span>
+                </div>
+                <button class="btn btn-outline-light btn-sm rounded-pill px-3 py-2 d-flex align-items-center gap-1 border-opacity-25" onclick="cancelCheckout()">
+                    <span class="material-symbols-outlined fs-6">arrow_back</span>
+                    <span>Volver a Cartelera</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="text-center pt-4 pb-2 px-3">
+        <div class="container-xxl">
+            <h1 class="display-4 fw-bold title-gradient-cinematic text-uppercase mb-1">RESERVA DE PAGO</h1>
+            <p class="text-cm-variant small m-0 text-uppercase tracking-wider">Completa tu información personal y verifica el resumen de tu compra</p>
+        </div>
+    </section>
+
+    <main class="container-xxl my-4 my-lg-5 flex-grow-1">
+        <div class="row g-4 justify-content-center">
+            
+            <!-- COLUMN 1: User Data & Contact Form -->
+            <div class="col-lg-7 col-xl-7">
+                <div class="cinematic-card p-4 p-md-5 h-100">
+                    
+                    <!-- Section Header -->
+                    <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-secondary border-opacity-10">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="step-indicator bg-danger text-white">1</div>
+                            <div>
+                                <h2 class="h4 text-white m-0 font-display tracking-wide">Datos Requeridos</h2>
+                                <p class="text-cm-variant small m-0">Información para emitir tus entradas digitales y factura</p>
+                            </div>
+                        </div>
+                        <span class="badge-cinema d-none d-sm-inline-flex align-items-center gap-1">
+                            <span class="material-symbols-outlined fs-6">verified_user</span>
+                            Pago 100% Seguro
+                        </span>
+                    </div>
+
+                    <!-- User Form -->
+                    <form id="checkoutForm" class="needs-validation" novalidate onsubmit="processBooking(event)">
+                        
+                        <!-- Document Type & Number -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-5">
+                                <label for="docType" class="form-label small fw-semibold text-cm-variant">Tipo de Documento</label>
+                                <select class="form-select" id="docType" required>
+                                    <option value="CI" selected>Cédula de Identidad (CI)</option>
+                                    <option value="PAS">Pasaporte</option>
+                                    <option value="NIT">NIT (Facturación)</option>
+                                </select>
+                                <div class="invalid-feedback">Selecciona un tipo de documento.</div>
+                            </div>
+                            <div class="col-md-7">
+                                <label for="docNumber" class="form-label small fw-semibold text-cm-variant">Número de Documento</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-cm-surface-variant text-cm-variant border-secondary border-opacity-25 rounded-start-3">
+                                        <span class="material-symbols-outlined fs-5">badge</span>
+                                    </span>
+                                    <input type="text" class="form-control rounded-end-3" id="docNumber" placeholder="Ej. 8492031 LP" required>
+                                </div>
+                                <div class="invalid-feedback">Ingresa tu número de documento.</div>
+                            </div>
+                        </div>
+
+                        <!-- Names and Last Names -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label small fw-semibold text-cm-variant">Nombres</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Ej. Alejandro" required>
+                                <div class="invalid-feedback">Ingresa tus nombres.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label small fw-semibold text-cm-variant">Apellidos</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Ej. Mendoza Silva" required>
+                                <div class="invalid-feedback">Ingresa tus apellidos.</div>
+                            </div>
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label small fw-semibold text-cm-variant">Correo Electrónico (Para envío de QR)</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-cm-surface-variant text-cm-variant border-secondary border-opacity-25 rounded-start-3">
+                                    <span class="material-symbols-outlined fs-5">mail</span>
+                                </span>
+                                <input type="email" class="form-control rounded-end-3" id="email" placeholder="alejandro.mendoza@email.com" required>
+                            </div>
+                            <div class="form-text text-cm-variant" style="font-size: 0.75rem;">Tus entradas electrónicas y código QR de acceso llegarán instantáneamente a este correo.</div>
+                            <div class="invalid-feedback">Ingresa un correo electrónico válido.</div>
+                        </div>
+
+                        <!-- Phone Number with Country Code (+591 Bolivia standard) -->
+                        <div class="mb-4">
+                            <label for="phone" class="form-label small fw-semibold text-cm-variant">Teléfono / Celular de Contacto</label>
+                            <div class="input-group">
+                                <select class="form-select flex-grow-0 bg-cm-surface-variant text-white border-secondary border-opacity-25" id="phonePrefix" style="width: 110px;">
+                                    <option value="+591" selected>🇧🇴 +591</option>
+                                    <option value="+54">🇦🇷 +54</option>
+                                    <option value="+51">🇵🇪 +51</option>
+                                    <option value="+56">🇨🇱 +56</option>
+                                    <option value="+55">🇧🇷 +55</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                </select>
+                                <input type="tel" class="form-control" id="phone" placeholder="71234567" pattern="[0-9]{7,10}" required>
+                            </div>
+                            <div class="invalid-feedback">Ingresa un número de celular válido.</div>
+                        </div>
+
+                        <!-- Newsletter Checkbox -->
+                        <div class="mb-4 p-3 rounded-3 bg-cm-surface border border-secondary border-opacity-15">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="newsletterCheck" checked>
+                                <label class="form-check-label text-cm-variant small ms-1" for="newsletterCheck">
+                                    Quiero recibir alertas de preventas exclusivas, estrenos y descuentos del Club Cinemax por WhatsApp y correo.
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Action Button: Continúa como invitado -->
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-cinemax-primary d-flex align-items-center justify-content-center gap-2">
+                                <span class="material-symbols-outlined fs-4">lock_open</span>
+                                <span>Continúa como invitado</span>
+                            </button>
+                            <span class="text-center text-cm-variant mt-2" style="font-size: 0.75rem;">Al continuar aceptas nuestros Términos y Condiciones de Servicio Cinematográfico.</span>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <!-- COLUMN 2: Movie & Booking Summary -->
+            <div class="col-lg-5 col-xl-5">
+                <div class="cinematic-card p-4 p-md-4 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <!-- Section Header -->
+                        <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom border-secondary border-opacity-10">
+                            <div class="step-indicator bg-cm-tertiary text-dark font-display">2</div>
+                            <div>
+                                <h2 class="h4 text-white m-0 font-display tracking-wide">Resumen de Reserva</h2>
+                                <p class="text-cm-variant small m-0">Detalles de tu función y productos seleccionados</p>
+                            </div>
+                        </div>
+
+                        <!-- Movie Card Info Preview -->
+                        <div class="d-flex gap-3 p-3 bg-cm-surface rounded-3 border border-secondary border-opacity-10 mb-4 align-items-center">
+                            <div class="movie-poster-wrapper flex-shrink-0" style="width: 80px; height: 110px;">
+                                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=300" 
+                                     alt="Avengers Endgame Poster" 
+                                     class="w-100 h-100 object-fit-cover"
+                                     onerror="this.src='https://placehold.co/80x110/1d1f29/e50914?text=CINEMAX';">
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <span class="badge bg-danger text-white px-2 py-0.5" style="font-size: 0.65rem;">ESTRENO IMAX</span>
+                                    <span class="badge bg-secondary text-white px-2 py-0.5" style="font-size: 0.65rem;">SUB</span>
+                                </div>
+                                <h3 class="h5 text-white mb-1 font-display">Avengers: Endgame</h3>
+                                <p class="text-cm-variant small mb-0 d-flex align-items-center gap-1">
+                                    <span class="material-symbols-outlined fs-6 text-cm-tertiary">location_on</span>
+                                    Cinemax Megacenter • Sala 4 XD
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Showtimes & Seat Details -->
+                        <div class="bg-cm-surface p-3 rounded-3 border border-secondary border-opacity-10 mb-4">
+                            <div class="row g-2 text-center">
+                                <div class="col-4 border-end border-secondary border-opacity-10">
+                                    <span class="text-cm-variant d-block" style="font-size: 0.7rem;">FECHA</span>
+                                    <strong class="text-white small">DOM 11 OCT</strong>
+                                </div>
+                                <div class="col-4 border-end border-secondary border-opacity-10">
+                                    <span class="text-cm-variant d-block" style="font-size: 0.7rem;">HORARIO</span>
+                                    <strong class="text-white small">21:30 PM</strong>
+                                </div>
+                                <div class="col-4">
+                                    <span class="text-cm-variant d-block" style="font-size: 0.7rem;">ASIENTOS (2)</span>
+                                    <strong class="text-cm-tertiary small">F-12, F-13</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price Breakdown List -->
+                        <div class="mb-3">
+                            <h6 class="text-white small text-uppercase tracking-wider mb-3 fw-bold">Desglose de Pago</h6>
+                            
+                            <!-- Tickets Item -->
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="text-cm-variant small">
+                                    <span>2x Entradas General (2D XD)</span>
+                                    <span class="d-block text-white-50" style="font-size: 0.7rem;">Adulto (F-12, F-13)</span>
+                                </div>
+                                <span class="text-white fw-semibold">Bs 80.00</span>
+                            </div>
+
+                            <!-- Candy Bar Item -->
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="text-cm-variant small">
+                                    <span>Combo Mega Dueto (Pipoca + 2 Sodas)</span>
+                                    <span class="d-block text-white-50" style="font-size: 0.7rem;">1x Gigante Salada + 2 Coca-Cola 32oz</span>
+                                </div>
+                                <span class="text-white fw-semibold">Bs 45.00</span>
+                            </div>
+
+                            <!-- Service Fee -->
+                            <div class="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom border-secondary border-opacity-10">
+                                <div class="text-cm-variant small">
+                                    <span>Tarifa por Servicio Digital</span>
+                                    <span class="d-block text-white-50" style="font-size: 0.7rem;">Gestión de butacas y pasarela</span>
+                                </div>
+                                <span class="text-white fw-semibold">Bs 5.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Amount Display -->
+                    <div class="bg-cm-surface p-3 rounded-3 border border-secondary border-opacity-20">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="text-cm-variant fw-semibold small">TOTAL A PAGAR</span>
+                            <div class="text-end">
+                                <span class="h3 text-cm-tertiary mb-0 font-display fw-bold" style="font-size: 2rem;">Bs 130.00</span>
+                                <span class="d-block text-white-50" style="font-size: 0.65rem;">Impuestos de Ley incluidos (IVA)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+
+    <script>
+        // Countdown timer simulation for reserved tickets
+        let totalSeconds = 9 * 60 + 45;
+        const timerElement = document.getElementById('timer');
+
+        const countdownInterval = setInterval(() => {
+            if (totalSeconds <= 0) {
+                clearInterval(countdownInterval);
+                timerElement.textContent = "00:00";
+                alertBox("El tiempo de reserva ha expirado. Por favor, selecciona tus asientos nuevamente.");
+                return;
+            }
+            totalSeconds--;
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }, 1000);
+
+        // Custom non-blocking alert substitute
+        function alertBox(message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'position-fixed top-0 start-50 translate-middle-x p-3 bg-danger text-white rounded-3 shadow-lg mt-3 z-3 animate__animated animate__fadeInDown';
+            alertDiv.style.maxWidth = '400px';
+            alertDiv.innerHTML = `
+                <div class="d-flex align-items-center gap-2">
+                    <span class="material-symbols-outlined">info</span>
+                    <span class="small">${message}</span>
+                </div>
+            `;
+            document.body.appendChild(alertDiv);
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 4500);
+        }
+
+        // Form Submission & Validation handler
+        function processBooking(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const form = document.getElementById('checkoutForm');
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                alertBox("Por favor completa todos los campos requeridos correctamente.");
+                return;
+            }
+
+            form.classList.add('was-validated');
+
+            // Gather values
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phonePrefix').value + " " + document.getElementById('phone').value;
+
+            // Success feedback state simulation
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span>Generando Entradas...</span>
+            `;
+
+            setTimeout(() => {
+                document.body.innerHTML = `
+                    <div class="min-vh-100 d-flex flex-column align-items-center justify-content-center p-4 bg-cm-surface text-center">
+                        <div class="cinematic-card p-5 max-w-md mx-auto" style="max-width: 500px;">
+                            <div class="bg-success bg-opacity-15 text-success rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width: 80px; height: 80px;">
+                                <span class="material-symbols-outlined fs-1 text-success">check_circle</span>
+                            </div>
+                            <span class="badge badge-cinema mb-2">RESERVA CONFIRMADA</span>
+                            <h2 class="text-white font-display fs-2 mb-2">¡Disfruta la Función, ${firstName}!</h2>
+                            <p class="text-cm-variant small mb-4">Tus entradas digitales y el código QR de acceso han sido enviados exitosamente a <strong>${email}</strong> y al celular <strong>${phone}</strong>.</p>
+                            
+                            <div class="bg-cm-surface-low p-3 rounded-3 text-start mb-4 border border-secondary border-opacity-10 small">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="text-cm-variant">Código de Reserva:</span>
+                                    <strong class="text-white">CMX-84920-BO</strong>
+                                </div>
+                                <div class="d-flex justify-content-between mb-1">
+                                    <span class="text-cm-variant">Película:</span>
+                                    <strong class="text-white">Avengers: Endgame</strong>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-cm-variant">Total Pagado:</span>
+                                    <strong class="text-cm-tertiary">Bs 130.00</strong>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-cinemax-primary w-100" onclick="window.location.reload()">
+                                Realizar Nueva Reserva
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }, 1800);
+        }
+
+        function cancelCheckout() {
+            if (confirm("¿Estás seguro de cancelar la reserva? Los asientos seleccionados serán liberados.")) {
+                window.location.reload();
+            }
+        }
+    </script>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    
+    <div id="footer-container"></div>
+    
+</body>
+</html>
