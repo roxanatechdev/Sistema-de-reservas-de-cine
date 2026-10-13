@@ -1,4 +1,4 @@
-  
+
         /* ==========================================================================
            CINEPRIME - ESTILOS GLOBALES & DESIGN SYSTEM
            Enfoque: Diseño Web II - Proyecto Feria Informática 2026
@@ -79,7 +79,14 @@
             --cm-glow-screen: 0 -4px 25px rgba(229, 9, 20, 0.6), 0 8px 35px rgba(255, 77, 77, 0.4);
         }
 
-
+        .fondo {
+            /* Método 2: Linear Gradient Diagonal */
+            background: linear-gradient(135deg,
+                    #e5091480 0%,
+                    #78050c40 30%,
+                    #08080cf2 70%,
+                    #08080c 100%);
+        }
 
         /* 3. RESETS Y ESTILOS BASE COMPATIBLES CON BOOTSTRAP 5 */
         body {
@@ -382,7 +389,7 @@
         .seat.selected {
             background-color: var(--cm-primary-container);
             border-color: #ff6b6b;
-            color: #fd0000;
+            color: #fff;
             box-shadow: var(--cm-glow-primary-intense);
         }
 
@@ -625,3 +632,4 @@
             0%, 100% { box-shadow: 0 0 12px rgba(229, 9, 20, 0.3); }
             50% { box-shadow: 0 0 24px rgba(229, 9, 20, 0.7); }
         }
+    

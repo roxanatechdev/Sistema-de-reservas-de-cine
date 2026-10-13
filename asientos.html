@@ -15,9 +15,12 @@
     <link rel="stylesheet" href="css/estilos-globales.css">
     <link rel="stylesheet" href="asientos.css">
 
+    
 </head>
-<body>
 <div id="navbar-container"></div>
+<body>
+
+    
 
     <div class="container my-4">
         <!-- Volver -->
@@ -85,7 +88,7 @@
 
                 <!-- Section 2: Confitería -->
                 <div class="cm-card bg-cm-surface">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
                         <div class="d-flex align-items-center gap-2">
                             <span class="material-symbols-outlined text-cm-primary-container fs-2">fastfood</span>
                             <div>
@@ -93,9 +96,15 @@
                                 <p class="text-light opacity-75 mb-0 small">¡Haz tu experiencia aún más especial!</p>
                             </div>
                         </div>
-                        <span id="candyStatusBadge" class="badge rounded-pill bg-danger bg-opacity-20 text-danger border border-danger border-opacity-25 px-3 py-2 d-none align-items-center gap-1">
-                            <span class="material-symbols-outlined fs-6">check_circle</span> Seleccionado
-                        </span>
+                        <div class="d-flex align-items-center gap-2">
+                            <span id="candyStatusBadge" class="badge rounded-pill bg-danger bg-opacity-20 text-danger border border-danger border-opacity-25 px-3 py-2 d-none align-items-center gap-1">
+                                <span class="material-symbols-outlined fs-6">check_circle</span> Seleccionado
+                            </span>
+                            <a href="confiteria.html" class="btn btn-sm btn-outline-danger d-inline-flex align-items-center gap-1 rounded-pill px-3 py-1-5 text-nowrap fw-semibold">
+                                <span>Ver más opciones</span>
+                                <span class="material-symbols-outlined fs-6">chevron_right</span>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Candy Cards Grid con Imágenes Reales Personalizables -->
@@ -525,10 +534,12 @@
             });
         });
     </script>
+      <div id="footer-container"></div>
+    <!--<div id="footer-container" data-variant="minimal"></div>-->
 
-    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
-    <div id="footer-container"></div>
-  
+
+
 </body>
 </html>
