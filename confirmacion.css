@@ -1,0 +1,159 @@
+/* ==========================================================================
+   ESTILOS COMPLEMENTARIOS PARA EL TICKET DE CINE
+   Basado estrictamente en las Custom Properties de feria.css
+   ========================================================================== */
+
+/* Fondo general usando las variables del sistema */
+.ticket-page-body {
+  background-color: var(--cm-background) !important; /*[cite: 2] */
+  color: var(--cm-on-surface) !important; /*[cite: 2] */
+  font-family: var(--cm-font-body) !important; /*[cite: 2] */
+  min-height: 100vh;
+  margin: 0;
+  padding-bottom: 40px;
+  /* Halo de luz neón central rojo/rosa */
+  background-image: 
+    radial-gradient(circle at 50% 32%, rgba(218, 1, 55, 0.25) 0%, rgba(17, 19, 28, 0) 60%),
+    radial-gradient(circle at 15% 85%, rgba(229, 9, 20, 0.12) 0%, rgba(17, 19, 28, 0) 50%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.font-display-hero {
+  font-family: var(--cm-font-display); /*[cite: 2] */
+  letter-spacing: 1px;
+}
+
+.brand-title {
+  font-family: var(--cm-font-display); /*[cite: 2] */
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+/* Ícono Check Neón */
+.check-icon-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 2px solid var(--cm-secondary-container); /*[cite: 2] */
+  color: var(--cm-secondary-container); /*[cite: 2] */
+  box-shadow: 0 0 18px rgba(218, 1, 55, 0.5);
+  background: rgba(218, 1, 55, 0.08);
+}
+
+.ticket-container {
+  max-width: 840px;
+}
+
+/* Borde exterior cortado estilo ticket neón */
+.ticket-outer-border {
+  border: 2px dashed var(--cm-secondary-container); /*[cite: 2] */
+  border-radius: 22px;
+  padding: 6px;
+  box-shadow: var(--cm-glow-primary); /*[cite: 2] */
+  background: rgba(12, 14, 23, 0.5);
+}
+
+.ticket-body {
+  background-color: var(--cm-surface-container-low); /*[cite: 2] */
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.ticket-left {
+  background-color: var(--cm-surface-container-low); /*[cite: 2] */
+}
+
+.ticket-right {
+  background-color: var(--cm-surface-container); /*[cite: 2] */
+  border-left: 2px dashed rgba(218, 1, 55, 0.45);
+  min-width: 245px;
+}
+
+.badge-valid {
+  border: 1px solid var(--cm-secondary-container); /*[cite: 2] */
+  color: var(--cm-secondary-container); /*[cite: 2] */
+  background-color: rgba(218, 1, 55, 0.1);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.poster-img {
+  border-radius: 8px;
+  max-height: 180px;
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+}
+
+.genre-tag {
+  background-color: var(--cm-surface-container-high); /*[cite: 2] */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--cm-on-surface); /*[cite: 2] */
+  font-size: 0.72rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 50rem;
+}
+
+.lbl-micro {
+  font-size: 0.72rem;
+  color: var(--cm-on-surface-variant); /*[cite: 2] */
+}
+
+.val-text {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.ticket-divider {
+  border-color: var(--cm-outline-variant); /*[cite: 2] */
+  opacity: 0.3;
+}
+
+.code-pill {
+  background-color: var(--cm-surface-container-high); /*[cite: 2] */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  letter-spacing: 0.8px;
+  font-size: 0.85rem;
+}
+
+/* Botones con los tokens de color */
+.btn-cm-secondary {
+  background-color: var(--cm-secondary-container); /*[cite: 2] */
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  box-shadow: 0 0 15px rgba(218, 1, 55, 0.4);
+  transition: all 0.25s ease;
+}
+
+.btn-cm-secondary:hover {
+  background-color: #f10240;
+  color: #ffffff;
+  box-shadow: 0 0 22px rgba(218, 1, 55, 0.7);
+}
+
+.btn-cm-outline {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+  font-size: 0.88rem;
+  transition: all 0.25s ease;
+}
+
+.btn-cm-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+@media (max-width: 991.98px) {
+  .ticket-right {
+    border-left: none;
+    border-top: 2px dashed rgba(218, 1, 55, 0.45);
+  }
+}
