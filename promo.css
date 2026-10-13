@@ -1,1000 +1,219 @@
 
-/* ==========================================================================
-   VARIABLES DE COLOR Y DISEÑO (CINEMAX DESIGN SYSTEM)
-   ========================================================================== */
-
-:root {
-  /* Colores Principales */
-  --cm-primary: #ffb4aa;
-  --cm-primary-container: #e50914;
-  --cm-tertiary: #e9c349;
-
-  /* Superficies */
-  --cm-background: #090b11;
-  --cm-surface-container: #111420;
-  --cm-on-surface: #e1e1ef;
-  --cm-on-surface-variant: #9aa8ba;
-
-  /* Bordes de las tarjetas */
-  --cm-card-neon-border: #b60000;
-  --cm-card-neon-border-hover: #ff0000;
-  --cm-card-glow: 0 0 15px rgba(255, 7, 7, 0.863);
-
-  /* Tipografía */
-  --cm-font-display: 'Bebas Neue', cursive, sans-serif;
-  --cm-font-body: 'Montserrat', sans-serif;
-}
-
-
-/* ==========================================================================
-   CUERPO DE LA PÁGINA
-   ========================================================================== */
-
-body {
-  background-color: var(--cm-background);
-  color: var(--cm-on-surface);
-  font-family: var(--cm-font-body);
-  padding: 0;
-  margin: 0;
-}
-
-
-/* ==========================================================================
-   TARJETAS DE PROMOCIONES
-   ========================================================================== */
-
-.promo-card {
-  background-color: var(--cm-surface-container);
-  border: 1.8px solid var(--cm-card-neon-border);
-  border-radius: 18px;
-  padding: 1.25rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  height: 100%;
-
-  transition: all 0.3s ease;
-
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-
-/* Efecto al pasar el mouse */
-
-.promo-card:hover {
-  border-color: var(--cm-card-neon-border-hover);
-  box-shadow: var(--cm-card-glow);
-  transform: translateY(-4px);
-}
-
-
-/* ==========================================================================
-   IMÁGENES DE LAS TARJETAS
-   ========================================================================== */
-
-/* Todas las cajas de imagen tienen exactamente el mismo tamaño */
-
-.promo-img-wrapper {
-  width: 100%;
-  height: 180px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: radial-gradient(
-    circle,
-    rgba(0, 119, 182, 0.15) 0%,
-    rgba(17, 20, 32, 0) 70%
-  );
-
-  border-radius: 12px;
-  margin-bottom: 0.75rem;
-
-  overflow: hidden;
-}
-
-
-/* Todas las imágenes ocupan exactamente el mismo espacio */
-
-.promo-img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
-
-  display: block;
-
-  filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.6));
-
-  transition: transform 0.3s ease;
-}
-
-
-/* Zoom suave al pasar el mouse */
-
-.promo-card:hover .promo-img {
-  transform: scale(1.05);
-}
-
-
-/* ==========================================================================
-   TÍTULO DE LA PROMOCIÓN
-   ========================================================================== */
-
-.promo-title {
-  font-family: var(--cm-font-body);
-  font-weight: 800;
-  font-size: 1.1rem;
-  line-height: 1.2;
-
-  text-transform: uppercase;
-
-  color: #ffffff;
-
-  margin-bottom: 0.5rem;
-
-  min-height: 2.6rem;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-
-  overflow: hidden;
-}
-
-
-/* ==========================================================================
-   DESCRIPCIÓN
-   ========================================================================== */
-
-.promo-description {
-  font-size: 0.82rem;
-
-  color: var(--cm-on-surface-variant);
-
-  margin-bottom: 1.25rem;
-
-  line-height: 1.35;
-
-  min-height: 2.5rem;
-}
-
-
-/* ==========================================================================
-   PRECIO + BOTÓN
-   ========================================================================== */
-
-.promo-footer {
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 0.5rem;
-
-  margin-top: auto;
-}
-
-
-/* Precio */
-
-.promo-price {
-  font-weight: 800;
-
-  font-size: 1.4rem;
-
-  color: #ffffff;
-
-  letter-spacing: -0.5px;
-}
-
-
-/* ==========================================================================
-   BOTÓN AÑADIR AL CARRITO
-   ========================================================================== */
-
-.btn-add-cart {
-  background: linear-gradient(
-    135deg,
-    #ff0000 0%,
-    #d84300 100%
-  );
-
-  color: #ffffff;
-
-  font-family: var(--cm-font-body);
-
-  font-weight: 700;
-
-  font-size: 0.72rem;
-
-  text-transform: uppercase;
-
-  padding: 0.55rem 0.85rem;
-
-  border-radius: 25px;
-
-  border: none;
-
-  letter-spacing: 0.3px;
-
-  box-shadow: 0 4px 12px rgba(216, 67, 0, 0.4);
-
-  transition: all 0.2s ease;
-
-  white-space: nowrap;
-
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 4px;
-}
-
-
-/* Hover del botón */
-
-.btn-add-cart:hover {
-  background: linear-gradient(
-    135deg,
-    #cec6c6 0%,
-    #ff0202 100%
-  );
-
-  color: #ffffff;
-
-  box-shadow: 0 6px 16px rgb(189, 150, 150);
-
-  transform: scale(1.03);
-}
-
-
-/* Cuando se presiona */
-
-.btn-add-cart:active {
-  transform: scale(0.98);
-}
-
-
-/* ==========================================================================
-   HEADER PROMOCIONAL
-   ========================================================================== */
-
-.promo-header {
-  position: relative;
-
-  width: 100vw;
-
-  left: 50%;
-
-  margin-left: -50vw;
-  margin-right: -50vw;
-
-  height: 400px;
-
-  overflow: hidden;
-
-  margin-top: -3rem;
-}
-
-
-/* Imagen de fondo */
-
-.promo-header-bg {
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100% !important;
-  height: 100% !important;
-
-  object-fit: cover !important;
-
-  object-position: center;
-
-  z-index: 1;
-}
-
-
-/* ==========================================================================
-   CAPA OSCURA SOBRE EL HEADER
-   ========================================================================== */
-
-.promo-header-overlay {
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  z-index: 2;
-
-  background: linear-gradient(
-    180deg,
-    rgba(17, 19, 28, 0.3) 0%,
-    rgba(17, 19, 28, 0.75) 60%,
-    var(--cm-background, #11131c) 100%
-  );
-
-  padding: 2rem 1rem;
-}
-
-
-/* ==========================================================================
-   TÍTULO DEL HEADER
-   ========================================================================== */
-
-.promo-header-title {
-  font-family: var(--cm-font-display, 'Bebas Neue', cursive);
-
-  font-size: 3.8rem;
-
-  letter-spacing: 2px;
-
-  color: #ffffff;
-
-  margin-bottom: 0.25rem;
-
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-}
-
-
-/* Subtítulo */
-
-.promo-header-subtitle {
-  font-family: var(
-    --cm-font-body,
-    'Montserrat',
-    sans-serif
-  );
-
-  font-size: 1rem;
-
-  color: var(
-    --cm-on-surface-variant,
-    #e9bcb6
-  );
-
-  font-weight: 500;
-
-  margin: 0;
-
-  text-shadow: 0 2px 8px rgba(40, 55, 87, 0.9);
-}
-
-
-/* ==========================================================================
-   TÍTULO "PROMOCIONES"
-   ========================================================================== */
-
-.promo_titulo {
-  font-family: var(--cm-font-display);
-
-  font-size: 3.8rem;
-
-  letter-spacing: 8px;
-
-  background: linear-gradient(
-    90deg,
-    var(--cm-on-surface) 0%,
-    var(--cm-primary-container) 50%,
-    var(--cm-primary) 100%
-  );
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  background-clip: text;
-
-  text-shadow: none;
-
-  margin-bottom: 0.5rem;
-}
-
-
-/* ==========================================================================
-   RESPONSIVE - TABLETS Y CELULARES
-   ========================================================================== */
-
-@media (max-width: 768px) {
-
-  .promo-header {
-    height: 220px;
-  }
-
-  .promo-header-title {
-    font-size: 2.5rem;
-  }
-
-  .promo-header-subtitle {
-    font-size: 0.85rem;
-  }
-
-  .promo_titulo {
-    font-size: 2.5rem;
-    letter-spacing: 4px;
-  }
-
-  /* Las imágenes siguen teniendo el mismo tamaño */
-
-  .promo-img-wrapper {
-    height: 180px;
-  }
-
-  .promo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-
-/* ==========================================================================
-   CELULARES PEQUEÑOS
-   ========================================================================== */
-
-@media (max-width: 480px) {
-
-  .promo-img-wrapper {
-    height: 200px;
-  }
-
-  .promo_titulo {
-    font-size: 2rem;
-    letter-spacing: 3px;
-  }
-
-  .promo-card {
-    padding: 1rem;
-  }
-
-  .promo-footer {
-    flex-wrap: wrap;
-  }
-
-  .btn-add-cart {
-    font-size: 0.68rem;
-    padding: 0.5rem 0.7rem;
-  }
-}
-.promo-container {
-  margin-bottom: 4rem;
-}
-
-/* ==========================================================
-   DETALLES PROMOCIONALES DE LAS TARJETAS
-   ========================================================== */
-
-/* Etiqueta de promoción */
-
-.promo-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-
-  z-index: 5;
-
-  background: #e50914;
-  color: #ffffff;
-
-  padding: 6px 12px;
-
-  border-radius: 20px;
-
-  font-size: 0.68rem;
-  font-weight: 800;
-
-  letter-spacing: 0.5px;
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
-
-  transition: 0.3s ease;
-}
-
-/* Azul */
-
-.promo-badge-blue {
-  background: #00b4d8;
-  color: #ffffff;
-}
-
-/* Dorado */
-
-.promo-badge-gold {
-  background: #e9c349;
-  color: #111420;
-}
-
-/* Rojo */
-
-.promo-badge-red {
-  background: #b60000;
-  color: #ffffff;
-}
-
-
-/* Efecto al pasar el mouse */
-
-.promo-card:hover .promo-badge {
-  transform: scale(1.05);
-}
-
-
-/* Información adicional */
-
-.promo-extra {
-  font-size: 0.72rem;
-
-  color: #e9c349;
-
-  background: rgba(233, 195, 73, 0.08);
-
-  border-left: 3px solid #e9c349;
-
-  padding: 7px 9px;
-
-  border-radius: 6px;
-
-  margin-top: 8px;
-  margin-bottom: 15px;
-
-  line-height: 1.3;
-}
-
-
-/* Ajuste para que el contenido de todas las tarjetas
-   quede equilibrado */
-
-.promo-card .promo-description {
-  margin-bottom: 8px;
-}
-
-
-/* En pantallas pequeñas */
-
-@media (max-width: 480px) {
-
-  .promo-badge {
-    font-size: 0.62rem;
-    padding: 5px 9px;
-  }
-
-  .promo-extra {
-    font-size: 0.68rem;
-  }
-}
-
-/* ==========================================================
-   CINEPRIME - TARJETAS DE PROMOCIONES
-   Paleta oficial + Degradado + Hover
-   ========================================================== */
-
-
-/* ==========================================================
-   TARJETA
-   ========================================================== */
-
-.promo-card {
-  background-color: var(--cm-surface-container);
-
-  border: 1.8px solid var(--cm-primary-container);
-
-  border-radius: 18px;
-
-  padding: 1.25rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  height: 100%;
-
-  overflow: hidden;
-
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-
-  box-shadow:
-    0 4px 20px rgba(0, 0, 0, 0.45);
-}
-
-
-/* Hover de la tarjeta */
-
-.promo-card:hover {
-  transform: translateY(-5px);
-
-  border-color: var(--cm-primary-container);
-
-  box-shadow:
-    var(--cm-glow-primary-intense);
-}
-
-
-/* ==========================================================
-   IMAGEN - MARCO
-   ========================================================== */
-
-.cm-card-media {
-  position: relative;
-
-  width: 100%;
-  height: 180px;
-
-  overflow: hidden;
-
-  background-color:
-    var(--cm-surface-container-lowest);
-
-  border-radius: 12px;
-
-  margin-bottom: 0.75rem;
-
-  isolation: isolate;
-}
-
-
-/* ==========================================================
-   IMAGEN
-   ========================================================== */
-
-.cm-card-media-img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  display: block;
-
-  transition:
-    transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-
-/* Zoom */
-
-.promo-card:hover .cm-card-media-img {
-  transform: scale(1.05);
-}
-
-
-/* ==========================================================
-   DEGRADADO SOBRE LA IMAGEN
-   ========================================================== */
-
-.cm-card-media-overlay {
-  position: absolute;
-
-  inset: 0;
-
-  background: linear-gradient(
-    to bottom,
-
-    rgba(12, 14, 23, 0.10) 0%,
-
-    transparent 35%,
-
-    rgba(29, 31, 41, 0.55) 72%,
-
-    var(--cm-surface-container) 100%
-  );
-
-  pointer-events: none;
-
-  z-index: 1;
-}
-
-
-/* ==========================================================
-   ETIQUETAS DE PROMOCIÓN
-   ========================================================== */
-
-.promo-badge {
-  position: absolute;
-
-  top: 12px;
-  left: 12px;
-
-  z-index: 5;
-
-  background-color: var(--cm-primary-container);
-
-  color: var(--cm-on-primary-container);
-
-  padding: 6px 12px;
-
-  border-radius: 20px;
-
-  font-size: 0.68rem;
-
-  font-weight: 800;
-
-  letter-spacing: 0.5px;
-
-  box-shadow:
-    var(--cm-glow-primary);
-
-  transition:
-    transform 0.3s ease;
-}
-
-
-/* Azul claro */
-
-.promo-badge-blue {
-  background-color:
-    var(--cm-tertiary-light-blue);
-
-  color: #11131c;
-
-  box-shadow: none;
-}
-
-
-/* Dorado */
-
-.promo-badge-gold {
-  background-color:
-    var(--cm-tertiary);
-
-  color:
-    var(--cm-on-tertiary);
-
-  box-shadow:
-    var(--cm-glow-tertiary);
-}
-
-
-/* Rojo */
-
-.promo-badge-red {
-  background-color:
-    var(--cm-primary-container);
-
-  color:
-    var(--cm-on-primary-container);
-
-  box-shadow:
-    var(--cm-glow-primary);
-}
-
-
-/* Animación */
-
-.promo-card:hover .promo-badge {
-  transform: scale(1.05);
-}
-
-
-/* ==========================================================
-   TÍTULO
-   ========================================================== */
-
-.promo-title {
-  font-family: var(--cm-font-body);
-
-  font-weight: 700;
-
-  font-size: 1.1rem;
-
-  line-height: 1.2;
-
-  text-transform: uppercase;
-
-  color: var(--cm-on-surface);
-
-  margin-bottom: 0.5rem;
-
-  min-height: 2.6rem;
-
-  display: -webkit-box;
-
-  -webkit-line-clamp: 2;
-
-  -webkit-box-orient: vertical;
-
-  overflow: hidden;
-}
-
-
-/* ==========================================================
-   DESCRIPCIÓN
-   ========================================================== */
-
-.promo-description {
-  font-family: var(--cm-font-body);
-
-  font-size: 0.82rem;
-
-  color: var(--cm-on-surface-variant);
-
-  margin-bottom: 8px;
-
-  line-height: 1.4;
-
-  min-height: 2.5rem;
-}
-
-
-/* Texto en negrita */
-
-.promo-description strong {
-  color: var(--cm-on-surface);
-
-  font-weight: 600;
-}
-
-
-/* ==========================================================
-   TEXTO EXTRA DE LA PROMOCIÓN
-   ========================================================== */
-
-.promo-extra {
-  font-size: 0.72rem;
-
-  color: var(--cm-tertiary);
-
-  background-color:
-    rgba(233, 195, 73, 0.08);
-
-  border-left:
-    3px solid var(--cm-tertiary);
-
-  padding: 7px 9px;
-
-  border-radius: 6px;
-
-  margin-top: 8px;
-
-  margin-bottom: 15px;
-
-  line-height: 1.35;
-}
-
-
-/* ==========================================================
-   PRECIO
-   ========================================================== */
-
-.promo-price {
-  font-family: var(--cm-font-body);
-
-  font-weight: 800;
-
-  font-size: 1.3rem;
-
-  color: var(--cm-primary);
-
-  letter-spacing: -0.5px;
-}
-
-
-/* ==========================================================
-   FOOTER DE LA TARJETA
-   ========================================================== */
-
-.promo-footer {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 0.5rem;
-
-  margin-top: auto;
-}
-
-
-/* ==========================================================
-   BOTÓN
-   ========================================================== */
-
-.btn-add-cart {
-  background-color:
-    var(--cm-primary-container);
-
-  color:
-    var(--cm-on-primary-container);
-
-  font-family:
-    var(--cm-font-body);
-
-  font-weight: 700;
-
-  font-size: 0.72rem;
-
-  text-transform: uppercase;
-
-  padding: 0.55rem 0.85rem;
-
-  border-radius: 25px;
-
-  border: none;
-
-  letter-spacing: 0.3px;
-
-  box-shadow:
-    var(--cm-glow-primary);
-
-  transition:
-    all 0.25s ease;
-
-  white-space: nowrap;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-}
-
-
-/* Hover botón */
-
-.btn-add-cart:hover {
-  background-color:
-    var(--cm-secondary-container);
-
-  color:
-    var(--cm-on-secondary-container);
-
-  box-shadow:
-    var(--cm-glow-primary-intense);
-
-  transform: scale(1.03);
-}
-
-
-/* Al presionar */
-
-.btn-add-cart:active {
-  transform: scale(0.98);
-}
-
-
-/* ==========================================================
-   RESPONSIVE
-   ========================================================== */
-
-@media (max-width: 480px) {
-
-  .cm-card-media {
-    height: 200px;
-  }
-
-  .promo-badge {
-    font-size: 0.62rem;
-
-    padding: 5px 9px;
-  }
-
-  .promo-extra {
-    font-size: 0.68rem;
-  }
-
-  .promo-footer {
-    flex-wrap: wrap;
-  }
-
-  .btn-add-cart {
-    font-size: 0.68rem;
-
-    padding: 0.5rem 0.7rem;
-  }
-}
-.contenedor-tarjetas-promos {
-    margin-top: 48px; /* Ajusta los píxeles a tu gusto */
-}
-
-
+        /* ==========================================================================
+           CINEPRIME - ESTILOS GLOBALES & DESIGN SYSTEM (CINE/FERIA INFORMATICA 2026)
+           ========================================================================== */
+        :root {
+            /* --- Colores Principales (Brand / Identity) --- */
+            --cm-primary: #ffb4aa;
+            --cm-primary-container: #e50914; /* Rojo Cine / Brand Hero */
+            --cm-on-primary: #690003;
+            --cm-on-primary-container: #fff7f6;
+            --cm-primary-fixed: #ffdad5;
+            --cm-primary-fixed-dim: #ffb4aa;
+            --cm-on-primary-fixed: #410001;
+            --cm-on-primary-fixed-variant: #930007;
+
+            /* --- Colores Secundarios --- */
+            --cm-secondary: #ffb3b3;
+            --cm-secondary-container: #da0137;
+            --cm-on-secondary: #680015;
+            --cm-on-secondary-container: #ffeceb;
+            --cm-secondary-fixed: #ffdad9;
+            --cm-secondary-fixed-dim: #ffb3b3;
+            --cm-on-secondary-fixed: #400009;
+            --cm-on-secondary-fixed-variant: #920022;
+
+            /* --- Colores Terciarios (Acentos / Ratings / Promos) --- */
+            --cm-tertiary: #e9c349; /* Dorado / Estrellas */
+            --cm-tertiary-container: #cca730;
+            --cm-on-tertiary: #3c2f00;
+            --cm-on-tertiary-container: #4f3d00;
+            --cm-tertiary-fixed: #ffe088;
+            --cm-tertiary-fixed-dim: #e9c349;
+            --cm-on-tertiary-fixed: #241a00;
+            --cm-on-tertiary-fixed-variant: #574500;
+            --cm-tertiary-light-blue: #7bd0ff;
+
+            /* --- Superficies y Fondos (Dark Theme Elevation) --- */
+            --cm-background: #11131c;
+            --cm-on-background: #ffffff; /* Texto de fondo blanco puro para maxima legibilidad */
+            --cm-surface: #11131c;
+            --cm-on-surface: #ffffff;    /* Texto general en blanco puro (#ffffff) */
+            --cm-surface-dim: #11131c;
+            --cm-surface-bright: #373943;
+            --cm-surface-variant: #32343e;
+            --cm-on-surface-variant: #f1d3ce; /* Texto secundario más claro */
+
+            /* --- Contenedores de Superficie (Capas) --- */
+            --cm-surface-container-lowest: #0c0e17;
+            --cm-surface-container-low: #191b24;
+            --cm-surface-container: #1d1f29;
+            --cm-surface-container-high: #282933;
+            --cm-surface-container-highest: #32343e;
+
+            /* --- Inversiones y Bordes --- */
+            --cm-inverse-surface: #ffffff;
+            --cm-inverse-on-surface: #2e303a;
+            --cm-inverse-primary: #c0000c;
+            --cm-outline: #af8782;
+            --cm-outline-variant: #5e3f3b;
+
+            /* --- Errores / Estado --- */
+            --cm-error: #ffb4ab;
+            --cm-error-container: #93000a;
+            --cm-on-error: #690005;
+            --cm-on-error-container: #ffdad6;
+
+            /* --- Tipografías --- */
+            --cm-font-display: 'Bebas Neue', cursive, sans-serif;
+            --cm-font-body: 'Montserrat', sans-serif;
+
+            /* --- Sombras Creadas / Resplandores Neón --- */
+            --cm-glow-primary: 0 0 20px rgba(229, 9, 20, 0.35);
+            --cm-glow-primary-intense: 0 0 28px rgba(229, 9, 20, 0.55);
+            --cm-glow-tertiary: 0 0 16px rgba(233, 195, 73, 0.35);
+        }
+
+        .fondo-gradient {
+            background: linear-gradient(135deg,
+                #e5091466 0%,
+                #78050c26 30%,
+                #08080cf2 70%,
+                #08080c 100%);
+        }
+
+        body {
+            background-color: var(--cm-background);
+            color: var(--cm-on-surface);
+            font-family: var(--cm-font-body);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Ocultar barra de desplazamiento manteniendo funcionalidad */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* SELECCIÓN DE TEXTO */
+        ::selection {
+            background-color: var(--cm-primary-container);
+            color: var(--cm-on-primary-container);
+        }
+
+        h1, h2, h3, .font-display {
+            font-family: var(--cm-font-display);
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .card-promo {
+            background-color: var(--cm-surface-container);
+            border: 1px solid var(--cm-outline);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            height: 100%;
+        }
+
+        .card-promo:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--cm-glow-primary);
+            border-color: var(--cm-primary-container);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card-promo:hover .card-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .badge-gold {
+            background-color: var(--cm-tertiary);
+            color: var(--cm-on-tertiary);
+            font-weight: 700;
+            font-family: var(--cm-font-body);
+            padding: 0.35rem 0.75rem;
+            border-radius: 50rem;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            box-shadow: var(--cm-glow-tertiary);
+        }
+
+        .btn-cm-primary {
+            background-color: var(--cm-primary-container);
+            color: var(--cm-on-primary-container);
+            border: none;
+            font-family: var(--cm-font-body);
+            font-weight: 600;
+            box-shadow: var(--cm-glow-primary);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-cm-primary:hover {
+            background-color: #f6121d;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .navbar-cinemax {
+            background-color: var(--cm-surface-container-lowest);
+            border-bottom: 1px solid var(--cm-outline);
+        }
+
+        .modal-content-custom {
+            background-color: var(--cm-surface-container-high);
+            border: 1px solid var(--cm-outline);
+            color: var(--cm-on-background);
+            border-radius: 16px;
+            box-shadow: var(--cm-glow-primary);
+        }
+
+        .modal-header-custom {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-footer-custom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-box {
+            background-color: var(--cm-surface-container-low);
+            border: 1px dashed var(--cm-tertiary);
+            border-radius: 8px;
+            padding: 0.85rem 1rem;
+        }
+
+        /* Clase para aplicar efecto gradiente en texto */
+        .text-gradient-title {
+            background: linear-gradient(135deg, #ffffff 30%, #ffb4aa 70%, #e50914 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-subtitle {
+            background: linear-gradient(135deg, #ffffff 40%, #e9c349 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .font-display-hero {
+                font-size: 2.75rem;
+            }
+        }
