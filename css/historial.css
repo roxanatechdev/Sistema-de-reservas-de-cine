@@ -1,0 +1,427 @@
+/* ==========================================================================
+   SECCIÓN HISTORIAL DE COMPRAS - DESIGN SYSTEM CINEPRIME
+   ========================================================================== */
+/* ==== SECCIÓN HISTORIAL: TARJETAS DE MÉTRICAS (KPIs) ==== */
+
+.hist-kpi-card {
+    background-color: var(--cm-surface-container-low, #1d1f29);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 1.125rem;
+    /* ~18px */
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.hist-kpi-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Efecto de resplandor suave al fondo */
+.hist-kpi-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Contenedores de Iconos */
+.hist-kpi-icon-box {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    border-radius: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.hist-kpi-card:hover .hist-kpi-icon-box {
+    transform: scale(1.08);
+}
+
+/* Variaciones de Color para Iconos */
+.hist-kpi-icon-red {
+    background-color: rgba(229, 9, 20, 0.15);
+    color: var(--cm-primary-container, #e50914);
+    border: 1px solid rgba(229, 9, 20, 0.25);
+}
+
+.hist-kpi-icon-amber {
+    background-color: rgba(255, 179, 0, 0.12);
+    color: #ffca28;
+    border: 1px solid rgba(255, 179, 0, 0.25);
+}
+
+.hist-kpi-icon-emerald {
+    background-color: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.hist-kpi-icon-blue {
+    background-color: rgba(59, 130, 246, 0.12);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+/* Textos de la Tarjeta */
+.hist-kpi-label {
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cm-on-surface-variant, #9fa4b4);
+    margin-bottom: 0.2rem;
+    display: block;
+    text-wrap: wrap;
+}
+
+.hist-kpi-value {
+    font-family: var(--cm-font-display, 'Bebas Neue', sans-serif);
+    font-size: 1.65rem;
+    line-height: 1.1;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    margin: 0;
+}
+
+
+@media (min-width: 1200px) {
+
+    /* Contenedores de Iconos */
+    .hist-kpi-icon-box {
+        width: 55px;
+        height: 55px;
+        min-width: 55px;
+    }
+}
+
+/* Ajuste Responsivo Móvil */
+@media (max-width: 575.98px) {
+    .hist-kpi-card {
+        padding: 0.9rem 0.5rem;
+        gap: 0.55rem;
+        border-radius: 0.85rem;
+    }
+
+    .hist-kpi-icon-box {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        border-radius: 0.65rem;
+    }
+
+    .hist-kpi-icon-box .material-symbols-rounded {
+        font-size: 1.25rem !important;
+    }
+
+    .hist-kpi-label {
+        font-size: 0.55rem;
+    }
+
+    .hist-kpi-value {
+        font-size: 1.25rem;
+    }
+
+    .hist-kpi-value span {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* Botón Principal con Sombra Neón */
+.btn-cm-primary {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-cm-primary:hover {
+    background-color: #b80710;
+    color: #ffffff;
+    transform: scale(1.02);
+}
+
+/* === BARRA DE FILTROS & OFFCANVAS === */
+
+/* Contenedor Principal de la Barra de Filtros */
+.hist-filter-container {
+    background-color: var(--cm-surface-container-low, #1d1f29);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.125rem;
+    padding: 1.25rem 1.5rem;
+}
+
+/* Título de Sección */
+.hist-filter-title {
+    font-family: var(--cm-font-display, 'Bebas Neue', sans-serif);
+    font-size: 1.75rem;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    line-height: 1;
+    margin: 0;
+}
+
+.hist-filter-subtitle {
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.8rem;
+    color: var(--cm-on-surface-variant, #9fa4b4);
+}
+
+/* --- GRUPO DE PÍLDORAS (CATEGORÍA) --- */
+.hist-filter-pills-wrapper {
+    background-color: var(--cm-surface-container-high, #2a2e3d);
+    padding: 0.25rem;
+    border-radius: 50rem;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hist-filter-pill-btn {
+    background: transparent;
+    border: none;
+    color: var(--cm-on-surface-variant, #a0a5b5);
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: 50rem;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+}
+
+.hist-filter-pill-btn:hover:not(.active) {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.hist-filter-pill-btn.active {
+    background-color: var(--cm-primary-container, #e50914) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(229, 9, 20, 0.4);
+}
+
+/* --- BUSCADOR POR ID / PELÍCULA --- */
+.hist-filter-search-box {
+    position: relative;
+    min-width: 220px;
+}
+
+.hist-filter-search-icon {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cm-on-surface-variant, #9fa4b4);
+    font-size: 1.1rem;
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.hist-filter-search-input {
+    background-color: var(--cm-surface-container-high, #2a2e3d);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    font-size: 0.8rem;
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    padding: 0.45rem 1rem 0.45rem 2.5rem;
+    border-radius: 50rem;
+    transition: all 0.25s ease;
+}
+
+.hist-filter-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.hist-filter-search-input:focus {
+    background-color: var(--cm-surface-container, #1d1f29);
+    border-color: var(--cm-primary-container, #e50914) !important;
+    box-shadow: 0 0 0 0.2rem rgba(229, 9, 20, 0.2) !important;
+}
+
+.hist-filter-search-input:focus+.hist-filter-search-icon {
+    color: var(--cm-primary-container, #e50914);
+}
+
+/* --- DROPDOWN DE FECHA --- */
+.hist-filter-dropdown-btn {
+    background-color: var(--cm-surface-container-high, #2a2e3d);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.45rem 1rem;
+    border-radius: 50rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s ease;
+}
+
+.hist-filter-dropdown-btn:hover,
+.hist-filter-dropdown-btn:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.hist-filter-dropdown-menu {
+    background-color: var(--cm-surface-container-high, #2a2e3d);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hist-filter-dropdown-menu .dropdown-item {
+    color: var(--cm-on-surface-variant, #a0a5b5);
+    font-size: 0.8rem;
+    border-radius: 0.4rem;
+    padding: 0.4rem 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.hist-filter-dropdown-menu .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.hist-filter-dropdown-menu .dropdown-item.active {
+    background-color: var(--cm-primary-container, #e50914);
+    color: #ffffff;
+}
+
+/* --- BOTÓN TRIGGER MÓVIL (FILTROS) --- */
+.hist-filter-trigger-btn {
+    background-color: var(--cm-surface-container-high, #2a2e3d);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.hist-filter-trigger-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* --- OFFCANVAS MÓVIL --- */
+.hist-offcanvas {
+    background-color: var(--cm-surface-container-low, #12151e) !important;
+    color: #ffffff;
+    border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.hist-offcanvas .offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hist-offcanvas .btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* ==========================================================================
+   AJUSTES RESPONSIVOS Y ESTILOS DEL OFFCANVAS
+   ========================================================================== */
+
+/* Regla clave para asegurar truncado interno dentro de contenedores Flexbox */
+.min-w-0 {
+    min-width: 0 !important;
+}
+
+@media (max-width: 576px) {
+    .hist-filter-search-box {
+        min-width: auto;
+        /* Permite que se reduzca proporcionalmente en pantallas muy pequeñas */
+    }
+
+    .hist-filter-search-input {
+        font-size: 0.75rem;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .hist-filter-trigger-btn {
+        padding: 0.4rem 0.75rem;
+    }
+}
+
+/* --- LABELS Y SELECCIONABLES DEL OFFCANVAS --- */
+.hist-filter-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--cm-on-surface-variant, #9fa4b4);
+}
+
+/* Opciones de categoría estilo tarjeta en Offcanvas */
+.hist-offcanvas-option {
+    background-color: var(--cm-surface-container-high, #2a2e3d);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--cm-on-surface-variant, #a0a5b5);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.hist-offcanvas-option:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.hist-offcanvas-option.active {
+    background-color: var(--cm-primary-container, #e50914) !important;
+    border-color: var(--cm-primary-container, #e50914) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.35);
+}
+
+/* Estilo personalizado para el Select de Bootstrap */
+.hist-offcanvas-select {
+    background-color: var(--cm-surface-container-high, #2a2e3d) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    font-size: 0.85rem;
+    padding: 0.65rem 1rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+}
+
+.hist-offcanvas-select:focus {
+    border-color: var(--cm-primary-container, #e50914) !important;
+    box-shadow: 0 0 0 0.2rem rgba(229, 9, 20, 0.25) !important;
+}
+
+.hist-offcanvas-select option {
+    background-color: #1d1f29;
+    color: #ffffff;
+}

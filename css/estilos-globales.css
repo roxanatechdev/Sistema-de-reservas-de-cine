@@ -172,8 +172,31 @@ body {
     src: url('../css/fonts/material-symbols-outlined-v374-latin-regular.woff2') format('woff2');
 }
 
+/* 4. MATERIAL SYMBOLS ROUNDED (ICONS) */
+@font-face {
+    font-family: 'Material Symbols Rounded';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../css/fonts/material-symbols-rounded-latin-fill-normal.woff2') format('woff2');
+}
+
 .material-symbols-outlined {
     font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+}
+
+.material-symbols-rounded {
+    font-family: 'Material Symbols Rounded';
     font-weight: normal;
     font-style: normal;
     font-size: 24px;
@@ -233,6 +256,10 @@ body {
     color: var(--cm-primary) !important;
 }
 
+.bg-primary-container {
+    background-color: var(--cm-primary-container) !important;
+}
+
 .text-cm-primary-container {
     color: var(--cm-primary-container) !important;
 }
@@ -265,6 +292,55 @@ body {
     font-family: var(--cm-font-body);
 }
 
+.text-cm-brand-red {
+    color: var(--cm-primary-container, #e50914) !important;
+    /*cite: 4*/
+}
+
+.fs-7 {
+    font-size: 0.8125rem;
+}
+
+.fs-8 {
+    font-size: 0.75rem !important;
+}
+
+.fs-9 {
+    font-size: 0.6875rem !important;
+}
+
+.fs-10 {
+    font-size: 0.625rem !important;
+}
+
+.fill-icon {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* =================================================================Ã
+   CLASE CSS PARA LIMITAR LÍNEAS EN TARJETAS (TRUNCATE MULTI-LÍNEA)
+   ================================================================= */
+
+/* Limitar a un máximo de 2 líneas */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    /* Cambia el número si prefieres 1 o 3 líneas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Limitar a un máximo de 3 líneas */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    /* Cambia el número según el espacio disponible */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* ==========================================================================
    ESTILOS COMPONENTES: NAVBAR & HEADER  CINEPRIME
    ========================================================================== */
@@ -285,7 +361,7 @@ body {
 /* Transición suave al hacer scroll */
 #main-header {
     transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
-    z-index: 1030;
+    z-index: 2030;
 }
 
 /* Fondo transparente por defecto */
@@ -401,7 +477,6 @@ body {
 /* Disminuir el padding vertical del nav cuando se hace scroll */
 #main-header.scrolled nav.navbar {
     padding-top: 0.5rem !important;
-    /* Ajusta el valor según prefieras (ej. 0.25rem o 0.5rem) */
     padding-bottom: 0.5rem !important;
     transition: padding 0.3s ease;
     /* Transición suave al achicarse */
@@ -656,4 +731,70 @@ Clases reutilizables globales
     height: 210px;
 }
 
-/* Formato de Altura Fija */
+/* ==========================================================================
+   OPTIMIZACIÓN DEL MODAL DE AUTENTICACIÓN (CINEPRIME)
+   ========================================================================== */
+
+/* 1. Fondo lateral decorativo para el modal split */
+.bg-cm-auth-banner {
+    background: linear-gradient(135deg, rgba(229, 9, 20, 0.25) 0%, rgba(8, 10, 15, 0.95) 100%),
+        radial-gradient(circle at top right, rgba(229, 9, 20, 0.15), transparent 60%);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 2. Capa de degradado interna */
+.bg-cm-gradient-overlay {
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(8, 10, 15, 0.3), rgba(8, 10, 15, 0.9));
+    pointer-events: none;
+}
+
+/* 3. Elevación de z-index y Backdrop cinematográfico */
+.modal {
+    z-index: 99999 !important;
+}
+
+.modal-backdrop {
+    z-index: 99998 !important;
+    background-color: rgba(8, 10, 15, 0.85) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* 4. Botón de cerrar refinado */
+#authModal .btn-close {
+    transition: all 0.2s ease;
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+#authModal .btn-close:hover {
+    background-color: var(--cm-primary-container) !important;
+    transform: scale(1.1);
+}
+
+/* 5. Estilos de pestañas internas acordes al Design System */
+#authTab .nav-link {
+    color: var(--cm-on-surface-variant);
+    background-color: var(--cm-surface-container-high);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+#authTab .nav-link:hover {
+    color: #ffffff;
+    background-color: var(--cm-surface-bright, #282a36);
+}
+
+#authTab .nav-link.active {
+    background-color: var(--cm-primary-container) !important;
+    color: #ffffff !important;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+}
+
+/* 6. Inputs interactivos */
+#authModal .form-control:focus {
+    border-color: var(--cm-primary-container) !important;
+    background-color: var(--cm-surface-container-highest) !important;
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.2) !important;
+}

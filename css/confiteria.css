@@ -77,6 +77,7 @@ body {
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 10;
 }
 
 /* Resplandor Ambiental Interno */
@@ -973,6 +974,13 @@ body {
     overflow: hidden;
     height: 100%;
     min-height: 320px;
+}
+
+@media (max-width:570px) {
+    .cm-vip-media-wrapper {
+        min-height: 100px;
+    }
+
 }
 
 .cm-vip-media-img {

@@ -1,0 +1,371 @@
+/* ==========================================================================
+   CINEPRIME - TARJETAS DE HISTORIAL DE COMPRAS
+   ========================================================================== */
+
+/* Contenedor Principal de la Tarjeta */
+.hist-card {
+    background-color: var(--cm-surface-container-low, #1d1f29);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.125rem;
+    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.hist-card:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Cabecera / Fila Principal */
+.hist-card-header {
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Badges de Estado */
+.hist-badge-status {
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+/* Estado: Completado */
+.hist-badge-status.status-success {
+    background-color: rgba(46, 204, 113, 0.12);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+/* Estado: Anulado / Reembolsado */
+.hist-badge-status.status-danger {
+    background-color: rgba(229, 9, 20, 0.12);
+    color: #ff4d4d;
+    border: 1px solid rgba(229, 9, 20, 0.3);
+}
+
+/* Identificador de Orden con Botón de Copia */
+.hist-order-id {
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--cm-on-surface-variant, #9fa4b4);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+}
+
+.hist-order-id:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* Iconos de Categoría (Boletos, Dulcería, Reembolsos) */
+.hist-card-icon {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.hist-card-icon.icon-tickets {
+    background-color: rgba(229, 9, 20, 0.15);
+    color: var(--cm-primary-container, #e50914);
+    border: 1px solid rgba(229, 9, 20, 0.25);
+}
+
+.hist-card-icon.icon-candy {
+    background-color: rgba(241, 196, 15, 0.15);
+    color: #f1c40f;
+    border: 1px solid rgba(241, 196, 15, 0.25);
+}
+
+.hist-card-icon.icon-refund {
+    background-color: rgba(149, 165, 166, 0.15);
+    color: #95a5a6;
+    border: 1px solid rgba(149, 165, 166, 0.25);
+}
+
+/* Tipografías y Títulos */
+.hist-card-title {
+    font-family: var(--cm-font-display, 'Bebas Neue', sans-serif);
+    font-size: 1.4rem;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.hist-card-datetime {
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.75rem;
+    color: var(--cm-on-surface-variant, #9fa4b4);
+    font-weight: 500;
+}
+
+.hist-card-meta {
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Bloque del Monto Total */
+.hist-card-price-label {
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--cm-on-surface-variant, #9fa4b4);
+}
+
+.hist-card-price-value {
+    font-family: var(--cm-font-display, 'Bebas Neue', sans-serif);
+    font-size: 1.65rem;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    line-height: 1;
+}
+
+/* Badge de Método de Pago Integrado */
+.hist-payment-pill {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.55rem;
+    border-radius: 0.35rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Botón de Descarga Rápida de Factura */
+.btn-hist-factura {
+    background-color: transparent;
+    color: var(--cm-on-surface-variant, #a0a5b5);
+    border: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 50rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-hist-factura:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+/* Botón Disparador del Acordeón (Flecha) */
+.btn-hist-toggle {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-hist-toggle:hover {
+    background-color: var(--cm-primary-container, #e50914);
+    border-color: var(--cm-primary-container, #e50914);
+    box-shadow: 0 0 12px rgba(229, 9, 20, 0.4);
+}
+
+/* Animación de Rotación cuando está abierto el acordeón */
+.hist-card.is-open .btn-hist-toggle {
+    transform: rotate(180deg);
+    background-color: var(--cm-primary-container, #e50914);
+    border-color: var(--cm-primary-container, #e50914);
+}
+
+/* Adjustes Responsivos Móviles */
+@media (max-width: 576px) {
+    .hist-card-header {
+        padding: 0.7rem;
+    }
+
+    .hist-card-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .hist-card-title {
+        font-size: 1.2rem;
+    }
+
+    .hist-card-price-value {
+        font-size: 1.4rem;
+    }
+}
+
+/* ==========================================================================
+   CINEPRIME - TARJETAS DE HISTORIAL (PARTE 2: PANEL DESPLEGABLE)
+   Prefix: .hist-card-body-*
+   ========================================================================== */
+
+/* Animación y Contenedor del Acordeón */
+.hist-card .collapse {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hist-card-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+    background-color: var(--cm-surface-container, #161822);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Encabezados de Sección Interna */
+.hist-section-title {
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--cm-on-surface-variant, #9fa4b4);
+    text-transform: uppercase;
+}
+
+/* Lista de Items / Productos */
+.hist-item-row {
+    padding: 0.6rem 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+}
+
+.hist-item-row:last-child {
+    border-bottom: none;
+}
+
+.hist-item-qty {
+    background-color: var(--cm-surface-container-high, #2a2e3d);
+    color: #ffffff;
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hist-item-name {
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.85rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.hist-item-price {
+    font-family: var(--cm-font-display, 'Bebas Neue', sans-serif);
+    font-size: 1.15rem;
+    color: #ffffff;
+    letter-spacing: 0.03em;
+}
+
+/* Filas de Resumen Financiero */
+.hist-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.82rem;
+    color: var(--cm-on-surface-variant, #a0a5b5);
+    margin-bottom: 0.4rem;
+}
+
+.hist-summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Tarjeta del Método de Pago Registrado */
+.hist-payment-method-box {
+    background-color: var(--cm-surface-container-high, #2a2e3d);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.6rem;
+    padding: 0.5rem 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.8rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Botón 'Volver a Comprar' */
+.btn-cm-reorder {
+    background-color: var(--cm-primary-container, #e50914);
+    color: #ffffff;
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.55rem 1rem;
+    border-radius: 50rem;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.btn-cm-reorder:hover {
+    background-color: #ff0f1b;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(229, 9, 20, 0.45);
+}
+
+/* Ajustes para Móviles */
+@media (max-width: 576px) {
+    .hist-card-body {
+        padding: 1rem;
+    }
+
+    .hist-item-name {
+        font-size: 0.8rem;
+    }
+
+    .hist-item-price {
+        font-size: 1rem;
+    }
+
+    .hist-payment-method-box {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-cm-reorder {
+        width: 100%;
+        justify-content: center;
+    }
+}

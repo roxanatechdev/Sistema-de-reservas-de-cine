@@ -1,0 +1,405 @@
+/* ==========================================================================
+   SECCIÓN PERFIL: MIS FAVORITOS - DESIGN SYSTEM CINEPRIME
+   ========================================================================== */
+
+.tracking-wide {
+    letter-spacing: 1px;
+}
+
+.tracking-wider {
+    letter-spacing: 1.5px;
+}
+
+/* Aspect Ratio 2:3 para el Póster Cinematográfico */
+.ratio-2x3 {
+    --bs-aspect-ratio: 150%;
+}
+
+.bg-cm-brand-red {
+    background-color: var(--cm-primary-container, #e50914) !important;
+
+}
+
+/* AJUSTES EN ENCABEZADO Y BARRA DE FILTROS - CINEPRIME*/
+
+/* 1. Jerarquía Tipográfica y Título Headline Large */
+.font-headline-lg {
+    font-family: var(--cm-font-display, 'Bebas Neue', sans-serif);
+    font-size: 1.875rem;
+    line-height: 2.125rem;
+    letter-spacing: 0.04em;
+}
+
+/* Color de Texto On Surface (Gris Claro Lectura) */
+.text-cm-on-surface {
+    color: var(--cm-on-surface, #e2e2ec) !important;
+}
+
+/* 2. Estilos de Píldoras de Filtro (Group Buttons) */
+.btn-cm-filter {
+    color: var(--cm-on-surface-variant, #c2c4d6);
+    border: none;
+    transition: all 0.25s ease;
+}
+
+.py-1-5 {
+    padding-top: 0.375rem !important;
+    padding-bottom: 0.375rem !important;
+}
+
+.btn-check:checked+.btn-cm-filter {
+    background-color: var(--cm-primary-container, #e50914) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(229, 9, 20, 0.4);
+}
+
+.btn-cm-filter:hover:not(.btn-check:checked) {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* 3. Dropdown de Ordenación Personalizado (Sustituye Estilo Nativo Azulejo) */
+.btn-cm-dropdown {
+    background-color: var(--cm-surface-container-high, #282933);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--cm-on-surface, #e2e2ec);
+    transition: all 0.25s ease;
+}
+
+.btn-cm-dropdown::after {
+    display: none !important;
+    /* Elimina la flechita predeterminada de Bootstrap */
+}
+
+.btn-cm-dropdown:hover,
+.btn-cm-dropdown:focus {
+    background-color: var(--cm-surface-container-highest, #333440);
+    border-color: rgba(229, 9, 20, 0.4) !important;
+    color: #ffffff !important;
+}
+
+.dropdown-icon-arrow {
+    transition: transform 0.25s ease;
+}
+
+.dropdown.show .dropdown-icon-arrow {
+    transform: rotate(180deg);
+}
+
+/* Menú Desplegable Tema Oscuro CinePrime */
+.dropdown-menu-dark {
+    background-color: var(--cm-surface-container-high, #282933) !important;
+    border-radius: 0.75rem;
+}
+
+.dropdown-menu-dark .dropdown-item {
+    color: var(--cm-on-surface-variant, #c2c4d6);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+    background-color: var(--cm-surface-container-highest, #333440);
+    color: #ffffff;
+}
+
+.dropdown-menu-dark .dropdown-item.active {
+    background-color: var(--cm-primary-container, #e50914) !important;
+    color: #ffffff !important;
+}
+
+.dropdown-menu-end {
+    inset: -2px 4px auto 7px !important;
+}
+
+/* ==========================================================================
+   TARJETAS DE FAVORITOS & CATALOGO - CINEPRIME DESIGN SYSTEM
+   ========================================================================== */
+
+/* BOTÓN QUITAR DE FAVORITOS (POSICIONAMIENTO SIMÉTRICO) */
+
+.btn-favorite-remove {
+    /* Posición exacta en lugar de top: 0 / right: 0 */
+    top: 10px !important;
+    right: 10px !important;
+
+    /* Dimensiones del botón */
+    width: 38px;
+    height: 38px;
+
+    /* Fondo Glassmorphism */
+    background: rgba(12, 14, 23, 0.7) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+    z-index: 5;
+    cursor: pointer;
+
+    /* Centrado perfecto del contenido */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icono en reposo (Relleno y centrado) */
+.btn-favorite-remove .material-symbols-rounded {
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--cm-primary-container, #e50914) !important;
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24 !important;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Hover: Acción de eliminar */
+.btn-favorite-remove:hover {
+    transform: scale(1.08);
+    background: rgba(229, 9, 20, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.btn-favorite-remove:hover .material-symbols-rounded {
+    color: #ffffff !important;
+}
+
+/* Estado ACTIVE (Al presionar) */
+.btn-favorite-remove:active {
+    transform: scale(0.95);
+}
+
+/* 2. Responsividad del Aspect Ratio del Póster (Tablet / Móvil) */
+.poster-ratio-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 10;
+    /* Formato más compacto en móviles/tablets */
+    overflow: hidden;
+}
+
+@media (min-width: 992px) {
+    .poster-ratio-wrapper {
+        aspect-ratio: 2 / 3;
+        /* Formato cinematográfico estándar en escritorio */
+    }
+}
+
+.poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.favorite-card:hover .poster-img {
+    transform: scale(1.06);
+}
+
+/* 3. Capa Overlay Hover & Botón Tráiler */
+.poster-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(17, 19, 28, 0.65);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3;
+}
+
+.favorite-card:hover .poster-overlay {
+    opacity: 1;
+}
+
+/* Botón Play Grande */
+.btn-play-trailer {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: var(--cm-primary-container, #e50914);
+    color: #ffffff;
+    border: none;
+    box-shadow: var(--cm-glow-primary, 0 0 18px rgba(229, 9, 20, 0.5));
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.btn-play-trailer:hover {
+    transform: scale(1.15);
+    background-color: #ff1a25;
+    color: #ffffff;
+}
+
+/* NORMALIZACIÓN DE BOTONES CTA (TARJETAS DE PELÍCULAS) */
+
+.card-cta-btn {
+    height: 42px;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 600;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    /* Transición fluida para animación suave al pasar el cursor */
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        color 0.25s ease;
+}
+
+.card-cta-btn .material-symbols-rounded {
+    font-size: 1.2rem;
+    transition: transform 0.25s ease, font-variation-settings 0.2s ease;
+}
+
+/* 1. BOTÓN COMPRAR BOLETOS (CTA PRIMARIO - ROJO BRAND)*/
+.btn-cm-primary {
+    background-color: var(--cm-primary-container, #e50914) !important;
+    color: #ffffff !important;
+    border: 1px solid transparent !important;
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.25);
+}
+
+.btn-cm-primary:hover {
+    background-color: #ff1e27 !important;
+    /* Rojo ligeramente más brillante */
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    /* Eleva sutilmente el botón */
+}
+
+.btn-cm-primary:hover .material-symbols-rounded {
+    transform: scale(1.1);
+}
+
+.btn-cm-primary:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* 2. BOTÓN ACTIVAR RECORDATORIO (CTA SECUNDARIO - NOTIFICACIÓN / PRÓXIMAMENTE) */
+.btn-recordatorio {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(8px);
+}
+
+.btn-recordatorio:hover {
+    /* Fondo dorado translúcido elegante que no rompe el tema oscuro */
+    background-color: rgba(233, 195, 73, 0.15) !important;
+    border-color: var(--cm-tertiary, #e9c349) !important;
+    color: var(--cm-tertiary, #e9c349) !important;
+    transform: translateY(-2px);
+}
+
+.btn-recordatorio:hover .material-symbols-rounded {
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24 !important;
+    /* Rellena la campana */
+    color: var(--cm-tertiary, #e9c349) !important;
+    transform: rotate(12deg) scale(1.1);
+    /* Pequeña inclinación dinámica de la campana */
+}
+
+.btn-recordatorio:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ==========================================================================
+   ESTADO VACÍO - FAVORITOS (EMPTY STATE DESIGN)
+   ========================================================================== */
+
+.empty-favorites-state {
+    /* Contenedor tipo tarjeta semitransparente */
+    background: var(--cm-surface-container, #12151e);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    padding: 3.5rem 1.5rem;
+    max-width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Resplandor decorativo de fondo */
+.empty-favorites-state::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(229, 9, 20, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Contenedor del Icono con efecto Glassmorphism */
+.empty-favorites-state .empty-icon-box {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(229, 9, 20, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Icono del Corazón en reposo */
+.empty-favorites-state .empty-icon-box .material-symbols-rounded {
+    font-size: 2.25rem;
+    color: var(--cm-primary-container, #e50914);
+    opacity: 0.85;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+/* Animación sutil del icono al interactuar con la tarjeta */
+.empty-favorites-state:hover .empty-icon-box .material-symbols-rounded {
+    transform: scale(1.15) rotate(-5deg);
+    opacity: 1;
+}
+
+/* Título de la sección */
+.empty-favorites-state .empty-title {
+    font-family: var(--cm-font-display, 'Bebas Neue', sans-serif);
+    font-size: 1.65rem;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+}
+
+/* Texto descriptivo */
+.empty-favorites-state .empty-description {
+    color: var(--cm-on-surface-variant, #a0a5b5);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    max-width: 420px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Botón Explorar Cartelera */
+.empty-favorites-state .btn-explore {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.empty-favorites-state .btn-explore:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.45) !important;
+}

@@ -1,0 +1,132 @@
+/* ==========================================================================
+   MIS TICKETS - CARDS
+   ========================================================================== */
+.card-ticket {
+    background-color: var(--cm-surface-container);
+    border: 1px solid var(--cm-outline-variant) !important;
+    border-radius: 1rem;
+}
+
+/* AJUSTE DE ALTURA DE IMAGEN / PÓSTER EN TARJETA DE BOLETO*/
+
+/* Móviles y Tablets (< 992px) */
+@media (max-width: 991.98px) {
+    .poster-ticket {
+        height: 230px;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .poster-ticket .poster-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+/* Pantallas Grandes / Escritorio (>= 992px) */
+@media (min-width: 992px) {
+    .poster-ticket {
+        position: relative;
+        min-height: 100%;
+    }
+
+    .poster-ticket .poster-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+/* ==========================================================================
+   MEJORAS PARA LA CAJA DE INFORMACIÓN DEL BOLETO
+   ========================================================================== */
+
+.ticket-info-box {
+    background-color: var(--cm-surface-container-low, #191b24);
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.03);
+}
+
+/* Espaciado entre letras para los títulos pequeños */
+.tracking-wider {
+    letter-spacing: 0.5px;
+}
+
+/* Divisores verticales sutiles únicamente en Tablet/Escritorio (>= 576px) */
+@media (min-width: 576px) {
+    .border-sm-start {
+        border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .border-sm-end {
+        border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+}
+
+/* En Móvil (< 576px) agregamos una separador horizontal sutil entre filas */
+@media (max-width: 575.98px) {
+    .ticket-info-col:not(:last-child) {
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        padding-bottom: 0.75rem;
+    }
+}
+
+/* ==========================================================================
+   BOTONES DE ACCIÓN DE BOLETO (CINEPRIME DARK)
+   ========================================================================== */
+
+/* Botón Principal QR */
+.btn-cm-primary {
+    background-color: var(--cm-primary-container, #e50914) !important;
+    color: var(--cm-on-primary-container, #fff7f6) !important;
+    border: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-cm-primary:hover {
+    background-color: #c40711 !important;
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Botones de Superficie / Secundarios */
+.btn-cm-surface {
+    background-color: var(--cm-surface-container-high, #282933) !important;
+    transition: all 0.2s ease;
+}
+
+.btn-cm-surface:hover,
+.hover-light:hover {
+    background-color: var(--cm-surface-container, #1d1f29) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+}
+
+.hover-light:hover .material-symbols-outlined {
+    color: #ffffff !important;
+}
+
+#my-tickets .dropdown-menu {
+    width: max-content;
+    min-width: 220px;
+}
+
+/* Efecto Hover en Dropdown */
+#my-tickets .dropdown-menu .dropdown-item:hover {
+    background-color: var(--cm-surface-container-low, #191b24);
+}
+
+/* Adaptación Responsiva (< 576px) */
+@media (max-width: 575.98px) {
+    .btn-qr-action {
+        font-size: 0.9rem;
+        padding-top: 0.65rem !important;
+        padding-bottom: 0.65rem !important;
+    }
+}

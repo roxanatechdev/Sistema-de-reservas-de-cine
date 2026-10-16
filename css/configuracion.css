@@ -1,0 +1,412 @@
+/* Variables y Tokens de CinePrime */
+:root {
+    --cm-bg-main: #0c0e17;
+    --cm-surface-low: #11131c;
+    --cm-surface-container: #161822;
+    --cm-surface-container-high: #1e202d;
+    --cm-primary-container: #e50914;
+    --cm-primary-hover: #ff1e27;
+    --cm-tertiary: #e9c349;
+    --cm-text-primary: #e1e2e9;
+    --cm-text-secondary: #9fa4b4;
+    --cm-border: rgba(255, 255, 255, 0.08);
+    --cm-border-focus: rgba(229, 9, 20, 0.6);
+    --cm-font-display: 'Bebas Neue', cursive, sans-serif;
+    --cm-font-body: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--cm-bg-main);
+    color: var(--cm-text-primary);
+    font-family: var(--cm-font-body);
+}
+
+.font-display {
+    font-family: var(--cm-font-display);
+    letter-spacing: 1px;
+}
+
+/* Tarjeta de la Sección */
+.cp-settings-card {
+    background-color: var(--cm-surface-container);
+    border: 1px solid var(--cm-border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.cp-section-header {
+    border-bottom: 1px solid var(--cm-border);
+    padding-bottom: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.cp-section-title {
+    font-family: var(--cm-font-display);
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Avatar Section */
+.cp-avatar-wrapper {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--cm-primary-container), var(--cm-tertiary));
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.25);
+}
+
+.cp-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--cm-surface-container);
+}
+
+.cp-btn-avatar-edit {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: var(--cm-primary-container);
+    color: #fff;
+    border: 2px solid var(--cm-surface-container);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.cp-btn-avatar-edit:hover {
+    background-color: var(--cm-primary-hover);
+    transform: scale(1.08);
+}
+
+/* Form Elements */
+.cp-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--cm-text-secondary);
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cp-input-group {
+    background-color: var(--cm-surface-low);
+    border: 1px solid var(--cm-border);
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+.cp-input-group:focus-within {
+    border-color: var(--cm-border-focus);
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.15);
+}
+
+.cp-input-group .input-group-text {
+    background: transparent;
+    border: none;
+    color: var(--cm-text-secondary);
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+}
+
+.cp-form-control {
+    background-color: transparent !important;
+    border: none !important;
+    color: var(--cm-text-primary) !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem 0.75rem 0.5rem;
+}
+
+.cp-form-control:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.cp-form-control::placeholder {
+    color: rgba(159, 164, 180, 0.5);
+}
+
+/* Country Prefix Selector */
+.cp-select-prefix {
+    background-color: transparent;
+    border: none;
+    border-right: 1px solid var(--cm-border);
+    color: var(--cm-text-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0 0.75rem;
+    cursor: pointer;
+    outline: none;
+}
+
+.cp-select-prefix option {
+    background-color: var(--cm-surface-container-high);
+    color: var(--cm-text-primary);
+}
+
+/* Badges */
+.cp-badge-verified {
+    background-color: rgba(46, 204, 113, 0.12);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.1rem 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Buttons */
+.cp-btn-primary {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.cp-btn-primary:hover {
+    background-color: var(--cm-primary-hover);
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+    transform: translateY(-1px);
+}
+
+.cp-btn-ghost {
+    background: transparent;
+    color: var(--cm-text-secondary);
+    border: 1px solid var(--cm-border);
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 0.88rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.cp-btn-ghost:hover {
+    color: #ff4d56;
+    border-color: rgba(255, 77, 86, 0.3);
+    background-color: rgba(255, 77, 86, 0.05);
+}
+
+/*============== CONFIGURACIÓN - SECCIÓN 2: SEGURIDAD ===========*/
+
+/* Estilos específicos para la Sección 2 */
+.cp-switch .form-check-input {
+    background-color: var(--cm-surface-low);
+    border-color: var(--cm-border);
+    width: 2.8em;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+.cp-switch .form-check-input:checked {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+
+.cp-badge-active {
+    background-color: rgba(46, 204, 113, 0.12);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.cp-btn-toggle-pwd {
+    background: transparent;
+    border: none;
+    color: var(--cm-text-secondary);
+    padding-right: 0.75rem;
+    cursor: pointer;
+}
+
+.cp-btn-toggle-pwd:hover {
+    color: var(--cm-text-primary);
+}
+
+/* Ajustes CSS adicionales para vista móvil */
+@media (max-width: 576px) {
+    .session-card {
+        padding: 0.85rem !important;
+    }
+
+    .session-card h6 {
+        font-size: 0.85rem;
+    }
+
+    .session-card .badge {
+        font-size: 0.75rem;
+    }
+
+    .time-sesion {
+        width: 80%;
+    }
+}
+/*===============================================================
+    CONFIGURACIÓN - SECCIÓN 3: PREFERENCIAS
+===============================================================*/
+/* Switcheres personalizados */
+.cp-switch-item {
+    background-color: var(--cm-surface-low);
+    border: 1px solid var(--cm-border);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.2s ease;
+}
+
+.cp-switch-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.cp-form-switch .form-check-input {
+    background-color: var(--cm-surface-container-high);
+    border-color: var(--cm-border);
+    width: 2.75em;
+    height: 1.4em;
+    cursor: pointer;
+}
+
+.cp-form-switch .form-check-input:checked {
+    background-color: var(--cm-primary-container);
+    border-color: var(--cm-primary-container);
+}
+
+/* Selects de reproducción */
+.cp-select-group {
+    background-color: var(--cm-surface-low);
+    border: 1px solid var(--cm-border);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.cp-select-group:focus-within {
+    border-color: var(--cm-border-focus);
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.15);
+}
+
+.cp-select-control {
+    background-color: transparent !important;
+    border: none !important;
+    color: var(--cm-text-primary) !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+}
+
+.cp-select-control option {
+    background-color: var(--cm-surface-container-high);
+    color: var(--cm-text-primary);
+}
+
+/* 1. Eliminar el resplandor / borde azul nativo al hacer foco */
+.cp-select-control:focus,
+.cp-select-control:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+/* 2. Personalizar el color de selección dentro del desplegable (reemplazar el azul de Windows/Chromium) */
+.cp-select-control option:checked,
+.cp-select-control option:hover {
+    background-color: var(--cm-primary-container) !important;
+    /* Rojo CinePrime */
+    color: #ffffff !important;
+}
+
+/* Para compatibilidad extendida en estilos de opciones */
+.cp-select-control option {
+    background-color: var(--cm-surface-container-high);
+    color: var(--cm-text-primary);
+    padding: 8px 12px;
+}
+
+/*===============================================================
+    CONFIGURACIÓN - SECCIÓN 4: PRIVACIDAD Y ZONA DE RIESGO 
+===============================================================*/
+
+/* Tarjeta de Zona Peligrosa */
+.cp-danger-card {
+    background-color: var(--cm-bg-danger-subtle);
+    border: 1px solid var(--cm-border-danger);
+    border-radius: 14px;
+    padding: 1.25rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.cp-danger-card:hover {
+    border-color: rgba(229, 9, 20, 0.6);
+}
+
+/* Botón Peligro / Eliminar */
+.cp-btn-danger-outline {
+    background-color: transparent;
+    color: #ff4d56;
+    border: 1px solid rgba(255, 77, 86, 0.4);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.6rem 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.cp-btn-danger-outline:hover {
+    background-color: #e50914;
+    color: #ffffff;
+    border-color: #e50914;
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.35);
+}
+
+.cp-btn-warning-outline {
+    background-color: transparent;
+    color: var(--cm-tertiary);
+    border: 1px solid rgba(233, 195, 73, 0.4);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 0.6rem 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.cp-btn-warning-outline:hover {
+    background-color: var(--cm-tertiary);
+    color: #0c0e17;
+    box-shadow: 0 4px 15px rgba(233, 195, 73, 0.25);
+}

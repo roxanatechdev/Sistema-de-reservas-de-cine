@@ -1,0 +1,440 @@
+/* ==========================================================================
+   CINEPRIME - HERO BANNER DE PERFIL DE USUARIO
+   ========================================================================== */
+
+/* Banner Principal con Degradado Cinemático */
+.user-hero-banner {
+    position: relative;
+    background: linear-gradient(135deg,
+            var(--cm-surface-container-lowest) 0%,
+            var(--cm-surface-container-low) 50%,
+            var(--cm-surface-container) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+/* Resplandores Ambientales (Glow Effects) */
+.user-banner-glow-primary {
+    position: absolute;
+    top: -6rem;
+    left: -4rem;
+    width: 22rem;
+    height: 22rem;
+    background-color: rgba(229, 9, 20, 0.15);
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.user-banner-glow-gold {
+    position: absolute;
+    bottom: -6rem;
+    right: -4rem;
+    width: 24rem;
+    height: 24rem;
+    background-color: rgba(233, 195, 73, 0.12);
+    border-radius: 50%;
+    filter: blur(110px);
+    pointer-events: none;
+}
+
+/* Avatar e Identificación del Usuario */
+.user-avatar-wrapper {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+}
+
+@media (min-width: 992px) {
+    .user-avatar-wrapper {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+.user-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.user-avatar-badge {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--cm-surface-container-lowest);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Tipografías y Títulos */
+.user-name {
+    font-family: var(--cm-font-display);
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+    color: var(--cm-on-surface);
+    line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+    .user-name {
+        font-size: 2.5rem;
+    }
+}
+
+.badge-vip {
+    background: linear-gradient(135deg, rgba(233, 195, 73, 0.25) 0%, rgba(204, 167, 48, 0.15) 100%);
+    color: var(--cm-tertiary);
+    border: 1px solid rgba(233, 195, 73, 0.4);
+    font-family: var(--cm-font-body);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    padding: 0.35em 0.75em;
+}
+
+/* Tarjeta Widget de Saldo (Glassmorphism) */
+.user-stats-card {
+    background-color: rgba(29, 31, 41, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.user-stats-card:hover {
+    border-color: rgba(233, 195, 73, 0.35);
+    box-shadow: 0 8px 25px rgba(233, 195, 73, 0.12);
+}
+
+.points-value {
+    font-family: var(--cm-font-display);
+    font-size: 2.2rem;
+    line-height: 1;
+    color: var(--cm-tertiary);
+}
+
+.btn-cm-redeem {
+    background-color: var(--cm-primary-container);
+    color: #ffffff;
+    font-family: var(--cm-font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+}
+
+.btn-cm-redeem:hover {
+    background-color: #ff1e27;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   AJUSTES FINALES DE CONCORDANCIA Y RESPONSIVE - BANNER DE USUARIO
+   ========================================================================== */
+
+/* 1. Unificación de Contenedor y Separación Inferior */
+.user-hero-banner {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    /* Separador sutil con resplandor en lugar de una línea dura */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(180deg, #0c0e17 0%, #11131c 100%);
+}
+
+/* 2. Optimización del Avatar del Usuario */
+.user-avatar-wrapper {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+@media (min-width: 992px) {
+    .user-avatar-wrapper {
+        width: 112px;
+        height: 112px;
+    }
+}
+
+.user-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(233, 195, 73, 0.5);
+    /* Borde dorado sutil acorde al VIP */
+    box-shadow: 0 0 15px rgba(233, 195, 73, 0.2);
+}
+
+/* 3. Perfeccionamiento de la Tarjeta 'Prime Points' */
+.user-stats-card {
+    background: rgba(22, 24, 34, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.user-stats-card:hover {
+    border-color: rgba(233, 195, 73, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(233, 195, 73, 0.15);
+}
+
+/* Estilo del Número de Puntos */
+.points-value {
+    font-family: 'Bebas Neue', cursive, sans-serif;
+    font-size: 2rem;
+    line-height: 0.9;
+    color: #e9c349;
+    /* Tono Dorado Oficial */
+    letter-spacing: 0.03em;
+}
+
+/* ==========================================================================
+   PERFIL DE USUARIO: MENÚ LATERAL DESKTOP (CINEPRIME)
+   ========================================================================== */
+
+.profile-sidebar-aside {
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.user-profile-sidebar-desktop {
+    position: sticky;
+    top: 90px;
+    /* Offset ajustado a la altura del Navbar superior */
+    z-index: 10;
+}
+
+
+/* Tarjeta contenedora de la barra lateral */
+.profile-nav-card {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+}
+
+/* Encabezados de Sección */
+.profile-sidebar-title {
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cm-on-surface-variant, #9193a8);
+    opacity: 0.75;
+}
+
+/* Divisor Sutil entre Grupos */
+.profile-sidebar-divider {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 1;
+}
+
+/* Botones de Navegación */
+.profile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+    padding: 0.85rem 1rem !important;
+    border-radius: 0.75rem !important;
+    font-family: var(--cm-font-body, 'Montserrat', sans-serif);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--cm-on-surface, #e1e1ef);
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Iconos Material Symbols */
+.profile-nav-link .material-symbols-outlined {
+    font-size: 1.25rem;
+    color: var(--cm-on-surface-variant, #a0a2b8);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover de Botones */
+.profile-nav-link:hover {
+    color: #ffffff;
+    background-color: var(--cm-surface-container-high, #21232e);
+}
+
+.profile-nav-link:hover .material-symbols-outlined {
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+/* Estado Activo (Pestaña Seleccionada) */
+.profile-nav-link.active {
+    color: #ffffff !important;
+    background-color: var(--cm-surface-container-highest, #2c2e3d) !important;
+}
+
+.profile-nav-link.active .material-symbols-outlined {
+    color: var(--cm-primary-container, #e50914) !important;
+}
+
+/* Indicador de Línea Roja Brillante en Pestaña Activa */
+.profile-nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15%;
+    bottom: 15%;
+    width: 3.5px;
+    background-color: var(--cm-primary-container, #e50914);
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 0 12px rgba(229, 9, 20, 0.85);
+}
+
+/* Badges / Contadores de Notificación */
+.profile-nav-badge {
+    margin-left: auto;
+    font-size: 0.725rem;
+    font-weight: 700;
+    padding: 0.15rem 0.55rem;
+    border-radius: 50rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--cm-on-surface-variant, #c2c4d6);
+    transition: all 0.2s ease;
+}
+
+.profile-nav-link.active .profile-nav-badge {
+    background-color: var(--cm-primary-container, #e50914);
+    color: #ffffff;
+    box-shadow: 0 0 8px rgba(229, 9, 20, 0.4);
+}
+
+/* Botón Destructivo: Cerrar Sesión */
+.profile-nav-link-logout {
+    color: #ff7e7e;
+}
+
+.profile-nav-link-logout .material-symbols-outlined {
+    color: #ff7e7e;
+}
+
+.profile-nav-link-logout:hover {
+    background-color: rgba(229, 9, 20, 0.14);
+    color: #ff4d4d;
+}
+
+.profile-nav-link-logout:hover .material-symbols-outlined {
+    color: #ff4d4d;
+    transform: none;
+}
+
+
+/* ==========================================================================
+   PERFIL MÓVIL Y TABLET: FLOATING ACTION PILL & BOTTOM SHEET
+   ========================================================================== */
+
+/* 1. MÓVIL (< 768px): Botón Flotante en la Esquina Inferior Derecha (Thumb Zone) */
+@media (max-width: 767.98px) {
+    .profile-mobile-trigger-wrapper {
+        position: fixed;
+        bottom: 20px;
+        right: 16px;
+        z-index: 1030;
+    }
+
+    .profile-fab-trigger {
+        background: rgba(22, 24, 34, 0.88) !important;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(229, 9, 20, 0.2) !important;
+        color: var(--cm-on-surface, #ffffff);
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .profile-fab-trigger:active {
+        transform: scale(0.94);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8) !important;
+    }
+}
+
+/* Estilos de Íconos y Badges del Trigger */
+.profile-fab-icon-wrapper {
+    width: 28px;
+    height: 28px;
+    background-color: rgba(229, 9, 20, 0.15);
+    color: var(--cm-primary-container, #e50914);
+}
+
+/* Offcanvas Bottom Sheet Design */
+.profile-offcanvas-sheet {
+    height: auto !important;
+    max-height: 82vh;
+    background-color: rgba(12, 14, 23, 0.96) !important;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.profile-sheet-drag-handle {
+    width: 36px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   CONFIGURACIÓN RESPONSIVA DEL TRIGGER (MÓVIL VS TABLET)
+   ========================================================================== */
+
+/* 1. VISTA MÓVIL (< 768px): Botón Compacto en la Esquina (Thumb Zone) */
+@media (max-width: 767.98px) {
+    .profile-mobile-trigger-wrapper {
+        position: fixed;
+        bottom: 20px;
+        right: 16px;
+        z-index: 1030;
+    }
+
+    .profile-fab-trigger {
+        padding: 0.5rem 0.85rem !important;
+        font-size: 0.85rem;
+    }
+}
+
+/* 2. VISTA TABLET (768px - 991.98px): Cápsula Modular de Mayor Tamaño */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    /* Botones de Navegación */
+    .profile-nav-link {
+        gap: 0.7rem;
+        padding: 0.6rem 0.5rem !important;
+    }
+}

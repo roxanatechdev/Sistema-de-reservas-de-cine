@@ -34,13 +34,15 @@
     <!-- HEADER / NAVBAR (CinePrime) -->
     <!-- CONTENEDOR DEL NAVBAR REUTILIZABLE -->
     <div id="navbar-container"></div>
+    <!-- Contenedor donde se inyectará el modal globalmente -->
+    <div id="auth-modal-container"></div>
     <main class="w-100 bg-cm-surface min-vh-100 overflow-hidden">
         <!-- SECCIÓN 1: HERO / BANNER PRINCIPAL (85vh) -->
         <section class="position-relative w-100 hero-section overflow-hidden select-none">
 
             <!-- Imagen de Fondo (Cover + No Repeat) + Capas de Gradiente Cinematográfico -->
             <div class="position-absolute top-0 start-0 w-100 h-100 bg-hero-cover"
-                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCM9UDS3fTY5LcYZi74D2w-25w5JC7HIaK5K3mwlhtACGtfKqUVAwSeliuX9zgNXHYGcOj6tIQE7R6PLXzxI4IipH-7AhS5ffrblfLY1MV-KecSi8m3rOkaapRTX5iv0Xuq9dsJ8vmZG3bBAQK-rU_lGzSvoOZFMH5D3MKIH-R7djWwRB14ncNH6gJXdUwMqxlWVO_Q2Gw3E1-D9-q5m6DApGcXvb_IwmgR6m1u5nucjmnO9483itmu9g');">
+                style="background-image: url(img/Dune-Part-Two-Background-Wallpaper.png);">
 
                 <!-- Gradientes para contraste cinemático -->
                 <div class="position-absolute top-0 start-0 h-100 w-100 w-md-75 hero-gradient-horizontal"></div>
@@ -70,7 +72,7 @@
 
                     <!-- Título Principal -->
                     <h1 class="font-display-hero text-uppercase leading-none text-cm-on-surface m-0 hero-title-shadow">
-                        DUNE: <span class="hero-title-gradient">PARTE TRES</span>
+                        DUNE: <span class="hero-title-gradient">PARTE DOS</span>
                     </h1>
 
                     <!-- Barra de Metadatos -->
@@ -165,7 +167,7 @@
                                         class="form-select border-0 bg-transparent text-cm-on-surface font-body-sm shadow-none p-0 cursor-pointer"
                                         aria-label="Seleccionar Película">
                                         <option class="bg-cm-surface-lowest text-cm-on-surface" selected>Dune: Parte
-                                            Tres
+                                            Dos
                                         </option>
                                         <option class="bg-cm-surface-lowest text-cm-on-surface">Cyber Echo: Void
                                         </option>
@@ -271,371 +273,20 @@
                 </div>
 
                 <!-- Movie Cards Grid / Rail (Bootstrap Grid) -->
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 g-4">
-
-                    <!-- Card 1: Cyber Echo -->
-                    <div class="col">
-                        <div
-                            class="card movie-card h-100 bg-cm-surface rounded-3 overflow-hidden border border-white-5 transition-all">
-
-                            <!-- Poster con Badges, Favorito y Botón Tráiler -->
-                            <div
-                                class="position-relative w-100 overflow-hidden bg-cm-surface-lowest movie-poster-container">
-                                <!-- Imagen del póster -->
-                                <img src="img/cyber-echo.jpg" alt="Cyber Echo Poster"
-                                    class="w-100 h-100 object-fit-cover movie-poster-img"
-                                    onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/1d1f29/ffffff?text=Poster+No+Disponible';" />
-
-                                <!-- Overlay desvanecido progresivo -->
-                                <div class="card-media-overlay"></div>
-
-                                <!-- Botón flotante para Ver Tráiler (Hover) -->
-                                <div class="position-absolute top-50 start-50 translate-middle z-3 trailer-hover-btn">
-                                    <button type="button" aria-label="Ver Tráiler"
-                                        class="btn btn-trailer-play rounded-circle d-flex align-items-center justify-content-center">
-                                        <span class="material-symbols-outlined fs-2">play_arrow</span>
-                                    </button>
-                                </div>
-
-                                <!-- Header de Badges sobre la imagen (Formato + Rating + Favorito) -->
-                                <div
-                                    class="position-absolute  top-0 start-0 end-0 p-2 d-flex align-items-center justify-content-between z-2">
-                                    <!-- Badges Izquierda (Agrupadas en fila) -->
-                                    <div class="d-flex align-items-center gap-1">
-                                        <span class="badge-tag">IMAX</span>
-
-                                    </div>
-
-                                    <!-- Botón Favorito -->
-                                    <button type="button"
-                                        class="btn-favorite d-flex align-items-center justify-content-center"
-                                        aria-label="Agregar a favoritos">
-                                        <span class="material-symbols-outlined">favorite</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Contenido de la Tarjeta -->
-                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-1">
-                                <div>
-                                    <div class="d-flex justify-content-between">
-
-                                        <span class="badge badge-rating d-flex align-items-center gap-1 ps-0 mb-1">
-                                            <span
-                                                class="material-symbols-outlined icon-filled text-cm-tertiary">star</span>
-                                            9.1
-                                        </span>
-                                        <span class="metadatos d-flex align-content-center gap-1 text-white-50"><span
-                                                class="material-symbols-outlined fs-6">schedule</span>2h 12m</span>
-                                    </div>
-                                    <h3 class="movie-title text-uppercase mb-1" title="Cyber Echo: Void">
-                                        Cyber Echo: Void
-                                    </h3>
-                                    <!-- Título estilizado -->
-                                    <p class="movie-subtitle">
-                                        Cyberpunk / Thriller
-                                    </p>
-                                </div>
-
-                                <!-- Horarios Disponibles -->
-                                <div class="d-flex flex-column gap-1">
-                                    <span class="showtime-label text-uppercase fw-bold py-1">
-                                        HORARIOS HOY
-                                    </span>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
-                                            type="button">16:30</button>
-                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
-                                            type="button">19:00</button>
-                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
-                                            type="button">21:45</button>
-                                    </div>
-                                </div>
-
-                                <!-- Botón Reservar -->
-                                <button
-                                    class="btn btn-cm-reserve mt-1 w-100 text-uppercase rounded-2 py-1 fw-bold transition-all d-flex align-items-center justify-content-center gap-2"
-                                    type="button">
-                                    <span class="material-symbols-outlined fs-5">confirmation_number</span>
-                                    Comprar Entradas
-                                </button>
-                            </div>
-
+                <!-- Cartelera dinámica -->
+                <div id="cartelera-peliculas"
+                    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 g-4"
+                    aria-live="polite">
+                    <div class="col-12 text-center py-5" id="cartelera-cargando">
+                        <div class="spinner-border text-info" role="status">
+                            <span class="visually-hidden">Cargando películas...</span>
                         </div>
+                        <p class="text-cm-variant mt-3">
+                            Cargando cartelera...
+                        </p>
                     </div>
-                    <!-- Card 2: Gladiador II -->
-                    <div class="col">
-                        <div
-                            class="card movie-card h-100 bg-cm-surface rounded-3 overflow-hidden border border-white-5 transition-all">
-
-                            <!-- Poster con Badges, Favorito y Botón Tráiler -->
-                            <div
-                                class="position-relative w-100 overflow-hidden bg-cm-surface-lowest movie-poster-container">
-                                <!-- Imagen del póster -->
-                                <img src="img/gladiador.jpg" alt="Cyber Echo Poster"
-                                    class="w-100 h-100 object-fit-cover movie-poster-img"
-                                    onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/1d1f29/ffffff?text=Poster+No+Disponible';" />
-
-                                <!-- Overlay desvanecido progresivo -->
-                                <div class="card-media-overlay"></div>
-
-                                <!-- Botón flotante para Ver Tráiler (Hover) -->
-                                <div class="position-absolute top-50 start-50 translate-middle z-3 trailer-hover-btn">
-                                    <button type="button" aria-label="Ver Tráiler"
-                                        class="btn btn-trailer-play rounded-circle d-flex align-items-center justify-content-center">
-                                        <span class="material-symbols-outlined fs-2">play_arrow</span>
-                                    </button>
-                                </div>
-
-                                <!-- Header de Badges sobre la imagen (Formato + Rating + Favorito) -->
-                                <div
-                                    class="position-absolute top-0 start-0 end-0 p-2 d-flex align-items-center justify-content-between z-2">
-                                    <!-- Badges Izquierda (Agrupadas en fila) -->
-                                    <div class="d-flex align-items-center gap-1">
-                                        <span class="badge-tag">Dolby</span>
-                                        <span class="badge-tag">+16</span>
-
-                                    </div>
-
-                                    <!-- Botón Favorito (Sin recargar visualmente) -->
-                                    <button type="button"
-                                        class="btn-favorite d-flex align-items-center justify-content-center"
-                                        aria-label="Agregar a favoritos">
-                                        <span class="material-symbols-outlined">favorite</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Contenido de la Tarjeta -->
-                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-2">
-                                <div>
-                                    <div class="d-flex justify-content-between">
-
-                                        <span class="badge badge-rating d-flex align-items-center gap-1 ps-0 mb-1">
-                                            <span
-                                                class="material-symbols-outlined icon-filled text-cm-tertiary">star</span>
-                                            9.1
-                                        </span>
-                                        <span class="metadatos d-flex align-content-center gap-1 text-white-50"><span
-                                                class="material-symbols-outlined fs-6">schedule</span>2h 12m</span>
-                                    </div>
-
-                                    <!-- Título estilizado -->
-                                    <h3 class="movie-title text-uppercase mb-1" title="Cyber Echo: Void">
-                                        Gladiador II
-                                    </h3>
-                                    <p class="movie-subtitle ">
-                                        Acción / Épico
-                                    </p>
-                                </div>
-
-                                <!-- Horarios Disponibles -->
-                                <div class="d-flex flex-column gap-1">
-                                    <span class="showtime-label text-uppercase fw-bold py-1">
-                                        HORARIOS HOY
-                                    </span>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
-                                            type="button">15:15</button>
-                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
-                                            type="button">18:40</button>
-                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
-                                            type="button">22:10</button>
-                                    </div>
-                                </div>
-
-                                <!-- Botón Reservar -->
-                                <button
-                                    class="btn btn-cm-reserve mt-1 w-100 text-uppercase rounded-2 py-1 fw-bold transition-all d-flex align-items-center justify-content-center gap-2"
-                                    type="button">
-                                    <span class="material-symbols-outlined">confirmation_number</span>
-                                    Comprar Entradas
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- Card 3: Interstellar Re-Release -->
-                    <div class="col">
-                        <div
-                            class="card movie-card h-100 bg-cm-surface rounded-3 overflow-hidden border border-white-5 transition-all">
-
-                            <!-- Poster con Badges, Favorito y Botón Tráiler -->
-                            <div
-                                class="position-relative w-100 overflow-hidden bg-cm-surface-lowest movie-poster-container">
-                                <!-- Imagen del póster -->
-                                <img src="img/Interstellar-Re-Release.jpg" alt="Cyber Echo Poster"
-                                    class="w-100 h-100 object-fit-cover movie-poster-img"
-                                    onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/1d1f29/ffffff?text=Poster+No+Disponible';" />
-
-                                <!-- Overlay desvanecido progresivo -->
-                                <div class="card-media-overlay"></div>
-
-                                <!-- Botón flotante para Ver Tráiler (Hover) -->
-                                <div class="position-absolute top-50 start-50 translate-middle z-3 trailer-hover-btn">
-                                    <button type="button" aria-label="Ver Tráiler"
-                                        class="btn btn-trailer-play rounded-circle d-flex align-items-center justify-content-center">
-                                        <span class="material-symbols-outlined fs-2">play_arrow</span>
-                                    </button>
-                                </div>
-
-                                <!-- Header de Badges sobre la imagen (Formato + Rating + Favorito) -->
-                                <div
-                                    class="position-absolute top-0 start-0 end-0 p-2 d-flex align-items-center justify-content-between z-2">
-                                    <!-- Badges Izquierda (Agrupadas en fila) -->
-                                    <div class="d-flex align-items-center gap-1">
-                                        <span class="badge-tag">IMAX 70mm</span>
-                                        <span class="badge-tag">TE+7</span>
-
-                                    </div>
-
-                                    <!-- Botón Favorito (Sin recargar visualmente) -->
-                                    <button type="button"
-                                        class="btn-favorite d-flex align-items-center justify-content-center"
-                                        aria-label="Agregar a favoritos">
-                                        <span class="material-symbols-outlined">favorite</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Contenido de la Tarjeta -->
-                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-2">
-                                <div>
-                                    <div class="d-flex justify-content-between">
-
-                                        <span class="badge badge-rating d-flex align-items-center gap-1 ps-0 mb-1">
-                                            <span
-                                                class="material-symbols-outlined icon-filled text-cm-tertiary">star</span>
-                                            9.1
-                                        </span>
-                                        <span class="metadatos d-flex align-content-center gap-1 text-white-50"><span
-                                                class="material-symbols-outlined fs-6">schedule</span>2h 12m</span>
-                                    </div>
-                                    <!-- Título estilizado -->
-                                    <h3 class="movie-title text-uppercase mb-1" title="Interstellar">
-                                        Interstellar
-                                    </h3>
-                                    <p class="movie-subtitle">
-                                        Sci-Fi / Drama
-                                    </p>
-                                </div>
-
-                                <!-- Horarios Disponibles -->
-                                <div class="d-flex flex-column gap-1">
-                                    <span class="showtime-label text-uppercase fw-bold py-1">
-                                        HORARIOS HOY
-                                    </span>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
-                                            type="button">17:00</button>
-                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
-                                            type="button">22:30</button>
-
-                                    </div>
-                                </div>
-
-                                <!-- Botón Reservar -->
-                                <button
-                                    class="btn btn-cm-reserve mt-1 w-100 text-uppercase rounded-2 py-1 fw-bold transition-all d-flex align-items-center justify-content-center gap-2"
-                                    type="button">
-                                    <span class="material-symbols-outlined">confirmation_number</span>
-                                    Comprar Entradas
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- Card 5: Furiosa -->
-                    <div class="col">
-                        <div
-                            class="card movie-card h-100 bg-cm-surface rounded-3 overflow-hidden border border-white-5 transition-all">
-
-                            <!-- Poster con Badges, Favorito y Botón Tráiler -->
-                            <div
-                                class="position-relative w-100 overflow-hidden bg-cm-surface-lowest movie-poster-container">
-                                <!-- Imagen del póster -->
-                                <img src="img/Furiosa.jpg" alt="Furiosa Poster"
-                                    class="w-100 h-100 object-fit-cover movie-poster-img"
-                                    onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/1d1f29/ffffff?text=Poster+No+Disponible';" />
-
-                                <!-- Overlay desvanecido progresivo -->
-                                <div class="card-media-overlay"></div>
-
-                                <!-- Botón flotante para Ver Tráiler (Hover) -->
-                                <div class="position-absolute top-50 start-50 translate-middle z-3 trailer-hover-btn">
-                                    <button type="button" aria-label="Ver Tráiler"
-                                        class="btn btn-trailer-play rounded-circle d-flex align-items-center justify-content-center">
-                                        <span class="material-symbols-outlined fs-2">play_arrow</span>
-                                    </button>
-                                </div>
-
-                                <!-- Header de Badges sobre la imagen (Formato + Rating + Favorito) -->
-                                <div
-                                    class="position-absolute top-0 start-0 end-0 p-2 d-flex align-items-center justify-content-between z-2">
-                                    <!-- Badges Izquierda (Agrupadas en fila) -->
-                                    <div class="d-flex align-items-center gap-1">
-                                        <span class="badge-tag">4DX D-BOX</span>
-                                        <span class="badge-tag">+16</span>
-                                    </div>
-
-                                    <!-- Botón Favorito (Sin recargar visualmente) -->
-                                    <button type="button"
-                                        class="btn-favorite d-flex align-items-center justify-content-center"
-                                        aria-label="Agregar a favoritos">
-                                        <span class="material-symbols-outlined">favorite</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Contenido de la Tarjeta -->
-                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-2">
-                                <div>
-                                    <div class="d-flex justify-content-between">
-
-                                        <span class="badge badge-rating d-flex align-items-center gap-1 ps-0 mb-1">
-                                            <span
-                                                class="material-symbols-outlined icon-filled text-cm-tertiary">star</span>
-                                            9.1
-                                        </span>
-                                        <span class="metadatos d-flex align-content-center gap-1 text-white-50"><span
-                                                class="material-symbols-outlined fs-6">schedule</span>2h 12m</span>
-                                    </div>
-                                    <!-- Título estilizado -->
-                                    <h3 class="movie-title text-uppercase mb-1 " title="Cyber Echo: Void">
-                                        Furiosa: Mad Max
-                                    </h3>
-                                    <p class="movie-subtitle">
-                                        Sci-Fi
-                                    </p>
-                                </div>
-
-                                <!-- Horarios Disponibles -->
-                                <div class="d-flex flex-column gap-1">
-                                    <span class="showtime-label text-uppercase fw-bold py-1">
-                                        HORARIOS HOY
-                                    </span>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
-                                            type="button">18:00</button>
-                                        <button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1"
-                                            type="button">21:15</button>
-
-                                    </div>
-                                </div>
-
-                                <!-- Botón Reservar -->
-                                <button
-                                    class="btn btn-cm-reserve mt-1 w-100 text-uppercase rounded-2 py-1 fw-bold transition-all d-flex align-items-center justify-content-center gap-2"
-                                    type="button">
-                                    <span class="material-symbols-outlined fs-5">confirmation_number</span>
-                                    Comprar Entradas
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-
                 </div>
+
             </div>
         </section>
         <!-- SECCIÓN 4: PRÓXIMAMENTE -->
@@ -1223,6 +874,7 @@
     <!-- Bootstrap 5.3 JS Bundle -->
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/cartelera.js"></script>
 </body>
 
 </html>

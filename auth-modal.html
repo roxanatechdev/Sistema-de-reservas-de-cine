@@ -1,0 +1,194 @@
+<!-- ==========================================================================
+     MODAL DE AUTENTICACIÓN (COMPONENTE REUTILIZABLE) - CINEPRIME
+     ========================================================================== -->
+<div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div
+            class="modal-content bg-cm-surface border border-secondary border-opacity-25 text-cm-on-surface shadow-cm-glow-intense rounded-4 overflow-hidden">
+
+            <!-- Botón de cerrar flotante universal -->
+            <button type="button"
+                class="btn-close btn-close-white position-absolute top-0 end-0 m-3 p-2 bg-cm-surface-container-high rounded-circle opacity-100 shadow-sm z-3"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+
+            <div class="row g-0">
+                <!-- Columna Izquierda: Panel Cinematográfico / Branding -->
+                <div
+                    class="col-lg-5 d-none d-lg-flex flex-column justify-content-between p-4 p-xl-5 position-relative bg-cm-auth-banner overflow-hidden">
+                    <!-- Overlay de degradado cinematográfico -->
+                    <div class="position-absolute inset-0 bg-cm-gradient-overlay z-1"></div>
+
+                    <div class="position-relative z-2">
+                        <span
+                            class="badge bg-primary-container text-white font-monospace px-3 py-1 rounded-pill fs-9 tracking-wider mb-3">EXPERIENCIA
+                            VIP</span>
+                        <h2 class="font-headline-lg text-white text-uppercase fw-bold mb-2">CinePrime</h2>
+                        <p class="text-cm-variant fs-8 mb-0">Disfruta de estrenos exclusivos, preventas y acumula puntos
+                            con cada función.</p>
+                    </div>
+
+                    <div class="position-relative z-2 mt-auto pt-4">
+                        <div class="d-flex align-items-center gap-2 text-cm-variant fs-9">
+                            <span class="material-symbols-outlined text-cm-primary fs-5">verified</span>
+                            <span>Seguridad garantizada en tus reservas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Contenido del Formulario y Pestañas -->
+                <div class="col-12 col-lg-7 d-flex flex-column">
+
+                    <!-- Header con Pestañas -->
+                    <div
+                        class="modal-header border-bottom border-secondary border-opacity-10 px-4 pt-4 pb-0 position-relative border-0">
+                        <ul class="nav nav-pills w-100 nav-fill gap-2 pb-0" id="authTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active fw-bold text-uppercase fs-7 rounded-3 py-2"
+                                    id="login-tab" data-bs-toggle="tab" data-bs-target="#login-pane" type="button"
+                                    role="tab" aria-controls="login-pane" aria-selected="true">
+                                    Iniciar Sesión
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link fw-bold text-uppercase fs-7 rounded-3 py-2" id="register-tab"
+                                    data-bs-toggle="tab" data-bs-target="#register-pane" type="button" role="tab"
+                                    aria-controls="register-pane" aria-selected="false">
+                                    Registrarse
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Cuerpo del Modal -->
+                    <div class="modal-body p-4 px-sm-5 my-auto">
+                        <div class="tab-content" id="authTabContent">
+
+                            <!-- INICIAR SESIÓN -->
+                            <div class="tab-pane fade show active" id="login-pane" role="tabpanel"
+                                aria-labelledby="login-tab">
+                                <div class="text-center mb-4">
+                                    <h3 class="font-headline-lg text-uppercase tracking-wider m-0 text-white fs-4">
+                                        ¡Bienvenido de nuevo!</h3>
+                                    <p class="text-cm-variant fs-7 mt-1">Ingresa para gestionar tus reservas y acumular
+                                        puntos.</p>
+                                </div>
+
+                                <form id="form-login" novalidate>
+                                    <div class="mb-3">
+                                        <label for="login-email"
+                                            class="form-label font-md text-cm-on-surface fs-7">Correo
+                                            Electrónico</label>
+                                        <div class="input-group">
+                                            <span
+                                                class="input-group-text bg-cm-surface-container-high border-secondary border-opacity-25 text-cm-variant rounded-start-3">
+                                                <span class="material-symbols-outlined fs-5">mail</span>
+                                            </span>
+                                            <input type="email"
+                                                class="form-control bg-cm-surface-container-high border-secondary border-opacity-25 text-white shadow-none rounded-end-3 py-2"
+                                                id="login-email" placeholder="tucorreo@ejemplo.com" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <label for="login-password"
+                                                class="form-label font-md text-cm-on-surface fs-7">Contraseña</label>
+                                            <a href="#" class="text-cm-primary fs-8 text-decoration-none">¿Olvidaste tu
+                                                contraseña?</a>
+                                        </div>
+                                        <div class="input-group">
+                                            <span
+                                                class="input-group-text bg-cm-surface-container-high border-secondary border-opacity-25 text-cm-variant rounded-start-3">
+                                                <span class="material-symbols-outlined fs-5">lock</span>
+                                            </span>
+                                            <input type="password"
+                                                class="form-control bg-cm-surface-container-high border-secondary border-opacity-25 text-white shadow-none rounded-end-3 py-2"
+                                                id="login-password" placeholder="••••••••" required>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit"
+                                        class="btn btn-cm-primary w-100 font-label-lg text-uppercase tracking-wider rounded-3 py-3 mt-2 fw-bold shadow-cm-glow">
+                                        Ingresar a CinePrime
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- REGISTRO -->
+                            <div class="tab-pane fade" id="register-pane" role="tabpanel"
+                                aria-labelledby="register-tab">
+                                <div class="text-center mb-4">
+                                    <h3 class="font-headline-lg text-uppercase tracking-wider m-0 text-white fs-4">Crea
+                                        tu cuenta</h3>
+                                    <p class="text-cm-variant fs-7 mt-1">Únete a CinePrime y disfruta de beneficios
+                                        exclusivos.</p>
+                                </div>
+
+                                <form id="form-register" novalidate>
+                                    <div class="mb-3">
+                                        <label for="reg-name" class="form-label font-md text-cm-on-surface fs-7">Nombre
+                                            Completo</label>
+                                        <div class="input-group">
+                                            <span
+                                                class="input-group-text bg-cm-surface-container-high border-secondary border-opacity-25 text-cm-variant rounded-start-3">
+                                                <span class="material-symbols-outlined fs-5">person</span>
+                                            </span>
+                                            <input type="text"
+                                                class="form-control bg-cm-surface-container-high border-secondary border-opacity-25 text-white shadow-none rounded-end-3 py-2"
+                                                id="reg-name" placeholder="Tu Nombre" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="reg-email" class="form-label font-md text-cm-on-surface fs-7">Correo
+                                            Electrónico</label>
+                                        <div class="input-group">
+                                            <span
+                                                class="input-group-text bg-cm-surface-container-high border-secondary border-opacity-25 text-cm-variant rounded-start-3">
+                                                <span class="material-symbols-outlined fs-5">mail</span>
+                                            </span>
+                                            <input type="email"
+                                                class="form-control bg-cm-surface-container-high border-secondary border-opacity-25 text-white shadow-none rounded-end-3 py-2"
+                                                id="reg-email" placeholder="tucorreo@ejemplo.com" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="reg-password"
+                                            class="form-label font-md text-cm-on-surface fs-7">Contraseña</label>
+                                        <div class="input-group">
+                                            <span
+                                                class="input-group-text bg-cm-surface-container-high border-secondary border-opacity-25 text-cm-variant rounded-start-3">
+                                                <span class="material-symbols-outlined fs-5">lock</span>
+                                            </span>
+                                            <input type="password"
+                                                class="form-control bg-cm-surface-container-high border-secondary border-opacity-25 text-white shadow-none rounded-end-3 py-2"
+                                                id="reg-password" placeholder="Mínimo 8 caracteres" required>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit"
+                                        class="btn btn-cm-primary w-100 font-label-lg text-uppercase tracking-wider rounded-3 py-3 mt-2 fw-bold shadow-cm-glow">
+                                        Registrarme
+                                    </button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div
+                        class="modal-footer border-top border-secondary border-opacity-10 justify-content-center py-3 bg-cm-surface-container-lowest">
+                        <p class="text-cm-variant fs-8 m-0 text-center">
+                            Al continuar, aceptas las <a href="#" class="text-cm-primary text-decoration-none">Políticas
+                                de Privacidad</a> de CinePrime.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

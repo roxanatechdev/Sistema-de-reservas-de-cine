@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 2. Cargar el Footer adecuado según el tipo de página
     loadFooter();
+    loadAuthModal();
 });
 
 /* ==========================================================================
@@ -136,4 +137,16 @@ function loadFooter() {
             footerContainer.innerHTML = html;
         })
         .catch(error => console.error(`Error al cargar el footer (${footerFile}):`, error));
+}
+
+function loadAuthModal() {
+    const container = document.getElementById("auth-modal-container");
+    if (!container) return;
+
+    fetch("auth-modal.html")
+        .then(response => response.text())
+        .then(html => {
+            container.innerHTML = html;
+        })
+        .catch(error => console.error("Error al cargar el modal de autenticación:", error));
 }
