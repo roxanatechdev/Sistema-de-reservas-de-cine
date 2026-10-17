@@ -37,7 +37,7 @@ function loadNavbar() {
 
             if (header) {
                 // Si es la portada (index.html)
-                if (!currentPath || currentPath === "" || currentPath === "index.html") {
+                if (!currentPath || currentPath === "" || currentPath ===  "index.html" ) {
                     header.classList.remove("sticky-top");
                     header.classList.add("fixed-top");
                     container.classList.remove("sticky-top"); // En Inicio no queremos sticky en el contenedor
