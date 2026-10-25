@@ -156,4 +156,20 @@
     border-left: none;
     border-top: 2px dashed rgba(218, 1, 55, 0.45);
   }
+  Estilos de adaptabilidad responsiva para imágenes y contenedores 
+    .poster-img {
+      width: 100%;
+      max-width: 140px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    @media (max-width: 768px) {
+      .ticket-left, .ticket-right {
+        padding: 1.25rem !important;
+      }
+      .font-display-hero {
+        font-size: 1.75rem !important;
+      }
+    }
 }

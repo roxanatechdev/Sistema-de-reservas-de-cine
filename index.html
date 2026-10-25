@@ -329,221 +329,13 @@
                     </div>
                 </div>
 
-                <!-- Grid de Tarjetas (4 Columnas) -->
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-
-                    <!-- Upcoming 1: Avatar -->
-                    <div class="col">
-                        <div
-                            class="card card-upcoming h-100 bg-cm-surface border border-white border-opacity-10 rounded-3 overflow-hidden">
-                            <div class="position-relative overflow-hidden bg-cm-surface-low"
-                                style="aspect-ratio: 16/10;">
-                                <img class="w-100 h-100 object-fit-cover img-zoom"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsZCSoqOmNFFoDh_F01a9JW2itzSnMg46OsPb-BSLsND0lb685elA0Zic39FeMJt6NwqGvBG-J-PTmdOf20c-h2y69gzydSOvFU7kQbvcLELpDhQKXT6o54Ct6hFca923bhAtX1XajP7gZNxalEbuCVF4DhaHVEz5ORDxVOYYx3ic8DN9R6CuviR04sMH6DLRwLuC5wNbtWo5wCAdTk54YTki7OvSLK9ylgFLeImyU3hwB9X8BmsvLKA"
-                                    alt="Avatar: Fire and Ash" />
-                                <!-- Overlay desvanecido progresivo -->
-                                <div class="card-media-overlay"></div>
-                                <span
-                                    class="position-absolute top-0 start-0 m-3 badge bg-danger text-light px-2 py-1 uppercase font-bold tracking-wider shadow-sm z-2">
-                                    Preventa Activa
-                                </span>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-3">
-                                <div>
-                                    <div class="d-flex justify-content-between">
-                                        <small
-                                            class="font-display fs-6 text-cm-tertiary text-uppercase fw-normal  tracking-wider d-block mb-1">19
-                                            Diciembre 2026</small>
-
-                                    </div>
-
-                                    <h3 class="font-display fs-3 text-light mb-1">Avatar: Fire and Ash</h3>
-                                    <p class="small text-cm-variant text-truncate-2 mb-0">El clan de las cenizas emerge
-                                        en
-                                        Pandora desafiando todo equilibrio natural.</p>
-                                </div>
-                                <!-- Área de Botones de Acción -->
-                                <div class="d-flex align-items-center gap-2 pt-2">
-                                    <!-- Botón Avisarme: Acción Principal Destacada (Flex Fill) -->
-                                    <button
-                                        class="btn btn-sm bg-warning bg-opacity-10 border border-warning border-opacity-25 text-cm-tertiary flex-fill d-flex align-items-center justify-content-center gap-2 uppercase tracking-wider py-2 rounded-2 btn-hover-gold"
-                                        type="button">
-                                        <span class="material-symbols-outlined"
-                                            style="font-size: 18px;">notifications</span>
-                                        <span>Activar Notificación</span>
-                                    </button>
-                                    <!-- Botón Tráiler: Solo Icono compacto de Play -->
-                                    <button
-                                        class="btn btn-sm bg-cm-surface-high text-light d-flex align-items-center justify-content-center p-2 border-0 rounded-2 btn-hover-subtle"
-                                        type="button" aria-label="Ver Tráiler" title="Ver Tráiler">
-                                        <span class="material-symbols-outlined"
-                                            style="font-size: 20px;">play_arrow</span>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
+                <!-- Películas próximas cargadas desde la API pública de Laravel -->
+                <div id="proximamente-peliculas"
+                    class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4"
+                    aria-live="polite">
+                    <div class="col-12 text-center py-4 text-cm-variant" id="proximamente-cargando">
+                        Cargando próximos estrenos...
                     </div>
-
-                    <!-- Upcoming 2: Tron: Ares -->
-                    <div class="col">
-                        <div
-                            class="card card-upcoming h-100 bg-cm-surface border border-white border-opacity-10 rounded-3 overflow-hidden">
-                            <div class="position-relative overflow-hidden bg-cm-surface-low"
-                                style="aspect-ratio: 16/10;">
-                                <img class="w-100 h-100 object-fit-cover img-zoom"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuUXzAmpKhYnPZywpqVQX7vH2mpmw1scEDQE-vzE4Wb0O2KgsSZOoREkwSu-1-c2-QRJbBl6lZW16cJeuK96lYhK4upSf64TNrNDvlJu5eXYXhzZapFAU1D3s0S8VwrFTX6AEgQ6OI028UAmZtM0Ght_b2zPLB_mEjbiMxpR_unvL_vWH9WC5gWGHsQUKEJHpjFafW4LnnkevtQF9X8FycnsVNxU32jfmsmnSlZndTZLoAbZ75e5sAag"
-                                    alt="Tron: Ares" />
-                                <!-- Overlay desvanecido progresivo -->
-                                <div class="card-media-overlay"></div>
-                                <span
-                                    class="position-absolute top-0 start-0 m-3 badge bg-dark bg-opacity-75 backdrop-blur text-light px-2 py-1 uppercase font-bold tracking-wider z-2">
-                                    Tráiler Disponible
-                                </span>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-3">
-                                <div>
-                                    <div class="d-flex justify-content-between">
-                                        <small
-                                            class="font-display fs-6 text-cm-tertiary text-uppercase fw-normal  tracking-wider d-block mb-1">10
-                                            Octubre 2026</small>
-
-                                    </div>
-
-                                    <h3 class="font-display fs-3 text-light mb-1">Tron: Ares</h3>
-                                    <p class="small text-cm-variant text-truncate-2 mb-0">Un sofisticado programa
-                                        digital cruza
-                                        hacia el mundo real con consecuencias irreversibles.</p>
-                                </div>
-                                <!-- Área de Botones de Acción -->
-                                <div class="d-flex align-items-center gap-2 pt-2">
-                                    <!-- Botón Avisarme: Acción Principal Destacada (Flex Fill) -->
-                                    <button
-                                        class="btn btn-sm bg-warning bg-opacity-10 border border-warning border-opacity-25 text-cm-tertiary flex-fill d-flex align-items-center justify-content-center gap-2 uppercase tracking-wider py-2 rounded-2 btn-hover-gold"
-                                        type="button">
-                                        <span class="material-symbols-outlined"
-                                            style="font-size: 18px;">notifications</span>
-                                        <span>Activar Notificación</span>
-                                    </button>
-                                    <!-- Botón Tráiler: Solo Icono compacto de Play -->
-                                    <button
-                                        class="btn btn-sm bg-cm-surface-high text-light d-flex align-items-center justify-content-center p-2 border-0 rounded-2 btn-hover-subtle"
-                                        type="button" aria-label="Ver Tráiler" title="Ver Tráiler">
-                                        <span class="material-symbols-outlined"
-                                            style="font-size: 20px;">play_arrow</span>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Upcoming 3: Superman: Legacy -->
-                    <div class="col">
-                        <div
-                            class="card card-upcoming h-100 bg-cm-surface border border-white border-opacity-10 rounded-3 overflow-hidden">
-                            <div class="position-relative overflow-hidden bg-cm-surface-low"
-                                style="aspect-ratio: 16/10;">
-                                <img class="w-100 h-100 object-fit-cover img-zoom"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_hly03SSqM12NMaay4ihUJj9HOseU1CY8Z-Aq333Sv6rOomrQMEdJJtChyQjl0EyPu1qnpV7hSuGInXu9ZSWCYMebMNigGH9O_CYdVwX4_zO1QquHi-iU_k2aQvB2PJdcD916_a-z6ir9YTIN2RoNe2ssVSGXT7UyS1GJyJ6culQQROfXcjUOGBDSI5k_6GmTresmZUk_RV7XVoM1-TP2xNlCHTWI9-OIoZslfBOTixRsZfth5eCY6Q"
-                                    alt="Superman: Legacy" />
-                                <!-- Overlay desvanecido progresivo -->
-                                <div class="card-media-overlay"></div>
-                                <span
-                                    class="position-absolute top-0 start-0 m-3 badge bg-warning text-dark px-2 py-1 uppercase font-bold tracking-wider z-2">
-                                    Exclusivo IMAX
-                                </span>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-3">
-                                <div>
-                                    <div class="d-flex justify-content-between">
-                                        <small
-                                            class="font-display fs-6 text-cm-tertiary text-uppercase fw-normal  tracking-wider d-block mb-1">11
-                                            Diciembre 2026</small>
-
-                                    </div>
-
-                                    <h3 class="font-display fs-3 text-light mb-1">Superman: Legacy</h3>
-                                    <p class="small text-cm-variant text-truncate-2 mb-0">El nuevo amanecer del héroe
-                                        más
-                                        legendario en una escala colosal para salas IMAX.</p>
-                                </div>
-                                <!-- Área de Botones de Acción -->
-                                <div class="d-flex align-items-center gap-2 pt-2">
-                                    <!-- Botón Avisarme: Acción Principal Destacada (Flex Fill) -->
-                                    <button
-                                        class="btn btn-sm bg-warning bg-opacity-10 border border-warning border-opacity-25 text-cm-tertiary flex-fill d-flex align-items-center justify-content-center gap-2 uppercase tracking-wider py-2 rounded-2 btn-hover-gold"
-                                        type="button">
-                                        <span class="material-symbols-outlined"
-                                            style="font-size: 18px;">notifications</span>
-                                        <span>Activar Notificación</span>
-                                    </button>
-                                    <!-- Botón Tráiler: Solo Icono compacto de Play -->
-                                    <button
-                                        class="btn btn-sm bg-cm-surface-high text-light d-flex align-items-center justify-content-center p-2 border-0 rounded-2 btn-hover-subtle"
-                                        type="button" aria-label="Ver Tráiler" title="Ver Tráiler">
-                                        <span class="material-symbols-outlined"
-                                            style="font-size: 20px;">play_arrow</span>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Upcoming 4: Mickey 17 -->
-                    <div class="col">
-                        <div
-                            class="card card-upcoming h-100 bg-cm-surface border border-white border-opacity-10 rounded-3 overflow-hidden">
-                            <div class="position-relative overflow-hidden bg-cm-surface-low"
-                                style="aspect-ratio: 16/10;">
-                                <img class="w-100 h-100 object-fit-cover img-zoom"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSg5kQLWAecZF9ft-I5gTDhx6lUSn5cCASZ_gD3CNw9Eoex-GKqcIaPGa43kN9tuIPX7lcHAA3CspilnibkMTwfkVwvZdayg0oXfWnEajZW8qqPzJYr6RBFZ1jDNWWvERVetmz5wBlJ5QgoBDmJUH7lr3UpwgbJ0RAsfhDxTzZmegb8-ItHmIbAo-Z8vAyOB5vkXp6ZD3BsPGeUdLB5YIiJ-R8zf3k265WEN6qi9iD1LaiWkwZ0AEG0A"
-                                    alt="Mickey 17" />
-                                <!-- Overlay desvanecido progresivo -->
-                                <div class="card-media-overlay"></div>
-                                <span
-                                    class="position-absolute top-0 start-0 m-3 badge bg-dark bg-opacity-75 backdrop-blur text-light px-2 py-1 uppercase font-bold tracking-wider z-2">
-                                    Preventa Próxima
-                                </span>
-                            </div>
-                            <div class="card-body p-3 d-flex flex-column justify-content-between gap-3">
-                                <div>
-                                    <div class="d-flex justify-content-between">
-                                        <small
-                                            class="font-display fs-6 text-cm-tertiary text-uppercase fw-normal  tracking-wider d-block mb-1">19
-                                            Diciembre 2026</small>
-
-                                    </div>
-
-                                    <h3 class="font-display fs-3 text-light mb-1">Mickey 17</h3>
-                                    <p class="small text-cm-variant text-truncate-2 mb-0">Dirigida por Bong Joon Ho. Un
-                                        empleado
-                                        desechable es enviado a colonizar el mundo de hielo.</p>
-                                </div>
-                                <!-- Área de Botones de Acción -->
-                                <div class="d-flex align-items-center gap-2 pt-2">
-                                    <!-- Botón Avisarme: Acción Principal Destacada (Flex Fill) -->
-                                    <button
-                                        class="btn btn-sm bg-warning bg-opacity-10 border border-warning border-opacity-25 text-cm-tertiary flex-fill d-flex align-items-center justify-content-center gap-2 uppercase tracking-wider py-2 rounded-2 btn-hover-gold"
-                                        type="button">
-                                        <span class="material-symbols-outlined"
-                                            style="font-size: 18px;">notifications</span>
-                                        <span>Activar Notificación</span>
-                                    </button>
-                                    <!-- Botón Tráiler: Solo Icono compacto de Play -->
-                                    <button
-                                        class="btn btn-sm bg-cm-surface-high text-light d-flex align-items-center justify-content-center p-2 border-0 rounded-2 btn-hover-subtle"
-                                        type="button" aria-label="Ver Tráiler" title="Ver Tráiler">
-                                        <span class="material-symbols-outlined"
-                                            style="font-size: 20px;">play_arrow</span>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -866,7 +658,6 @@
 
             </div>
         </section>
-        </section>
     </main>
     <div id="footer-container"></div>
     <!--<div id="footer-container" data-variant="minimal"></div>-->
@@ -875,6 +666,7 @@
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cartelera.js"></script>
+    <script src="js/proximamente.js"></script>
 </body>
 
 </html>

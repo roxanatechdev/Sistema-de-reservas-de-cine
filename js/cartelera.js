@@ -59,11 +59,11 @@ function crearTarjeta(pelicula) {
     // Placeholders y valores por defecto para datos faltantes
     const titulo = pelicula.titulo || 'Cyber Echo: Void';
     const poster = esUrlSegura(pelicula.imagen) ? pelicula.imagen : 'img/cyber-echo.jpg';
-    const formato = pelicula.formato || 'IMAX';
-    const rating = pelicula.rating || '9.1';
-    const duracion = pelicula.duracion || (pelicula.duracion_minutos ? `${Math.floor(pelicula.duracion_minutos / 60)}h ${pelicula.duracion_minutos % 60}m` : '2h 12m');
-    const genero = pelicula.genero || 'Cyberpunk / Thriller';
-    const horarios = pelicula.horarios || ['16:30', '19:00', '21:45'];
+    const formato = pelicula.formato || 'Formato por confirmar';
+    const rating = pelicula.rating ?? '—';
+    const duracion = pelicula.duracion || (pelicula.duracion_minutos ? `${Math.floor(pelicula.duracion_minutos / 60)}h ${pelicula.duracion_minutos % 60}m` : 'Duración por confirmar');
+    const genero = pelicula.genero || 'Género por confirmar';
+    const horarios = Array.isArray(pelicula.horarios) && pelicula.horarios.length ? pelicula.horarios : ['Por confirmar'];
     const trailerUrl = esUrlSegura(pelicula.trailer) ? pelicula.trailer : '#';
 
     // Estructura HTML exacta respetando todas tus clases originales

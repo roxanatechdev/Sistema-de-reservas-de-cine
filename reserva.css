@@ -4,8 +4,8 @@
             --cm-primary-container: #e50914;
             --cm-on-primary: #690003;
             --cm-on-primary-container: #fff7f6;
-            --cm-tertiary: #e9c349;
-            --cm-tertiary-container: #cca730;
+            --cm-tertiary: #ff0000;
+            --cm-tertiary-container: #ff0000;
             --cm-on-tertiary: #3c2f00;
             
             --cm-background: #11131c;
@@ -26,11 +26,11 @@
             
             --cm-glow-primary: 0 0 20px rgba(229, 9, 20, 0.35);
             --cm-glow-primary-intense: 0 0 28px rgba(229, 9, 20, 0.55);
-            --cm-glow-tertiary: 0 0 16px rgba(233, 195, 73, 0.35);
+            --cm-glow-tertiary: 0 0 16px rgba(255, 0, 0, 0.35);
         }
 
         .title-gradient-cinematic {
-            background: linear-gradient(135deg, #ffffff 0%, var(--cm-primary-container) 50%, var(--cm-tertiary) 100%);
+            background: linear-gradient(135deg, #ffffff  40%, var(--cm-primary-container) 60%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-family: var(--cm-font-display);

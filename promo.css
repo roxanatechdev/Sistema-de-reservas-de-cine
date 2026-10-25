@@ -201,13 +201,13 @@
 
         /* Clase para aplicar efecto gradiente en texto */
         .text-gradient-title {
-            background: linear-gradient(135deg, #ffffff 30%, #ffb4aa 70%, #e50914 100%);
+            background: linear-gradient(135deg, #ffffff 30%, #ef8274 70%, #e50914 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .text-gradient-subtitle {
-            background: linear-gradient(135deg, #ffffff 40%, #e9c349 100%);
+            background: linear-gradient(135deg, #ffffff 40%, #ff0000 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
