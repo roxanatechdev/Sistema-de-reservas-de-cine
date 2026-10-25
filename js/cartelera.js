@@ -21,7 +21,8 @@ async function cargarCartelera() {
             throw new Error(`Error HTTP ${respuesta.status}`);
         }
 
-        const peliculas = await respuesta.json();
+        const datos = await respuesta.json();
+        const peliculas = Array.isArray(datos) ? datos : datos.peliculas;
 
         if (!Array.isArray(peliculas)) {
             throw new Error('La API no devolvió una lista de películas.');
@@ -57,14 +58,23 @@ function crearTarjeta(pelicula) {
     columna.className = 'col';
 
     // Placeholders y valores por defecto para datos faltantes
-    const titulo = pelicula.titulo || 'Cyber Echo: Void';
+    const titulo = pelicula.titulo || 'Película próximamente';
     const poster = esUrlSegura(pelicula.imagen) ? pelicula.imagen : 'img/cyber-echo.jpg';
-    const formato = pelicula.formato || 'Formato por confirmar';
+    const formato = pelicula.formato || 'FORMATO N/D';
     const rating = pelicula.rating ?? '—';
-    const duracion = pelicula.duracion || (pelicula.duracion_minutos ? `${Math.floor(pelicula.duracion_minutos / 60)}h ${pelicula.duracion_minutos % 60}m` : 'Duración por confirmar');
+    const duracion = pelicula.duracion || (pelicula.duracion_minutos ? `${Math.floor(pelicula.duracion_minutos / 60)}h ${pelicula.duracion_minutos % 60}m` : 'Duración N/D');
     const genero = pelicula.genero || 'Género por confirmar';
-    const horarios = Array.isArray(pelicula.horarios) && pelicula.horarios.length ? pelicula.horarios : ['Por confirmar'];
-    const trailerUrl = esUrlSegura(pelicula.trailer) ? pelicula.trailer : '#';
+    const funciones = Array.isArray(pelicula.funciones) ? pelicula.funciones : [];
+    const trailerUrl = esUrlSegura(pelicula.trailer) ? pelicula.trailer : null;
+    const funcionesSemanaHTML = funciones.length
+        ? funciones.slice(0, 3).map(funcion => {
+            const fechaHora = formatearFuncion(funcion);
+            const sala = escaparHTML(funcion.sala || 'Sala por confirmar');
+            const formatoFuncion = escaparHTML(funcion.formato || 'Formato N/D');
+            const idFuncion = Number(funcion.id_funcion) || '';
+            return `<button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1" type="button" title="${sala} · ${formatoFuncion}" data-funcion-id="${idFuncion}">${escaparHTML(fechaHora)}</button>`;
+        }).join('')
+        : '<span class="text-white-50 small">Sin funciones esta semana</span>';
 
     // Estructura HTML exacta respetando todas tus clases originales
     columna.innerHTML = `
@@ -84,7 +94,7 @@ function crearTarjeta(pelicula) {
                 <div class="position-absolute top-50 start-50 translate-middle z-3 trailer-hover-btn">
                     <button type="button" aria-label="Ver Tráiler"
                         class="btn btn-trailer-play rounded-circle d-flex align-items-center justify-content-center"
-                        onclick="window.open('${trailerUrl}', '_blank')">
+                        ${trailerUrl ? '' : 'disabled title="Tráiler no disponible"'}>
                         <span class="material-symbols-outlined fs-2">play_arrow</span>
                     </button>
                 </div>
@@ -129,10 +139,10 @@ function crearTarjeta(pelicula) {
                 <!-- Horarios Disponibles -->
                 <div class="d-flex flex-column gap-1">
                     <span class="showtime-label text-uppercase fw-bold py-1">
-                        HORARIOS HOY
+                        FUNCIONES ESTA SEMANA
                     </span>
                     <div class="d-flex gap-2">
-                        ${horarios.map(h => `<button class="btn btn-showtime flex-fill py-1 px-1 text-nowrap rounded-1" type="button">${h}</button>`).join('')}
+                        ${funcionesSemanaHTML}
                     </div>
                 </div>
 
@@ -148,7 +158,23 @@ function crearTarjeta(pelicula) {
         </div>
     `;
 
+    const botonTrailer = columna.querySelector('.btn-trailer-play');
+    if (trailerUrl && botonTrailer) {
+        botonTrailer.addEventListener('click', () => window.open(trailerUrl, '_blank', 'noopener,noreferrer'));
+    }
+
     return columna;
+}
+
+function formatearFuncion(funcion) {
+    if (!funcion || !funcion.inicio) return 'Hora N/D';
+    const fecha = new Date(funcion.inicio);
+    if (Number.isNaN(fecha.getTime())) {
+        return `${funcion.fecha || ''} ${funcion.hora || ''}`.trim() || 'Hora N/D';
+    }
+    const dia = new Intl.DateTimeFormat('es-BO', { weekday: 'short', day: '2-digit' }).format(fecha);
+    const hora = funcion.hora || new Intl.DateTimeFormat('es-BO', { hour: '2-digit', minute: '2-digit', hour12: false }).format(fecha);
+    return `${dia} ${hora}`;
 }
 
 function esUrlSegura(valor) {
@@ -178,4 +204,13 @@ function mostrarMensaje(contenedor, mensaje, esError = false) {
 
     columna.appendChild(alerta);
     contenedor.replaceChildren(columna);
+
+}
+function escaparHTML(valor) {
+    return String(valor ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
 }
