@@ -42,7 +42,7 @@
 
             <!-- Imagen de Fondo (Cover + No Repeat) + Capas de Gradiente Cinematográfico -->
             <div class="position-absolute top-0 start-0 w-100 h-100 bg-hero-cover"
-                style="background-image: url(img/Dune-Part-Two-Background-Wallpaper.png);">
+                id="hero-background" style="background-image: url(img/Dune-Part-Two-Background-Wallpaper.png);">
 
                 <!-- Gradientes para contraste cinemático -->
                 <div class="position-absolute top-0 start-0 h-100 w-100 w-md-75 hero-gradient-horizontal"></div>
@@ -60,47 +60,44 @@
                         <div
                             class="tag-cartelera d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill hero-status-pill border">
                             <span class="pulse-dot rounded-circle"></span>
-                            <span class="font-label-sm text-uppercase tracking-widest text-cm-primary fw-bold">En
-                                Cartelera</span>
+                            <span id="hero-status-text" class="font-label-sm text-uppercase tracking-widest text-cm-primary fw-bold">En cartelera</span>
                         </div>
                         <span
                             class="rating metadatos font-label-md text-cm-tertiary d-flex align-items-center gap-1 fw-bold">
                             <span class="material-symbols-outlined fs-6 icon-filled">star</span>
-                            Calificación 9.8 Seleccionada
+                            Selección CinePrime
                         </span>
                     </div>
 
                     <!-- Título Principal -->
                     <h1 class="font-display-hero text-uppercase leading-none text-cm-on-surface m-0 hero-title-shadow">
-                        DUNE: <span class="hero-title-gradient">PARTE DOS</span>
+                        <span class="hero-title-gradient" id="hero-title">DUNE: PARTE DOS</span>
                     </h1>
 
                     <!-- Barra de Metadatos -->
                     <div class="metadatos d-flex flex-wrap align-items-center gap-2 font-label-md text-cm-variant">
-                        <span class="text-cm-on-surface fw-semibold text-white">2h 46min</span>
+                        <span id="hero-duration" class="text-cm-on-surface fw-semibold text-white">2h 46min</span>
                         <span class="hero-dot rounded-circle"></span>
-                        <span
+                        <span id="hero-classification"
                             class="px-2 py-1 rounded bg-cm-surface-highest text-cm-on-surface font-label-sm text-uppercase tracking-wider text-white">PG-13</span>
                         <span class="hero-dot rounded-circle"></span>
                         <span class="d-flex align-items-center gap-1 text-cm-tertiary fw-bold">
                             <span class="material-symbols-outlined fs-6 icon-filled">star</span>
-                            9.4/10
+                            <span id="hero-rating">Calificación N/D</span>
                         </span>
                         <span class="hero-dot rounded-circle"></span>
-                        <span class="text-cm-on-surface text-white">Ciencia Ficción / Aventura</span>
+                        <span id="hero-genre" class="text-cm-on-surface text-white">Ciencia ficción / Aventura</span>
                         <span class="hero-dot rounded-circle"></span>
-                        <span
+                        <span id="hero-format"
                             class="px-2 py-1 rounded bg-cm-surface-high text-cm-primary font-label-sm text-uppercase tracking-wider border border-primary-20 tag">
                             IMAX 3D &amp; DOLBY ATMOS
                         </span>
                     </div>
 
                     <!-- Sinopsis -->
-                    <p
+                    <p id="hero-synopsis"
                         class="font-body-lg text-cm-variant hero-synopsis-max-w line-clamp-3 leading-relaxed m-0 text-shadow-sm">
-                        Paul Atreides lidera a los Fremen en una guerra total por el destino de Arrakis y el control
-                        supremo de la especia en toda la galaxia conocida. Una odisea visual trascendental en
-                        formatos macro de última generación.
+                        La sinopsis estará disponible próximamente.
                     </p>
 
                     <!-- Botones de Acción -->
@@ -110,9 +107,9 @@
                             <span class="material-symbols-outlined fs-5 icon-filled">confirmation_number</span>
                             <span>Comprar Entradas</span>
                         </a>
-                        <button type="button"
+                        <button id="hero-trailer-button" type="button"
                             class="btn btn-cm-secondary font-label-lg text-uppercase tracking-wider rounded-3 px-4 py-3 d-inline-flex align-items-center gap-2"
-                            onclick="alert('Reproduciendo tráiler oficial en formato 4K HDR...')">
+                            disabled title="Tráiler no disponible">
                             <span class="material-symbols-outlined fs-5 icon-filled">play_circle</span>
                             <span>Ver Tráiler</span>
                         </button>
@@ -123,21 +120,21 @@
             <!-- Botones Flotantes del Carrusel (Flechas con posicionamiento seguro) -->
             <button type="button"
                 class="position-absolute top-50 translate-middle-y z-3 btn-hero-arrow start-0 ms-2 ms-sm-4 rounded-circle d-flex align-items-center justify-content-center border-0"
-                aria-label="Anterior Película">
+                id="hero-prev" aria-label="Película anterior">
                 <span class="material-symbols-outlined fs-2">chevron_left</span>
             </button>
             <button type="button"
                 class="position-absolute top-50 translate-middle-y z-3 btn-hero-arrow end-0 me-2 me-sm-4 rounded-circle d-flex align-items-center justify-content-center border-0"
-                aria-label="Siguiente Película">
+                id="hero-next" aria-label="Película siguiente">
                 <span class="material-symbols-outlined fs-2">chevron_right</span>
             </button>
 
             <!-- Indicadores (Puntos) -->
             <div
                 class="position-absolute bottom-0 start-50 translate-middle-x z-3 mb-4 d-flex align-items-center gap-2">
-                <span class="hero-indicator active rounded-pill"></span>
-                <span class="hero-indicator rounded-circle"></span>
-                <span class="hero-indicator rounded-circle"></span>
+                <button type="button" class="hero-indicator active rounded-pill border-0" data-hero-index="0" aria-label="Mostrar película destacada 1" aria-current="true"></button>
+                <button type="button" class="hero-indicator rounded-circle border-0" data-hero-index="1" aria-label="Mostrar película destacada 2"></button>
+                <button type="button" class="hero-indicator rounded-circle border-0" data-hero-index="2" aria-label="Mostrar película destacada 3"></button>
             </div>
         </section>
         <!-- SECCIÓN 2: STRIP DE RESERVA RÁPIDA (QUICK BOOKING STRIP) -->
@@ -666,6 +663,7 @@
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cartelera.js"></script>
+    <script src="js/peliculas-destacadas.js"></script>
     <script src="js/proximamente.js"></script>
 </body>
 
