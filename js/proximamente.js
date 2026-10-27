@@ -1,5 +1,5 @@
 const API_PROXIMAMENTE = 'http://127.0.0.1:8000/api/peliculas/proximamente';
-const POSTER_PLACEHOLDER = 'img/cyber-echo.jpg';
+const POSTER_PROXIMAMENTE_PLACEHOLDER = 'https://placehold.co/400x250/191b24/ffffff?text=Poster+No+Disponible';
 
 document.addEventListener('DOMContentLoaded', cargarProximamente);
 
@@ -52,11 +52,11 @@ function crearTarjetaProximamente(pelicula) {
 
     const imagen = document.createElement('img');
     imagen.className = 'w-100 h-100 object-fit-cover img-zoom';
-    imagen.src = urlImagenSegura(pelicula.imagen) ? pelicula.imagen : POSTER_PLACEHOLDER;
+    imagen.src = urlImagenSegura(pelicula.imagen) ? pelicula.imagen : POSTER_PROXIMAMENTE_PLACEHOLDER;
     imagen.alt = pelicula.imagen_alt || (pelicula.titulo ? `Póster de ${pelicula.titulo}` : 'Póster no disponible');
     imagen.onerror = () => {
         imagen.onerror = null;
-        imagen.src = POSTER_PLACEHOLDER;
+        imagen.src = POSTER_PROXIMAMENTE_PLACEHOLDER;
     };
     zonaImagen.appendChild(imagen);
 
