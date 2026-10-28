@@ -172,7 +172,6 @@ function actualizarSelectorDias() {
     const inicio = new Date(`${desde}T12:00:00`);
     const hoy = new Date();
     hoy.setHours(0, 0, 0, 0);
-    let fechaSeleccionadaExiste = false;
     botones.forEach((boton, index) => {
         const fecha = new Date(inicio);
         fecha.setDate(inicio.getDate() + index);
@@ -187,16 +186,21 @@ function actualizarSelectorDias() {
         boton.dataset.fecha = fechaISO;
         boton.disabled = fecha < hoy;
         boton.setAttribute('aria-label', `${nombreCompleto}, ${peliculasDia} películas con funciones`);
-        if (fechaActual === fechaISO) fechaSeleccionadaExiste = true;
     });
-    if (!fechaSeleccionadaExiste) {
-        fechaActual = '';
-        const hoyBtn = botones.find(b => b.dataset.fecha === `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}` && !b.disabled);
+
+    // Al entrar, seleccionar hoy (o el primer día disponible) y mantener
+    // exactamente un día activo. El CSS pinta en rojo el botón .active.
+    const fechaHoy = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`;
+    const fechaActualValida = botones.some(b => b.dataset.fecha === fechaActual && !b.disabled);
+    if (!fechaActualValida) {
+        const hoyBtn = botones.find(b => b.dataset.fecha === fechaHoy && !b.disabled);
         const primerDisponible = hoyBtn || botones.find(b => !b.disabled);
-        if (primerDisponible) {
-            primerDisponible.classList.add('active');
-        }
+        fechaActual = primerDisponible?.dataset.fecha || '';
     }
+    botones.forEach(boton => {
+        boton.classList.toggle('active', Boolean(fechaActual) && boton.dataset.fecha === fechaActual && !boton.disabled);
+        boton.setAttribute('aria-pressed', String(Boolean(fechaActual) && boton.dataset.fecha === fechaActual && !boton.disabled));
+    });
 }
 
 function limpiarFiltros() {
