@@ -90,7 +90,7 @@ function distanciaFecha(valor, hoy) {
 
 function puntuarCompletitud(pelicula) {
     return [pelicula.titulo, pelicula.sinopsis, pelicula.genero, pelicula.imagen,
-        pelicula.clasificacion, pelicula.duracion_minutos, pelicula.trailer].filter(Boolean).length;
+    pelicula.clasificacion, pelicula.duracion_minutos, pelicula.trailer].filter(Boolean).length;
 }
 
 function crearPeliculaPlaceholder(numero) {
@@ -104,7 +104,7 @@ function crearPeliculaPlaceholder(numero) {
         fecha_estreno: null,
         imagen: null,
         imagen_alt: 'Imagen de película no disponible',
-        trailer: null,
+        trailer: 'https://www.youtube.com/embed/Way9Dexny3w?autoplay=1',
         es_placeholder: true
     };
 }
@@ -134,23 +134,23 @@ function mostrarDestacada(indice) {
     if (botonTrailer) {
         botonTrailer.disabled = !trailer;
         botonTrailer.title = trailer ? 'Ver tráiler' : 'Tráiler no disponible';
-        botonTrailer.onclick = trailer ? () => window.open(trailer, '_blank', 'noopener,noreferrer') : null;
     }
+}
 
-    const botonComprar = document.querySelector('.hero-section .btn-cm-primary');
-    if (botonComprar) {
-        botonComprar.href = '#cartelera-section';
-        botonComprar.setAttribute('aria-label', `Ver cartelera para ${pelicula.titulo || 'la película destacada'}`);
-    }
+const botonComprar = document.querySelector('.hero-section .btn-cm-primary');
+if (botonComprar) {
+    botonComprar.href = '#cartelera-section';
+    botonComprar.setAttribute('aria-label', `Ver cartelera para ${pelicula.titulo || 'la película destacada'}`);
+}
 
-    document.querySelectorAll('[data-hero-index]').forEach((indicador, i) => {
-        const activo = i === indiceDestacadoActual;
-        indicador.classList.toggle('active', activo);
-        indicador.classList.toggle('rounded-pill', activo);
-        indicador.classList.toggle('rounded-circle', !activo);
-        if (activo) indicador.setAttribute('aria-current', 'true');
-        else indicador.removeAttribute('aria-current');
-    });
+document.querySelectorAll('[data-hero-index]').forEach((indicador, i) => {
+    const activo = i === indiceDestacadoActual;
+    indicador.classList.toggle('active', activo);
+    indicador.classList.toggle('rounded-pill', activo);
+    indicador.classList.toggle('rounded-circle', !activo);
+    if (activo) indicador.setAttribute('aria-current', 'true');
+    else indicador.removeAttribute('aria-current');
+});
 }
 
 function enlazarControlesCarrusel() {

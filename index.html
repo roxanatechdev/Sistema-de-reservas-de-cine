@@ -41,8 +41,8 @@
         <section class="position-relative w-100 hero-section overflow-hidden select-none">
 
             <!-- Imagen de Fondo (Cover + No Repeat) + Capas de Gradiente Cinematográfico -->
-            <div class="position-absolute top-0 start-0 w-100 h-100 bg-hero-cover"
-                id="hero-background" style="background-image: url(img/fondo-cine.png);">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-hero-cover" id="hero-background"
+                style="background-image: url(img/fondo-cine.png);">
 
                 <!-- Gradientes para contraste cinemático -->
                 <div class="position-absolute top-0 start-0 h-100 w-100 w-md-75 hero-gradient-horizontal"></div>
@@ -60,7 +60,9 @@
                         <div
                             class="tag-cartelera d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill hero-status-pill border">
                             <span class="pulse-dot rounded-circle"></span>
-                            <span id="hero-status-text" class="font-label-sm text-uppercase tracking-widest text-cm-primary fw-bold">Película destacada</span>
+                            <span id="hero-status-text"
+                                class="font-label-sm text-uppercase tracking-widest text-cm-primary fw-bold">Película
+                                destacada</span>
                         </div>
                         <span
                             class="rating metadatos font-label-md text-cm-tertiary d-flex align-items-center gap-1 fw-bold">
@@ -79,7 +81,8 @@
                         <span id="hero-duration" class="text-cm-on-surface fw-semibold text-white">Duración N/D</span>
                         <span class="hero-dot rounded-circle"></span>
                         <span id="hero-classification"
-                            class="px-2 py-1 rounded bg-cm-surface-highest text-cm-on-surface font-label-sm text-uppercase tracking-wider text-white">Clasificación N/D</span>
+                            class="px-2 py-1 rounded bg-cm-surface-highest text-cm-on-surface font-label-sm text-uppercase tracking-wider text-white">Clasificación
+                            N/D</span>
                         <span class="hero-dot rounded-circle"></span>
                         <span class="d-flex align-items-center gap-1 text-cm-tertiary fw-bold">
                             <span class="material-symbols-outlined fs-6 icon-filled">star</span>
@@ -107,9 +110,12 @@
                             <span class="material-symbols-outlined fs-5 icon-filled">confirmation_number</span>
                             <span>Comprar Entradas</span>
                         </a>
+                        <!-- Botón Ver Tráiler Actualizado -->
                         <button id="hero-trailer-button" type="button"
                             class="btn btn-cm-secondary font-label-lg text-uppercase tracking-wider rounded-3 px-4 py-3 d-inline-flex align-items-center gap-2"
-                            disabled title="Tráiler no disponible">
+                            data-bs-toggle="modal" data-bs-target="#videoPlayerModal"
+                            data-video-src="https://www.youtube.com/embed/Way9Dexny3w?autoplay=1"
+                            title="Ver Tráiler Oficial">
                             <span class="material-symbols-outlined fs-5 icon-filled">play_circle</span>
                             <span>Ver Tráiler</span>
                         </button>
@@ -132,9 +138,12 @@
             <!-- Indicadores (Puntos) -->
             <div
                 class="position-absolute bottom-0 start-50 translate-middle-x z-3 mb-4 d-flex align-items-center gap-2">
-                <button type="button" class="hero-indicator active rounded-pill border-0" data-hero-index="0" aria-label="Mostrar película destacada 1" aria-current="true"></button>
-                <button type="button" class="hero-indicator rounded-circle border-0" data-hero-index="1" aria-label="Mostrar película destacada 2"></button>
-                <button type="button" class="hero-indicator rounded-circle border-0" data-hero-index="2" aria-label="Mostrar película destacada 3"></button>
+                <button type="button" class="hero-indicator active rounded-pill border-0" data-hero-index="0"
+                    aria-label="Mostrar película destacada 1" aria-current="true"></button>
+                <button type="button" class="hero-indicator rounded-circle border-0" data-hero-index="1"
+                    aria-label="Mostrar película destacada 2"></button>
+                <button type="button" class="hero-indicator rounded-circle border-0" data-hero-index="2"
+                    aria-label="Mostrar película destacada 3"></button>
             </div>
         </section>
         <!-- SECCIÓN 2: STRIP DE RESERVA RÁPIDA (QUICK BOOKING STRIP) -->
@@ -323,8 +332,7 @@
                 </div>
 
                 <!-- Películas próximas cargadas desde la API pública de Laravel -->
-                <div id="proximamente-peliculas"
-                    class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4"
+                <div id="proximamente-peliculas" class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4"
                     aria-live="polite">
                     <div class="col-12 text-center py-4 text-cm-variant" id="proximamente-cargando">
                         Cargando próximos estrenos...
@@ -476,191 +484,122 @@
                 </div>
             </div>
         </section>
-        <!-- SECCIÓN 6: EXPERIENCIA CINE & Prime Club -->
-        <section class="w-100 bg-cm-surface-low position-relative">
-            <div class="container-fluid d-flex flex-column gap-5 p-0">
-                <!-- SUBSECCIÓN 1: 4 Pilares Tecnológicos -->
-                <div class="container-fluid m-0 p-2 p-lg-5" id="pilares">
-                    <div class="d-flex flex-column gap-4 px-2">
+        <!-- SUBSECCIÓN 2: Invitación al Cine (CinePrime) -->
+        <div class="club-banner position-relative overflow-hidden rounded-4 p-4 p-md-5 shadow-lg mb-5 mx-5">
 
-                        <!-- Encabezado centralizado -->
-                        <div class="text-center mx-auto d-flex flex-column gap-1" style="max-width: 42rem;">
-                            <span
-                                class="font-body fw-bold text-uppercase tracking-widest text-cm-primary-container fs-7">
-                                Tecnología de Punta
-                            </span>
-                            <h2 class="font-display text-uppercase text-white fs-1 m-0">
-                                La Experiencia Definitiva
-                            </h2>
-                            <p class="text-cm-variant fs-6 m-0">
-                                Nuestras salas fueron diseñadas desde los cimientos para sumergirte en el sonido y la
-                                imagen más puros
-                                del mundo.
-                            </p>
-                        </div>
+            <!-- Luces Neón Ambientales Traseras -->
+            <div class="ambient-glow-primary position-absolute"></div>
+            <div class="ambient-glow-tertiary position-absolute"></div>
 
-                        <!-- Grid de 4 Pilares -->
-                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            <!-- Contenido del Banner -->
+            <div
+                class="position-relative z-2 d-flex flex-column flex-lg-row align-items-center justify-content-between gap-4">
 
-                            <!-- Pilar 1 -->
-                            <div class="col">
-                                <div class="tech-pillar-card tech-primary p-4 rounded-3 d-flex flex-column gap-3 h-100">
-                                    <div
-                                        class="tech-icon-wrapper-primary rounded-3 d-flex align-items-center justify-content-center flex-shrink-0">
-                                        <span class="material-symbols-outlined fs-2">videocam</span>
-                                    </div>
-                                    <h3 class="font-display fs-4 text-white m-0">Salas 4K Láser</h3>
-                                    <p class="text-cm-variant fs-7 m-0 lh-base">
-                                        Proyección con nitidez extrema, contrastes astronómicos y colores hiperrealistas
-                                        calibrados a
-                                        estándares cinematográficos.
-                                    </p>
-                                </div>
-                            </div>
+                <!-- Textos de Invitación -->
+                <div class="d-flex flex-column gap-3 text-center text-lg-start" style="max-width: 45rem;">
 
-                            <!-- Pilar 2 -->
-                            <div class="col">
-                                <div class="tech-pillar-card tech-primary p-4 rounded-3 d-flex flex-column gap-3 h-100">
-                                    <div
-                                        class="tech-icon-wrapper-primary rounded-3 d-flex align-items-center justify-content-center flex-shrink-0">
-                                        <span class="material-symbols-outlined fs-2">surround_sound</span>
-                                    </div>
-                                    <h3 class="font-display fs-4 text-white m-0">Sonido Dolby Atmos</h3>
-                                    <p class="text-cm-variant fs-7 m-0 lh-base">
-                                        Audio tridimensional de 64 canales que se desplaza alrededor y por encima de ti
-                                        con una
-                                        precisión milimétrica.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Pilar 3 -->
-                            <div class="col">
-                                <div
-                                    class="tech-pillar-card tech-tertiary p-4 rounded-3 d-flex flex-column gap-3 h-100">
-                                    <div
-                                        class="tech-icon-wrapper-tertiary rounded-3 d-flex align-items-center justify-content-center flex-shrink-0">
-                                        <span class="material-symbols-outlined fs-2">airline_seat_recline_extra</span>
-                                    </div>
-                                    <h3 class="font-display fs-4 text-white m-0">Butacas Reclinables</h3>
-                                    <p class="text-cm-variant fs-7 m-0 lh-base">
-                                        Asientos ergonómicos motorizados tapizados en cuero premium con posavasos
-                                        térmico y cargador
-                                        inalámbrico integrado.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Pilar 4 -->
-                            <div class="col">
-                                <div
-                                    class="tech-pillar-card tech-tertiary p-4 rounded-3 d-flex flex-column gap-3 h-100">
-                                    <div
-                                        class="tech-icon-wrapper-tertiary rounded-3 d-flex align-items-center justify-content-center flex-shrink-0">
-                                        <span class="material-symbols-outlined fs-2">restaurant</span>
-                                    </div>
-                                    <h3 class="font-display fs-4 text-white m-0">Dulcería Gourmet</h3>
-                                    <p class="text-cm-variant fs-7 m-0 lh-base">
-                                        Popcorn artesanal, nachos con dip de queso trufado, cócteles de autor y servicio
-                                        de entrega
-                                        directa a tu butaca.
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
+                    <!-- Badge -->
+                    <div
+                        class="metadatos d-inline-flex align-items-center gap-2 align-self-center align-self-lg-start px-3 py-1 rounded-pill badge-club-exclusive">
+                        <span class="material-symbols-outlined text-cm-tertiary fs-6">movie</span>
+                        <span class="font-body fw-bold text-uppercase tracking-widest text-cm-tertiary">
+                            ¡Te esperamos en sala!
+                        </span>
                     </div>
+
+                    <!-- Título -->
+                    <h2 class="font-display fs-1 text-uppercase text-white tracking-wider m-0">
+                        Vive la magia del cine <span class="text-cm-primary-container">en la gran pantalla</span>
+                    </h2>
+
+                    <!-- Subtítulo / Invitación -->
+                    <p class="text-cm-variant fs-6 m-0">
+                        Desconéctate de la rutina y sumérgete en historias increíbles. Ven con tus amigos, familiares o
+                        pareja a
+                        disfrutar de los mejores estrenos con la máxima calidad de imagen y sonido. ¡Tu próxima gran
+                        función te
+                        está esperando!
+                    </p>
+
                 </div>
 
-
-                <!-- SUBSECCIÓN 2: Banner de Fidelización "Prime Club" -->
-                <div class="club-banner position-relative overflow-hidden rounded-4 p-4 p-md-5 shadow-lg mb-5 mx-5">
-
-                    <!-- Luces Neón Ambientales Traseras -->
-                    <div class="ambient-glow-primary position-absolute"></div>
-                    <div class="ambient-glow-tertiary position-absolute"></div>
-
-                    <!-- Contenido del Banner -->
-                    <div
-                        class="position-relative z-2 d-flex flex-column flex-lg-row align-items-center justify-content-between gap-4">
-
-                        <!-- Textos y Checkmarks -->
-                        <div class="d-flex flex-column gap-3 text-center text-lg-start" style="max-width: 42rem;">
-
-                            <!-- Badge -->
-                            <div
-                                class="metadatos d-inline-flex align-items-center gap-2 align-self-center align-self-lg-start px-3 py-1 rounded-pill badge-club-exclusive">
-                                <span class="material-symbols-outlined text-cm-tertiary fs-6">workspace_premium</span>
-                                <span class="font-body fw-bold text-uppercase tracking-widest text-cm-tertiary">
-                                    Membresía Exclusiva
-                                </span>
-                            </div>
-
-                            <!-- Título -->
-                            <h2 class="font-display fs-1 text-uppercase text-white tracking-wider m-0">
-                                Únete a <span class="text-cm-primary-container">Prime Club</span> y vive el cine al
-                                máximo
-                            </h2>
-
-                            <!-- Subtítulo -->
-                            <p class="text-cm-variant fs-6 m-0">
-                                Acumula puntos por cada compra, recibe entradas de cortesía en el mes de tu cumpleaños,
-                                accede a
-                                preventas con 48 horas de anticipación y disfruta descuentos VIP en confitería.
-                            </p>
-
-                            <!-- Lista de Beneficios (Checkmarks) -->
-                            <div
-                                class="metadatos d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-3 pt-2 text-white fs-7">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span
-                                        class="material-symbols-outlined text-cm-primary-container fs-6">check_circle</span>
-                                    <span>Registro 100% gratuito</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <span
-                                        class="material-symbols-outlined text-cm-primary-container fs-6">check_circle</span>
-                                    <span>Puntos canjeables por combos</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <span
-                                        class="material-symbols-outlined text-cm-primary-container fs-6">check_circle</span>
-                                    <span>Preventas secretas</span>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- Botones de Acción -->
-                        <div class="d-flex flex-column flex-sm-row align-items-center gap-3 flex-shrink-0">
-                            <button
-                                class="btn btn-cm-club-join px-4 py-3 rounded-3 text-uppercase fw-bold fs-6 tracking-wider"
-                                type="button">
-                                Únete a Prime Club Gratis
-                            </button>
-                            <button
-                                class="btn btn-cm-club-info px-4 py-3 rounded-3 text-uppercase fw-bold fs-6 tracking-wider"
-                                type="button">
-                                Conocer Beneficios
-                            </button>
-                        </div>
-
-                    </div>
-
+                <!-- Botón de Acción Hacia la Cartelera -->
+                <div class="flex-shrink-0 pt-2 pt-lg-0">
+                    <a href="#cartelera-section"
+                        class="btn btn-cm-primary font-label-lg text-uppercase tracking-wider rounded-3 px-4 py-3 d-inline-flex align-items-center gap-2 text-decoration-none fw-bold shadow-lg">
+                        <span class="material-symbols-outlined fs-5 icon-filled">confirmation_number</span>
+                        <span>Ver Cartelera</span>
+                    </a>
                 </div>
 
             </div>
-        </section>
+
+        </div>
+
     </main>
     <div id="footer-container"></div>
     <!--<div id="footer-container" data-variant="minimal"></div>-->
 
+    <!-- =================================================================== -->
+    <!-- MODAL DE REPRODUCTOR DE TRÁILER (BOOTSTRAP 5)                       -->
+    <!-- =================================================================== -->
+    <div class="modal fade" id="videoPlayerModal" tabindex="-1" aria-labelledby="videoPlayerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div
+                class="modal-content bg-cm-surface border border-secondary border-opacity-25 rounded-4 overflow-hidden shadow-lg">
+
+                <!-- Encabezado del Modal -->
+                <div class="modal-header bg-cm-surface-low border-bottom border-secondary border-opacity-10 py-3 px-4">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="material-symbols-outlined text-cm-primary fs-5">play_circle</span>
+                        <h5 class="modal-title font-display text-white fs-5 m-0 text-uppercase tracking-wider"
+                            id="videoPlayerModalLabel">
+                            Tráiler Oficial 4K IMAX
+                        </h5>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+
+                <!-- Cuerpo del Modal (Contenedor responsivo 16:9 para el Iframe) -->
+                <div class="modal-body p-0 bg-black">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="videoIframe" src="" title="Tráiler CinePrime" allowfullscreen
+                            allow="autoplay"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <!-- Bootstrap 5.3 JS Bundle -->
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cartelera.js"></script>
     <script src="js/peliculas-destacadas.js"></script>
     <script src="js/proximamente.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const videoModal = document.getElementById("videoPlayerModal");
+            const videoIframe = document.getElementById("videoIframe");
+
+            if (videoModal && videoIframe) {
+                videoModal.addEventListener("show.bs.modal", (event) => {
+                    const button = event.relatedTarget;
+                    const videoSrc = button ? button.getAttribute("data-video-src") : "";
+                    if (videoSrc) {
+                        videoIframe.src = videoSrc;
+                    }
+                });
+
+                // Al cerrar el modal, limpia la fuente para detener el audio y video
+                videoModal.addEventListener("hidden.bs.modal", () => {
+                    videoIframe.src = "";
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
