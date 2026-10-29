@@ -1,5 +1,14 @@
 const API_PROXIMAMENTE = 'http://127.0.0.1:8000/api/peliculas/proximamente';
-const POSTER_PROXIMAMENTE_PLACEHOLDER = 'https://placehold.co/400x250/191b24/ffffff?text=Poster+No+Disponible';
+// Nombre propio para evitar conflicto con la constante de cartelera.js.
+const POSTER_PROXIMAMENTE_PLACEHOLDER = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="375" viewBox="0 0 600 375">
+  <rect width="600" height="375" fill="#191b24"/>
+  <rect x="245" y="82" width="110" height="78" rx="10" fill="none" stroke="#e9c349" stroke-width="5"/>
+  <path d="M245 103h110M267 82l-14 21m44-21-14 21m44-21-14 21" stroke="#e9c349" stroke-width="5" fill="none"/>
+  <path d="M290 119l29 16-29 16z" fill="#e9c349"/>
+  <text x="300" y="211" fill="#f4f6fb" font-family="Arial,sans-serif" font-size="22" text-anchor="middle" font-weight="700">CINEPRIME</text>
+  <text x="300" y="245" fill="#bdc6d4" font-family="Arial,sans-serif" font-size="17" text-anchor="middle">Póster no disponible</text>
+</svg>`);
 
 document.addEventListener('DOMContentLoaded', cargarProximamente);
 
@@ -16,9 +25,18 @@ async function cargarProximamente() {
             throw new Error(`Error HTTP ${respuesta.status}`);
         }
 
-        const peliculas = await respuesta.json();
-        if (!Array.isArray(peliculas)) {
-            throw new Error('La API no devolvió una lista de próximos estrenos.');
+        const datos = await respuesta.json();
+
+        // La API pública normalmente devuelve un array; también aceptamos
+        // { peliculas: [...] } para tolerar cambios en el formato de respuesta.
+        const peliculas = Array.isArray(datos)
+            ? datos
+            : (Array.isArray(datos?.peliculas) ? datos.peliculas : null);
+
+        if (!peliculas) {
+            throw new Error(
+                'La API respondió, pero el JSON no contiene una lista de películas. Revisa /api/peliculas/proximamente.'
+            );
         }
 
         contenedor.replaceChildren();
@@ -138,7 +156,18 @@ function formatearFecha(valor) {
 function urlImagenSegura(valor) {
     if (typeof valor !== 'string' || !valor.trim()) return false;
     const limpio = valor.trim();
-    if (/^https?:\/\//i.test(limpio)) return true;
+
+    if (/^https?:\/\//i.test(limpio)) {
+        try {
+            const url = new URL(limpio);
+            // Las URL example.test son datos de ejemplo y no alojan imágenes reales.
+            if (url.hostname === 'example.test' || url.hostname.endsWith('.example.test')) return false;
+            return true;
+        } catch {
+            return false;
+        }
+    }
+
     return /^(img|storage|assets)\/[\w./%-]+$/i.test(limpio) || /^\/[\w./%-]+$/.test(limpio);
 }
 
@@ -146,6 +175,7 @@ function urlExternaSegura(valor) {
     if (typeof valor !== 'string') return false;
     try {
         const url = new URL(valor);
+        if (url.hostname === 'example.test' || url.hostname.endsWith('.example.test')) return false;
         return url.protocol === 'https:' || url.protocol === 'http:';
     } catch {
         return false;
