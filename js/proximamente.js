@@ -1,14 +1,7 @@
 const API_PROXIMAMENTE = 'http://127.0.0.1:8000/api/peliculas/proximamente';
-// Nombre propio para evitar conflicto con la constante de cartelera.js.
-const POSTER_PROXIMAMENTE_PLACEHOLDER = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="375" viewBox="0 0 600 375">
-  <rect width="600" height="375" fill="#191b24"/>
-  <rect x="245" y="82" width="110" height="78" rx="10" fill="none" stroke="#e9c349" stroke-width="5"/>
-  <path d="M245 103h110M267 82l-14 21m44-21-14 21m44-21-14 21" stroke="#e9c349" stroke-width="5" fill="none"/>
-  <path d="M290 119l29 16-29 16z" fill="#e9c349"/>
-  <text x="300" y="211" fill="#f4f6fb" font-family="Arial,sans-serif" font-size="22" text-anchor="middle" font-weight="700">CINEPRIME</text>
-  <text x="300" y="245" fill="#bdc6d4" font-family="Arial,sans-serif" font-size="17" text-anchor="middle">Póster no disponible</text>
-</svg>`);
+const POSTER_PROXIMAMENTE_PLACEHOLDER = 'img/fondo-cine.png';
+const VIDEO_PROXIMAMENTE_PLACEHOLDER = 'img/placeholder.mp4';
+const POSTER_PROXIMAMENTE_EMBEDDED = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500"><rect width="800" height="500" fill="#191b24"/><g fill="none" stroke="#e50914" stroke-width="12"><rect x="300" y="135" width="200" height="150" rx="16"/><path d="M365 175 L440 210 L365 245 Z" fill="#e50914" stroke="none"/></g><text x="400" y="345" fill="#ffffff" font-family="Arial,sans-serif" font-size="30" text-anchor="middle">CINEPRIME</text><text x="400" y="385" fill="#bdc6d4" font-family="Arial,sans-serif" font-size="22" text-anchor="middle">Póster no disponible</text></svg>');
 
 document.addEventListener('DOMContentLoaded', cargarProximamente);
 
@@ -26,17 +19,9 @@ async function cargarProximamente() {
         }
 
         const datos = await respuesta.json();
-
-        // La API pública normalmente devuelve un array; también aceptamos
-        // { peliculas: [...] } para tolerar cambios en el formato de respuesta.
-        const peliculas = Array.isArray(datos)
-            ? datos
-            : (Array.isArray(datos?.peliculas) ? datos.peliculas : null);
-
-        if (!peliculas) {
-            throw new Error(
-                'La API respondió, pero el JSON no contiene una lista de películas. Revisa /api/peliculas/proximamente.'
-            );
+        const peliculas = Array.isArray(datos) ? datos : datos?.peliculas;
+        if (!Array.isArray(peliculas)) {
+            throw new Error('La API no devolvió una lista de próximos estrenos.');
         }
 
         contenedor.replaceChildren();
@@ -73,8 +58,13 @@ function crearTarjetaProximamente(pelicula) {
     imagen.src = urlImagenSegura(pelicula.imagen) ? pelicula.imagen : POSTER_PROXIMAMENTE_PLACEHOLDER;
     imagen.alt = pelicula.imagen_alt || (pelicula.titulo ? `Póster de ${pelicula.titulo}` : 'Póster no disponible');
     imagen.onerror = () => {
+        if (imagen.dataset.fallbackLocal !== 'intentado') {
+            imagen.dataset.fallbackLocal = 'intentado';
+            imagen.src = POSTER_PROXIMAMENTE_EMBEDDED;
+            return;
+        }
         imagen.onerror = null;
-        imagen.src = POSTER_PROXIMAMENTE_PLACEHOLDER;
+        imagen.src = POSTER_PROXIMAMENTE_EMBEDDED;
     };
     zonaImagen.appendChild(imagen);
 
@@ -124,17 +114,14 @@ function crearTarjetaProximamente(pelicula) {
     botonTrailer.type = 'button';
     botonTrailer.className = 'btn btn-sm bg-cm-surface-high text-light d-flex align-items-center justify-content-center p-2 border-0 rounded-2 btn-hover-subtle';
     botonTrailer.setAttribute('aria-label', 'Ver tráiler');
-    botonTrailer.title = pelicula.trailer ? 'Ver tráiler' : 'Tráiler no disponible';
+    botonTrailer.title = urlExternaSegura(pelicula.trailer) ? 'Ver tráiler' : 'Ver video de reemplazo';
     const iconoTrailer = document.createElement('span');
     iconoTrailer.className = 'material-symbols-outlined';
     iconoTrailer.style.fontSize = '20px';
     iconoTrailer.textContent = 'play_arrow';
     botonTrailer.appendChild(iconoTrailer);
-    if (urlExternaSegura(pelicula.trailer)) {
-        botonTrailer.addEventListener('click', () => window.open(pelicula.trailer, '_blank', 'noopener,noreferrer'));
-    } else {
-        botonTrailer.disabled = true;
-    }
+    const urlTrailer = urlExternaSegura(pelicula.trailer) ? pelicula.trailer : VIDEO_PROXIMAMENTE_PLACEHOLDER;
+    botonTrailer.addEventListener('click', () => window.open(urlTrailer, '_blank', 'noopener,noreferrer'));
 
     acciones.append(botonAviso, botonTrailer);
     cuerpo.append(detalles, acciones);
@@ -156,18 +143,7 @@ function formatearFecha(valor) {
 function urlImagenSegura(valor) {
     if (typeof valor !== 'string' || !valor.trim()) return false;
     const limpio = valor.trim();
-
-    if (/^https?:\/\//i.test(limpio)) {
-        try {
-            const url = new URL(limpio);
-            // Las URL example.test son datos de ejemplo y no alojan imágenes reales.
-            if (url.hostname === 'example.test' || url.hostname.endsWith('.example.test')) return false;
-            return true;
-        } catch {
-            return false;
-        }
-    }
-
+    if (/^https?:\/\//i.test(limpio)) return true;
     return /^(img|storage|assets)\/[\w./%-]+$/i.test(limpio) || /^\/[\w./%-]+$/.test(limpio);
 }
 
@@ -175,7 +151,6 @@ function urlExternaSegura(valor) {
     if (typeof valor !== 'string') return false;
     try {
         const url = new URL(valor);
-        if (url.hostname === 'example.test' || url.hostname.endsWith('.example.test')) return false;
         return url.protocol === 'https:' || url.protocol === 'http:';
     } catch {
         return false;
