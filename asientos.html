@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +9,23 @@
     <!-- Google Fonts as web fallback for online previewing + local fonts support -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
 
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos-globales.css">
-    <link rel="stylesheet" href="asientos.css">
+    <link rel="stylesheet" href="css/asientos.css">
 
-    
 </head>
-<div id="navbar-container"></div>
+
 <body>
 
-    
+    <div id="navbar-container"></div>
 
     <div class="container my-4">
         <!-- Volver -->
         <div class="mb-3">
-            <a href="#" class="text-decoration-none text-light opacity-75 d-inline-flex align-items-center gap-1 fs-6 fw-medium">
+            <a href="cartelera.html" id="btnBackFromSeats"
+                class="text-decoration-none text-light opacity-75 d-inline-flex align-items-center gap-1 fs-6 fw-medium">
                 <span class="material-symbols-outlined fs-5">arrow_back</span>
                 Volver
             </a>
@@ -35,26 +35,43 @@
             <div class="d-flex align-items-center gap-2 text-white">
                 <span class="material-symbols-outlined text-danger fs-3">timer</span>
                 <div>
-                    <span class="fw-bold d-block text-white fs-6">Tiempo para completar tu compra</span>
-                    <span class="text-light opacity-75 small">Tus asientos quedarán liberados si expira el tiempo</span>
+                    <span class="fw-bold d-block text-white fs-6">Selección de asientos</span>
+                    <span class="text-light opacity-75 small">El contador de 15 minutos comenzará cuando la reserva sea
+                        confirmada</span>
                 </div>
             </div>
             <div class="d-flex align-items-center gap-2">
-                <span class="timer-digits" id="countdownTimer">05:00</span>
+                <span class="timer-digits" id="countdownTimer">--:--</span>
             </div>
         </div>
+
+        <nav class="purchase-stepper mb-4" aria-label="Pasos de compra">
+            <a href="#seatSection" class="purchase-step active" data-purchase-step="1" aria-current="step">
+                <span class="purchase-step-number">1</span><span class="purchase-step-label">Asientos</span>
+            </a>
+            <span class="purchase-step-connector" aria-hidden="true"></span>
+            <a href="#candySection" class="purchase-step" data-purchase-step="2">
+                <span class="purchase-step-number">2</span><span class="purchase-step-label">Confitería
+                    <small>(opcional)</small></span>
+            </a>
+            <span class="purchase-step-connector" aria-hidden="true"></span>
+            <a href="#purchaseSummaryCard" class="purchase-step" data-purchase-step="3">
+                <span class="purchase-step-number">3</span><span class="purchase-step-label">Confirmar y revisar</span>
+            </a>
+        </nav>
 
         <div class="row g-4">
             <!-- Left Column: Seats + Confitería -->
             <div class="col-lg-8">
-                
+
                 <!-- Section 1: Seat Map -->
-                <div class="cm-card bg-cm-surface mb-4">
+                <div class="cm-card bg-cm-surface mb-4" id="seatSection">
                     <div class="d-flex align-items-center gap-2 mb-3">
                         <span class="material-symbols-outlined text-cm-primary-container fs-2">chair</span>
                         <div>
                             <h2 class="font-display m-0 fs-2 text-white">SELECCIONA TUS ASIENTOS</h2>
-                            <p class="text-light opacity-75 mb-0 small">Elige tus lugares favoritos para disfrutar la película.</p>
+                            <p class="text-light opacity-75 mb-0 small">Elige tus lugares favoritos para disfrutar la
+                                película.</p>
                         </div>
                     </div>
 
@@ -72,7 +89,9 @@
                     <!-- Seat Legend -->
                     <div class="seat-legend">
                         <div class="legend-item">
-                            <div class="legend-box" style="border: 1.5px solid rgba(229, 9, 20, 0.4); background-color: var(--cm-surface-container-high);"></div>
+                            <div class="legend-box"
+                                style="border: 1.5px solid rgba(229, 9, 20, 0.4); background-color: var(--cm-surface-container-high);">
+                            </div>
                             <span>Libre</span>
                         </div>
                         <div class="legend-item">
@@ -84,131 +103,200 @@
                             <span>Ocupado</span>
                         </div>
                     </div>
+
+                    <div class="purchase-section-actions d-flex justify-content-end mt-3">
+                        <button type="button" class="btn btn-danger rounded-pill px-4 fw-semibold" id="btnSeatsToCandy"
+                            disabled>
+                            Continuar a confitería <span
+                                class="material-symbols-outlined align-middle fs-6">arrow_forward</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Section 2: Confitería -->
-                <div class="cm-card bg-cm-surface">
+                <div class="cm-card bg-cm-surface" id="candySection">
                     <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
                         <div class="d-flex align-items-center gap-2">
                             <span class="material-symbols-outlined text-cm-primary-container fs-2">fastfood</span>
                             <div>
                                 <h2 class="font-display m-0 fs-2 text-white">CONFITERÍA</h2>
-                                <p class="text-light opacity-75 mb-0 small">¡Haz tu experiencia aún más especial!</p>
+                                <p class="text-light opacity-75 mb-0 small">Añade productos opcionales; puedes cambiar
+                                    las cantidades en cualquier momento.</p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-2">
-                            <span id="candyStatusBadge" class="badge rounded-pill bg-danger bg-opacity-20 text-danger border border-danger border-opacity-25 px-3 py-2 d-none align-items-center gap-1">
+                            <span id="candyStatusBadge"
+                                class="badge rounded-pill bg-danger bg-opacity-20 text-danger border border-danger border-opacity-25 px-3 py-2 d-none align-items-center gap-1">
                                 <span class="material-symbols-outlined fs-6">check_circle</span> Seleccionado
                             </span>
-                            <a href="confiteria.html" class="btn btn-sm btn-outline-danger d-inline-flex align-items-center gap-1 rounded-pill px-3 py-1-5 text-nowrap fw-semibold">
-                                <span>Ver más opciones</span>
-                                <span class="material-symbols-outlined fs-6">chevron_right</span>
-                            </a>
                         </div>
                     </div>
 
-                    <!-- Candy Cards Grid con Imágenes Reales Personalizables -->
-                    <div class="row g-3" id="candyContainer">
-                        
-                        <!-- 1. Combo Grande -->
-                        <div class="col-6 col-md-3">
-                            <div class="candy-card bg-cm-surface-high" data-id="combo-grande" data-nombre="Combo grande" data-precio="45.00">
-                                <div class="candy-checkbox">
-                                    <span class="material-symbols-outlined">check</span>
-                                </div>
-                                <div class="candy-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1585647347384-2593bc35786b?auto=format&fit=crop&w=400&q=80" alt="Combo grande" class="candy-img" onerror="this.src='https://placehold.co/400x300/1d1f29/fff?text=Combo+Grande'">
-                                </div>
-                                <div class="text-center mt-auto">
-                                    <h6 class="fw-bold mb-1 text-white fs-6">Combo grande</h6>
-                                    <span class="text-light opacity-75 fw-semibold small">Bs 45,00</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="candy-filters mb-3" id="candyFilters" aria-label="Filtrar productos de confitería">
+                        <button type="button" class="btn btn-category-pill active text-nowrap" data-category="all"
+                            aria-pressed="true">Todos</button>
+                    </div>
 
-                        <!-- 2. Combo Mediano -->
-                        <div class="col-6 col-md-3">
-                            <div class="candy-card bg-cm-surface-high" data-id="combo-mediano" data-nombre="Combo mediano" data-precio="35.00">
-                                <div class="candy-checkbox">
-                                    <span class="material-symbols-outlined">check</span>
-                                </div>
-                                <div class="candy-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1578849278619-e73505e9610f?auto=format&fit=crop&w=400&q=80" alt="Combo mediano" class="candy-img" onerror="this.src='https://placehold.co/400x300/1d1f29/fff?text=Combo+Mediano'">
-                                </div>
-                                <div class="text-center mt-auto">
-                                    <h6 class="fw-bold mb-1 text-white fs-6">Combo mediano</h6>
-                                    <span class="text-light opacity-75 fw-semibold small">Bs 35,00</span>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Catálogo de confitería cargado desde la API; conserva el diseño de tarjetas actual. -->
+                    <div class="row g-3" id="candyContainer" aria-live="polite">
+                    </div>
 
-                        <!-- 3. Combo Pequeño -->
-                        <div class="col-6 col-md-3">
-                            <div class="candy-card bg-cm-surface-high" data-id="combo-pequeno" data-nombre="Combo pequeño" data-precio="25.00">
-                                <div class="candy-checkbox">
-                                    <span class="material-symbols-outlined">check</span>
-                                </div>
-                                <div class="candy-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1512149177596-f817c7ef5d4c?auto=format&fit=crop&w=400&q=80" alt="Combo pequeño" class="candy-img" onerror="this.src='https://placehold.co/400x300/1d1f29/fff?text=Combo+Pequeno'">
-                                </div>
-                                <div class="text-center mt-auto">
-                                    <h6 class="fw-bold mb-1 text-white fs-6">Combo pequeño</h6>
-                                    <span class="text-light opacity-75 fw-semibold small">Bs 25,00</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 4. Nachos -->
-                        <div class="col-6 col-md-3">
-                            <div class="candy-card bg-cm-surface-high" data-id="nachos" data-nombre="Nachos" data-precio="20.00">
-                                <div class="candy-checkbox">
-                                    <span class="material-symbols-outlined">check</span>
-                                </div>
-                                <div class="candy-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?auto=format&fit=crop&w=400&q=80" alt="Nachos" class="candy-img" onerror="this.src='https://placehold.co/400x300/1d1f29/fff?text=Nachos'">
-                                </div>
-                                <div class="text-center mt-auto">
-                                    <h6 class="fw-bold mb-1 text-white fs-6">Nachos</h6>
-                                    <span class="text-light opacity-75 fw-semibold small">Bs 20,00</span>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="purchase-section-actions d-flex justify-content-between flex-wrap gap-2 mt-4">
+                        <button type="button" class="btn btn-outline-light rounded-pill px-4" id="btnCandyBackToSeats">
+                            <span class="material-symbols-outlined align-middle fs-6">arrow_back</span> Volver a
+                            asientos
+                        </button>
+                        <button type="button" class="btn btn-danger rounded-pill px-4 fw-semibold"
+                            id="btnCandyToReview">
+                            Omitir confitería y revisar <span
+                                class="material-symbols-outlined align-middle fs-6">arrow_forward</span>
+                        </button>
                     </div>
                 </div>
+
+                <!-- Section 3: Confirmar y revisar -->
+                <section class="cm-card bg-cm-surface mb-4 purchase-review-section" id="reviewSection" hidden>
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="material-symbols-outlined text-cm-primary-container fs-2">fact_check</span>
+                        <div>
+                            <h2 class="font-display m-0 fs-2 text-white">CONFIRMAR Y REVISAR</h2>
+                            <p class="text-light opacity-75 mb-0 small">Completa tus datos y verifica los detalles antes
+                                de reservar.</p>
+                        </div>
+                    </div>
+
+                    <div class="review-order-card mb-4">
+                        <h3 class="review-subtitle">Resumen de tu compra</h3>
+                        <div class="review-movie-line">
+                            <img id="reviewMoviePoster" src="https://placehold.co/300x450/1d1f29/fff?text=Poster"
+                                alt="Póster de la película">
+                            <div>
+                                <h4 id="reviewMovieTitle">Cargando película…</h4>
+                                <p id="reviewFunctionDetails" class="mb-1">Función por confirmar</p>
+                                <p id="reviewRoomDetails" class="mb-0">Sala por confirmar</p>
+                            </div>
+                        </div>
+                        <div class="review-order-divider"></div>
+                        <div class="review-order-row"><span>Asientos</span><strong id="reviewSeats">Sin
+                                seleccionar</strong></div>
+                        <div class="review-order-row"><span>Productos de confitería</span><strong
+                                id="reviewCandyCount">Ninguno</strong></div>
+                        <div class="review-order-row review-total-row"><span>Total a pagar</span><strong
+                                id="reviewTotal">Bs 0,00</strong></div>
+                    </div>
+
+                    <div id="unsupportedCartNotice" class="review-notice mt-3" role="alert" hidden>
+                        <span class="material-symbols-outlined">warning</span>
+                        <span>Hay productos añadidos desde las tarjetas estáticas de confitería que aún no están
+                            vinculados al inventario del backend. Retíralos desde el carrito antes de crear la reserva.
+                            Los productos añadidos desde el catálogo de esta pantalla sí se pueden reservar.</span>
+                    </div>
+
+                    <div id="reservationStatusPanel" class="review-notice mt-4" role="status" aria-live="polite" hidden>
+                        <span class="material-symbols-outlined">timer</span>
+                        <div class="flex-grow-1">
+                            <strong id="reservationStatusTitle" class="d-block">Reserva creada</strong>
+                            <span id="reservationStatusMessage" class="d-block small">Tu reserva se está
+                                verificando.</span>
+                            <div class="mt-2">Tiempo restante: <strong id="reservationCountdown">15:00</strong></div>
+                            <div class="small mt-1">Código de reserva: <strong id="reservationCode">—</strong></div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2 mt-3 w-100">
+                            <button type="button" id="btnCancelReservation"
+                                class="btn btn-outline-light btn-sm rounded-pill">Cancelar reserva</button>
+                            <button type="button" id="btnContinueToPayment"
+                                class="btn btn-danger btn-sm rounded-pill fw-semibold" hidden>
+                                Continuar al pago <span
+                                    class="material-symbols-outlined align-middle fs-6">arrow_forward</span>
+                            </button>
+                            <button type="button" id="btnViewIssuedTicket"
+                                class="btn btn-outline-info btn-sm rounded-pill fw-semibold" hidden>
+                                Ver mi entrada <span
+                                    class="material-symbols-outlined align-middle fs-6">confirmation_number</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <form id="reservationCustomerForm" novalidate>
+                        <h3 class="review-subtitle">Datos de contacto</h3>
+                        <p class="text-light opacity-75 small mb-3">Usaremos estos datos para identificar la reserva y
+                            enviarte la información de compra.</p>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="customerFullName" class="form-label text-light">Nombre completo <span
+                                        class="text-danger">*</span></label>
+                                <input class="form-control reservation-input" id="customerFullName" name="nombre"
+                                    type="text" autocomplete="name" minlength="2" maxlength="100" required
+                                    placeholder="Ej. María Pérez">
+                                <div class="invalid-feedback">Ingresa tu nombre completo (mínimo 2 caracteres).</div>
+                            </div>
+                            <div class="col-md-7">
+                                <label for="customerEmail" class="form-label text-light">Correo electrónico <span
+                                        class="text-danger">*</span></label>
+                                <input class="form-control reservation-input" id="customerEmail" name="correo"
+                                    type="email" autocomplete="email" maxlength="150" required
+                                    placeholder="tu@correo.com">
+                                <div class="invalid-feedback">Ingresa un correo electrónico válido.</div>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="customerPhone" class="form-label text-light">Teléfono <span
+                                        class="text-light opacity-50">(opcional)</span></label>
+                                <input class="form-control reservation-input" id="customerPhone" name="telefono"
+                                    type="tel" autocomplete="tel" maxlength="30" placeholder="+56 9 1234 5678">
+                            </div>
+                        </div>
+                        <div class="review-notice mt-4" role="note">
+                            <span class="material-symbols-outlined">info</span>
+                            <span>La reserva se confirmará cuando el servidor valide la disponibilidad. El contador de
+                                15 minutos comenzará después de crear la reserva; todavía no se inicia en esta
+                                pantalla.</span>
+                        </div>
+                        <div class="purchase-section-actions d-flex justify-content-between flex-wrap gap-2 mt-4">
+                            <button type="button" class="btn btn-outline-light rounded-pill px-4"
+                                id="btnReviewBackToCandy">
+                                <span class="material-symbols-outlined align-middle fs-6">arrow_back</span> Volver a
+                                confitería
+                            </button>
+                            <button type="submit" class="btn btn-danger rounded-pill px-4 fw-semibold"
+                                id="btnSubmitReservation">
+                                Crear reserva <span
+                                    class="material-symbols-outlined align-middle fs-6">arrow_forward</span>
+                            </button>
+                        </div>
+                    </form>
+                </section>
 
             </div>
 
             <!-- Right Column: Resumen de Compra -->
             <div class="col-lg-4">
-                <div class="summary-card bg-cm-surface">
+                <div class="summary-card bg-cm-surface" id="purchaseSummaryCard">
                     <div class="d-flex align-items-center gap-2 mb-3">
-                        <span class="material-symbols-outlined text-cm-primary-container fs-3">confirmation_number</span>
+                        <span
+                            class="material-symbols-outlined text-cm-primary-container fs-3">confirmation_number</span>
                         <h3 class="font-display m-0 fs-3 text-white">RESUMEN DE COMPRA</h3>
                     </div>
 
                     <!-- Detalle de Película -->
                     <div class="d-flex gap-3 mb-3">
-                        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=300&q=80" alt="Dune: Parte Dos" class="movie-poster">
+                        <img src="https://placehold.co/300x450/1d1f29/fff?text=Poster+no+disponible"
+                            alt="Póster no disponible" class="movie-poster" id="summaryMoviePoster">
                         <div>
-                            <h5 class="fw-bold text-white mb-1">Dune: Parte Dos</h5>
-                            <span class="badge-format mb-2 d-inline-block">2D Subtitulada</span>
-                            
+                            <h5 class="fw-bold text-white mb-1" id="summaryMovieTitle">Cargando película…</h5>
+                            <span class="badge-format mb-2 d-inline-block" id="summaryMovieFormat">Formato por
+                                confirmar</span>
+
                             <div class="d-flex align-items-center gap-1 text-light opacity-75 small mb-1">
                                 <span class="material-symbols-outlined fs-6">calendar_month</span>
-                                <span>Sáb, 20 Sep 2026</span>
+                                <span id="summaryFunctionDate">Cargando fecha…</span>
                             </div>
                             <div class="d-flex align-items-center gap-1 text-light opacity-75 small mb-1">
                                 <span class="material-symbols-outlined fs-6">schedule</span>
-                                <span>19:00</span>
-                            </div>
-                            <div class="d-flex align-items-center gap-1 text-light opacity-75 small mb-1">
-                                <span class="material-symbols-outlined fs-6">location_on</span>
-                                <span>CinePlus - Centro</span>
+                                <span id="summaryFunctionTime">--:--</span>
                             </div>
                             <div class="d-flex align-items-center gap-1 text-light opacity-75 small">
                                 <span class="material-symbols-outlined fs-6">meeting_room</span>
-                                <span>Sala 3</span>
+                                <span id="summaryFunctionRoom">Cargando sala…</span>
                             </div>
                         </div>
                     </div>
@@ -250,7 +338,7 @@
                     <!-- Botón de pago -->
                     <button class="btn-checkout shadow-cm-glow" id="btnContinue">
                         <span class="material-symbols-outlined">payment</span>
-                        <span>Continuar al pago</span>
+                        <span>Continuar a confitería</span>
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </button>
 
@@ -262,284 +350,27 @@
             </div>
         </div>
     </div>
-
+    <div id="footer-container" data-variant="minimal"></div>
     <!-- Toast Notice -->
-    <div id="toastNotice" class="toast-notification">
+    <div id="toastNotice" class="toast-notification" role="status" aria-live="polite" aria-atomic="true">
         <span class="material-symbols-outlined text-cm-primary-container fs-4">info</span>
         <span id="toastMessage">Mensaje</span>
-    </div>
-
-    <!-- Modal Personalizado para Ajustar Tiempo -->
-    <div class="modal fade" id="timerModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content bg-cm-surface border border-secondary border-opacity-25 text-white">
-                <div class="modal-header border-bottom border-secondary border-opacity-25">
-                    <h5 class="modal-title font-display fs-4 text-white d-flex align-items-center gap-2">
-                        <span class="material-symbols-outlined text-cm-tertiary">timer</span>
-                        Ajustar Temporizador
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" id="btnCloseTimerModal"></button>
-                </div>
-                <div class="modal-body">
-                    <label class="form-label text-light opacity-75 small">Atajos de tiempo:</label>
-                    <div class="d-flex gap-2 mb-3">
-                        <button type="button" class="btn btn-outline-danger btn-sm flex-fill btn-preset-time" data-minutes="5">5 min</button>
-                        <button type="button" class="btn btn-outline-danger btn-sm flex-fill btn-preset-time" data-minutes="10">10 min</button>
-                        <button type="button" class="btn btn-outline-danger btn-sm flex-fill btn-preset-time" data-minutes="15">15 min</button>
-                    </div>
-
-                    <div class="mb-2">
-                        <label for="customMinutesInput" class="form-label text-light opacity-75 small">O ingresa un tiempo (minutos):</label>
-                        <div class="input-group input-group-sm">
-                            <input type="number" id="customMinutesInput" class="form-control bg-dark text-white border-secondary border-opacity-25" min="1" max="60" value="10">
-                            <span class="input-group-text bg-dark text-light border-secondary border-opacity-25">min</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer border-top border-secondary border-opacity-25 p-2">
-                    <button type="button" class="btn btn-sm btn-outline-light" id="btnCancelTimerModal">Cancelar</button>
-                    <button type="button" class="btn btn-sm btn-danger shadow-cm-glow" id="btnApplyTimer">Iniciar Tiempo</button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Lógica de Interacción JS -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const TICKET_PRICE = 35.00; // Precio base por entrada en Bs.
-            let selectedSeats = ['F7', 'F8']; // Asientos preseleccionados
-            const occupiedSeats = ['D5', 'D6', 'D7', 'E5', 'G9']; // Ocupados
+    <script src="js/carrito.js"></script>
+    <script src="js/api-cineprime.js"></script>
+    <script src="js/asientos-api.js"></script>
 
-            // Mapa para confitería
-            const selectedCandy = new Map();
-
-            // Selección inicial (Combo grande)
-            selectedCandy.set('combo-grande', {
-                nombre: 'Combo grande',
-                precio: 45.00,
-                cantidad: 1
-            });
-
-            let timeRemaining = 300; // 5 minutos en segundos
-            const timerDisplay = document.getElementById('countdownTimer');
-
-            function startTimer() {
-                const interval = setInterval(() => {
-                    const minutes = Math.floor(timeRemaining / 60);
-                    const seconds = timeRemaining % 60;
-
-                    const formattedMins = minutes < 10 ? '0' + minutes : minutes;
-                    const formattedSecs = seconds < 10 ? '0' + seconds : seconds;
-
-                    if (timerDisplay) {
-                        timerDisplay.textContent = `${formattedMins}:${formattedSecs}`;
-                    }
-
-                    if (timeRemaining <= 60 && timerDisplay) {
-                        timerDisplay.style.color = '#ff1e27';
-                        timerDisplay.style.fontSize = '1.8rem';
-                    }
-
-                    if (timeRemaining <= 0) {
-                        clearInterval(interval);
-                        if (timerDisplay) timerDisplay.textContent = "00:00";
-                        showToast('El tiempo de reserva ha expirado. Por favor, selecciona tus asientos de nuevo.');
-                    } else {
-                        timeRemaining--;
-                    }
-                }, 1000);
-            }
-
-            // Inicialización de componentes
-            startTimer();
-            renderSeatGrid();
-            markInitialCandySelection();
-            setupCandyInteraction();
-            updateSummaryUI();
-
-            /**
-             * Genera el mapa de asientos estándar A-H (1-12)
-             */
-            function renderSeatGrid() {
-                const seatGridEl = document.getElementById('seatGrid');
-                seatGridEl.innerHTML = '';
-                const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-                const cols = 12;
-
-                rows.forEach(rowLetter => {
-                    const rowDiv = document.createElement('div');
-                    rowDiv.className = 'seat-row';
-
-                    const labelSpan = document.createElement('span');
-                    labelSpan.className = 'row-label';
-                    labelSpan.textContent = rowLetter;
-                    rowDiv.appendChild(labelSpan);
-
-                    for (let c = 1; c <= cols; c++) {
-                        const seatId = `${rowLetter}${c}`;
-                        const seatEl = document.createElement('div');
-                        seatEl.className = 'seat';
-                        seatEl.textContent = c;
-                        seatEl.dataset.seatId = seatId;
-
-                        if (occupiedSeats.includes(seatId)) {
-                            seatEl.classList.add('occupied');
-                        } else if (selectedSeats.includes(seatId)) {
-                            seatEl.classList.add('selected');
-                        }
-
-                        seatEl.addEventListener('click', () => {
-                            if (seatEl.classList.contains('occupied')) return;
-
-                            if (selectedSeats.includes(seatId)) {
-                                selectedSeats = selectedSeats.filter(id => id !== seatId);
-                                seatEl.classList.remove('selected');
-                            } else {
-                                selectedSeats.push(seatId);
-                                seatEl.classList.add('selected');
-                            }
-                            updateSummaryUI();
-                        });
-
-                        rowDiv.appendChild(seatEl);
-                    }
-
-                    seatGridEl.appendChild(rowDiv);
-                });
-            }
-
-            /**
-             * Asigna click handlers a las tarjetas de Confitería
-             */
-            function setupCandyInteraction() {
-                const candyCards = document.querySelectorAll('.candy-card');
-
-                candyCards.forEach(card => {
-                    card.addEventListener('click', () => {
-                        const id = card.dataset.id;
-                        const nombre = card.dataset.nombre;
-                        const precio = parseFloat(card.dataset.precio);
-
-                        if (selectedCandy.has(id)) {
-                            selectedCandy.delete(id);
-                            card.classList.remove('selected');
-                        } else {
-                            selectedCandy.set(id, { nombre, precio, cantidad: 1 });
-                            card.classList.add('selected');
-                        }
-
-                        updateSummaryUI();
-                    });
-                });
-            }
-
-            function markInitialCandySelection() {
-                const candyCards = document.querySelectorAll('.candy-card');
-                candyCards.forEach(card => {
-                    if (selectedCandy.has(card.dataset.id)) {
-                        card.classList.add('selected');
-                    }
-                });
-            }
-
-            /**
-             * Recalcula y actualiza la UI de Resumen de Compra
-             */
-            function updateSummaryUI() {
-                // 1. Asientos Badges
-                const seatsContainer = document.getElementById('seatsContainer');
-                seatsContainer.innerHTML = '';
-
-                if (selectedSeats.length === 0) {
-                    seatsContainer.innerHTML = '<span class="text-light opacity-50 small fst-italic">Sin asientos seleccionados</span>';
-                } else {
-                    selectedSeats.forEach(seatId => {
-                        const badge = document.createElement('span');
-                        badge.className = 'seat-badge';
-                        badge.innerHTML = `<span class="material-symbols-outlined fs-6">chair</span> ${seatId}`;
-                        seatsContainer.appendChild(badge);
-                    });
-                }
-
-                // 2. Filas de Compra
-                const summaryList = document.getElementById('summaryItemList');
-                summaryList.innerHTML = '';
-
-                let subtotal = 0;
-
-                const numTickets = selectedSeats.length;
-                const ticketsTotal = numTickets * TICKET_PRICE;
-                subtotal += ticketsTotal;
-
-                if (numTickets > 0) {
-                    const ticketRow = document.createElement('div');
-                    ticketRow.className = 'd-flex justify-content-between align-items-center text-light opacity-90 small py-1';
-                    ticketRow.innerHTML = `
-                        <span>Adulto <span class="opacity-60 text-xs">x${numTickets}</span></span>
-                        <span class="fw-semibold">Bs ${ticketsTotal.toFixed(2).replace('.', ',')}</span>
-                    `;
-                    summaryList.appendChild(ticketRow);
-                }
-
-                selectedCandy.forEach((item) => {
-                    const itemTotal = item.precio * item.cantidad;
-                    subtotal += itemTotal;
-
-                    const candyRow = document.createElement('div');
-                    candyRow.className = 'd-flex justify-content-between align-items-center text-light opacity-90 small py-1';
-                    candyRow.innerHTML = `
-                        <span>${item.nombre} <span class="opacity-60 text-xs">x${item.cantidad}</span></span>
-                        <span class="fw-semibold">Bs ${itemTotal.toFixed(2).replace('.', ',')}</span>
-                    `;
-                    summaryList.appendChild(candyRow);
-                });
-
-                // Status Badge de Confitería
-                const badgeStatus = document.getElementById('candyStatusBadge');
-                if (selectedCandy.size > 0) {
-                    badgeStatus.classList.remove('d-none');
-                    badgeStatus.classList.add('d-inline-flex');
-                } else {
-                    badgeStatus.classList.add('d-none');
-                    badgeStatus.classList.remove('d-inline-flex');
-                }
-
-                // 3. Totales
-                const formattedTotal = `Bs ${subtotal.toFixed(2).replace('.', ',')}`;
-                document.getElementById('subtotalDisplay').textContent = formattedTotal;
-                document.getElementById('totalDisplay').textContent = formattedTotal;
-            }
-
-            function showToast(message) {
-                const toast = document.getElementById('toastNotice');
-                const toastMsg = document.getElementById('toastMessage');
-                toastMsg.textContent = message;
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 3500);
-            }
-
-            document.getElementById('btnContinue').addEventListener('click', () => {
-                if (selectedSeats.length === 0) {
-                    showToast('Por favor selecciona al menos un asiento antes de continuar.');
-                    return;
-                }
-                const totalText = document.getElementById('totalDisplay').textContent;
-                showToast(`¡Gracias por tu reserva! Redirigiendo al pago por ${totalText}...`);
-            });
-        });
-    </script>
-      <div id="footer-container"></div>
     <!--<div id="footer-container" data-variant="minimal"></div>-->
 
-     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 
 
 </body>
+
 </html>

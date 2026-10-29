@@ -18,6 +18,7 @@
                 <a class="nav-link-custom" href="cartelera.html">Cartelera</a>
                 <a class="nav-link-custom" href="confiteria.html">Confitería</a>
                 <a class="nav-link-custom" href="promociones.html">Promociones</a>
+                <a class="nav-link-custom" href="mis-compras.html">Mis compras</a>
                 <a class="nav-link-custom" href="contacto.html">Contacto</a>
             </div>
 
@@ -28,17 +29,33 @@
                     <span class="material-symbols-outlined text-cm-variant">search</span>
                 </button>
 
-                <!-- BOTÓN DESKTOP MODIFICADO PARA ABRIR EL MODAL -->
+                <!-- BOTÓN DE INICIO DE SESIÓN RESERVADO PARA RECUPERARLO SI SE IMPLEMENTA EL MÓDULO -->
+                <!--
                 <button type="button"
                     class="btn btn-cm-primary font-label-lg text-uppercase tracking-wider rounded-3 px-3 py-2 d-none d-sm-inline-flex align-items-center gap-2"
                     data-bs-toggle="modal" data-bs-target="#authModal">
                     <span class="material-symbols-outlined fs-5">person</span>
                     <span>Ingresar</span>
                 </button>
+                -->
 
-                <div class="user-avatar-circle d-flex d-sm-none align-items-center justify-content-center shrink-0">
-                    <span class="material-symbols-outlined text-cm-on-primary">person</span>
-                </div>
+                <!-- CONTADOR GLOBAL DE RESERVA ACTIVA -->
+                <a href="#" id="navbarReservationTimer"
+                    class="btn btn-outline-warning d-none align-items-center justify-content-center gap-1 px-2 py-2 text-nowrap"
+                    title="Tiempo restante de tu reserva" aria-label="Tiempo restante de tu reserva" hidden>
+                    <span class="material-symbols-outlined fs-6" aria-hidden="true">timer</span>
+                    <span class="d-none d-sm-inline small">Reserva</span>
+                    <strong id="navbarReservationTime" class="small" aria-live="off">15:00</strong>
+                </a>
+
+                <!-- ACCESO GLOBAL AL CARRITO -->
+                <button type="button" id="navbarCartButton"
+                    class="btn btn-cm-icon d-inline-flex align-items-center justify-content-center position-relative"
+                    title="Abrir carrito" aria-label="Abrir carrito" data-bs-toggle="offcanvas"
+                    data-bs-target="#cinePrimeCart" aria-controls="cinePrimeCart">
+                    <span class="material-symbols-outlined text-cm-variant">shopping_cart</span>
+                    <span id="navbarCartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">0</span>
+                </button>
 
                 <button class="btn p-1 text-cm-variant d-lg-none border-0" id="mobile-menu-btn" type="button"
                     data-bs-toggle="collapse" data-bs-target="#mobile-nav-panel" aria-controls="mobile-nav-panel"
@@ -57,9 +74,11 @@
             <a class="mobile-nav-link" href="cartelera.html">Cartelera</a>
             <a class="mobile-nav-link" href="confiteria.html">Confitería</a>
             <a class="mobile-nav-link" href="promociones.html">Promociones</a>
+            <a class="mobile-nav-link" href="mis-compras.html">Mis compras</a>
             <a class="mobile-nav-link" href="contacto.html">Contacto</a>
 
-            <!-- BOTÓN MÓVIL MODIFICADO PARA ABRIR EL MODAL -->
+            <!-- BOTÓN DE INICIO DE SESIÓN MÓVIL RESERVADO PARA RECUPERARLO -->
+            <!--
             <div class="pt-2 d-sm-none">
                 <button type="button"
                     class="btn btn-cm-primary w-100 font-label-lg text-uppercase tracking-wider rounded-3 py-2 d-flex align-items-center justify-content-center gap-2"
@@ -68,6 +87,38 @@
                     <span class="fw-bold">Ingresar</span>
                 </button>
             </div>
+            -->
+            <button type="button" class="btn btn-outline-light w-100 mt-2 d-sm-none d-flex align-items-center justify-content-center gap-2"
+                data-bs-toggle="offcanvas" data-bs-target="#cinePrimeCart" aria-controls="cinePrimeCart">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span>Ver carrito</span>
+                <span id="mobileNavbarCartCount" class="badge rounded-pill bg-danger">0</span>
+            </button>
         </nav>
     </div>
 </header>
+
+<!-- CARRITO GLOBAL: persistencia local hasta descartar o crear una reserva en backend -->
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="cinePrimeCart" aria-labelledby="cinePrimeCartLabel" style="--bs-offcanvas-width: min(440px, 100vw);">
+    <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
+        <div>
+            <h2 class="offcanvas-title h5 mb-1" id="cinePrimeCartLabel">Tu carrito</h2>
+            <p class="small text-white-50 mb-0">Tus selecciones se guardan en este dispositivo.</p>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar carrito"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column gap-3">
+        <div id="cinePrimeCartContent" class="d-flex flex-column gap-3">
+            <p class="text-white-50 small">Tu carrito está vacío.</p>
+        </div>
+        <div class="mt-auto border-top border-secondary border-opacity-25 pt-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-white-50">Total estimado</span>
+                <strong id="cinePrimeCartTotal" class="fs-5">Bs 0,00</strong>
+            </div>
+            <p id="cinePrimeCartHint" class="small text-white-50">Selecciona asientos para poder continuar con la compra.</p>
+            <button type="button" id="cinePrimeCartCheckout" class="btn btn-danger w-100 fw-semibold">Continuar con la compra</button>
+            <button type="button" id="cinePrimeCartClear" class="btn btn-link text-white-50 w-100 mt-1">Vaciar carrito</button>
+        </div>
+    </div>
+</div>

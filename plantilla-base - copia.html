@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+    <!-- 1. Metadatos Fundamentales -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Confiteria | CinePrime</title>
+
+    <!-- 2. Metadatos SEO y Descripción -->
+    <meta name="description"
+        content="Plataforma de streaming y cartelera de cine CinePrime. XX Feria Informática ISEC La Paz.">
+    <meta name="author" content="Carrera de Sistemas Informáticos - ISEC La Paz">
+    <meta name="theme-color" content="#11131c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+    <!-- 3. Favicon Vectorial con Adaptación Automática Dark/Light -->
+    <link rel="icon" type="image/svg+xml" href="img/clapperboard.svg">
+
+    <!-- 4. Bootstrap 5.3.8 CSS (Local) -->
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+
+    <!-- 5. Bootstrap Icons 1.13.1 (Local) -->
+    <link rel="stylesheet" href="bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+
+    <!-- 6. Estilos Globales Personalizados y Específicos -->
+    <link rel="stylesheet" href="css/estilos-globales.css">
+    <link rel="stylesheet" href="css/confiteria.css">
+</head>
+
+<body class="bg-surface">
+
+    <!-- HEADER / NAVBAR -->
+
+    <div id="navbar-container"></div>
+
+    <!-- CONTENEDOR DEL CONTENIDO PRINCIPAL -->
+    <main class="w-100 bg-cm-surface min-vh-100 overflow-hidden">
+        <!-- SECCIÓN 1:  -->
+        <header class="sticky-top transition-all" id="main-header">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-cm-surface-transparent py-3 px-3 px-lg-5">
+                <div class="container-fluid p-0 d-flex align-items-center justify-content-between">
+
+                    <!-- BRANDING (Logo SVG + Nombre CinePrime) -->
+                    <a class="navbar-brand d-flex align-items-center gap-2 m-0 text-decoration-none" href="index.html">
+                        <span class="material-symbols-outlined text-cm-primary-container fs-2">movie</span>
+                        <span
+                            class="nombre font-headline-lg tracking-wider text-cm-on-surface text-uppercase d-none d-sm-inline-block m-0">
+                            CINE<span class="text-cm-primary-container">PRIME</span>
+                        </span>
+                    </a>
+
+                    <!-- NAVEGACIÓN DESKTOP (Menú Central Flotante) -->
+                    <div class="d-none d-lg-flex align-items-center gap-1 nav-pill-container p-1 rounded-3"
+                        id="nav-links-desktop">
+                        <a class="nav-link-custom" href="index.html">Inicio</a>
+                        <a class="nav-link-custom" href="cartelera.html">Cartelera</a>
+                        <a class="nav-link-custom" href="confiteria.html">Confitería</a>
+                        <a class="nav-link-custom" href="promociones.html">Promociones</a>
+                        <a class="nav-link-custom" href="contacto.html">Contacto</a>
+                    </div>
+
+                    <!-- ACCIONES Y BOTÓN MENÚ MÓVIL (Derecha) -->
+                    <div class="d-flex align-items-center gap-2 gap-sm-3">
+                        <button class="btn btn-cm-icon d-flex align-items-center justify-content-center"
+                            title="Buscar Película" type="button">
+                            <span class="material-symbols-outlined text-cm-variant">search</span>
+                        </button>
+
+                        <!-- BOTÓN DESKTOP MODIFICADO PARA ABRIR EL MODAL -->
+                        <button type="button"
+                            class="btn btn-cm-primary font-label-lg text-uppercase tracking-wider rounded-3 px-3 py-2 d-none d-sm-inline-flex align-items-center gap-2"
+                            data-bs-toggle="modal" data-bs-target="#authModal">
+                            <span class="material-symbols-outlined fs-5">person</span>
+                            <span>Ingresar</span>
+                        </button>
+
+                        <div
+                            class="user-avatar-circle d-flex d-sm-none align-items-center justify-content-center shrink-0">
+                            <span class="material-symbols-outlined text-cm-on-primary">person</span>
+                        </div>
+
+                        <button class="btn p-1 text-cm-variant d-lg-none border-0" id="mobile-menu-btn" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#mobile-nav-panel"
+                            aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Menú">
+                            <span class="material-symbols-outlined fs-2">menu</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- MENÚ MÓVIL DESPLEGABLE -->
+            <div class="collapse d-lg-none w-full bg-cm-mobile-panel border-bottom border-secondary border-opacity-10 px-4 py-3 shadow-lg"
+                id="mobile-nav-panel">
+                <nav class="d-flex flex-column gap-2" id="nav-links-mobile">
+                    <a class="mobile-nav-link" href="index.html">Inicio</a>
+                    <a class="mobile-nav-link" href="cartelera.html">Cartelera</a>
+                    <a class="mobile-nav-link" href="confiteria.html">Confitería</a>
+                    <a class="mobile-nav-link" href="promociones.html">Promociones</a>
+                    <a class="mobile-nav-link" href="contacto.html">Contacto</a>
+
+                    <!-- BOTÓN MÓVIL MODIFICADO PARA ABRIR EL MODAL -->
+                    <div class="pt-2 d-sm-none">
+                        <button type="button"
+                            class="btn btn-cm-primary w-100 font-label-lg text-uppercase tracking-wider rounded-3 py-2 d-flex align-items-center justify-content-center gap-2"
+                            data-bs-toggle="modal" data-bs-target="#authModal">
+                            <span class="material-symbols-outlined fs-5">person</span>
+                            <span class="fw-bold">Ingresar</span>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+    </main>
+    <div id="footer-container"></div>
+    <!--<div id="footer-container" data-variant="minimal"></div>-->
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

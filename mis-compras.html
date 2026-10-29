@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineUp - Mis compras</title>
+  <!-- 2. Metadatos SEO y Descripción -->
+  <meta name="description"
+    content="Plataforma de streaming y cartelera de cine CinePrime. XX Feria Informática ISEC La Paz.">
+  <meta name="author" content="Carrera de Sistemas Informáticos - ISEC La Paz">
+  <meta name="theme-color" content="#11131c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+  <!-- 3. Favicon Vectorial con Adaptación Automática Dark/Light -->
+  <link rel="icon" type="image/svg+xml" href="img/clapperboard.svg">
+  <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilos-globales.css">
+  <link rel="stylesheet" href="css/confirmacion.css">
+
+<body class="ticket-page-body">
+  <div id="navbar-container"></div>
+  <main class="container py-5" style="max-width: 980px;">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+      <div>
+        <p class="text-uppercase small text-cm-secondary-container mb-1">CinePrime</p>
+        <h1 class="font-display-hero text-white mb-2">Mis compras</h1>
+        <p class="text-muted mb-0">Tus tickets confirmados guardados en este navegador.</p>
+      </div>
+      <a href="cartelera.html" class="btn btn-cm-secondary rounded-pill px-4">Reservar entradas</a>
+    </div>
+    <div class="alert alert-info" role="note">Este historial se guarda en este navegador. Si borras los datos del sitio
+      o cambias de dispositivo, podrías perder el acceso. El envío de correo es una simulación del MVP.</div>
+    <div id="purchasesList" class="d-grid gap-3"></div>
+    <div id="purchasesEmpty" class="text-center border rounded-4 p-5 text-white" hidden><span
+        class="material-symbols-outlined display-4">confirmation_number</span>
+      <h2 class="h4 mt-3">Todavía no tienes tickets guardados</h2>
+      <p class="text-muted">Cuando una compra sea aprobada, aparecerá aquí.</p><a href="cartelera.html"
+        class="btn btn-cm-secondary rounded-pill px-4">Explorar cartelera</a>
+    </div>
+  </main>
+  <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api-cineprime.js"></script>
+  <script src="js/mis-compras.js"></script>
+  <script src="js/main.js"></script>
+</body>
+<div id="footer-container"></div>
+
+</html>

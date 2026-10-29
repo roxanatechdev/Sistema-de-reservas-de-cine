@@ -1,7 +1,5 @@
 const API_PROXIMAMENTE = 'http://127.0.0.1:8000/api/peliculas/proximamente';
-const POSTER_PROXIMAMENTE_PLACEHOLDER = 'img/fondo-cine.png';
-const VIDEO_PROXIMAMENTE_PLACEHOLDER = 'img/placeholder.mp4';
-const POSTER_PROXIMAMENTE_EMBEDDED = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500"><rect width="800" height="500" fill="#191b24"/><g fill="none" stroke="#e50914" stroke-width="12"><rect x="300" y="135" width="200" height="150" rx="16"/><path d="M365 175 L440 210 L365 245 Z" fill="#e50914" stroke="none"/></g><text x="400" y="345" fill="#ffffff" font-family="Arial,sans-serif" font-size="30" text-anchor="middle">CINEPRIME</text><text x="400" y="385" fill="#bdc6d4" font-family="Arial,sans-serif" font-size="22" text-anchor="middle">Póster no disponible</text></svg>');
+const POSTER_PROXIMAMENTE_PLACEHOLDER = 'img/cumpleaños.jpg';
 
 document.addEventListener('DOMContentLoaded', cargarProximamente);
 
@@ -13,13 +11,13 @@ async function cargarProximamente() {
         const respuesta = await fetch(API_PROXIMAMENTE, {
             headers: { Accept: 'application/json' }
         });
+        console(respuestas);
 
         if (!respuesta.ok) {
             throw new Error(`Error HTTP ${respuesta.status}`);
         }
 
-        const datos = await respuesta.json();
-        const peliculas = Array.isArray(datos) ? datos : datos?.peliculas;
+        const peliculas = await respuesta.json();
         if (!Array.isArray(peliculas)) {
             throw new Error('La API no devolvió una lista de próximos estrenos.');
         }
@@ -55,16 +53,11 @@ function crearTarjetaProximamente(pelicula) {
 
     const imagen = document.createElement('img');
     imagen.className = 'w-100 h-100 object-fit-cover img-zoom';
-    imagen.src = urlImagenSegura(pelicula.imagen) ? pelicula.imagen : POSTER_PROXIMAMENTE_PLACEHOLDER;
+    imagen.src = "img/cumpleaños.jpg";
     imagen.alt = pelicula.imagen_alt || (pelicula.titulo ? `Póster de ${pelicula.titulo}` : 'Póster no disponible');
     imagen.onerror = () => {
-        if (imagen.dataset.fallbackLocal !== 'intentado') {
-            imagen.dataset.fallbackLocal = 'intentado';
-            imagen.src = POSTER_PROXIMAMENTE_EMBEDDED;
-            return;
-        }
         imagen.onerror = null;
-        imagen.src = POSTER_PROXIMAMENTE_EMBEDDED;
+        imagen.src = POSTER_PROXIMAMENTE_PLACEHOLDER;
     };
     zonaImagen.appendChild(imagen);
 
@@ -114,14 +107,17 @@ function crearTarjetaProximamente(pelicula) {
     botonTrailer.type = 'button';
     botonTrailer.className = 'btn btn-sm bg-cm-surface-high text-light d-flex align-items-center justify-content-center p-2 border-0 rounded-2 btn-hover-subtle';
     botonTrailer.setAttribute('aria-label', 'Ver tráiler');
-    botonTrailer.title = urlExternaSegura(pelicula.trailer) ? 'Ver tráiler' : 'Ver video de reemplazo';
+    botonTrailer.title = pelicula.trailer ? 'Ver tráiler' : 'Tráiler no disponible';
     const iconoTrailer = document.createElement('span');
     iconoTrailer.className = 'material-symbols-outlined';
     iconoTrailer.style.fontSize = '20px';
     iconoTrailer.textContent = 'play_arrow';
     botonTrailer.appendChild(iconoTrailer);
-    const urlTrailer = urlExternaSegura(pelicula.trailer) ? pelicula.trailer : VIDEO_PROXIMAMENTE_PLACEHOLDER;
-    botonTrailer.addEventListener('click', () => window.open(urlTrailer, '_blank', 'noopener,noreferrer'));
+    if (urlExternaSegura(pelicula.trailer)) {
+        botonTrailer.addEventListener('click', () => window.open(pelicula.trailer, '_blank', 'noopener,noreferrer'));
+    } else {
+        botonTrailer.disabled = true;
+    }
 
     acciones.append(botonAviso, botonTrailer);
     cuerpo.append(detalles, acciones);

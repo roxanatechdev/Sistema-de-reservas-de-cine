@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dune: Parte Dos - Horarios, Boletos y Tráiler | CinePrime</title>
+    <title>Dune: Parte Dos - Horarios, Boletos y Tráiler | CineUp</title>
 
     <!-- 2. Metadatos SEO y Descripción -->
     <meta name="description"
@@ -64,8 +64,6 @@
                         <span
                             class="badge bg-cm-primary-container text-white px-2 py-0.5 text-uppercase fw-bold rounded-1">Ciencia
                             Ficción</span>
-                        <span
-                            class="badge bg-surface-container-high text-white px-2 py-0.5 text-uppercase fw-bold rounded-1">Aventura</span>
                         <span>•</span>
                         <span>2024</span>
                         <span>•</span>
@@ -78,8 +76,8 @@
                     </h1>
 
                     <!-- Subtítulo / Tagline -->
-                    <p class="fs-7 text-cm-tertiary fw-medium mb-3">
-                        La batalla definitiva por el trono sagrado de Arrakis
+                    <p class="banner-synopsis fs-7 text-cm-tertiary fw-medium mb-3">
+                        Cargando sinopsis...
                     </p>
 
                     <!-- Ratings Compactos -->
@@ -129,7 +127,7 @@
                         <div class="d-flex align-items-center justify-content-between gap-2">
                             <button
                                 class="btn btn-trailer rounded-pill flex-grow-1 py-2 fw-semibold text-white d-inline-flex align-items-center justify-content-center gap-2 fs-7"
-                                data-bs-toggle="modal" data-bs-target="#trailerModal">
+                                data-bs-toggle="modal" data-bs-target="#videoPlayerModal">
                                 <span class="material-symbols-outlined text-cm-primary fs-5">play_circle</span>
                                 <span>Ver Tráiler Oficial</span>
                             </button>
@@ -200,14 +198,6 @@
                             <span
                                 class="badge bg-cm-primary-container text-white px-3 py-2 text-uppercase fw-bold">Ciencia
                                 Ficción</span>
-                            <span
-                                class="badge bg-cm-surface-high text-cm-on-surface px-3 py-2 text-uppercase fw-bold">Aventura
-                                Épica</span>
-                            <span
-                                class="badge bg-cm-surface-high text-cm-on-surface px-3 py-2 text-uppercase fw-bold">Acción</span>
-                            <span
-                                class="badge bg-cm-surface-high text-cm-on-surface px-3 py-2 text-uppercase fw-bold">Año
-                                2024</span>
                         </div>
 
                         <!-- Título -->
@@ -216,8 +206,8 @@
                         </h1>
 
                         <!-- Subtítulo -->
-                        <p class="fs-6 fs-md-5 text-cm-tertiary fw-medium mb-4">
-                            La batalla definitiva por el trono sagrado de Arrakis
+                        <p class="banner-synopsis fs-6 fs-md-5 text-cm-tertiary fw-medium mb-4">
+                            Cargando sinopsis...
                         </p>
 
                         <!-- Bloque de Ratings (Scroll horizontal táctil en pantallas pequeñas) -->
@@ -275,7 +265,7 @@
                             <!-- Botón Secundario: Tráiler -->
                             <button
                                 class="btn btn-trailer rounded-pill px-4 py-2-5 fw-semibold text-white d-inline-flex align-items-center justify-content-center gap-2"
-                                data-bs-toggle="modal" data-bs-target="#trailerModal">
+                                data-bs-toggle="modal" data-bs-target="#videoPlayerModal">
                                 <span class="material-symbols-outlined text-cm-primary fs-5">play_circle</span>
                                 <span>Tráiler</span>
                             </button>
@@ -304,7 +294,8 @@
 
         <!-- SECCIÓN: HORARIOS Y SALAS DISPONIBLES -->
         <section
-            class="py-4 px-0 px-md-2 px-lg-0 bg-cm-surface-lowest border-bottom border-secondary border-opacity-10 overflow-hidden">
+            class="py-4 px-0 px-md-2 px-lg-0 bg-cm-surface-lowest border-bottom border-secondary border-opacity-10 overflow-hidden"
+            id="horarios">
             <div class="container-xl">
 
                 <!-- ENCABEZADO Y SELECTOR DE CINE -->
@@ -325,7 +316,7 @@
                         </p>
                     </div>
 
-                    <!-- Selector de Complejo / Cine (Dropdown Ajustado para Móvil) -->
+                    <!-- Selector de Complejo / Cine (Dropdown Ajustado para Móvil)
                     <div class="col-lg-4 col-md-5 d-flex ">
                         <div class="dropdown w-100">
                             <button
@@ -347,426 +338,108 @@
                                     class="material-symbols-outlined text-cm-variant dropdown-icon-arrow flex-shrink-0">expand_more</span>
                             </button>
 
-                            <!-- Menú del Dropdown Flotante Corregido -->
-                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark shadow-lg border-secondary border-opacity-25 mt-2 w-100 custom-dropdown-limit"
-                                aria-labelledby="dropdownCineSelector">
-                                <li>
-                                    <a class="dropdown-item active d-flex align-items-start gap-2 py-2-5 px-3" href="#">
-                                        <span
-                                            class="material-symbols-outlined fs-5 mt-1 flex-shrink-0">location_on</span>
-                                        <div class="text-wrap">
-                                            <strong class="d-block text-truncate-2">CinePrime Gran Plaza (Láser
-                                                IMAX)</strong>
-                                            <small class="text-cm-variant d-block text-break">Av. Principal #450 - Zona
-                                                Central</small>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider my-1 border-secondary border-opacity-25">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item d-flex align-items-start gap-2 py-2-5 px-3" href="#">
-                                        <span
-                                            class="material-symbols-outlined fs-5 text-cm-variant mt-1 flex-shrink-0">location_on</span>
-                                        <div class="text-wrap">
-                                            <strong class="d-block text-truncate-2">CinePrime Megacenter 4DX</strong>
-                                            <small class="text-cm-variant d-block text-break">Centro Comercial
-                                                Megacenter, Piso
-                                                3</small>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item d-flex align-items-start gap-2 py-2-5 px-3" href="#">
-                                        <span
-                                            class="material-symbols-outlined fs-5 text-cm-variant mt-1 flex-shrink-0">location_on</span>
-                                        <div class="text-wrap">
-                                            <strong class="d-block text-truncate-2">CinePrime Norte VIP Lounge</strong>
-                                            <small class="text-cm-variant d-block text-break">Av. Banzer Km 5 - Zona
-                                                Norte</small>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                        
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark shadow-lg border-secondary border-opacity-25 mt-2 w-100 custom-dropdown-limit"
+                        aria-labelledby="dropdownCineSelector">
+                        <li>
+                            <a class="dropdown-item active d-flex align-items-start gap-2 py-2-5 px-3" href="#">
+                                <span class="material-symbols-outlined fs-5 mt-1 flex-shrink-0">location_on</span>
+                                <div class="text-wrap">
+                                    <strong class="d-block text-truncate-2">CinePrime Gran Plaza (Láser
+                                        IMAX)</strong>
+                                    <small class="text-cm-variant d-block text-break">Av. Principal #450 - Zona
+                                        Central</small>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider my-1 border-secondary border-opacity-25">
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-start gap-2 py-2-5 px-3" href="#">
+                                <span
+                                    class="material-symbols-outlined fs-5 text-cm-variant mt-1 flex-shrink-0">location_on</span>
+                                <div class="text-wrap">
+                                    <strong class="d-block text-truncate-2">CinePrime Megacenter 4DX</strong>
+                                    <small class="text-cm-variant d-block text-break">Centro Comercial
+                                        Megacenter, Piso
+                                        3</small>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex align-items-start gap-2 py-2-5 px-3" href="#">
+                                <span
+                                    class="material-symbols-outlined fs-5 text-cm-variant mt-1 flex-shrink-0">location_on</span>
+                                <div class="text-wrap">
+                                    <strong class="d-block text-truncate-2">CinePrime Norte VIP Lounge</strong>
+                                    <small class="text-cm-variant d-block text-break">Av. Banzer Km 5 - Zona
+                                        Norte</small>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            -->
                 </div>
 
-                <!-- FILTROS RÁPIDOS POR DÍA -->
+                <!-- FILTROS RÁPIDOS POR DÍA (se generan los próximos 7 días) -->
                 <div class="day-picker-wrapper overflow-auto pb-2">
-                    <div class="d-inline-flex gap-2 gap-sm-3 min-w-100 pt-lg-2">
-
-                        <!-- Día 1: Activo -->
-                        <button type="button"
-                            class="day-card active border-0 text-start p-1 p-lg-2 rounded-4 d-flex flex-column justify-content-center">
-                            <div>
-                                <span class="day-name d-block text-uppercase fw-bold text-center">Hoy</span>
-                                <span class="day-number d-block text-center fw-bold my-1">24</span>
-                                <span class="day-month d-block text-center text-capitalize">Octubre</span>
-                            </div>
-                            <div class="day-badge text-center py-1 px-2 rounded-2 fw-bold text-uppercase mt-2">
-                                12 Funciones
-                            </div>
-                        </button>
-
-                        <!-- Día 2 -->
-                        <button type="button"
-                            class="day-card border-0 text-start p-1 p-lg-2 rounded-4 d-flex flex-column justify-content-center">
-                            <div>
-                                <span class="day-name d-block text-uppercase fw-bold text-center">Vie</span>
-                                <span class="day-number d-block text-center fw-bold my-1">25</span>
-                                <span class="day-month d-block text-center text-capitalize">Octubre</span>
-                            </div>
-                            <div class="day-badge text-center py-1 px-2 rounded-2 fw-bold text-uppercase mt-2">
-                                16 Funciones
-                            </div>
-                        </button>
-
-                        <!-- Día 3: Fin de Semana Promo -->
-                        <button type="button"
-                            class="day-card border-0 text-start p-1 p-lg-2 rounded-4 d-flex flex-column justify-content-center">
-                            <div>
-                                <span class="day-name d-block text-uppercase fw-bold text-center">Sáb</span>
-                                <span class="day-number d-block text-center fw-bold my-1">26</span>
-                                <span class="day-month d-block text-center text-capitalize">Octubre</span>
-                            </div>
-                            <div
-                                class="day-badge badge-promo-danger text-center py-1 px-2 rounded-2 fw-bold text-uppercase mt-2">
-                                FinDe
-                            </div>
-                        </button>
-
-                        <!-- Día 4 -->
-                        <button type="button"
-                            class="day-card border-0 text-start p-1 p-lg-2 rounded-4 d-flex flex-column justify-content-center">
-                            <div>
-                                <span class="day-name d-block text-uppercase fw-bold text-center">Dom</span>
-                                <span class="day-number d-block text-center fw-bold my-1">27</span>
-                                <span class="day-month d-block text-center text-capitalize">Octubre</span>
-                            </div>
-                            <div class="day-badge text-center py-1 px-2 rounded-2 fw-bold text-uppercase mt-2">
-                                18 Funciones
-                            </div>
-                        </button>
-
-                        <!-- Día 5: Lunes Promo -->
-                        <button type="button"
-                            class="day-card border-0 text-start p-1 p-lg-2 rounded-4 d-flex flex-column justify-content-center">
-                            <div>
-                                <span class="day-name d-block text-uppercase fw-bold text-center">Lun</span>
-                                <span class="day-number d-block text-center fw-bold my-1">28</span>
-                                <span class="day-month d-block text-center text-capitalize">Octubre</span>
-                            </div>
-                            <div
-                                class="day-badge badge-promo-info text-center py-1 px-2 rounded-2 fw-bold text-uppercase mt-2">
-                                Lunes Promo
-                            </div>
-                        </button>
-
-                        <!-- Día 6: 2x1 Prime -->
-                        <button type="button"
-                            class="day-card border-0 text-start p-1 p-lg-2 rounded-4 d-flex flex-column justify-content-center">
-                            <div>
-                                <span class="day-name d-block text-uppercase fw-bold text-center">Mar</span>
-                                <span class="day-number d-block text-center fw-bold my-1">29</span>
-                                <span class="day-month d-block text-center text-capitalize">Octubre</span>
-                            </div>
-                            <div
-                                class="day-badge badge-promo-warning text-center py-1 px-2 rounded-2 fw-bold text-uppercase mt-2">
-                                2x1 Prime
-                            </div>
-                        </button>
-
+                    <div class="d-inline-flex gap-2 gap-sm-3 min-w-100 pt-lg-2" id="scheduleDayPicker"
+                        aria-label="Seleccionar día">
+                        <p class="text-cm-variant mb-0">Cargando días disponibles…</p>
                     </div>
                 </div>
 
-                <!-- SUBSECCIÓN: FILTROS DE FORMATO -->
+                <!-- SUBSECCIÓN: FILTROS DE FORMATO (formatos admitidos por el sistema: 2D y 3D) -->
                 <div class="format-filter-section py-3 mb-4 mt-3">
-                    <div class="d-flex align-items-center gap-2 overflow-auto format-picker-wrapper py-1 px-1">
-
-                        <!-- Píldora 1: Todos los Formatos (Activo) -->
+                    <div class="d-flex align-items-center gap-2 overflow-auto format-picker-wrapper py-1 px-1"
+                        id="scheduleFormatPicker" aria-label="Filtrar por formato">
                         <button type="button"
-                            class="btn format-pill active d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold">
-                            <span class="material-symbols-outlined fs-6">auto_awesome</span>
-                            <span>Todos los Formatos</span>
+                            class="btn format-pill active d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold"
+                            data-formato="TODOS" aria-pressed="true">
+                            <span class="material-symbols-outlined fs-6">movie</span>
+                            <span>Todos los formatos</span>
                         </button>
-
-                        <!-- Píldora 2: 2D & 3D Digital -->
                         <button type="button"
-                            class="btn format-pill d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold">
+                            class="btn format-pill d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold"
+                            data-formato="2D" aria-pressed="false">
+                            <span class="material-symbols-outlined fs-6">crop_landscape</span>
+                            <span>2D</span>
+                        </button>
+                        <button type="button"
+                            class="btn format-pill d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold"
+                            data-formato="3D" aria-pressed="false">
                             <span class="material-symbols-outlined fs-6">3d_rotation</span>
-                            <span>2D & 3D Digital</span>
+                            <span>3D</span>
                         </button>
-
-                        <!-- Píldora 3: 4DX Dinámica -->
-                        <button type="button"
-                            class="btn format-pill d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold">
-                            <span class="material-symbols-outlined fs-6">air</span>
-                            <span>4DX Dinámica</span>
-                        </button>
-
-                        <!-- Píldora 4: XD Gran Formato -->
-                        <button type="button"
-                            class="btn format-pill d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold">
-                            <span class="material-symbols-outlined fs-6">aspect_ratio</span>
-                            <span>XD / Gran Formato</span>
-                        </button>
-
-                        <!-- Píldora 5: Premier VIP Lounge -->
-                        <button type="button"
-                            class="btn format-pill d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold">
-                            <span class="material-symbols-outlined fs-6">weekend</span>
-                            <span>Premier VIP Lounge</span>
-                        </button>
-
-                        <!-- Píldora 6: Dolby Atmos Sound -->
-                        <button type="button"
-                            class="btn format-pill d-inline-flex align-items-center gap-2 rounded-pill px-3 py-2 fw-semibold">
-                            <span class="material-symbols-outlined fs-6">surround_sound</span>
-                            <span>Dolby Atmos®</span>
-                        </button>
-
                     </div>
                 </div>
 
                 <!-- SUBSECCIÓN: LISTADO DE SALAS Y HORARIOS -->
-                <div class="showtimes-list-container d-flex flex-column gap-3">
-
-                    <!-- TARJETA 1: CINEMARK XD / GRAN FORMATO (SUBTITULADA) -->
-                    <div
-                        class="showtime-card rounded-4 p-3 p-md-4 border border-secondary border-opacity-10 bg-cm-surface-low shadow-sm">
-                        <div class="row align-items-center gy-3">
-
-                            <!-- Detalles de la Sala (Columna Izquierda) -->
-                            <div class="col-lg-5 col-md-12">
-                                <div class="d-flex align-items-start gap-3">
-                                    <div
-                                        class="format-icon-box rounded-3 d-flex align-items-center justify-content-center flex-shrink-0">
-                                        <span class="material-symbols-outlined fs-3 text-cm-primary">aspect_ratio</span>
-                                    </div>
-                                    <div>
-                                        <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
-                                            <h3
-                                                class="font-display-headline text-white mb-0 fs-4 tracking-wide text-uppercase fw-bold">
-                                                XD Gran Formato 4K
-                                            </h3>
-                                            <span
-                                                class="badge bg-cm-brand-red text-white text-uppercase fs-9 px-2 py-1 fw-bold rounded-1">
-                                                Pantalla Gigante
-                                            </span>
-                                        </div>
-                                        <p class="text-cm-variant fs-7 mb-0 lh-sm py-2 py-md-0">
-                                            Sala 1 • Proyección Láser Dual 4K • Audio Dolby Atmos® 11.1 Surround
-                                        </p>
-                                        <div class="d-flex align-items-center gap-2 mt-2">
-                                            <span
-                                                class="badge badge-language rounded-pill text-uppercase fs-9 fw-semibold px-2 py-1">
-                                                SUB • Inglés Subtitulado
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Botones de Horarios (Columna Derecha / Grid Responsive) -->
-                            <div class="col-lg-7 col-md-12 mt-4 mt-lg-0">
-                                <div class="showtime-buttons-grid">
-
-                                    <!-- Horario 1: Casi Lleno -->
-                                    <button type="button"
-                                        class="btn time-pill border-0 rounded-3 p-2 d-flex flex-column align-items-center justify-content-center">
-                                        <span class="time-text fw-bold">15:30</span>
-                                        <span class="status-text text-warning fs-9 fw-semibold mt-1">Últimos 12
-                                            lugares</span>
-                                    </button>
-
-                                    <!-- Horario 2: Función Estelar (Seleccionada / Acento Rojo Cine) -->
-                                    <button type="button"
-                                        class="btn time-pill active border-0 rounded-3 p-2 d-flex flex-column align-items-center justify-content-center">
-                                        <div class="d-flex align-items-center gap-1">
-                                            <span class="time-text fw-bold">18:45</span>
-                                            <span class="material-symbols-outlined fs-8">stars</span>
-                                        </div>
-                                        <span class="status-text text-white fs-9 fw-bold text-uppercase mt-1">Estelar
-                                            Prime</span>
-                                    </button>
-
-                                    <!-- Horario 3: Alta Disponibilidad -->
-                                    <button type="button"
-                                        class="btn time-pill border-0 rounded-3 p-2 d-flex flex-column align-items-center justify-content-center">
-                                        <span class="time-text fw-bold">21:15</span>
-                                        <span class="status-text text-cm-variant fs-9 mt-1">Disponibilidad alta</span>
-                                    </button>
-
-                                    <!-- Horario 4: Tanda Trasnoche -->
-                                    <button type="button"
-                                        class="btn time-pill border-0 rounded-3 p-2 d-flex flex-column align-items-center justify-content-center">
-                                        <span class="time-text fw-bold">23:45</span>
-                                        <span class="status-text text-cm-tertiary fs-9 fw-semibold mt-1">Tanda
-                                            Trasnoche</span>
-                                    </button>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- TARJETA 2: PREMIER VIP LOUNGE (DOBLADA) -->
-                    <div
-                        class="showtime-card rounded-4 p-3 p-md-4 border border-secondary border-opacity-10 bg-cm-surface-low shadow-sm">
-                        <div class="row align-items-center gy-3">
-
-                            <!-- Detalles de la Sala -->
-                            <div class="col-lg-5 col-md-12">
-                                <div class="d-flex align-items-start gap-3">
-                                    <div
-                                        class="format-icon-box rounded-3 d-flex align-items-center justify-content-center flex-shrink-0">
-                                        <span class="material-symbols-outlined fs-3 text-cm-tertiary">weekend</span>
-                                    </div>
-                                    <div>
-                                        <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
-                                            <h3
-                                                class="font-display-headline text-white mb-0 fs-4 tracking-wide text-uppercase fw-bold">
-                                                Premier VIP Lounge
-                                            </h3>
-                                            <span
-                                                class="badge bg-cm-tertiary text-dark text-uppercase fs-9 px-2 py-1 fw-bold rounded-1">
-                                                Servicio a Butaca
-                                            </span>
-                                        </div>
-                                        <p class="text-cm-variant fs-7 mb-0 lh-sm py-2 py-md-0">
-                                            Sala VIP 3 • Butacas Reclinables 180° • Cava, Cócteles y Menú de Autor
-                                        </p>
-                                        <div class="d-flex align-items-center gap-2 mt-2">
-                                            <span
-                                                class="badge badge-language rounded-pill text-uppercase fs-9 fw-semibold px-2 py-1">
-                                                DOB • Español Latino
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Botones de Horarios -->
-                            <div class="col-lg-7 col-md-12 mt-4 mt-lg-0">
-                                <div class="showtime-buttons-grid">
-
-                                    <!-- Horario 1 -->
-                                    <button type="button"
-                                        class="btn time-pill border-0 rounded-3 p-2 d-flex flex-column align-items-center justify-content-center">
-                                        <span class="time-text fw-bold">16:00</span>
-                                        <span class="status-text text-cm-variant fs-9 mt-1">Disponibilidad media</span>
-                                    </button>
-
-                                    <!-- Horario 2: Casi Lleno -->
-                                    <button type="button"
-                                        class="btn time-pill border-0 rounded-3 p-2 d-flex flex-column align-items-center justify-content-center">
-                                        <span class="time-text fw-bold">19:30</span>
-                                        <span class="status-text text-warning fs-9 fw-semibold mt-1">Quedan 6
-                                            Butacas</span>
-                                    </button>
-
-                                    <!-- Horario 3 -->
-                                    <button type="button"
-                                        class="btn time-pill border-0 rounded-3 p-2 d-flex flex-column align-items-center justify-content-center">
-                                        <span class="time-text fw-bold">22:30</span>
-                                        <span class="status-text text-cm-variant fs-9 mt-1">Disponibilidad alta</span>
-                                    </button>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- TARJETA 3: SALA 4DX DINÁMICA (DOBLADA) -->
-                    <div
-                        class="showtime-card rounded-4 p-3 p-md-4 border border-secondary border-opacity-10 bg-cm-surface-low shadow-sm">
-                        <div class="row align-items-center gy-3">
-
-                            <!-- Detalles de la Sala -->
-                            <div class="col-lg-5 col-md-12">
-                                <div class="d-flex align-items-start gap-3">
-                                    <div
-                                        class="format-icon-box rounded-3 d-flex align-items-center justify-content-center flex-shrink-0">
-                                        <span class="material-symbols-outlined fs-3 text-cm-primary">air</span>
-                                    </div>
-                                    <div>
-                                        <div class="d-flex align-items-center gap-2 flex-wrap mb-1">
-                                            <h3
-                                                class="font-display-headline text-white mb-0 fs-4 tracking-wide text-uppercase fw-bold">
-                                                4DX Dinámica 3D
-                                            </h3>
-                                            <span
-                                                class="badge bg-secondary bg-opacity-25 text-white border border-secondary border-opacity-25 text-uppercase fs-9 px-2 py-1 fw-bold rounded-1">
-                                                Inmersión Total
-                                            </span>
-                                        </div>
-                                        <p class="text-cm-variant fs-7 mb-0 lh-sm py-2 py-md-0">
-                                            Sala 4DX • Asientos Moción 3DOF • Efectos de Viento, Agua, Olores y Niebla
-                                        </p>
-                                        <div class="d-flex align-items-center gap-2 mt-2">
-                                            <span
-                                                class="badge badge-language rounded-pill text-uppercase fs-9 fw-semibold px-2 py-1">
-                                                DOB • Español Latino
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Botones de Horarios -->
-                            <div class="col-lg-7 col-md-12 mt-4 mt-lg-0">
-                                <div class="showtime-buttons-grid">
-
-                                    <!-- Horario 1 -->
-                                    <button type="button"
-                                        class="btn time-pill border-0 rounded-3 p-2 d-flex flex-column align-items-center justify-content-center">
-                                        <span class="time-text fw-bold">14:15</span>
-                                        <span class="status-text text-cm-variant fs-9 mt-1">Sala Abierta</span>
-                                    </button>
-
-                                    <!-- Horario 2 -->
-                                    <button type="button"
-                                        class="btn time-pill border-0 rounded-3 p-2 d-flex flex-column align-items-center justify-content-center">
-                                        <span class="time-text fw-bold">17:00</span>
-                                        <span class="status-text text-cm-variant fs-9 mt-1">Disponibilidad alta</span>
-                                    </button>
-
-                                    <!-- Horario 3: Casi Lleno -->
-                                    <button type="button"
-                                        class="btn time-pill border-0 rounded-3 p-2 d-flex flex-column align-items-center justify-content-center">
-                                        <span class="time-text fw-bold">20:10</span>
-                                        <span class="status-text text-warning fs-9 fw-semibold mt-1">Últimos
-                                            lugares</span>
-                                    </button>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- BANNER INFERIOR DE GARANTÍA / POLÍTICAS -->
-                    <div
-                        class="policy-notice-banner rounded-4 p-3 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2 border border-secondary border-opacity-10 mt-2">
-                        <div class="d-flex align-items-center gap-2 text-cm-variant fs-7">
-                            <span
-                                class="material-symbols-outlined text-cm-primary fs-5 flex-shrink-0">verified_user</span>
-                            <span>Cancela o reprograma sin recargo hasta <strong>60 minutos antes</strong> de la función
-                                con tu
-                                membresía CinePrime VIP.</span>
-                        </div>
-                        <a href="#"
-                            class="text-cm-primary text-decoration-none fs-7 fw-bold d-inline-flex align-items-center gap-1 flex-shrink-0 hover-underline ms-4 ms-md-0">
-                            <span>Ver Política de Entradas</span>
-                            <span class="material-symbols-outlined fs-6">arrow_forward</span>
-                        </a>
-                    </div>
-
+                <div class="showtimes-list-container d-flex flex-column gap-3" id="scheduleShowtimesList"
+                    aria-live="polite">
+                    <p class="text-cm-variant mb-0">Cargando funciones…</p>
                 </div>
+
+                <!-- BANNER INFERIOR DE GARANTÍA / POLÍTICAS -->
+                <div
+                    class="policy-notice-banner rounded-4 p-3 d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2 border border-secondary border-opacity-10 mt-2">
+                    <div class="d-flex align-items-center gap-2 text-cm-variant fs-7">
+                        <span class="material-symbols-outlined text-cm-primary fs-5 flex-shrink-0">verified_user</span>
+                        <span>Cancela o reprograma sin recargo hasta <strong>60 minutos antes</strong> de la función
+                            con tu
+                            membresía CinePrime VIP.</span>
+                    </div>
+                    <a href="#"
+                        class="text-cm-primary text-decoration-none fs-7 fw-bold d-inline-flex align-items-center gap-1 flex-shrink-0 hover-underline ms-4 ms-md-0">
+                        <span>Ver Política de Entradas</span>
+                        <span class="material-symbols-outlined fs-6">arrow_forward</span>
+                    </a>
+                </div>
+
+            </div>
             </div>
         </section>
 
@@ -967,11 +640,11 @@
                     <div class="col-lg-4">
                         <div class="d-flex flex-column gap-4">
 
-                            <!-- 3. PUNTUACIÓN Y CARRUSEL DE COMUNIDAD -->
+                            <!-- 3. PUNTUACIÓN Y CARRUSEL DE COMUNIDAD 
                             <div
                                 class="ratings-reviews-card p-4 rounded-4 bg-cm-surface-low border border-secondary border-opacity-10 shadow-sm">
 
-                                <!-- Header Valoraciones -->
+                               
                                 <div class="d-flex align-items-center justify-content-between mb-3">
                                     <h3 class="font-display-section text-white mb-0 fs-4 text-uppercase">
                                         Puntuación CinePrime
@@ -982,104 +655,98 @@
                                     </span>
                                 </div>
 
-                                <!-- Círculos de Métricas de Puntuación -->
-                                <div class="row g-1 mb-2">
-                                    <div class="col-6 d-flex">
+                            <div class="row g-1 mb-2">
+                                <div class="col-6 d-flex">
+                                    <div
+                                        class="score-circle-box p-3 rounded-3 bg-cm-surface border border-secondary border-opacity-10 text-center d-flex flex-column justify-content-between w-100">
                                         <div
-                                            class="score-circle-box p-3 rounded-3 bg-cm-surface border border-secondary border-opacity-10 text-center d-flex flex-column justify-content-between w-100">
-                                            <div
-                                                class="score-ring primary-ring mx-auto mb-2 d-flex align-items-center justify-content-center">
-                                                <span class="fw-bold text-white fs-puntuacion">95%</span>
-                                            </div>
-                                            <strong class="d-block text-white fs-8 text-uppercase">Crítica
-                                                Global</strong>
-                                            <small class="text-cm-variant fs-9">420 Reseñas</small>
+                                            class="score-ring primary-ring mx-auto mb-2 d-flex align-items-center justify-content-center">
+                                            <span class="fw-bold text-white fs-puntuacion">95%</span>
                                         </div>
-                                    </div>
-                                    <div class="col-6 d-flex">
-                                        <div
-                                            class="score-circle-box p-3 rounded-3 bg-cm-surface border border-secondary border-opacity-10 text-center d-flex flex-column justify-content-between w-100">
-                                            <div
-                                                class="score-ring tertiary-ring mx-auto mb-2 d-flex align-items-center justify-content-center">
-                                                <span class="fw-bold text-white fs-puntuacion">4.9</span>
-                                            </div>
-                                            <strong class="d-block text-white fs-8 text-uppercase">Audiencia
-                                                Prime</strong>
-                                            <small class="text-cm-variant fs-9">12.450 Votos</small>
-                                        </div>
+                                        <strong class="d-block text-white fs-8 text-uppercase">Crítica
+                                            Global</strong>
+                                        <small class="text-cm-variant fs-9">420 Reseñas</small>
                                     </div>
                                 </div>
-
-                                <hr class="border-secondary border-opacity-25 my-3">
-
-                                <!-- Carrusel Estático de Comentarios de Clientes -->
-                                <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <div class="d-flex align-items-center gap-1 text-cm-tertiary fs-8">
-                                            <span class="material-symbols-outlined fs-6 fill-icon">star</span>
-                                            <span class="material-symbols-outlined fs-6 fill-icon">star</span>
-                                            <span class="material-symbols-outlined fs-6 fill-icon">star</span>
-                                            <span class="material-symbols-outlined fs-6 fill-icon">star</span>
-                                            <span class="material-symbols-outlined fs-6 fill-icon">star</span>
+                                <div class="col-6 d-flex">
+                                    <div
+                                        class="score-circle-box p-3 rounded-3 bg-cm-surface border border-secondary border-opacity-10 text-center d-flex flex-column justify-content-between w-100">
+                                        <div
+                                            class="score-ring tertiary-ring mx-auto mb-2 d-flex align-items-center justify-content-center">
+                                            <span class="fw-bold text-white fs-puntuacion">4.9</span>
                                         </div>
-                                        <div class="carousel-indicators-custom d-flex gap-1">
-                                            <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="0"
-                                                class="active" aria-current="true"></button>
-                                            <button type="button" data-bs-target="#reviewsCarousel"
-                                                data-bs-slide-to="1"></button>
-                                            <button type="button" data-bs-target="#reviewsCarousel"
-                                                data-bs-slide-to="2"></button>
-                                        </div>
-                                    </div>
-
-                                    <div class="carousel-inner">
-                                        <!-- Comentario 1 -->
-                                        <div class="carousel-item active">
-                                            <p class="fst-italic text-cm-variant fs-7 mb-2 lh-base">
-                                                "El sonido en Dolby Atmos retumba en el pecho. Sentir el rugido del
-                                                gusano de
-                                                arena en la sala XD de CinePrime fue una experiencia inigualable."
-                                            </p>
-                                            <small class="d-block text-white fw-semibold fs-8">
-                                                Carlos M. <span class="text-cm-tertiary">• Socio Prime Black</span>
-                                                <span class="text-cm-variant fw-normal">(Asistió 23 Oct)</span>
-                                            </small>
-                                        </div>
-
-                                        <!-- Comentario 2 -->
-                                        <div class="carousel-item">
-                                            <p class="fst-italic text-cm-variant fs-7 mb-2 lh-base">
-                                                "Increíble calidad visual en 4K. La atención en la sala Premier VIP con
-                                                el
-                                                servicio a la butaca hizo que la película se disfrutara al máximo."
-                                            </p>
-                                            <small class="d-block text-white fw-semibold fs-8">
-                                                Mariana R. <span class="text-cm-tertiary">• Cliente Verificada</span>
-                                                <span class="text-cm-variant fw-normal">(Asistió 24 Oct)</span>
-                                            </small>
-                                        </div>
-
-                                        <!-- Comentario 3 -->
-                                        <div class="carousel-item">
-                                            <p class="fst-italic text-cm-variant fs-7 mb-2 lh-base">
-                                                "Una obra maestra del cine moderno. Recomiendo totalmente verla en la
-                                                pantalla
-                                                gigante XD, la banda sonora de Zimmer te envuelve por completo."
-                                            </p>
-                                            <small class="d-block text-white fw-semibold fs-8">
-                                                Alejandro V. <span class="text-cm-tertiary">• Socio Prime Gold</span>
-                                                <span class="text-cm-variant fw-normal">(Asistió 24 Oct)</span>
-                                            </small>
-                                        </div>
+                                        <strong class="d-block text-white fs-8 text-uppercase">Audiencia
+                                            Prime</strong>
+                                        <small class="text-cm-variant fs-9">12.450 Votos</small>
                                     </div>
                                 </div>
-
-                                <!-- Botón CTA Escribir Reseña -->
-                                <button type="button"
-                                    class="btn btn-outline-light w-100 rounded-3 btn-sm mt-3 fw-bold text-uppercase py-2 border-secondary border-opacity-25 hover-cm-red">
-                                    Escribir Reseña Verificada
-                                </button>
                             </div>
+
+                            <hr class="border-secondary border-opacity-25 my-3">
+
+                            <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="d-flex align-items-center gap-1 text-cm-tertiary fs-8">
+                                        <span class="material-symbols-outlined fs-6 fill-icon">star</span>
+                                        <span class="material-symbols-outlined fs-6 fill-icon">star</span>
+                                        <span class="material-symbols-outlined fs-6 fill-icon">star</span>
+                                        <span class="material-symbols-outlined fs-6 fill-icon">star</span>
+                                        <span class="material-symbols-outlined fs-6 fill-icon">star</span>
+                                    </div>
+                                    <div class="carousel-indicators-custom d-flex gap-1">
+                                        <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="0"
+                                            class="active" aria-current="true"></button>
+                                        <button type="button" data-bs-target="#reviewsCarousel"
+                                            data-bs-slide-to="1"></button>
+                                        <button type="button" data-bs-target="#reviewsCarousel"
+                                            data-bs-slide-to="2"></button>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <p class="fst-italic text-cm-variant fs-7 mb-2 lh-base">
+                                            "El sonido en Dolby Atmos retumba en el pecho. Sentir el rugido del
+                                            gusano de
+                                            arena en la sala XD de CinePrime fue una experiencia inigualable."
+                                        </p>
+                                        <small class="d-block text-white fw-semibold fs-8">
+                                            Carlos M. <span class="text-cm-tertiary">• Socio Prime Black</span>
+                                            <span class="text-cm-variant fw-normal">(Asistió 23 Oct)</span>
+                                        </small>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <p class="fst-italic text-cm-variant fs-7 mb-2 lh-base">
+                                            "Increíble calidad visual en 4K. La atención en la sala Premier VIP con
+                                            el
+                                            servicio a la butaca hizo que la película se disfrutara al máximo."
+                                        </p>
+                                        <small class="d-block text-white fw-semibold fs-8">
+                                            Mariana R. <span class="text-cm-tertiary">• Cliente Verificada</span>
+                                            <span class="text-cm-variant fw-normal">(Asistió 24 Oct)</span>
+                                        </small>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <p class="fst-italic text-cm-variant fs-7 mb-2 lh-base">
+                                            "Una obra maestra del cine moderno. Recomiendo totalmente verla en la
+                                            pantalla
+                                            gigante XD, la banda sonora de Zimmer te envuelve por completo."
+                                        </p>
+                                        <small class="d-block text-white fw-semibold fs-8">
+                                            Alejandro V. <span class="text-cm-tertiary">• Socio Prime Gold</span>
+                                            <span class="text-cm-variant fw-normal">(Asistió 24 Oct)</span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button"
+                                class="btn btn-outline-light w-100 rounded-3 btn-sm mt-3 fw-bold text-uppercase py-2 border-secondary border-opacity-25 hover-cm-red">
+                                Escribir Reseña Verificada
+                            </button>
+                        </div>
+                        -->
 
                             <!-- 4. FICHA TÉCNICA & MARIDAJE DE DULCERÍA -->
                             <div
@@ -1106,8 +773,8 @@
                                         <strong class="text-white text-end">Greig Fraser, ASC</strong>
                                     </li>
                                     <li class="d-flex justify-content-between">
-                                        <span>Distribución:</span>
-                                        <strong class="text-white text-end">Warner Bros. Pictures</strong>
+                                        <span>Países de producción:</span>
+                                        <strong class="text-white text-end">Nueva Zelanda</strong>
                                     </li>
                                     <li class="d-flex justify-content-between">
                                         <span>Audio Original:</span>
@@ -1115,7 +782,7 @@
                                     </li>
                                 </ul>
 
-                                <!-- Maridaje Recomendado VIP (Cross-Selling Confitería) -->
+                                <!-- Maridaje Recomendado VIP (Cross-Selling Confitería) 
                                 <div
                                     class="snack-pairing-box p-3 rounded-3 bg-cm-surface border border-warning border-opacity-25 d-flex align-items-center gap-3">
                                     <div
@@ -1130,7 +797,7 @@
                                             Popcorn Trufado con Especias Arrakis + Mocktail Carmesí
                                         </p>
                                     </div>
-                                </div>
+                                </div>-->
 
                             </div>
 
@@ -1145,111 +812,31 @@
         <section
             class="media-gallery-section py-4 py-md-5 bg-cm-surface-low border-top border-secondary border-opacity-10">
             <div class="container-xl">
-
-                <!-- Header de Sección -->
                 <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
                     <div class="d-flex align-items-center gap-2">
                         <span class="material-symbols-outlined text-cm-tertiary fs-2">movie</span>
                         <h2 class="font-display-section text-white mb-0 fs-2 tracking-wider text-uppercase fw-bold">
-                            Fotogramas y Tráileres
-                        </h2>
+                            Fotogramas y Tráileres</h2>
                     </div>
-
-                    <!-- CTA Ver todo el Archivo -->
-                    <button type="button"
+                    <button type="button" id="galleryArchiveButton"
                         class="btn btn-link text-cm-primary text-decoration-none fw-semibold fs-7 d-flex align-items-center gap-1 p-0 hover-opacity"
                         data-bs-toggle="modal" data-bs-target="#galleryArchiveModal">
-                        Ver Todo el Archivo (24)
+                        Ver Todo el Archivo (0)
                         <span class="material-symbols-outlined fs-6">chevron_right</span>
                     </button>
                 </div>
-
-                <!-- Grid de 3 Tarjetas Multimedia Destacadas -->
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-
-                    <!-- Video 1: Tráiler Principal -->
+                <div id="galleryFeaturedGrid" class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col">
                         <div
                             class="media-card rounded-4 overflow-hidden position-relative bg-cm-surface border border-secondary border-opacity-10 shadow-sm group-hover">
                             <div class="media-thumbnail-wrapper position-relative ratio ratio-16x9">
-                                <img src="img/dune2-fondo.jpg" alt="Tráiler Oficial 4K"
-                                    class="img-fluid object-fit-cover media-img">
-                                <div class="media-overlay d-flex align-items-center justify-content-center">
-                                    <!-- Botón Play Destacado -->
-                                    <button
-                                        class="btn-play-trigger rounded-circle border-0 d-flex align-items-center justify-content-center"
-                                        data-bs-toggle="modal" data-bs-target="#videoPlayerModal"
-                                        data-video-src="https://www.youtube.com/embed/Way9Dexny3w?autoplay=1"
-                                        aria-label="Reproducir Tráiler">
-                                        <span class="material-symbols-outlined fill-icon fs-3">play_arrow</span>
-                                    </button>
-                                </div>
+                                <img src="img/placeholder.png" alt="Contenido multimedia no disponible"
+                                    class="img-fluid object-fit-cover media-img" loading="lazy">
                             </div>
-                            <div
-                                class="media-card-body p-3 d-flex align-items-center justify-content-between bg-cm-surface-high">
-                                <span class="text-white fw-bold fs-7 text-truncate pe-2">Tráiler Oficial 4K IMAX</span>
-                                <span
-                                    class="badge bg-dark bg-opacity-75 text-cm-variant fs-9 px-2 py-1 rounded-2 border border-secondary border-opacity-25">2:45
-                                    min</span>
-                            </div>
+                            <div class="media-card-body p-3 bg-cm-surface-high"><span
+                                    class="text-white fw-bold fs-7">Sin contenido multimedia registrado</span></div>
                         </div>
                     </div>
-
-                    <!-- Video 2: Detrás de Cámaras -->
-                    <div class="col">
-                        <div
-                            class="media-card rounded-4 overflow-hidden position-relative bg-cm-surface border border-secondary border-opacity-10 shadow-sm group-hover">
-                            <div class="media-thumbnail-wrapper position-relative ratio ratio-16x9">
-                                <img src="img/dune2.jpg" alt="Detrás de Cámaras"
-                                    class="img-fluid object-fit-cover media-img">
-                                <div class="media-overlay d-flex align-items-center justify-content-center">
-                                    <button
-                                        class="btn-play-trigger rounded-circle border-0 d-flex align-items-center justify-content-center"
-                                        data-bs-toggle="modal" data-bs-target="#videoPlayerModal"
-                                        data-video-src="https://www.youtube.com/embed/Way9Dexny3w?autoplay=1"
-                                        aria-label="Reproducir Detrás de Cámaras">
-                                        <span class="material-symbols-outlined fill-icon fs-3">play_arrow</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div
-                                class="media-card-body p-3 d-flex align-items-center justify-content-between bg-cm-surface-high">
-                                <span class="text-white fw-bold fs-7 text-truncate pe-2">Detrás de Cámaras IMAX</span>
-                                <span
-                                    class="badge bg-dark bg-opacity-75 text-cm-variant fs-9 px-2 py-1 rounded-2 border border-secondary border-opacity-25">4:12
-                                    min</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Video 3: Entrevistas con el Reparto -->
-                    <div class="col">
-                        <div
-                            class="media-card rounded-4 overflow-hidden position-relative bg-cm-surface border border-secondary border-opacity-10 shadow-sm group-hover">
-                            <div class="media-thumbnail-wrapper position-relative ratio ratio-16x9">
-                                <img src="img/dune2-fondo.jpg" alt="Entrevistas"
-                                    class="img-fluid object-fit-cover media-img">
-                                <div class="media-overlay d-flex align-items-center justify-content-center">
-                                    <button
-                                        class="btn-play-trigger rounded-circle border-0 d-flex align-items-center justify-content-center"
-                                        data-bs-toggle="modal" data-bs-target="#videoPlayerModal"
-                                        data-video-src="https://www.youtube.com/embed/Way9Dexny3w?autoplay=1"
-                                        aria-label="Reproducir Entrevistas">
-                                        <span class="material-symbols-outlined fill-icon fs-3">play_arrow</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div
-                                class="media-card-body p-3 d-flex align-items-center justify-content-between bg-cm-surface-high">
-                                <span class="text-white fw-bold fs-7 text-truncate pe-2">Entrevistas con el
-                                    Reparto</span>
-                                <span
-                                    class="badge bg-dark bg-opacity-75 text-cm-variant fs-9 px-2 py-1 rounded-2 border border-secondary border-opacity-25">3:30
-                                    min</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -1453,7 +1040,9 @@
                     <div class="modal-body p-3 p-md-4">
                         <div class="ratio ratio-16x9 rounded-3 overflow-hidden bg-black">
                             <iframe id="videoIframe" src="" title="Reproductor de Video CinePrime" allowfullscreen
-                                allow="autoplay"></iframe>
+                                allow="autoplay" class="d-none"></iframe>
+                            <video id="videoFilePlayer" class="w-100 h-100 d-none" controls playsinline preload="none"
+                                poster="img/placeholder.png"></video>
                         </div>
                     </div>
                 </div>
@@ -1481,235 +1070,38 @@
                                 aria-label="Cerrar"></button>
                         </div>
 
-                        <!-- Pestañas de Filtro (Tabs Bootstrap) -->
+                        <!-- Filtros de archivo: solo videos e imágenes -->
                         <ul class="nav nav-pills custom-gallery-tabs gap-2 border-0" id="galleryTabs" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active rounded-pill px-3 py-1-5 fs-8 fw-semibold"
-                                    id="all-media-tab" data-bs-toggle="tab" data-bs-target="#all-media" type="button"
-                                    role="tab">
-                                    Todos (24)
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link rounded-pill px-3 py-1-5 fs-8 fw-semibold" id="trailers-tab"
-                                    data-bs-toggle="tab" data-bs-target="#trailers" type="button" role="tab">
-                                    Tráileres & Videos (6)
-                                </button>
+                                    id="trailers-tab" data-bs-toggle="tab" data-bs-target="#trailers" type="button"
+                                    role="tab">Videos (0)</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link rounded-pill px-3 py-1-5 fs-8 fw-semibold" id="stills-tab"
-                                    data-bs-toggle="tab" data-bs-target="#stills" type="button" role="tab">
-                                    Fotogramas (12)
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link rounded-pill px-3 py-1-5 fs-8 fw-semibold" id="behind-tab"
-                                    data-bs-toggle="tab" data-bs-target="#behind" type="button" role="tab">
-                                    Detrás de Cámaras (6)
-                                </button>
+                                    data-bs-toggle="tab" data-bs-target="#stills" type="button" role="tab">Imágenes
+                                    (0)</button>
                             </li>
                         </ul>
                     </div>
-
-                    <!-- CUERPO DEL MODAL CON GRID DE IMÁGENES Y VIDEOS -->
                     <div class="modal-body p-3 p-md-4">
                         <div class="tab-content" id="galleryTabsContent">
-
-                            <!-- TAB 1: TODOS LOS ARCHIVOS -->
-                            <div class="tab-pane fade show active" id="all-media" role="tabpanel">
-                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
-
-                                    <!-- Ítem 1: Video -->
-                                    <div class="col">
-                                        <div
-                                            class="gallery-item-card rounded-3 overflow-hidden position-relative ratio ratio-16x9 bg-cm-surface-high border border-secondary border-opacity-10">
-                                            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=400"
-                                                alt="Tráiler Principal" class="img-fluid object-fit-cover">
-                                            <div
-                                                class="gallery-item-overlay d-flex flex-column justify-content-between p-2">
-                                                <span
-                                                    class="badge bg-cm-brand-red text-white align-self-start fs-9 fw-bold">VIDEO</span>
-                                                <div class="d-flex align-items-center justify-content-between">
-                                                    <span class="text-white fs-8 fw-bold text-truncate me-2">Tráiler
-                                                        Oficial
-                                                        4K</span>
-                                                    <button
-                                                        class="btn btn-sm btn-play-micro rounded-circle p-1 d-flex align-items-center justify-content-center"
-                                                        data-bs-toggle="modal" data-bs-target="#videoPlayerModal"
-                                                        data-video-src="https://www.youtube.com/embed/Way9Dexny3w?autoplay=1">
-                                                        <span
-                                                            class="material-symbols-outlined fill-icon fs-6">play_arrow</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Ítem 2: Fotograma -->
-                                    <div class="col">
-                                        <div
-                                            class="gallery-item-card rounded-3 overflow-hidden position-relative ratio ratio-16x9 bg-cm-surface-high border border-secondary border-opacity-10">
-                                            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400"
-                                                alt="Fotograma Paul en Arrakis" class="img-fluid object-fit-cover">
-                                            <div
-                                                class="gallery-item-overlay d-flex flex-column justify-content-between p-2">
-                                                <span
-                                                    class="badge bg-dark bg-opacity-75 text-cm-variant align-self-start fs-9 fw-bold border border-secondary border-opacity-25">FOTO</span>
-                                                <span class="text-white fs-8 fw-bold text-truncate">Paul Atreides en el
-                                                    desierto</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Ítem 3: Video Behind the Scenes -->
-                                    <div class="col">
-                                        <div
-                                            class="gallery-item-card rounded-3 overflow-hidden position-relative ratio ratio-16x9 bg-cm-surface-high border border-secondary border-opacity-10">
-                                            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=400"
-                                                alt="Filmación IMAX" class="img-fluid object-fit-cover">
-                                            <div
-                                                class="gallery-item-overlay d-flex flex-column justify-content-between p-2">
-                                                <span
-                                                    class="badge bg-cm-brand-red text-white align-self-start fs-9 fw-bold">VIDEO</span>
-                                                <div class="d-flex align-items-center justify-content-between">
-                                                    <span class="text-white fs-8 fw-bold text-truncate me-2">Rodaje
-                                                        Cámaras
-                                                        IMAX</span>
-                                                    <button
-                                                        class="btn btn-sm btn-play-micro rounded-circle p-1 d-flex align-items-center justify-content-center"
-                                                        data-bs-toggle="modal" data-bs-target="#videoPlayerModal"
-                                                        data-video-src="https://www.youtube.com/embed/Way9Dexny3w?autoplay=1">
-                                                        <span
-                                                            class="material-symbols-outlined fill-icon fs-6">play_arrow</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Ítem 4: Fotograma -->
-                                    <div class="col">
-                                        <div
-                                            class="gallery-item-card rounded-3 overflow-hidden position-relative ratio ratio-16x9 bg-cm-surface-high border border-secondary border-opacity-10">
-                                            <img src="https://images.unsplash.com/photo-1518173946687-a4c8a383392e?auto=format&fit=crop&q=80&w=400"
-                                                alt="Chani & Paul" class="img-fluid object-fit-cover">
-                                            <div
-                                                class="gallery-item-overlay d-flex flex-column justify-content-between p-2">
-                                                <span
-                                                    class="badge bg-dark bg-opacity-75 text-cm-variant align-self-start fs-9 fw-bold border border-secondary border-opacity-25">FOTO</span>
-                                                <span class="text-white fs-8 fw-bold text-truncate">Chani y Paul
-                                                    Atreides</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Ítem 5: Fotograma -->
-                                    <div class="col">
-                                        <div
-                                            class="gallery-item-card rounded-3 overflow-hidden position-relative ratio ratio-16x9 bg-cm-surface-high border border-secondary border-opacity-10">
-                                            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&q=80&w=400"
-                                                alt="Feyd-Rautha" class="img-fluid object-fit-cover">
-                                            <div
-                                                class="gallery-item-overlay d-flex flex-column justify-content-between p-2">
-                                                <span
-                                                    class="badge bg-dark bg-opacity-75 text-cm-variant align-self-start fs-9 fw-bold border border-secondary border-opacity-25">FOTO</span>
-                                                <span class="text-white fs-8 fw-bold text-truncate">Arena
-                                                    Harkonnen</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Ítem 6: Fotograma -->
-                                    <div class="col">
-                                        <div
-                                            class="gallery-item-card rounded-3 overflow-hidden position-relative ratio ratio-16x9 bg-cm-surface-high border border-secondary border-opacity-10">
-                                            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=400"
-                                                alt="Gusano de Arena" class="img-fluid object-fit-cover">
-                                            <div
-                                                class="gallery-item-overlay d-flex flex-column justify-content-between p-2">
-                                                <span
-                                                    class="badge bg-dark bg-opacity-75 text-cm-variant align-self-start fs-9 fw-bold border border-secondary border-opacity-25">FOTO</span>
-                                                <span class="text-white fs-8 fw-bold text-truncate">Ataque del Gusano de
-                                                    Arena</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Ítem 7: Video Entrevistas -->
-                                    <div class="col">
-                                        <div
-                                            class="gallery-item-card rounded-3 overflow-hidden position-relative ratio ratio-16x9 bg-cm-surface-high border border-secondary border-opacity-10">
-                                            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=400"
-                                                alt="Entrevistas Elenco" class="img-fluid object-fit-cover">
-                                            <div
-                                                class="gallery-item-overlay d-flex flex-column justify-content-between p-2">
-                                                <span
-                                                    class="badge bg-cm-brand-red text-white align-self-start fs-9 fw-bold">VIDEO</span>
-                                                <div class="d-flex align-items-center justify-content-between">
-                                                    <span class="text-white fs-8 fw-bold text-truncate me-2">Javier
-                                                        Bardem y
-                                                        Zendaya</span>
-                                                    <button
-                                                        class="btn btn-sm btn-play-micro rounded-circle p-1 d-flex align-items-center justify-content-center"
-                                                        data-bs-toggle="modal" data-bs-target="#videoPlayerModal"
-                                                        data-video-src="https://www.youtube.com/embed/Way9Dexny3w?autoplay=1">
-                                                        <span
-                                                            class="material-symbols-outlined fill-icon fs-6">play_arrow</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Ítem 8: Fotograma -->
-                                    <div class="col">
-                                        <div
-                                            class="gallery-item-card rounded-3 overflow-hidden position-relative ratio ratio-16x9 bg-cm-surface-high border border-secondary border-opacity-10">
-                                            <img src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?auto=format&fit=crop&q=80&w=400"
-                                                alt="Princesa Irulan" class="img-fluid object-fit-cover">
-                                            <div
-                                                class="gallery-item-overlay d-flex flex-column justify-content-between p-2">
-                                                <span
-                                                    class="badge bg-dark bg-opacity-75 text-cm-variant align-self-start fs-9 fw-bold border border-secondary border-opacity-25">FOTO</span>
-                                                <span class="text-white fs-8 fw-bold text-truncate">Princesa Irulan en
-                                                    Corrino</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+                            <div class="tab-pane fade show active" id="trailers" role="tabpanel"
+                                aria-labelledby="trailers-tab">
+                                <div id="galleryVideosGrid"
+                                    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
                             </div>
-
-                            <!-- TAB 2: SOLO TRÁILERES Y VIDEOS -->
-                            <div class="tab-pane fade" id="trailers" role="tabpanel">
-                                <p class="text-cm-variant fs-7">Mostrando únicamente tráileres oficiales y clips de
-                                    video...</p>
-                                <!-- Grid Filtrado -->
+                            <div class="tab-pane fade" id="stills" role="tabpanel" aria-labelledby="stills-tab">
+                                <div id="galleryImagesGrid"
+                                    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
                             </div>
-
-                            <!-- TAB 3: SOLO FOTOGRAMAS -->
-                            <div class="tab-pane fade" id="stills" role="tabpanel">
-                                <p class="text-cm-variant fs-7">Mostrando capturas e imágenes fotográficas de alta
-                                    resolución...
-                                </p>
-                                <!-- Grid Filtrado -->
-                            </div>
-
-                            <!-- TAB 4: DETRÁS DE CÁMARAS -->
-                            <div class="tab-pane fade" id="behind" role="tabpanel">
-                                <p class="text-cm-variant fs-7">Mostrando avances de producción y material detrás de
-                                    cámaras...
-                                </p>
-                                <!-- Grid Filtrado -->
-                            </div>
-
                         </div>
                     </div>
 
                     <!-- PIE DEL MODAL -->
                     <div
                         class="modal-footer bg-cm-surface-low border-top border-secondary border-opacity-10 justify-content-between">
-                        <span class="text-cm-variant fs-8">Mostrando 8 de 24 contenidos multimedia</span>
+                        <span class="text-cm-variant fs-8">Mostrando 0 contenidos multimedia</span>
                         <button type="button"
                             class="btn btn-sm btn-outline-secondary text-white border-secondary border-opacity-25 rounded-3 px-3"
                             data-bs-dismiss="modal">
@@ -1728,20 +1120,38 @@
     <!-- Bootstrap 5.3 JS Bundle -->
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/api-cineprime.js"></script>
+    <script src="js/detalle-pelicula.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const videoModal = document.getElementById('videoPlayerModal');
             const videoIframe = document.getElementById('videoIframe');
+            const videoFilePlayer = document.getElementById('videoFilePlayer');
 
-            if (videoModal && videoIframe) {
+            if (videoModal && videoIframe && videoFilePlayer) {
                 videoModal.addEventListener('show.bs.modal', function (event) {
                     const button = event.relatedTarget;
-                    const videoSrc = button.getAttribute('data-video-src');
-                    videoIframe.setAttribute('src', videoSrc);
+                    const videoSrc = button?.getAttribute('data-video-src') || 'img/placeholder.mp4';
+                    const isFile = /\.mp4(?:$|[?#])/i.test(videoSrc);
+                    videoIframe.setAttribute('src', '');
+                    videoIframe.classList.toggle('d-none', isFile);
+                    videoFilePlayer.classList.toggle('d-none', !isFile);
+                    if (isFile) {
+                        videoFilePlayer.src = videoSrc;
+                        videoFilePlayer.load();
+                        const playPromise = videoFilePlayer.play();
+                        if (playPromise?.catch) playPromise.catch(() => { });
+                    } else {
+                        videoFilePlayer.pause();
+                        videoFilePlayer.removeAttribute('src');
+                        videoIframe.setAttribute('src', videoSrc);
+                    }
                 });
-
                 videoModal.addEventListener('hide.bs.modal', function () {
                     videoIframe.setAttribute('src', '');
+                    videoFilePlayer.pause();
+                    videoFilePlayer.removeAttribute('src');
+                    videoFilePlayer.load();
                 });
             }
 
