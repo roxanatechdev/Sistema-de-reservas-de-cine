@@ -104,7 +104,7 @@ function crearPeliculaPlaceholder(numero) {
         fecha_estreno: null,
         imagen: null,
         imagen_alt: 'Imagen de película no disponible',
-        trailer: 'https://www.youtube.com/embed/Way9Dexny3w?autoplay=1',
+        trailer: '../img/placeholder.mp4',
         es_placeholder: true
     };
 }
