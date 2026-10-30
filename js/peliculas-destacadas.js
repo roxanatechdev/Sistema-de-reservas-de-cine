@@ -134,23 +134,28 @@ function mostrarDestacada(indice) {
     if (botonTrailer) {
         botonTrailer.disabled = !trailer;
         botonTrailer.title = trailer ? 'Ver tráiler' : 'Tráiler no disponible';
+        botonTrailer.dataset.videoSrc = trailer || '';
     }
-}
 
-const botonComprar = document.querySelector('.hero-section .btn-cm-primary');
-if (botonComprar) {
-    botonComprar.href = '#cartelera-section';
-    botonComprar.setAttribute('aria-label', `Ver cartelera para ${pelicula.titulo || 'la película destacada'}`);
-}
+    // Mantiene actualizado el botón principal con la película que se muestra.
+    const botonComprar = document.querySelector('.hero-section .btn-cm-primary');
+    if (botonComprar) {
+        botonComprar.href = '#cartelera-section';
+        botonComprar.setAttribute(
+            'aria-label',
+            `Ver cartelera para ${pelicula.titulo || 'la película destacada'}`
+        );
+    }
 
-document.querySelectorAll('[data-hero-index]').forEach((indicador, i) => {
-    const activo = i === indiceDestacadoActual;
-    indicador.classList.toggle('active', activo);
-    indicador.classList.toggle('rounded-pill', activo);
-    indicador.classList.toggle('rounded-circle', !activo);
-    if (activo) indicador.setAttribute('aria-current', 'true');
-    else indicador.removeAttribute('aria-current');
-});
+    // Actualiza los indicadores cada vez que cambia la película.
+    document.querySelectorAll('[data-hero-index]').forEach((indicador, i) => {
+        const activo = i === indiceDestacadoActual;
+        indicador.classList.toggle('active', activo);
+        indicador.classList.toggle('rounded-pill', activo);
+        indicador.classList.toggle('rounded-circle', !activo);
+        if (activo) indicador.setAttribute('aria-current', 'true');
+        else indicador.removeAttribute('aria-current');
+    });
 }
 
 function enlazarControlesCarrusel() {
