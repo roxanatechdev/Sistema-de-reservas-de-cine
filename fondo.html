@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+
+<head>
+    <!-- 1. Metadatos Fundamentales -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mi Perfil | CineUp</title>
+
+    <!-- 2. Metadatos SEO y Descripción -->
+    <meta name="description"
+        content="Plataforma de streaming y cartelera de cine CinePrime. XX Feria Informática ISEC La Paz.">
+    <meta name="author" content="Carrera de Sistemas Informáticos - ISEC La Paz">
+    <meta name="theme-color" content="#11131c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+    <!-- 3. Favicon Vectorial con Adaptación Automática Dark/Light -->
+    <link rel="icon" type="image/svg+xml" href="img/clapperboard.svg">
+
+    <!-- 4. Bootstrap 5.3.8 CSS (Local) -->
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+
+    <!-- 5. Bootstrap Icons 1.13.1 (Local) -->
+    <link rel="stylesheet" href="bootstrap-icons-1.13.1/bootstrap-icons.min.css">
+
+    <!-- 6. Estilos Globales Personalizados y Específicos -->
+    <link rel="stylesheet" href="css/estilos-globales.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/perfil-tickets.css">
+    <link rel="stylesheet" href="css/favoritos.css">
+    <link rel="stylesheet" href="css/historial.css">
+    <link rel="stylesheet" href="css/historial-tarjetas.css">
+    <link rel="stylesheet" href="css/historial-vacio.css">
+    <link rel="stylesheet" href="css/custom-payment-methods.css">
+    <link rel="stylesheet" href="css/configuracion.css">
+
+
+</head>
+
+<body class="bg-surface">
+
+    <!-- HEADER / NAVBAR -->
+
+    <div id="navbar-container"></div>
+
+    <!-- CONTENEDOR DEL CONTENIDO PRINCIPAL -->
+    <main class="container-fluid bg-cm-surface min-vh-100 overflow-x-hidden px-0">
+
+        <!-- Sección de Filtros para Catálogo de Películas -->
+        <div class="card bg-dark border-secondary mb-4">
+            <div class="card-body">
+                <form action="{{ route('admin.peliculas.index') }}" method="GET" class="row g-3 align-items-center">
+
+                    <!-- 1. Barra de Búsqueda -->
+                    <div class="col-12 col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text bg-secondary border-secondary text-light">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="text" name="search" class="form-control bg-dark text-light border-secondary"
+                                placeholder="Buscar por título..." value="{{ request('search') }}">
+                        </div>
+                    </div>
+
+                    <!-- 2. Filtro de Estado -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <select name="estado" class="form-select bg-dark text-light border-secondary">
+                            <option value="">Todos los estados</option>
+                            <option value="activo" {{ request('estado')=='activo' ? 'selected' : '' }}>Activo</option>
+                            <option value="inactivo" {{ request('estado')=='inactivo' ? 'selected' : '' }}>Inactivo
+                            </option>
+                            <option value="borrador" {{ request('estado')=='borrador' ? 'selected' : '' }}>Borrador
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- 3. Filtro de Clasificación -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <select name="clasificacion" class="form-select bg-dark text-light border-secondary">
+                            <option value="">Todas las clasificaciones</option>
+                            <option value="PG" {{ request('clasificacion')=='PG' ? 'selected' : '' }}>PG</option>
+                            <option value="PG-13" {{ request('clasificacion')=='PG-13' ? 'selected' : '' }}>PG-13
+                            </option>
+                            <option value="R" {{ request('clasificacion')=='R' ? 'selected' : '' }}>R</option>
+                        </select>
+                    </div>
+
+                    <!-- 4. Acciones (Buscar y Limpiar Filtros) -->
+                    <div class="col-12 col-md-2 d-flex gap-2 justify-content-end">
+                        <button type="submit" class="btn btn-primary w-100" title="Aplicar filtros">
+                            <i class="bi bi-funnel-fill me-1"></i> Filtrar
+                        </button>
+
+                        @if(request()->hasAny(['search', 'estado', 'clasificacion']))
+                        <a href="{{ route('admin.peliculas.index') }}" class="btn btn-outline-secondary"
+                            title="Limpiar todo">
+                            <i class="bi bi-trash3"></i>
+                        </a>
+                        @endif
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+    </main>
+
+    <div id="footer-container"></div>
+    <!--<div id="footer-container" data-variant="minimal"></div>-->
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/user-banner.js"></script>
+    <script src="js/profile-navigation.js"></script>
+    <script src="js/tickets.js"></script>
+    <script src="js/historial.js"></script>
+    <script src="js/payment-methods.js"></script>
+    <script src="js/settings-perfil.js"></script>
+
+</body>
+
+</html>

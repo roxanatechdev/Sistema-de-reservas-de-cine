@@ -3,7 +3,7 @@
  * Comparte este archivo con index.html: detecta automáticamente si está
  * en la portada (tarjetas .movie-card) o en cartelera.html (.cm-movie-card).
  */
-const API_BASE = 'http://127.0.0.1:8000/api/peliculas';
+const API_BASE = '/api/peliculas';
 const POSTER_PLACEHOLDER = 'https://placehold.co/400x600/191b24/ffffff?text=Poster+No+Disponible';
 
 let todasLasPeliculas = [];
@@ -227,22 +227,31 @@ async function cargarCartelera(estado = estadoActual) {
     const url = estado === 'proximamente' ? `${API_BASE}/proximamente` : API_BASE;
 
     try {
-        const respuesta = await fetch(url, { headers: { Accept: 'application/json' } });
+        const respuesta = window.CinePrimeAPI
+            ? await window.CinePrimeAPI.request(url)
+            : await fetch(`http://127.0.0.1:8000${url}`, { headers: { Accept: 'application/json' } });
         if (!respuesta.ok) throw new Error(`Error HTTP ${respuesta.status}`);
         const datos = await respuesta.json();
         const peliculas = Array.isArray(datos) ? datos : datos?.peliculas;
+        if (Array.isArray(peliculas) && window.CinePrimeAPI) {
+            peliculas.forEach(p => {
+                if (p.imagen) p.imagen = window.CinePrimeAPI.media(p.imagen);
+                if (p.trailer) p.trailer = window.CinePrimeAPI.media(p.trailer);
+            });
+        }
         if (!Array.isArray(peliculas)) throw new Error('La API no devolvió una lista válida de películas.');
 
         // Carga el catálogo completo de películas ACTIVAS para construir los filtros,
         // aunque la cartelera semanal esté vacía o el usuario vea Próximamente.
         if (esCarteleraCompleta() && catalogoCompletoPeliculas === null) {
             try {
-                const respuestaCatalogo = await fetch(`${API_BASE}/destacadas`, {
-                    headers: { Accept: 'application/json' }
-                });
+                const respuestaCatalogo = window.CinePrimeAPI
+                    ? await window.CinePrimeAPI.request(`${API_BASE}/destacadas`)
+                    : await fetch(`http://127.0.0.1:8000${API_BASE}/destacadas`, { headers: { Accept: 'application/json' } });
                 if (!respuestaCatalogo.ok) throw new Error(`Error HTTP ${respuestaCatalogo.status}`);
                 const datosCatalogo = await respuestaCatalogo.json();
                 const listaCatalogo = Array.isArray(datosCatalogo) ? datosCatalogo : datosCatalogo?.peliculas;
+                if (Array.isArray(listaCatalogo) && window.CinePrimeAPI) listaCatalogo.forEach(p => { if (p.imagen) p.imagen = window.CinePrimeAPI.media(p.imagen); if (p.trailer) p.trailer = window.CinePrimeAPI.media(p.trailer); });
                 catalogoCompletoPeliculas = Array.isArray(listaCatalogo) ? listaCatalogo : peliculas;
             } catch (errorCatalogo) {
                 console.warn('No se pudo cargar el catálogo completo para los filtros:', errorCatalogo);
@@ -364,10 +373,10 @@ function crearTarjetaCinePrime(pelicula) {
     const esProxima = estadoActual === 'proximamente';
     const badgeFormato = esProxima ? 'PRÓXIMAMENTE' : (formatos.join(' / ') || 'FORMATO N/D');
     const fechaFuncion = primeraFuncion ? escaparHTML(formatearFuncion(primeraFuncion)) : 'Horarios por confirmar';
-    const hrefCompra = primeraFuncion?.id_funcion ? `asientos.html?id_funcion=${encodeURIComponent(primeraFuncion.id_funcion)}` : '#';
+    const hrefDetalle = pelicula.id_pelicula != null ? `detalle-pelicula.html?id_pelicula=${encodeURIComponent(pelicula.id_pelicula)}` : '#';
 
     col.innerHTML = `
-      <article class="cm-movie-card">
+      <article class="cm-movie-card" data-pelicula-id="${Number(pelicula.id_pelicula) || ''}" tabindex="0" role="link" aria-label="Ver detalle de ${titulo}">
         <div class="cm-poster-wrapper">
           <span class="cm-badge-format">${escaparHTML(badgeFormato)}</span>
           <span class="cm-badge-rating-age">${clasificacion}</span>
@@ -390,8 +399,8 @@ function crearTarjetaCinePrime(pelicula) {
           <div class="cm-format-chips">${chips}</div>
           <p class="small text-white-50 mb-2">${esProxima ? `Estreno: ${escaparHTML(pelicula.fecha_estreno || 'Fecha por confirmar')}` : `Próxima función: ${fechaFuncion}`}</p>
           <div class="cm-card-actions">
-            <a href="${esProxima ? '#' : hrefCompra}" class="cm-btn-buy" ${esProxima || !primeraFuncion ? 'aria-disabled="true"' : ''}>
-              <span class="material-symbols-outlined fs-5">confirmation_number</span><span>${esProxima ? 'Próximamente' : 'Comprar Entradas'}</span>
+            <a href="${hrefDetalle}" class="cm-btn-buy" ${pelicula.id_pelicula == null ? 'aria-disabled="true"' : ''}>
+              <span class="material-symbols-outlined fs-5">confirmation_number</span><span>${esProxima ? 'Ver detalles' : 'Comprar Entradas'}</span>
             </a>
             <a href="${trailer || '#'}" class="cm-btn-schedule" title="${trailer ? 'Ver tráiler' : 'Horario por confirmar'}" ${trailer ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true"'}>
               <span class="material-symbols-outlined fs-5">${trailer ? 'play_circle' : 'calendar_month'}</span>
@@ -401,8 +410,20 @@ function crearTarjetaCinePrime(pelicula) {
       </article>`;
 
     const botonTrailer = col.querySelector('.cm-btn-play');
-    if (trailer && botonTrailer) botonTrailer.addEventListener('click', () => window.open(trailer, '_blank', 'noopener,noreferrer'));
+    if (trailer && botonTrailer) botonTrailer.addEventListener('click', event => { event.stopPropagation(); window.open(trailer, '_blank', 'noopener,noreferrer'); });
     col.querySelectorAll('a[aria-disabled="true"]').forEach(a => a.addEventListener('click', event => event.preventDefault()));
+    const tarjeta = col.querySelector('.cm-movie-card');
+    if (tarjeta && pelicula.id_pelicula != null) {
+        const irAlDetalle = event => {
+            if (event.type === 'keydown' && !['Enter', ' '].includes(event.key)) return;
+            if (event.type === 'keydown') event.preventDefault();
+            if (event.target.closest('a, button, input, select, textarea')) return;
+            window.location.href = `detalle-pelicula.html?id_pelicula=${encodeURIComponent(pelicula.id_pelicula)}`;
+        };
+        tarjeta.addEventListener('click', irAlDetalle);
+        tarjeta.addEventListener('keydown', irAlDetalle);
+        tarjeta.style.cursor = 'pointer';
+    }
     return col;
 }
 
@@ -438,7 +459,18 @@ function crearTarjetaInicio(pelicula) {
         <div class="card-body p-3 d-flex flex-column justify-content-between gap-1"><div><div class="d-flex justify-content-between"><span class="badge badge-rating d-flex align-items-center gap-1 ps-0 mb-1"><span class="material-symbols-outlined icon-filled text-cm-tertiary">star</span>${rating}</span><span class="metadatos d-flex align-content-center gap-1 text-white-50"><span class="material-symbols-outlined fs-6">schedule</span>${duracion}</span></div><h3 class="movie-title text-uppercase mb-1 line-clamp-2" title="${titulo}">${titulo}</h3><p class="movie-subtitle">${genero}</p></div><div class="d-flex flex-column gap-1"><span class="showtime-label text-uppercase fw-bold py-1">FUNCIONES ESTA SEMANA</span><div class="d-flex gap-2">${funcionesHTML}</div></div><button class="btn btn-cm-reserve mt-1 w-100 text-uppercase rounded-2 py-1 fw-bold transition-all d-flex align-items-center justify-content-center gap-2" type="button"><span class="material-symbols-outlined fs-5">confirmation_number</span>Comprar Entradas</button></div>
       </div>`;
     const botonTrailer = columna.querySelector('.btn-trailer-play');
-    if (trailerUrl && botonTrailer) botonTrailer.addEventListener('click', () => window.open(trailerUrl, '_blank', 'noopener,noreferrer'));
+    if (trailerUrl && botonTrailer) botonTrailer.addEventListener('click', event => { event.stopPropagation(); window.open(trailerUrl, '_blank', 'noopener,noreferrer'); });
+    const tarjeta = columna.querySelector('.movie-card');
+    const hrefDetalle = pelicula.id_pelicula != null ? `detalle-pelicula.html?id_pelicula=${encodeURIComponent(pelicula.id_pelicula)}` : '#';
+    const botonComprar = columna.querySelector('.btn-cm-reserve');
+    if (botonComprar) botonComprar.addEventListener('click', () => { if (pelicula.id_pelicula != null) window.location.href = hrefDetalle; });
+    if (tarjeta && pelicula.id_pelicula != null) {
+        tarjeta.style.cursor = 'pointer';
+        tarjeta.addEventListener('click', event => {
+            if (event.target.closest('button, a, input, select, textarea')) return;
+            window.location.href = hrefDetalle;
+        });
+    }
     return columna;
 }
 

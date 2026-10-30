@@ -173,3 +173,17 @@
       }
     }
 }
+
+/* Impresión/guardar como PDF: el archivo contiene solo la entrada, sin navbar ni controles. */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body.ticket-page-body { background: #fff !important; color: #111 !important; min-height: 0 !important; padding: 0 !important; }
+  body.ticket-page-body * { visibility: hidden !important; }
+  #issuedTicketCard, #issuedTicketCard * { visibility: visible !important; }
+  #issuedTicketCard { position: absolute !important; left: 0 !important; top: 0 !important; width: 100% !important; margin: 0 !important; box-shadow: none !important; background: #fff !important; border: 1px dashed #333 !important; break-inside: avoid !important; }
+  #issuedTicketCard .ticket-body, #issuedTicketCard .ticket-left, #issuedTicketCard .ticket-right { background: #fff !important; color: #111 !important; }
+  #issuedTicketCard .text-white, #issuedTicketCard .val-text, #issuedTicketCard .code-pill { color: #111 !important; }
+  #issuedTicketCard .code-pill { background: #fff !important; border: 1px solid #333 !important; }
+  #issuedTicketCard img { max-width: 100% !important; }
+  #ticketClosingMessage, #ticketActionButtons, #ticketEmailNotice, #navbar-container, #footer-container, main > :not(#issuedTicketCard) { display: none !important; }
+}

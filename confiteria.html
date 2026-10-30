@@ -45,7 +45,7 @@
                 <div class="row g-4 align-items-center">
 
                     <!-- Columna Izquierda: Hero Copy & Value Props -->
-                    <div class="col-12 col-lg-8 d-flex flex-column gap-3 px-4">
+                    <div class="col-12 col-lg-12 d-flex flex-column gap-3 px-4">
 
                         <!-- Promo Micro-Badge -->
                         <div>
@@ -117,28 +117,21 @@
                             <div>
                                 <!-- Fila Superior de Badges / Etiquetas -->
                                 <div class="d-flex flex-wrap gap-2 mb-3 align-items-center">
-                                    <span class="badge-warning-custom">¡ÚLTIMAS 120 UNIDADES HOY!</span>
-                                    <span class="badge-info-custom">ESTRENO PRIME</span>
-                                    <span class="badge-collector-custom">COLECCIONISTA</span>
+                                    <span class="badge-warning-custom" id="featuredBadgeStock" hidden></span>
+                                    <span class="badge-info-custom" id="featuredBadgePromo" hidden></span>
+                                    <span class="badge-collector-custom" id="featuredBadgeCategory" hidden></span>
                                 </div>
 
                                 <!-- Subtítulo -->
-                                <div class="subtitle-gold mb-1">
-                                    EDICIÓN LIMITADA DE COLECCIÓN
-                                </div>
+                                <div class="subtitle-gold mb-1" id="featuredSubtitle">DESTACADO DE CONFITERÍA</div>
 
                                 <!-- Título Principal -->
-                                <h1 class="card-title-main mb-3">
-                                    COMBO DE ESTRENO: DUNE PARTE DOS
+                                <h1 class="card-title-main mb-3" id="featuredProductTitle">Cargando producto destacado…
                                 </h1>
 
                                 <!-- Descripción -->
-                                <p class="descripcion text-cm-variant fs-6 mb-4">
-                                    Balde metálico en relieve con grabado de arena de Arrakis + Palomitas dulces o
-                                    saladas
-                                    tamaño XL + 2 Vasos termo con figura exclusiva de coleccionista topper + Ticket
-                                    conmemorativo holográfico numerado.
-                                </p>
+                                <p class="descripcion text-cm-variant fs-6 mb-4" id="featuredProductDescription">Estamos
+                                    consultando el catálogo de confitería.</p>
                             </div>
 
                             <!-- Bloque Inferior: Precio, Botón y Puntos -->
@@ -146,9 +139,9 @@
                                 <div class="d-flex flex-wrap align-items-center gap-3 gap-md-4">
                                     <!-- Precios -->
                                     <div class="d-flex align-items-baseline">
-                                        <span class="price-current me-2">140,90 Bs</span>
-                                        <span class="price-old">180,50 Bs</span>
-                                        <span class="badge-discount">-20%</span>
+                                        <span class="price-current me-2" id="featuredProductPrice">—</span>
+                                        <span class="price-old" id="featuredProductOldPrice" hidden></span>
+                                        <span class="badge-discount" id="featuredProductDiscount" hidden></span>
                                     </div>
 
                                     <!-- Botón de Añadir -->
@@ -159,10 +152,10 @@
                                     </button>
 
                                     <!-- Puntos CinePrime -->
-                                    <div class="points-info ms-auto ms-sm-0">
+                                    <div class="points-info ms-auto ms-sm-0" id="featuredProductPointsWrap" hidden>
                                         <span class="material-symbols-outlined"
                                             style="font-size: 18px; color: var(--cm-tertiary);">military_tech</span>
-                                        <span>Gana +150 Prime Puntos</span>
+                                        <span id="featuredProductPoints" hidden></span>
                                     </div>
                                 </div>
                             </div>
@@ -175,8 +168,8 @@
                                 <div class="banner-overlay"></div>
 
                                 <!-- Imagen ilustrativa con fallback incorporado -->
-                                <img src="img/combo-dune.jpg" alt="Combo Dune Parte Dos Balde y Vasos"
-                                    class="banner-img"
+                                <img id="featuredProductImage" src="img/combo-dune.jpg"
+                                    alt="Combo Dune Parte Dos Balde y Vasos" class="banner-img"
                                     onerror="this.onerror=null; this.src='https://placehold.co/800x600/1d1f29/e9c349?text=Combo+Dune+Parte+Dos';">
 
                                 <!-- Sello de Licencia Oficial Warner Bros -->
@@ -213,7 +206,9 @@
                 <div class="d-flex align-items-center justify-content-between">
 
                     <!-- Las categorías se generan desde la API según los productos disponibles -->
-                    <div id="categorias-productos" class="filter-pills-scroll d-flex align-items-center gap-2 w-100 py-1" aria-label="Filtrar productos por categoría">
+                    <div id="categorias-productos"
+                        class="filter-pills-scroll d-flex align-items-center gap-2 w-100 py-1"
+                        aria-label="Filtrar productos por categoría">
                         <button type="button" class="btn btn-category-pill active text-nowrap" data-category-id="all">
                             Todos los productos
                         </button>
@@ -232,7 +227,7 @@
         </section>
 
         <!-- 5. BANNER SECCIÓN VIP (CINEPRIME) -->
-        <section class="container-fluid px-3 px-lg-5 mb-5">
+        <section class="container-fluid px-3 px-lg-5 mb-5 d-none">
             <div class="cm-vip-banner-card p-4 p-md-5">
                 <div class="row g-4 align-items-center">
 
@@ -442,6 +437,9 @@
     <!-- Bootstrap 5.3 JS Bundle -->
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <!-- Carrito compartido: mantiene los productos añadidos desde el banner y las tarjetas. -->
+    <script src="js/carrito.js"></script>
+    <script src="js/api-cineprime.js"></script>
     <script src="js/confiteria.js"></script>
 
 </body>

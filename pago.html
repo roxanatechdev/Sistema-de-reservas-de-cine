@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CinePlus - Finalizar Compra y Método de Pago</title>
+    <title>CineUp | Finalizar compra y método de pago</title>
+    <!-- 2. Metadatos SEO y Descripción -->
+    <meta name="description"
+        content="Plataforma de streaming y cartelera de cine CinePrime. XX Feria Informática ISEC La Paz.">
+    <meta name="author" content="Carrera de Sistemas Informáticos - ISEC La Paz">
+    <meta name="theme-color" content="#11131c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
+    <!-- 3. Favicon Vectorial con Adaptación Automática Dark/Light -->
+    <link rel="icon" type="image/svg+xml" href="img/clapperboard.svg">
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+
     <!-- Google Fonts: Bebas Neue & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Google Material Symbols Outlined -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-     <link rel="stylesheet" href="css/estilos-globales.css">
-     <link rel="stylesheet" href="pago.css">
-  
+    <link rel="stylesheet" href="css/estilos-globales.css">
+    <link rel="stylesheet" href="css/pago.css">
+
 </head>
+
 <body>
 
-<div id="navbar-container"></div>
+    <div id="navbar-container"></div>
 
 
     <!-- Main Container -->
     <main class="container my-4 flex-grow-1">
-        
+
         <!-- Top Back Link & Hero Header -->
         <div class="checkout-banner">
-            <a href="#" class="back-link mb-2">
+            <a href="asientos.html" id="backToSeatsLink" class="back-link mb-2">
                 <span class="material-symbols-outlined">arrow_back</span>
                 Volver a la selección de asientos
             </a>
             <div class="d-flex align-items-center gap-3 mt-2">
-                <div class="payment-icon-wrapper" style="width: 52px; height: 52px; background: rgba(229, 9, 20, 0.15); border: 1px solid rgba(229, 9, 20, 0.3);">
+                <div class="payment-icon-wrapper"
+                    style="width: 52px; height: 52px; background: rgba(229, 9, 20, 0.15); border: 1px solid rgba(229, 9, 20, 0.3);">
                     <span class="material-symbols-outlined text-cm-primary-container fs-2">credit_card</span>
                 </div>
                 <div>
                     <h1 class="font-display m-0 text-uppercase text-white" style="font-size: 2.5rem; line-height: 1;">
                         Método de <span style="color: var(--cm-primary-container);">pago</span>
                     </h1>
-                    <p class="text-sm text-muted m-0" style="font-size: 0.88rem;">Elige tu método de pago favorito y asegura tu función.</p>
+                    <p class="text-sm text-muted m-0" style="font-size: 0.88rem;">Elige tu método de pago favorito y
+                        asegura tu función.</p>
                 </div>
             </div>
         </div>
@@ -67,7 +75,7 @@
 
         <!-- Layout Grid -->
         <div class="row g-4">
-            
+
             <!-- Left Column: Payment Options (col-lg-8) -->
             <div class="col-lg-8">
                 <div class="cm-card">
@@ -75,6 +83,24 @@
                         <span class="material-symbols-outlined text-cm-primary-container">payments</span>
                         Selecciona tu método de pago
                     </h2>
+                    <div class="alert alert-dark border border-secondary border-opacity-25 rounded-3 mb-4" role="note">
+                        <div class="d-flex align-items-start gap-2">
+                            <span class="material-symbols-outlined text-cm-tertiary">science</span>
+                            <div class="flex-grow-1">
+                                <strong class="text-white d-block mb-1">Modo de pago simulado</strong>
+                                <p class="text-muted small mb-2">No se realizará ningún cobro real ni debes introducir
+                                    datos bancarios reales. Selecciona un resultado para probar el flujo.</p>
+                                <label for="simulatedResult" class="form-label text-light small mb-1">Resultado de la
+                                    simulación</label>
+                                <select id="simulatedResult"
+                                    class="form-select form-select-sm bg-dark text-white border-secondary">
+                                    <option value="APROBADO" selected>Pago aprobado — emitir ticket</option>
+                                    <option value="RECHAZADO">Pago rechazado — no emitir ticket</option>
+                                    <option value="PENDIENTE">Pago pendiente — no emitir ticket</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Option 1: Credit / Debit Card -->
                     <div class="payment-option-card selected" id="opt-card" onclick="selectPayment('opt-card')">
@@ -86,7 +112,8 @@
                                 </div>
                                 <div>
                                     <div class="fw-bold text-white">Tarjeta de crédito o débito</div>
-                                    <div class="text-xs text-muted" style="font-size: 0.78rem;">Paga de forma rápida y segura.</div>
+                                    <div class="text-xs text-muted" style="font-size: 0.78rem;">Paga de forma rápida y
+                                        segura.</div>
                                 </div>
                             </div>
                             <div class="payment-badges">
@@ -103,7 +130,8 @@
                                     <label class="form-label-cm">Número de tarjeta</label>
                                     <div class="input-group-cm">
                                         <span class="material-symbols-outlined input-icon">credit_card</span>
-                                        <input type="text" class="form-control-cm" placeholder="1234 5678 9012 3456" maxlength="19">
+                                        <input type="text" class="form-control-cm" placeholder="1234 5678 9012 3456"
+                                            maxlength="19">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -130,7 +158,8 @@
                                 <div class="col-12 mt-3">
                                     <div class="d-flex align-items-center gap-3">
                                         <input class="form-check-input-cm" type="checkbox" id="saveCardSwitch" checked>
-                                        <label class="form-check-label text-sm text-muted" for="saveCardSwitch" style="font-size: 0.85rem; cursor: pointer;">
+                                        <label class="form-check-label text-sm text-muted" for="saveCardSwitch"
+                                            style="font-size: 0.85rem; cursor: pointer;">
                                             Guardar tarjeta para próximas compras de forma encriptada
                                         </label>
                                     </div>
@@ -148,15 +177,14 @@
                                     <span class="material-symbols-outlined">qr_code_2</span>
                                 </div>
                                 <div>
-                                    <div class="fw-bold text-white">Transferencia bancaria / QR de Bolivia</div>
-                                    <div class="text-xs text-muted" style="font-size: 0.78rem;">Realiza tu pago desde la App de tu banco.</div>
+                                    <div class="fw-bold text-white">Código QR (simulado)</div>
+                                    <div class="text-xs text-muted" style="font-size: 0.78rem;">No se conecta a una
+                                        aplicación bancaria.</div>
                                 </div>
                             </div>
                             <div class="payment-badges">
-                                <span class="badge-brand badge-bcp">BCP</span>
-                                <span class="badge-brand badge-bnb">BNB</span>
-                                <span class="badge-brand badge-mercantil">Mercantil</span>
-                                <span class="badge-brand badge-bisa">BISA</span>
+                                <span class="badge-brand badge-bcp">SIMULACIÓN</span>
+                                <span class="badge-brand badge-bnb">SIN COBRO</span>
                             </div>
                         </div>
                         <div class="payment-body">
@@ -164,20 +192,23 @@
                                 <div class="row align-items-center g-3">
                                     <!-- QR Image Column -->
                                     <div class="col-md-5 d-flex flex-column align-items-center text-center">
-                                        <div class="qr-placeholder position-relative border border-secondary border-opacity-25">
-                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=CINEPLUS_BOLIVIA_PAY_ORDER_882049_BS115&color=11131c" 
-                                                 alt="Código QR Simple CinePlus" 
-                                                 class="img-fluid rounded" 
-                                                 style="width: 175px; height: 175px;"
-                                                 onerror="this.onerror=null; this.src='https://placehold.co/200x200/ffffff/11131c?text=CINEPLUS+QR';">
-                                            
+                                        <div
+                                            class="qr-placeholder position-relative border border-secondary border-opacity-25">
+                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=CINEPRIME_SIMULACION&color=11131c"
+                                                alt="Código QR de demostración CinePrime" id="paymentQrImage"
+                                                class="img-fluid rounded" style="width: 175px; height: 175px;"
+                                                onerror="this.onerror=null; this.src='https://placehold.co/200x200/ffffff/11131c?text=CINEPRIME+QR';">
+
                                             <!-- Center Brand Icon Overlay -->
-                                            <div class="position-absolute top-50 start-50 translate-middle bg-danger rounded-circle p-1 d-flex align-items-center justify-content-center shadow" style="width: 32px; height: 32px; border: 2px solid white;">
-                                                <span class="material-symbols-outlined text-white" style="font-size: 18px;">local_movies</span>
+                                            <div class="position-absolute top-50 start-50 translate-middle bg-danger rounded-circle p-1 d-flex align-items-center justify-content-center shadow"
+                                                style="width: 32px; height: 32px; border: 2px solid white;">
+                                                <span class="material-symbols-outlined text-white"
+                                                    style="font-size: 18px;">local_movies</span>
                                             </div>
                                         </div>
-                                        
-                                        <div class="badge bg-danger bg-opacity-20 text-danger border border-danger mt-2 px-3 py-1 text-xs font-monospace d-flex align-items-center gap-1">
+
+                                        <div
+                                            class="badge bg-danger bg-opacity-20 text-danger border border-danger mt-2 px-3 py-1 text-xs font-monospace d-flex align-items-center gap-1">
                                             <span class="material-symbols-outlined fs-6">timer</span>
                                             <span>Expira en: <strong id="qrTimer">14:59</strong></span>
                                         </div>
@@ -185,89 +216,69 @@
 
                                     <!-- QR Info & Instructions Column -->
                                     <div class="col-md-7 text-md-start text-center">
-                                        <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mb-2">
-                                            <span class="badge bg-primary text-white fw-bold px-2 py-1" style="background-color: #002a8f !important;">Simple QR</span>
-                                            <span class="text-xs text-muted">Pago Interoperable Bolivia</span>
+                                        <div
+                                            class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mb-2">
+                                            <span class="badge bg-primary text-white fw-bold px-2 py-1"
+                                                style="background-color: #002a8f !important;">Simple QR</span>
+                                            <span class="text-xs text-muted">QR de demostración</span>
                                         </div>
 
-                                        <h5 class="fw-bold text-white mb-1">Escanea el código QR del Cine</h5>
+                                        <h5 class="fw-bold text-white mb-1">Código QR ilustrativo de la reserva</h5>
                                         <p class="text-xs text-muted mb-3">
-                                            Abre tu aplicación bancaria (BCP, BNB, Mercantil, BISA, Fie, Ganadero, Yape, etc.), escanea este QR oficial de <strong>CinePlus Bolivia</strong> y confirma el pago.
+                                            Este QR es únicamente ilustrativo para la simulación. No representa una
+                                            orden bancaria y no debes transferir dinero.
                                         </p>
 
-                                        <div class="p-2.5 rounded mb-3 bg-dark border border-secondary border-opacity-25">
+                                        <div
+                                            class="p-2.5 rounded mb-3 bg-dark border border-secondary border-opacity-25">
                                             <div class="d-flex justify-content-between align-items-center text-xs mb-1">
-                                                <span class="text-muted">Titular de la cuenta:</span>
-                                                <span class="text-white fw-semibold">CINEPLUS BOLIVIA S.A.</span>
+                                                <span class="text-muted">Tipo de código:</span>
+                                                <span class="text-white fw-semibold">Demostración, sin cobro real</span>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center text-xs mb-1">
-                                                <span class="text-muted">Glosa / Concepto:</span>
-                                                <span class="text-cm-tertiary fw-semibold">ENTRADA DUNE2 #882049</span>
+                                                <span class="text-muted">Referencia:</span>
+                                                <span class="text-cm-tertiary fw-semibold"
+                                                    id="paymentQrReference">Reserva CinePrime</span>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-center text-xs">
-                                                <span class="text-muted">Monto exacto:</span>
-                                                <span class="fw-bold text-white fs-6">Bs 115,00</span>
+                                                <span class="text-muted">Importe de la reserva:</span>
+                                                <span class="fw-bold text-white fs-6" id="paymentQrAmount">—</span>
                                             </div>
                                         </div>
 
                                         <!-- QR Quick Action Buttons -->
-                                        <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
-                                            <button type="button" class="btn btn-sm btn-outline-light d-inline-flex align-items-center gap-1 text-xs" onclick="downloadQR(event)">
-                                                <span class="material-symbols-outlined fs-6">download</span> Descargar QR
+                                        <div
+                                            class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
+                                            <button type="button"
+                                                class="btn btn-sm btn-outline-light d-inline-flex align-items-center gap-1 text-xs"
+                                                onclick="downloadQR(event)">
+                                                <span class="material-symbols-outlined fs-6">download</span> Descargar
+                                                QR
                                             </button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center gap-1 text-xs text-white" onclick="copyGlosa(event)">
-                                                <span class="material-symbols-outlined fs-6">content_copy</span> Copiar Glosa
+                                            <button type="button"
+                                                class="btn btn-sm btn-outline-secondary d-inline-flex align-items-center gap-1 text-xs text-white"
+                                                onclick="copyGlosa(event)">
+                                                <span class="material-symbols-outlined fs-6">content_copy</span> Copiar
+                                                Glosa
                                             </button>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Option 3: Mobile Wallet -->
-                    <div class="payment-option-card" id="opt-wallet" onclick="selectPayment('opt-wallet')">
-                        <div class="payment-header">
-                            <div class="payment-left-group">
-                                <div class="custom-radio"></div>
-                                <div class="payment-icon-wrapper">
-                                    <span class="material-symbols-outlined">account_balance_wallet</span>
-                                </div>
-                                <div>
-                                    <div class="fw-bold text-white">Billetera móvil</div>
-                                    <div class="text-xs text-muted" style="font-size: 0.78rem;">Paga fácil desde tu billetera digital autorizada.</div>
-                                </div>
-                            </div>
-                            <div class="payment-badges">
-                                <span class="badge-brand badge-tigo">Tigo Money</span>
-                                <span class="badge-brand badge-yape">Yape Bolivia</span>
-                                <span class="badge-brand badge-bcp">Billetera BCP</span>
-                            </div>
-                        </div>
-                        <div class="payment-body">
-                            <div class="row g-3">
-                                <div class="col-md-8">
-                                    <label class="form-label-cm">Número de teléfono celular registrado</label>
-                                    <div class="input-group-cm">
-                                        <span class="material-symbols-outlined input-icon">smartphone</span>
-                                        <input type="tel" class="form-control-cm" placeholder="+591 7XXXXXXX">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 d-flex align-items-end">
-                                    <small class="text-muted" style="font-size: 0.78rem;">Recibirás una notificación push para autorizar el débito en tu app.</small>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Security Note Footer -->
-                    <div class="mt-4 pt-3 border-top border-secondary border-opacity-10 d-flex align-items-center gap-3">
+                    <div
+                        class="mt-4 pt-3 border-top border-secondary border-opacity-10 d-flex align-items-center gap-3">
                         <div class="p-2 rounded-circle bg-opacity-10 bg-white text-cm-tertiary">
                             <span class="material-symbols-outlined fs-4">lock</span>
                         </div>
                         <div>
-                            <div class="fw-bold text-white text-sm" style="font-size: 0.9rem;">Tu información está segura</div>
-                            <div class="text-muted" style="font-size: 0.8rem;">Usamos tecnología de encriptación SSL de 256 bits para proteger tus datos financieros.</div>
+                            <div class="fw-bold text-white text-sm" style="font-size: 0.9rem;">Tu información está
+                                segura</div>
+                            <div class="text-muted" style="font-size: 0.8rem;">Usamos tecnología de encriptación SSL de
+                                256 bits para proteger tus datos financieros.</div>
                         </div>
                     </div>
 
@@ -277,83 +288,94 @@
             <!-- Right Column: Order Summary (col-lg-4) -->
             <div class="col-lg-4">
                 <div class="summary-card">
-                    
+
                     <div class="summary-header">
                         <span class="material-symbols-outlined text-cm-primary-container">confirmation_number</span>
                         <h3 class="font-display h4 text-white m-0">Resumen de tu compra</h3>
                     </div>
 
                     <!-- Movie Details -->
-                    <div class="movie-summary-details">
-                        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=400&auto=format&fit=crop" 
-                             alt="Dune: Parte Dos" class="movie-poster-thumb"
-                             onerror="this.src='https://placehold.co/100x150/191b24/e1e1ef?text=DUNE+2'">
+                    <div class="movie-summary-details" id="paymentMovieDetails">
+                        <img src="https://placehold.co/100x150/191b24/e1e1ef?text=Poster+no+disponible"
+                            alt="Póster no disponible" class="movie-poster-thumb" id="paymentMoviePoster">
                         <div>
-                            <h4 class="fw-bold text-white mb-1" style="font-size: 1.1rem;">Dune: Parte Dos</h4>
-                            <div class="d-flex align-items-center gap-1 mb-2">
-                                <span class="movie-meta-badge">Ciencia ficción</span>
-                                <span class="movie-meta-badge">2h 46min</span>
-                                <span class="movie-meta-badge" style="background: rgba(233, 195, 73, 0.2); color: var(--cm-tertiary);">+13</span>
+                            <h4 class="fw-bold text-white mb-1" style="font-size: 1.1rem;" id="paymentMovieTitle">
+                                Cargando película…</h4>
+                            <div class="d-flex align-items-center gap-1 mb-2" id="paymentMovieMetaBadges">
+                                <span class="movie-meta-badge" id="paymentFormatBadge" hidden></span>
+                                <span class="movie-meta-badge" id="paymentDurationBadge" hidden></span>
+                                <span class="movie-meta-badge" id="paymentClassificationBadge" hidden
+                                    style="background: rgba(233, 195, 73, 0.2); color: var(--cm-tertiary);"></span>
                             </div>
-                            
-                            <ul class="summary-info-list">
+
+                            <ul class="summary-info-list" id="paymentFunctionDetails">
                                 <li>
                                     <span class="material-symbols-outlined">calendar_month</span>
-                                    <span>Sáb, 20 Sep 2025</span>
+                                    <span id="paymentFunctionDate">—</span>
                                 </li>
                                 <li>
                                     <span class="material-symbols-outlined">schedule</span>
-                                    <span>19:00 hrs</span>
-                                </li>
-                                <li>
-                                    <span class="material-symbols-outlined">location_on</span>
-                                    <span>CinePlus - Centro</span>
+                                    <span id="paymentFunctionTime">—</span>
                                 </li>
                                 <li>
                                     <span class="material-symbols-outlined">chair</span>
-                                    <span>Sala 3 | Asientos: <strong class="text-white">E8, E9</strong></span>
+                                    <span>Sala <strong id="paymentRoom">—</strong> | Asientos: <strong
+                                            class="text-white" id="paymentSeats">—</strong></span>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Price Breakdown -->
-                    <div class="cost-breakdown">
-                        <div class="cost-row">
-                            <span>Entrada Adulto (x2)</span>
-                            <span class="text-white fw-medium">Bs 70,00</span>
+                    <!-- Solo se muestra cuando el cliente compra confitería sin entradas. -->
+                    <section id="paymentBuyerDetails" class="mb-4" hidden>
+                        <h4 class="h6 text-white fw-bold mb-3">Datos para tu compra de confitería</h4>
+                        <div class="mb-3">
+                            <label class="form-label-cm" for="snackBuyerName">Nombre completo</label>
+                            <input type="text" class="form-control-cm" id="snackBuyerName" name="nombre"
+                                autocomplete="name" minlength="2" maxlength="100" placeholder="Tu nombre" required>
                         </div>
-                        <div class="cost-row">
-                            <span>Combo Grande (x1)</span>
-                            <span class="text-white fw-medium">Bs 45,00</span>
+                        <div class="mb-3">
+                            <label class="form-label-cm" for="snackBuyerEmail">Correo electrónico</label>
+                            <input type="email" class="form-control-cm" id="snackBuyerEmail" name="correo"
+                                autocomplete="email" maxlength="150" placeholder="tu@correo.com" required>
+                        </div>
+                        <div>
+                            <label class="form-label-cm" for="snackBuyerPhone">Teléfono (opcional)</label>
+                            <input type="tel" class="form-control-cm" id="snackBuyerPhone" name="telefono"
+                                autocomplete="tel" maxlength="30" placeholder="Tu teléfono">
+                        </div>
+                        <p class="text-muted mt-2 mb-0" style="font-size:0.78rem">La compra se confirmará después de
+                            aprobar el pago simulado. No se emitirá una entrada de cine.</p>
+                    </section>
+
+                    <!-- Price Breakdown: se rellena con importes congelados por el backend -->
+                    <div class="cost-breakdown">
+                        <div id="paymentBreakdown">
+                            <div class="cost-row"><span>Consultando reserva…</span><span
+                                    class="text-white fw-medium">—</span></div>
                         </div>
                         <div class="cost-row pt-2 border-top border-secondary border-opacity-10">
                             <span>Subtotal</span>
-                            <span>Bs 115,00</span>
+                            <span id="paymentSubtotal">Bs 0,00</span>
                         </div>
-                        <div class="cost-row">
-                            <span>Impuestos (Ley N° 843)</span>
-                            <span>Bs 0,00</span>
-                        </div>
-
-                        <!-- Total to Pay -->
                         <div class="cost-row total-row">
                             <div>
                                 <div>Total a pagar</div>
-                                <div class="text-xs text-muted fw-normal" style="font-size: 0.72rem;">Incluye boletos y snacks</div>
+                                <div class="text-xs text-muted fw-normal" id="paymentTotalHint"
+                                    style="font-size: 0.72rem;">Importe calculado por el servidor</div>
                             </div>
-                            <div class="total-amount">Bs 115,00</div>
+                            <div class="total-amount" id="paymentTotal">Bs 0,00</div>
                         </div>
 
                         <!-- CTA Pay Button -->
                         <div class="mt-4">
-                            <button class="btn-pay-now" id="btnPayNow" onclick="handlePayment()">
+                            <button class="btn-pay-now" id="btnPayNow" onclick="handlePayment()" disabled>
                                 <span class="material-symbols-outlined">lock</span>
                                 Pagar ahora
                                 <span class="material-symbols-outlined">arrow_forward</span>
                             </button>
                         </div>
-                        
+
                         <div class="text-center mt-3">
                             <span class="text-xs text-muted" style="font-size: 0.75rem;">
                                 Al hacer clic aceptas nuestros Términos y Condiciones
@@ -373,22 +395,24 @@
             <div class="modal-content modal-content-cm p-4 text-center">
                 <div class="modal-body">
                     <div class="mb-3 text-cm-tertiary">
-                        <span class="material-symbols-outlined display-3 animate-bounce">check_circle</span>
+                        <span class="material-symbols-outlined display-3 animate-bounce"
+                            id="paymentResultIcon">check_circle</span>
                     </div>
-                    <h3 class="font-display h2 text-white">¡Transacción Exitosa!</h3>
-                    <p class="text-muted text-sm mb-4">Tus entradas para <strong>Dune: Parte Dos</strong> han sido reservadas correctamente. Hemos enviado los códigos QR a tu correo electrónico.</p>
+                    <h3 class="font-display h2 text-white" id="paymentResultTitle">¡Pago aprobado!</h3>
+                    <p class="text-muted text-sm mb-4" id="paymentResultMessage">La compra fue confirmada y el ticket
+                        fue emitido.</p>
                     <div class="p-3 mb-4 rounded-3 text-start bg-dark">
-                        <div class="d-flex justify-content-between text-xs mb-1">
+                        <div class="d-flex justify-content-between text-xs mb-1" id="paymentResultCodeRow">
                             <span class="text-muted">Código de Reserva:</span>
-                            <span class="text-white fw-bold">#CP-882049</span>
+                            <span class="text-white fw-bold" id="paymentResultCode">—</span>
                         </div>
                         <div class="d-flex justify-content-between text-xs">
                             <span class="text-muted">Monto Pagado:</span>
-                            <span class="text-cm-tertiary fw-bold">Bs 115,00</span>
+                            <span class="text-cm-tertiary fw-bold" id="paymentResultAmount">—</span>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-danger w-100 py-2 font-display fs-5" data-bs-dismiss="modal">
-                        Ver Mis Boletos
+                    <button type="button" class="btn btn-danger w-100 py-2 font-display fs-5" id="btnViewTicket">
+                        Ver mi entrada
                     </button>
                 </div>
             </div>
@@ -401,90 +425,13 @@
         <span id="toastMessage">Acción completada</span>
     </div>
 
-    <!-- Simple Footer -->
-    <footer class="mt-auto py-3 border-top border-secondary border-opacity-10 text-center text-muted text-xs">
-        <div class="container">
-            <p class="m-0" style="font-size: 0.8rem;">&copy; 2026 CinePlus Bolivia. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <div id="footer-container" data-variant="minimal"></div>
 
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        function selectPayment(selectedId) {
-            const options = document.querySelectorAll('.payment-option-card');
-            options.forEach(opt => opt.classList.remove('selected'));
-
-            const target = document.getElementById(selectedId);
-            if (target) {
-                target.classList.add('selected');
-            }
-        }
-
-        function handlePayment() {
-            const btn = document.getElementById('btnPayNow');
-            const originalContent = btn.innerHTML;
-            
-            btn.disabled = true;
-            btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Procesando...`;
-
-            setTimeout(() => {
-                btn.disabled = false;
-                btn.innerHTML = originalContent;
-                
-                const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
-                paymentModal.show();
-            }, 1500);
-        }
-
-        // Notification toast helper
-        function showToast(message) {
-            const toast = document.getElementById('cmToast');
-            const toastMsg = document.getElementById('toastMessage');
-            toastMsg.textContent = message;
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        }
-
-        function downloadQR(e) {
-            e.stopPropagation();
-            showToast('Imagen del código QR descargada exitosamente.');
-        }
-
-        function copyGlosa(e) {
-            e.stopPropagation();
-            const textToCopy = "ENTRADA DUNE2 #882049";
-            
-            // Clipboard copy standard
-            const tempInput = document.createElement("input");
-            tempInput.value = textToCopy;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            showToast('Glosa copiada al portapapeles: ' + textToCopy);
-        }
-
-        // Timer for QR validity countdown
-        let totalSeconds = 14 * 60 + 59;
-        setInterval(() => {
-            if (totalSeconds <= 0) return;
-            totalSeconds--;
-            const minutes = Math.floor(totalSeconds / 60);
-            const seconds = totalSeconds % 60;
-            const timerEl = document.getElementById('qrTimer');
-            if (timerEl) {
-                timerEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }
-        }, 1000);
-    </script>
-
-<script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api-cineprime.js"></script>
+    <script src="js/pago.js"></script>
     <script src="js/main.js"></script>
 
 </body>
+
 </html>

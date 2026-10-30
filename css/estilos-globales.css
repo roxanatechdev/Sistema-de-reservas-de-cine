@@ -798,3 +798,5 @@ Clases reutilizables globales
     background-color: var(--cm-surface-container-highest) !important;
     box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.2) !important;
 }
+/* Respeta el atributo hidden incluso cuando Bootstrap o componentes visuales declaran display. */
+[hidden] { display: none !important; }
